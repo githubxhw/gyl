@@ -23,6 +23,7 @@ public class TestConnection {
         dataSource.setPassword("xhw123");
         QueryRunner queryRunner = new QueryRunner();
         Connection connection = null;
+        System.out.println("xxx");
         try {
             connection = dataSource.getConnection();
         } catch (SQLException e) {
