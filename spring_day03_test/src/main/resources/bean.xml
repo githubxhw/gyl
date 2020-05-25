@@ -1,0 +1,92 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--配置 account service-->
+    <bean id="accountServiceImpl" class="com.itxhw.service.impl.AccountServiceImpl">
+        <property name="dao"  ref="accountDaoImpl"></property>
+    </bean>
+    <!--配置 account dao-->
+    <bean id="accountDaoImpl" class="com.itxhw.dao.impl.AccountDaoImpl">
+        <property name="connectionUtils" ref="connectionUtils"></property>
+        <property name="queryRunner" ref="queryRunner"></property>
+    </bean>
+    <bean id="connectionUtils" class="com.itxhw.utils.ConnectionUtils">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--配置 queryRunner-->
+    <bean id="queryRunner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+    </bean>
+    <!--配置 数据源-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/xhw?serverTimezone=UTC"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="xhw123"></property>
+    </bean>
+
+    <!--<bean id="accountServiceFactory" class="com.itxhw.proxy.factory.AccountServiceFactory">
+        <property name="iAccountService" ref="accountServiceImpl"></property>
+        <property name="transferMannager" ref="transferMannager"></property>
+    </bean>-->
+    <!--<bean id="proxyAccountServiceImpl" factory-bean="accountServiceFactory" factory-method="getiAccountService"></bean>-->
+
+    <!--配置 ConnectionUtils-->
+    <bean id="transferMannager" class="com.itxhw.utils.TransferMannager">
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>
+    <!--配置：proxy-->
+    <aop:config>
+        <aop:pointcut id="ref_pointcut" expression="execution(* com.itxhw.service.impl.*.*(..))"/>
+        <aop:aspect id="transferMannager_advice" ref="transferMannager">
+            <!--前置通知-->
+            <aop:before method="startTransfer" pointcut-ref="ref_pointcut"></aop:before>
+            <!--后置通知-->
+            <aop:after-returning method="commitTransfer" pointcut-ref="ref_pointcut"></aop:after-returning>
+            <!--异常通知-->
+            <aop:after-throwing method="rollbackTransfer" pointcut-ref="ref_pointcut"></aop:after-throwing>
+            <!--最终通知-->
+            <aop:after method="relase" pointcut-ref="ref_pointcut"></aop:after>
+        </aop:aspect>
+    </aop:config>
+
+
+
+
+
+
+
+
+    <!--配置 account service-->
+    <!--<bean id="accountServiceImpl" class="com.itxhw.service.impl.AccountServiceImpl">
+        <property name="dao" ref="accountDaoImpl"></property>
+        <property name="txMannager" ref="transferMannager"></property>
+    </bean>-->
+    <!--配置 account dao-->
+    <!--<bean id="accountDaoImpl" class="com.itxhw.dao.impl.AccountDaoImpl">
+        <property name="queryRunner" ref="queryRunner"></property>
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>-->
+    <!--配置 queryRunner-->
+    <!--<bean id="queryRunner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
+    </bean>-->
+    <!--配置 数据源-->
+    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/xhw?serverTimezone=UTC"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="xhw123"></property>
+    </bean>-->
+    <!--配置 ConnectionUtils-->
+    <!--<bean id="connectionUtils" class="com.itxhw.utils.ConnectionUtils">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>-->
+    <!--配置 TransferMannager-->
+    <!--<bean id="transferMannager" class="com.itxhw.utils.TransferMannager">
+        <property name="connectionUtils" ref="connectionUtils"></property>
+    </bean>-->
+</beans>
