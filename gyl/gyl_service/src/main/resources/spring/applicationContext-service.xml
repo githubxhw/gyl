@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx
+	http://www.springframework.org/schema/tx/spring-tx.xsd
+    http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task.xsd
+">
+
+    <!--用于测试-->
+    <!--<import resource="applicationContext-dao.xml"></import>-->
+
+    <!--&lt;!&ndash;此处为任务调度的配置&ndash;&gt;
+    &lt;!&ndash; 这个类用来做需要完成的业务&ndash;&gt;
+    <bean id="myJob1" class="cn.cuit.gyl.service.quartz.job.Job1"></bean>
+    <bean id="myJob2" class="cn.cuit.gyl.service.quartz.job.Job2"></bean>
+    &lt;!&ndash; 定时任务 &ndash;&gt;
+    &lt;!&ndash; 定义调用对象和调用对象的方法，这个配置和普通的一样的,id是JobDetail的名字  &ndash;&gt;
+    <bean id="myJob1Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">&lt;!&ndash;单例&ndash;&gt;
+        <property name="targetObject" ref="myJob1"/>&lt;!&ndash; 调用的类  &ndash;&gt;
+        <property name="targetMethod" value="doJob1"/>&lt;!&ndash; 调用类中的方法  &ndash;&gt;
+        <property name ="concurrent" value ="false"/>&lt;!&ndash; 是否并发  &ndash;&gt;
+    </bean>
+    <bean id="myJob2Detail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="myJob2"/>&lt;!&ndash; 调用的类  &ndash;&gt;
+        <property name="targetMethod" value="doJob2"/>&lt;!&ndash; 调用类中的方法  &ndash;&gt;
+        <property name ="concurrent" value ="false"  />&lt;!&ndash; 是否并发  &ndash;&gt;
+    </bean>
+    &lt;!&ndash; 定义触发时间 ，这边就不同了，这里必须将时间设置成无限长，因为我们要去读取数据库的时间来做为定时器的触发时间&ndash;&gt;
+    <bean id="myJob1Trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean ">&lt;!&ndash;单例&ndash;&gt;
+        <property name="jobDetail" ref="myJob1Detail" />
+        <property name="cronExpression" value="0/5 * * * * ?" />&lt;!&ndash; cron表达式  &ndash;&gt;
+    </bean>
+    <bean id="myJob2Trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean ">
+        <property name="jobDetail" ref="myJob2Detail" />
+        <property name="cronExpression" value="0/10 * * * * ?" />&lt;!&ndash; cron表达式  &ndash;&gt;
+    </bean>-->
+    <!-- 总管理类 如果将lazy-init='false'那么容器启动就会执行调度程序 -->
+    <bean id="startQuertz" lazy-init="true" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+<!--                <ref bean="myJob1Trigger"/>&lt;!&ndash;job1的触发器&ndash;&gt;-->
+<!--                <ref bean="myJob2Trigger"/>&lt;!&ndash;job2的触发器&ndash;&gt;-->
+            </list>
+        </property>
+        <property name="autoStartup">
+            <value>false</value>
+        </property>
+    </bean>
+    <!--这个类是用来设置触发时间的， startJobs方法启动调度容器，然后按照上面触发器每隔1s执行所配置的myJob2.doJob2()方法, -->
+    <bean lazy-init="false" id="manager" name="quartzManager" class="cn.cuit.gyl.service.quartz.QuartzManager" init-method="init">
+        <!--这个对象一定要注入，这样类才能进行管理，还有在类型要用get set方法，不然会报错。-->
+        <property name="scheduler" ref="startQuertz" />
+    </bean>
+    <!--任务调度的配置/-->
+
+    <!--包掃描-->
+    <context:component-scan base-package="cn.cuit.gyl">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--数据源-->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--事务管理-->
+    <tx:advice id="txAdvice" transaction-manager="dataSourceTransactionManager">
+        <tx:attributes>
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="save*" read-only="false" propagation="REQUIRED"/>
+            <tx:method name="delete*" read-only="false" propagation="REQUIRED"/>
+            <tx:method name="update*" read-only="false" propagation="REQUIRED"/>
+            <tx:method name="*" read-only="false" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--切面-->
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* cn.cuit.gyl.service.*.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>
+
+    <!--开启注解扫描-->
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
+
+    <!--打开aop注解的支持-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+</beans>
