@@ -33,16 +33,13 @@ public class KhController {
             DomainAttrValueConverterUtils<kh> handler=new DomainAttrValueConverterUtils<>(a);
             a = handler.handler(null, "sfyygl");
         }
-
-
         if (currentPage == null||currentPage.equals("")){
             currentPage = "1";
         }
-
         PageBean<kh> byPage = khService.findByPage(currentPage, "5", a);
         request.setAttribute("pb",byPage);
         request.setAttribute("kh",a);
-        return "database/kh-list";
+        return "basedata/kh-list";
     }
 
     @RequestMapping("/Delete")
