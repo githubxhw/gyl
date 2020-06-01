@@ -51,4 +51,9 @@ public interface ICgdhd_zibDao {
     //根据主表id查询最大行号hh
     @Select("select MAX(cgdhd_zib.`hh`) from cgdhd_zib where cgdhd_zhub_id=#{cgdhd_zhub_id}")
     Integer findMaxHhByZhubId(Integer cgdhd_zhub_id) throws Exception;
+
+
+    //根据主表id和行号查询对应子表信息
+    @Select("select * from cgdhd_zib where cgdhd_zhub_id=#{cgdhd_zhub_id} and hh=#{hh}")
+    Cgdhd_zib findByzhubIdAndHh(@Param("cgdhd_zhub_id") Integer cgdhd_zhub_id, @Param("hh") Integer hh);
 }

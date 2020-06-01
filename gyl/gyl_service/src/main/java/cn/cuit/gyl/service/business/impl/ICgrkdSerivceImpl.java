@@ -1,9 +1,7 @@
 package cn.cuit.gyl.service.business.impl;
 
-import cn.cuit.gyl.dao.business.ICgrkd_zhubDao;
-import cn.cuit.gyl.dao.business.ICgrkd_zibDao;
-import cn.cuit.gyl.domain.business.Cgrkd_zhub;
-import cn.cuit.gyl.domain.business.Cgrkd_zib;
+import cn.cuit.gyl.dao.business.*;
+import cn.cuit.gyl.domain.business.*;
 import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.ICgrkdService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
@@ -25,6 +23,8 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
 
     @Autowired
     private ICgrkd_zibDao iCgrkd_zibDao;
+
+
 
     @Autowired
     @Qualifier("cgdddao")
