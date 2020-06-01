@@ -24,8 +24,6 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
     @Autowired
     private ICgrkd_zibDao iCgrkd_zibDao;
 
-
-
     @Autowired
     @Qualifier("cgdddao")
     private cgdddao iCgdd_zhubDao;

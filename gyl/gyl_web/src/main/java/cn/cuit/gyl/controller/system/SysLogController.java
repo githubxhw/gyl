@@ -4,7 +4,6 @@ import cn.cuit.gyl.domain.system.SysLog;
 import cn.cuit.gyl.service.system.ISysLogService;
 import cn.cuit.gyl.utils.ConverterUtils;
 import com.github.pagehelper.PageInfo;
-import com.sun.org.apache.xpath.internal.objects.XNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
