@@ -13,7 +13,7 @@
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>仓库预警列表</title>
+    <title>销售出库预警列表</title>
     <meta name="description" content="AdminLTE2">
     <meta name="keywords" content="AdminLTE2">
     <!-- Tell the browser to be responsive to screen width -->
@@ -70,7 +70,7 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                发货预警管理
+                销售出库预警管理
             </h1>
             <ol class="breadcrumb">
                 <li><a href="${pageContext.request.contextPath}/index.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
@@ -94,18 +94,12 @@
                     <!-- 数据表格 -->
                     <div class="table-box">
                         <!--工具栏-->
-                        <%--<div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <input type="text" class="form-control input-sm" placeholder="部门名称 搜索">
-                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                            </div>
-                        </div>--%>
-                        <form id="findEWSByStoreIdAndProductNum_form">
+                        <form id="findEWXByDjhAndHh_form">
                             <div class="box-tools pull-right">
                                 <div class="has-feedback form-group form-inline">
-                                    <input type="text" name="" class="form-control input-sm" placeholder="销售订单号">
-                                    <input type="text" name="" class="form-control input-sm" placeholder="行号">
-                                    <button type="button" onclick=""
+                                    <input type="text" name="ddh" class="form-control input-sm" placeholder="销售订单号">
+                                    <input type="text" name="hh" class="form-control input-sm" placeholder="行号">
+                                    <button type="button" onclick="findEWXByDjhAndHh();"
                                             class="btn btn-group-sm">搜索
                                     </button>
                                 </div>
@@ -157,11 +151,11 @@
                                         </td>
                                     </c:if>
                                     <td class="text-center">
-                                        <button index="${status.index}" EWSid="${earlyWarning_Xsck.id}" type="button"
+                                        <button index="${status.index}" EWXid="${earlyWarning_Xsck.id}" type="button"
                                                 class="btn bg-olive btn-xs"
                                                 data-toggle="modal"
                                                 data-target="#earlyWarning_Xsck_xg_myModal_${status.index}"
-                                                onclick="findEWSByIdToXg_Modal(this);">
+                                                onclick="findEWXByIdToXg_Modal(this);">
                                             修改
                                         </button>
                                         <!--模态窗口-->
@@ -218,7 +212,7 @@
                                                                             <td style="text-align: left">
                                                                                 <input id="xg_yqfhrq_${status.index}"
                                                                                        name="yqfhrq"
-                                                                                       type="date">
+                                                                                       >
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
@@ -283,7 +277,7 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default" title="添加" data-toggle="modal"
                                             data-target="#add_myModal"
-                                            onclick="getEWSIdToUI();">
+                                            onclick="getEWXIdToUI();">
                                         <i
                                                 class="fa fa-file-o"></i> +
                                     </button>
@@ -334,7 +328,7 @@
                                                                         <td style="text-align: left">要求发货日期:</td>
                                                                         <td style="text-align: left">
                                                                             <input name="yqfhrq"
-                                                                                   type="date">
+                                                                                   >
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -509,48 +503,43 @@
 <script src="${pageContext.request.contextPath}/js/myjs/datacheck.js"></script>
 <script>
 
-    //根据仓库id和商品编码查询信息
-    function findEWSByStoreIdAndProductNum() {
-        var form = document.getElementById("findEWSByStoreIdAndProductNum_from");
-        var storeId = Trim(findEWSByStoreIdAndProductNum_form.storeId.value);
-        var productNum = Trim(findEWSByStoreIdAndProductNum_form.productNum.value);
-        if (storeId.length == 0 || storeId == null) {
-            alert("仓库ID不能为空!")
-        } else {
-            if (!IsInt(storeId)) {
-                alert("仓库ID为整数!")
-            } else {
-                if (productNum.length == 0 || productNum == null) {
-                    alert("商品编码不能为空!")
-                } else {
-                    window.location.href = "${pageContext.request.contextPath}/earlyWarning_Store/findEWSByStoreIdAndProductNum?storeId=" + storeId + "&productNum=" + productNum;
-                }
+    //根据销售订单号和
+    function findEWXByDjhAndHh(){
+        var ddh = Trim(findEWXByDjhAndHh_form.ddh.value);
+        var hh = Trim(findEWXByDjhAndHh_form.hh.value);
+        if(ddh.length == 0 || ddh==null){//本来设定的djh为12位
+            alert("销售订单号不能为空！");
+        }else{
+            if(hh.length == 0 || hh == null || !IsInt(hh)){
+                alert("行号不能为空，且为整数！");
+            }else {
+                window.location.href = "${pageContext.request.contextPath}/earlyWarning_Xsck/findEWXByDjhAndHh?ddh="+ddh+"&hh="+hh;
             }
         }
     }
 
     //点击列表中修改按钮触发，根据id查询预警信息到修改modal
-    function findEWSByIdToXg_Modal(x) {
+    function findEWXByIdToXg_Modal(x) {
         var $x = $(x);
         var index = $x.attr("index");
-        var id = $x.attr("EWSid");
+        var id = $x.attr("EWXid");
         $.ajax({
-            url: "${pageContext.request.contextPath}/earlyWarning_Store/findEWSByIdToXg_Modal",
+            url: "${pageContext.request.contextPath}/earlyWarning_Xsck/findEWXByIdToXg_Modal",
             type: "get",
             data: {"id": id},
             dataType: "json",
             async: true,
             success: function (data) {
-                var earlyWarning_Store = data;
-                $("#xg_id_" + index).attr("value", earlyWarning_Store.id);
-                $("#xg_storeId_" + index).attr("value", earlyWarning_Store.storeId);
-                $("#xg_storeName_" + index).attr("value", earlyWarning_Store.storeName);
-                $("#xg_productNum_" + index).attr("value", earlyWarning_Store.productNum);
-                $("#xg_productName_" + index).attr("value", earlyWarning_Store.productName);
-                $("#xg_checkExp_" + index).attr("value", earlyWarning_Store.checkExp);
-                $("#xg_upperLimit_" + index).attr("value", earlyWarning_Store.upperLimit);
-                $("#xg_lowerLimit_" + index).attr("value", earlyWarning_Store.lowerLimit);
-                if (earlyWarning_Store.status == 1) {
+                var earlyWarning_Xsck = data;
+                $("#xg_id_" + index).attr("value", earlyWarning_Xsck.id);
+                $("#xg_ddh_" + index).attr("value", earlyWarning_Xsck.ddh);
+                $("#xg_hh_" + index).attr("value", earlyWarning_Xsck.hh);
+                $("#xg_productNum_" + index).attr("value", earlyWarning_Xsck.productNum);
+                $("#xg_productName_" + index).attr("value", earlyWarning_Xsck.productName);
+                $("#xg_yqfhrq_" + index).attr("value", earlyWarning_Xsck.yqfhrqStr);
+                $("#xg_checkDays_" + index).attr("value", earlyWarning_Xsck.checkDays);
+                $("#xg_invalidDays_" + index).attr("value", earlyWarning_Xsck.invalidDays);
+                if (earlyWarning_Xsck.status == 1) {
                     $("#xg_status_option1_" + index).attr("selected", "selected");
                 } else {
                     $("#xg_status_option0_" + index).attr("selected", "selected");
@@ -570,7 +559,7 @@
             //ajax请求修改
             var params = $("#xg_from_" + index).serialize();
             $.ajax({
-                url: "${pageContext.request.contextPath}/earlyWarning_Store/updateEWSById",
+                url: "${pageContext.request.contextPath}/earlyWarning_Xsck/updateEWX",
                 type: "post",
                 data: params,
                 dataType: "json",
@@ -578,7 +567,7 @@
                 success: function (data) {
                     var pageInfo = data;
                     if (pageInfo.resFlag == 1) {//修改成功
-                        window.location.href = "${pageContext.request.contextPath}/earlyWarning_Store/findEWSsByPage?pageNum=${pageInfo.pageNum}&pageSize=${pageInfo.pageSize}";
+                        window.location.href = "${pageContext.request.contextPath}/earlyWarning_Xsck/findEWXsByPage?pageNum=${pageInfo.pageNum}&pageSize=${pageInfo.pageSize}";
                     } else {//修改失败
                         var errors = pageInfo.msgList;
                         var msg = "修改预警信息失败:\n";
@@ -596,9 +585,9 @@
     }
 
     //点击添加模态框触发，查询最大id+1
-    function getEWSIdToUI() {
+    function getEWXIdToUI() {
         $.ajax({
-            url: "${pageContext.request.contextPath}/earlyWarning_Store/getEWSIdToUI",
+            url: "${pageContext.request.contextPath}/earlyWarning_Xsck/getEWXIdToUI",
             type: "get",
             data: {},
             dataType: "text",
@@ -617,7 +606,7 @@
             //js验证操作后
             var params = $("#add_from").serialize();
             $.ajax({
-                url: "${pageContext.request.contextPath}/earlyWarning_Store/saveEWS",
+                url: "${pageContext.request.contextPath}/earlyWarning_Xsck/saveEWX",
                 type: "post",
                 data: params,
                 dataType: "json",
@@ -625,7 +614,7 @@
                 success: function (data) {
                     var pageInfo = data;
                     if (pageInfo.resFlag == 1) {//修改成功
-                        window.location.href = "${pageContext.request.contextPath}/earlyWarning_Store/findEWSsByPage?pageNum=${pageInfo.pageNum}&pageSize=${pageInfo.pageSize}";
+                        window.location.href = "${pageContext.request.contextPath}/earlyWarning_Xsck/findEWXsByPage?pageNum=${pageInfo.pageNum}&pageSize=${pageInfo.pageSize}";
                     } else {//修改失败
                         var errors = pageInfo.msgList;
                         var msg = "添加预警信息失败:\n";
@@ -658,17 +647,17 @@
                 }
             }
             if(ids.length == 0){
-                alert("无要删除的选项。")
+                alert("请勾选要删除的选项。")
             }else {
                 $.ajax({
-                    url:"${pageContext.request.contextPath}/earlyWarning_Store/deleteEWSsByIds",
+                    url:"${pageContext.request.contextPath}/earlyWarning_Xsck/deleteEWXsByIds",
                     type:"get",
                     data:{"ids":ids},
                     dataType:"text",
                     async:true,
                     success:function (data) {
                         alert("删除预警消息已完成。");
-                        window.location.href = "${pageContext.request.contextPath}/earlyWarning_Store/findEWSsByPage?pageNum=${pageInfo.pageNum}&pageSize=${pageInfo.pageSize}";
+                        window.location.href = "${pageContext.request.contextPath}/earlyWarning_Xsck/findEWXsByPage?pageNum=${pageInfo.pageNum}&pageSize=${pageInfo.pageSize}";
                     },
                     error:function () {
                         alert("系统异常！")
