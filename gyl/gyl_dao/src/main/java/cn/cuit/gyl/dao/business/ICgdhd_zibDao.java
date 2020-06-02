@@ -15,6 +15,8 @@ public interface ICgdhd_zibDao {
             "(hh,dhrq,spbm,spmc,type,dw,scrq,sxrq,ydsl,sdsl,dj,je,zp,ytdjh,ythh,lydjh,lyhh,ljdhsl,sfrkjs,status,cgdhd_zhub_id) " +
             "values (#{hh},#{dhrq},#{spbm},#{spmc},#{type},#{dw},#{scrq},#{sxrq},#{ydsl},#{sdsl},#{dj},#{je},#{zp},#{ytdjh},#{ythh},#{lydjh},#{lyhh},#{ljdhsl},#{sfrkjs},#{status},#{cgdhd_zhub_id})")
     void save(Cgdhd_zib cgdhd_zib) throws Exception;
+    @Select("select * from cgdhd_zib")
+    List<Cgdhd_zib> getAllOfZib();
 
     //根据主表id查询所有的子表信息
     @Select("select * from cgdhd_zib where cgdhd_zhub_id=#{cgdhd_zhub_id}")
@@ -51,9 +53,4 @@ public interface ICgdhd_zibDao {
     //根据主表id查询最大行号hh
     @Select("select MAX(cgdhd_zib.`hh`) from cgdhd_zib where cgdhd_zhub_id=#{cgdhd_zhub_id}")
     Integer findMaxHhByZhubId(Integer cgdhd_zhub_id) throws Exception;
-
-
-    //根据主表id和行号查询对应子表信息
-    @Select("select * from cgdhd_zib where cgdhd_zhub_id=#{cgdhd_zhub_id} and hh=#{hh}")
-    Cgdhd_zib findByzhubIdAndHh(@Param("cgdhd_zhub_id") Integer cgdhd_zhub_id, @Param("hh") Integer hh);
 }

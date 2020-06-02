@@ -17,6 +17,9 @@ public interface CgygzibDao {
     })
     List<Cgygdzhib> findByZid(Long h);
 
+    @Select("select * from cgqgdzhib")
+    List<Cgygdzhib> getAllOfZib();
+
     @Delete("delete from cgqgdzhib where zid = #{zid}")
     void deleteCgYgdZib(Long zid);
 

@@ -4,7 +4,6 @@ import cn.cuit.gyl.domain.business.Cgddzhib;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
-
 import java.util.List;
 
 @Repository("cgddzhidao")
@@ -15,6 +14,9 @@ public interface cgddzhidao {
 
     })
     List<Cgddzhib> findByzid(Long h);//通过主表id来寻找
+
+    @Select("select * from cgzhib")
+    List<Cgddzhib> findAllOfZib();
 
     @Delete("delete from cgzhib where zid = #{zid}")
     void deleteCgddzhib(Long id);//通过主表id来删除
