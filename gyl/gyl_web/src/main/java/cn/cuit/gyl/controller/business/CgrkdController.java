@@ -29,7 +29,7 @@ public class CgrkdController {
     //功能：在cgrkd-add.jsp中单击保存按钮触发。保存子表和主表信息。
     @RequestMapping("/saveZhubAndZib")
     @ResponseBody
-    private PageInfo saveZhubAndZib(Cgrkd_zhub cgrkd_zhub) throws Exception {
+    public PageInfo saveZhubAndZib(Cgrkd_zhub cgrkd_zhub) throws Exception {
         PageInfo pageInfo = service.saveZhubAndZib(cgrkd_zhub);
         return pageInfo;
     }
@@ -37,14 +37,14 @@ public class CgrkdController {
     //功能:获取订单号，但不用跳转
     @RequestMapping("/getDdh")
     @ResponseBody
-    private String getDdh() throws Exception {
+    public String getDdh() throws Exception {
         String djh = UUIDUtils.getOrderNumber();
         return djh;
     }
 
     //功能：点击aside.jsp中的采购到货单添加按钮触发,获取djh到cgrkd-add.jsp
     @RequestMapping("/getDdhToAddUI")
-    private String getDdhToAddUI(HttpServletRequest request) throws Exception {
+    public String getDdhToAddUI(HttpServletRequest request) throws Exception {
         String djh = UUIDUtils.getOrderNumber();
         request.setAttribute("djh", djh);
         return "forward:/pages/business/cgrkd-add.jsp";
@@ -53,7 +53,7 @@ public class CgrkdController {
     //功能：点击cgrkd-query.jsp中的查询按钮触发，根据信息查询满足所有的采购到货单
     @RequestMapping("/findByCgrkd_zhub")
     @ResponseBody
-    private List<Cgrkd_zhub> findByCgrkd_zhub(Cgrkd_zhub cgrkd_zhub) throws Exception {
+    public List<Cgrkd_zhub> findByCgrkd_zhub(Cgrkd_zhub cgrkd_zhub) throws Exception {
         List<Cgrkd_zhub> cgrkd_zhubs = service.findByCgrkd_zhub(cgrkd_zhub);
        /* for(Cgrkd_zhub cgrkd_zhub1:cgrkd_zhubs){
             System.out.println(cgrkd_zhub1);
@@ -64,7 +64,7 @@ public class CgrkdController {
     //功能：点击cgrkd-query.jsp主表中的修改按钮触发，根据主表id查询信息并返回
     @RequestMapping("/findCgrkd_zhubById")
     @ResponseBody
-    private Cgrkd_zhub findCgrkd_zhubById(Integer cgrkd_zhub_id) throws Exception {
+    public Cgrkd_zhub findCgrkd_zhubById(Integer cgrkd_zhub_id) throws Exception {
         Cgrkd_zhub cgrkd_zhub = service.findCgrkd_zhubById(cgrkd_zhub_id);
         return cgrkd_zhub;
     }
@@ -72,7 +72,7 @@ public class CgrkdController {
     //功能：点击cgrkd-query.jsp主表中的模态框修改按钮触发，根据id修改信息
     @RequestMapping("/updateCgrkd_zhubById")
     @ResponseBody
-    private void updateCgrkd_zhubById(Cgrkd_zhub cgrkd_zhub) throws Exception {
+    public void updateCgrkd_zhubById(Cgrkd_zhub cgrkd_zhub) throws Exception {
         service.updateCgrkd_zhubById(cgrkd_zhub);
         return;
     }
@@ -80,7 +80,7 @@ public class CgrkdController {
     //功能：点击cgrkd-query.jsp主表中的删除按钮触发，根据主表id删除信息
     @RequestMapping("/deleteCgrkd_ZhubById")
     @ResponseBody
-    private void deleteCgrkd_ZhubById(Integer cgrkd_zhub_id) throws Exception {
+    public void deleteCgrkd_ZhubById(Integer cgrkd_zhub_id) throws Exception {
         service.deleteCgrkd_ZhubById(cgrkd_zhub_id);
         return;
     }
@@ -88,7 +88,7 @@ public class CgrkdController {
     //功能：主点击cgrkd-query.jsp主表下面的添加按钮触发，添加到模态框主表信息，先查询出djh
     @RequestMapping("/getZhub_djh")
     @ResponseBody
-    private String getZhub_djh() throws Exception {
+    public String getZhub_djh() throws Exception {
         String djh = UUIDUtils.getOrderNumber();
         return djh;
     }
@@ -96,7 +96,7 @@ public class CgrkdController {
     //功能：主点击cgrkd-query.jsp主表添加模态框的添加按钮触发，添加主表信息
     @RequestMapping("/saveCgrkd_zhub")
     @ResponseBody
-    private void saveCgrkd_zhub(Cgrkd_zhub cgrkd_zhub) throws Exception {
+    public void saveCgrkd_zhub(Cgrkd_zhub cgrkd_zhub) throws Exception {
         //System.out.println(cgrkd_zhub);
         service.saveCgrkd_zhub(cgrkd_zhub);
         return;
@@ -105,7 +105,7 @@ public class CgrkdController {
     //功能：主点击cgrkd-query.jsp主表下面的删除按钮触发，根据ids删除信息
     @RequestMapping("/deleteCgrkd_ZhubByIds")
     @ResponseBody
-    private void deleteCgrkd_ZhubByIds(String ids) throws Exception {
+    public void deleteCgrkd_ZhubByIds(String ids) throws Exception {
         service.deleteCgrkd_ZhubByIds(ids);
         return;
     }
@@ -114,7 +114,7 @@ public class CgrkdController {
     //     2, 点击 子表刷新按钮功能触发，根据主表id，查询更新子表信息
     @RequestMapping("/findCgrkd_zibByZhubId")
     @ResponseBody
-    private List<Cgrkd_zib> findCgrkd_zibByZhubId(Integer cgrkd_zhub_id) throws Exception {
+    public List<Cgrkd_zib> findCgrkd_zibByZhubId(Integer cgrkd_zhub_id) throws Exception {
         List<Cgrkd_zib> cgrkd_zibs = service.findCgrkd_zibByZhubId(cgrkd_zhub_id);
         return cgrkd_zibs;
     }
@@ -122,7 +122,7 @@ public class CgrkdController {
     //功能：双击 cgrkd-query.jsp子表中的修改按钮触发，根据子表id进行查询信息
     @RequestMapping("/findCgrkd_zibById")
     @ResponseBody
-    private Cgrkd_zib findCgrkd_zibById(Integer cgrkd_zib_id) throws Exception {
+    public Cgrkd_zib findCgrkd_zibById(Integer cgrkd_zib_id) throws Exception {
         Cgrkd_zib cgrkd_zib = service.findCgrkd_zibById(cgrkd_zib_id);
         return cgrkd_zib;
     }
@@ -130,7 +130,7 @@ public class CgrkdController {
     //功能：双击 cgrkd-query.jsp子表模态框中的修改按钮触发，根据子表id进行修改相关信息（如回写采购订单的数据等等步骤）
     @RequestMapping("/updateCgrkd_zibById")
     @ResponseBody
-    private void updateCgrkd_zibById(Cgrkd_zib cgrkd_zib) throws Exception {
+    public void updateCgrkd_zibById(Cgrkd_zib cgrkd_zib) throws Exception {
         //System.out.println(cgrkd_zib);
         service.updateCgrkd_zibById(cgrkd_zib);
         return;
@@ -139,7 +139,7 @@ public class CgrkdController {
     //功能：单击 cgrkd-query.jsp子表中的删除按钮触发，根据子表id删除子表信息
     @RequestMapping("/deleteCgrkd_ZibById")
     @ResponseBody
-    private void deleteCgrkd_ZibById(Integer cgrkd_zib_id) throws Exception {
+    public void deleteCgrkd_ZibById(Integer cgrkd_zib_id) throws Exception {
         service.deleteCgrkd_ZibById(cgrkd_zib_id);
         return;
     }
@@ -147,7 +147,7 @@ public class CgrkdController {
     //功能：单击 cgrkd-query.jsp子表下面中的删除按钮触发，根据子表ids删除子表信息
     @RequestMapping("/deleteCgrkd_ZibByIds")
     @ResponseBody
-    private void deleteCgrkd_ZibByIds(String ids) throws Exception {
+    public void deleteCgrkd_ZibByIds(String ids) throws Exception {
         service.deleteCgrkd_ZibByIds(ids);
         return;
     }
@@ -155,7 +155,7 @@ public class CgrkdController {
     //功能：单击cgrkd-query.jsp中子表下面的添加按钮触发,根据主表查询出max行号+1
     @RequestMapping("/getZib_hh")
     @ResponseBody
-    private Integer getZib_hh(Integer cgrkd_zhub_id) throws Exception {
+    public Integer getZib_hh(Integer cgrkd_zhub_id) throws Exception {
         //System.out.println(cgrkd_zhub_id);
         Integer hh = service.getZib_hh(cgrkd_zhub_id);
         return hh;
@@ -164,7 +164,7 @@ public class CgrkdController {
     //功能：单击cgrkd-query.jsp中子表模态框中的添加按钮触发,保存一个子表
     @RequestMapping("/saveZib")
     @ResponseBody
-    private void saveZib(Cgrkd_zib cgrkd_zib) throws Exception {
+    public void saveZib(Cgrkd_zib cgrkd_zib) throws Exception {
         service.saveCgrkd_zib(cgrkd_zib);
         return;
     }
@@ -172,7 +172,7 @@ public class CgrkdController {
     //功能：单击cgrkd-update.jsp中搜索按钮，搜索 未审批的发货单
     @RequestMapping("/findAllAndSfshIsZero")
     @ResponseBody
-    private List<Cgrkd_zhub> findAllAndSfspIsZero(Cgrkd_zhub cgrkd_zhub) throws Exception {
+    public List<Cgrkd_zhub> findAllAndSfspIsZero(Cgrkd_zhub cgrkd_zhub) throws Exception {
         List<Cgrkd_zhub> cgrkd_zhubs = service.findAllAndSfshIsZero(cgrkd_zhub);
         return cgrkd_zhubs;
     }
@@ -181,7 +181,7 @@ public class CgrkdController {
     //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 0;
     @RequestMapping("/spForbidden")
     @ResponseBody
-    private void spForbidden(String djh, String spr, Date sprq) throws Exception {
+    public void spForbidden(String djh, String spr, Date sprq) throws Exception {
         service.spForbidden(djh,spr,sprq);
         return;
     }
@@ -190,7 +190,7 @@ public class CgrkdController {
     //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
     @RequestMapping("/spAdopt")
     @ResponseBody
-    private void spAdopt(String djh, String spr, Date sprq) throws Exception {
+    public void spAdopt(String djh, String spr, Date sprq) throws Exception {
         service.spAdopt(djh,spr,sprq);
         return;
     }
@@ -198,7 +198,7 @@ public class CgrkdController {
     //功能：单击表下面的 确认入库按钮，根据ids将选择的所有子表中的status修改为1
     @RequestMapping("/updateZibStatusByIds")
     @ResponseBody
-    private void updateZibStatusByIds(String ids,String xgr,Date xgsj) throws Exception {
+    public void updateZibStatusByIds(String ids,String xgr,Date xgsj) throws Exception {
         service.updateZibStatusByIds(ids,xgr,xgsj);
         return;
     }
