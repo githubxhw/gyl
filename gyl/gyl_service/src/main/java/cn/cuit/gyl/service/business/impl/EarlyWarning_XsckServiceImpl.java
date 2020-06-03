@@ -22,7 +22,7 @@ import java.util.List;
 public class EarlyWarning_XsckServiceImpl implements IEarlyWarning_XsckService {
 
     @Autowired
-    @Qualifier("iEarlyWarning_XsfhDao")
+    @Qualifier("iEarlyWarning_XsckDao")
     private IEarlyWarning_XsckDao  iEarlyWarning_XsfhDao = null;
 
     @Autowired

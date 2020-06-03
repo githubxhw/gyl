@@ -15,6 +15,7 @@ import cn.cuit.gyl.domain.others.Store_Product;
 import cn.cuit.gyl.domain.privilege.Role;
 import cn.cuit.gyl.service.socket.MyWebSocket;
 import cn.cuit.gyl.utils.SpringUtils;
+import cn.cuit.gyl.utils.TimeUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -32,33 +33,9 @@ import java.util.*;
  * 3、是否存货数量低于下限数量
  * 验证完成后将需要预警的消息告知相关人员。
  */
-public class storeEarlyWarningJob implements Job {
+public class StoreEarlyWarningJob implements Job {
 
-    /**
-     * 返回对应的距离 天、时、分
-     * @param beginDate
-     * @param endDate
-     * @return
-     * @throws Exception
-     */
-    private String getTimeDifference(Date beginDate,Date endDate) throws Exception{
-        if (beginDate.after(endDate)){
-            return null;
-        }
-        long d = 1000*60*60*24;
-        long h = d/24;
-        long m = h/60;
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(beginDate);
-        long beginDateMillis = calendar.getTimeInMillis();
-        calendar.setTime(endDate);
-        long endDateMillis = calendar.getTimeInMillis();
-        long away = endDateMillis-beginDateMillis;
-        long day = away/d;
-        long hours = (away%d)/h;
-        long minutes = ((away%d)%h)/m;
-        return day+"天"+hours+"时"+minutes+"分";
-    }
+
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
@@ -111,10 +88,10 @@ public class storeEarlyWarningJob implements Job {
                         if(before == false){//需要添加预警消息
                             count--;
                             if(today.before(exp)){//未过期
-                                String timeDifference = getTimeDifference(today,exp);
+                                String timeDifference = TimeUtils.getTimeDifference(today,exp);
                                 buffer.append("\t距离存货的失效日期还有"+timeDifference+"的时间。\n");
                             }else {//过期
-                                String timeDifference = getTimeDifference(exp,today);
+                                String timeDifference = TimeUtils.getTimeDifference(exp,today);
                                 buffer.append("\t超过存货失效日期已有"+timeDifference+"的时间。\n");
                             }
                         }else {//不用添加
@@ -136,7 +113,7 @@ public class storeEarlyWarningJob implements Job {
                     //存储消息，并发消息到客户端
                     if(count < 0){//有消息要存储与发送
                         HashSet<UserInfo> allUserInfosHashSet = new HashSet<>();//需要从写方法
-                        //说明：这里有权限3个，分别为UI_EWS_STORE仓库预警、UI_EWS_XSFH销售发货预警、UI_EWS_CGRK采购入库预警
+                        //说明：这里有权限3个，分别为UI_EWS_STORE仓库预警、UI_EWS_XSCK销售发货预警、UI_EWS_CGRK采购入库预警
                         Integer id = iPermissionDao.findIdByPermissionName("UI_EWS_STORE");//查询所有拥有【仓库预警权限】的角色
                         List<Role> roles = iRoleDao.findByPermissionId(id);
                         if(roles!=null){
@@ -157,7 +134,7 @@ public class storeEarlyWarningJob implements Job {
                                 message.setMsg(buffer.toString());
                                 message.setStatus(0);
                                 message.setSendTime(new Date());
-                                iMessageDao.saveNotHasMid(message);//保存信息并获取message的id到地址对象中
+                                iMessageDao.saveNotHasMidAndReturnId(message);//保存信息并获取message的id到地址对象中
                                 //System.out.println("mid:"+message.getMid());
                                 //System.out.println("username:"+userInfo.getUsername());
                                 String msg = mapper.writeValueAsString(message);

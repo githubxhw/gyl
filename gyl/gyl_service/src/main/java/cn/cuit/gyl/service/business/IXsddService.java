@@ -61,5 +61,6 @@ public interface IXsddService {
 
     //功能：审批通过功能 ： 单击子表下面的 审批通过按钮 触发，给已经选择的订单修改信息
     //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
+    //若商品通过，则生成销售出库预警表
     void spAdopt(String ddh, String spr, Date sprq) throws Exception;
 }
