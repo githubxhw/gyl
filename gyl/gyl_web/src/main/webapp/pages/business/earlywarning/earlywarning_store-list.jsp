@@ -512,7 +512,7 @@
 
     //根据仓库id和商品编码查询信息
     function findEWSByStoreIdAndProductNum() {
-        var form = document.getElementById("findEWSByStoreIdAndProductNum_from");
+        //var form = document.getElementById("findEWSByStoreIdAndProductNum_from");
         var storeId = Trim(findEWSByStoreIdAndProductNum_form.storeId.value);
         var productNum = Trim(findEWSByStoreIdAndProductNum_form.productNum.value);
         if (storeId.length == 0 || storeId == null) {
