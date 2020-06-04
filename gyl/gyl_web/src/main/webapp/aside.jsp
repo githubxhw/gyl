@@ -632,7 +632,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="all-form-general.html">
+                                <a href="${pageContext.request.contextPath}/earlyWarning_Cgrk/findEWCgByPage">
                                     <i class="fa fa-circle-o"></i> 采购入库预警
                                 </a>
                             </li>
