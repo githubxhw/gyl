@@ -309,8 +309,33 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pd/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制表
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-sp.jsp">
+                                            <i class="fa fa-circle-o"></i>  审批
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-update.jsp">
+                                            <i class="fa fa-circle-o"></i>  修订
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-pd.jsp">
+                                            <i class="fa fa-circle-o"></i>  盘点
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-tz.jsp">
+                                            <i class="fa fa-circle-o"></i>  调整
                                         </a>
                                     </li>
                                 </ul>
