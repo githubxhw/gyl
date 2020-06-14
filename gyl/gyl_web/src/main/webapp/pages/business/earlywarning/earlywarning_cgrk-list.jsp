@@ -95,13 +95,12 @@
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
                         </div>--%>
-                        <form id="findEWCform" action="${pageContext.request.contextPath}/earlyWarning_Cgrk/findEWCgByDjhOrHH">
+                        <form id="findEWCform" action="${pageContext.request.contextPath}/earlyWarning_Cgrk/findEWCgByDjhOrHH" method="get">
                             <div class="box-tools pull-right">
                                 <div class="has-feedback form-group form-inline">
-                                    <input type="text"   name="djh" class="form-control input-sm" placeholder="采购单据号">
-                                    <input type="text" id="hh" name="hh" class="form-control input-sm" placeholder="行号">
-                                    <button type="submit" onclick=""
-                                            class="btn btn-group-sm">搜索
+                                    <input type="text"  name="djh" class="form-control input-sm" placeholder="采购单据号" value="">
+                                    <input type="text" name="hh" class="form-control input-sm" placeholder="行号" value="">
+                                    <button type="submit" class="btn btn-group-sm">搜索
                                     </button>
                                 </div>
                             </div>

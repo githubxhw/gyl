@@ -457,7 +457,7 @@
             $.ajax({
                 url: "${pageContext.request.contextPath}/kh/FindZjmU",
                 type: "POST",
-                data: {"name":name,"id":id},
+                data: {"zjm":name,"id":id},
                 dataType: "json",
                 async: false,
                 success: function (data) {

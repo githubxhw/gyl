@@ -1,13 +1,9 @@
 package cn.cuit.gyl.service.database.impl;
 
-import cn.cuit.gyl.dao.database.GysDao;
 import cn.cuit.gyl.dao.database.KhDao;
-import cn.cuit.gyl.domain.database.gys;
 import cn.cuit.gyl.domain.database.kh;
 import cn.cuit.gyl.domain.database.pages.PageBean;
-import cn.cuit.gyl.domain.database.pages.SearchGys;
 import cn.cuit.gyl.domain.database.pages.SearchKh;
-import cn.cuit.gyl.service.database.GysService;
 import cn.cuit.gyl.service.database.KhService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

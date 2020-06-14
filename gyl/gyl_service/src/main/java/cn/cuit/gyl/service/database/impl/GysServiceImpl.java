@@ -36,7 +36,7 @@ public class GysServiceImpl implements GysService {
             currentPage = 1;
         }
         //1.创建空的PageBean对象
-        PageBean<gys> pb = new PageBean<gys>();
+        PageBean<cn.cuit.gyl.domain.database.gys> pb = new PageBean<cn.cuit.gyl.domain.database.gys>();
         //2.设置参数
         pb.setCurrentPage(currentPage);
         pb.setRows(rows);
@@ -47,7 +47,8 @@ public class GysServiceImpl implements GysService {
         searchGys.setStart(start);
         searchGys.setRow(rows);
         searchGys.setGys(gys);
-        List<gys> list = gysDao.findByCondition(searchGys);
+        List<cn.cuit.gyl.domain.database.gys> list = gysDao.findByCondition(searchGys);
+        System.out.println("sasdsdasdasd");
         pb.setList(list);
         //5.计算总页码
         pb.setTotalPage(totalPage);

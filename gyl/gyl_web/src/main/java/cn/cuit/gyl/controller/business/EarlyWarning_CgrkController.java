@@ -28,10 +28,16 @@ public class EarlyWarning_CgrkController {
     }
 
     @RequestMapping("/findEWCgByDjhOrHH")
-    public String findEWCgByDjhOrHH(HttpServletRequest request, String djh, Long hh) throws Exception{
+    public String findEWCgByDjhOrHH(HttpServletRequest request, @RequestParam(name = "djh",required = true,defaultValue = "")String djh,@RequestParam(name = "hh",required = true,defaultValue = "null") String hh) throws Exception{
         Integer pageNum = 1;
         Integer pageSize = 6;
-        List<EarlyWarning_Cgrk> eWckByDjhOrHH = earlyWarning_cgrkService.findEWckByDjhOrHH(djh, hh, pageNum, pageSize);
+        Long Hh = null;
+        if (hh.equals(null)){
+            Hh = null;
+        }else {
+            Hh = Long.getLong(hh);
+        }
+        List<EarlyWarning_Cgrk> eWckByDjhOrHH = earlyWarning_cgrkService.findEWckByDjhOrHH(djh, Hh, pageNum, pageSize);
         PageInfo pageInfo = new PageInfo(eWckByDjhOrHH);
         request.setAttribute("pageInfo",pageInfo);
         return "business/earlywarning/earlywarning_cgrk-list";

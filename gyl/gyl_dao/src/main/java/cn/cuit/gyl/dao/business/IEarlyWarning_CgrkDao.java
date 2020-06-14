@@ -26,7 +26,7 @@ public interface IEarlyWarning_CgrkDao {
     @Select({"<script>",
             "select * from earlywarning_cgrk",
             "<where>",
-            "<if test='djh != null and djh != \"\"'> and djh ike '%${djh}%'</if> ",
+            "<if test='djh != null and djh != \"\"'> and djh =#{djh}</if> ",
             "<if test='hh != null '> and hh = #{hh}</if> ",
             "</where>",
             "</script>"})

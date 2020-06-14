@@ -44,5 +44,5 @@ public interface IXsckd_zibDao {
     Integer findMaxHhByZhubId(Integer xsckd_zhub_id) throws Exception;
 
     @Select("select * from xsckd_zib where lydjh=#{lydjh} and lyhh=#{lyhh}")
-    List<Xsckd_zib> findByLydjhAndLyhh(@Param("lydjh") String lydjh,@Param("lyhh") Integer lyhh) throws Exception;
+    List<Xsckd_zib> findByLydjhAndLyhh(@Param("lydjh") String lydjh, @Param("lyhh") Integer lyhh) throws Exception;
 }

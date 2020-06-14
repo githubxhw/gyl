@@ -1,8 +1,6 @@
 package cn.cuit.gyl.dao.database;
 
-import cn.cuit.gyl.domain.database.gys;
 import cn.cuit.gyl.domain.database.kh;
-import cn.cuit.gyl.domain.database.pages.SearchGys;
 import cn.cuit.gyl.domain.database.pages.SearchKh;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Select;

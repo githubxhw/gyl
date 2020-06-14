@@ -84,7 +84,7 @@
                     <h3 class="box-title">客户列表</h3>
                 </div>
 
-                <form id="form" method="post" action="${pageContext.request.contextPath}/kh/findByPage">
+                <form id="form" method="post" action="${pageContext.request.contextPath}/kh/findByPage?currentPage=1&rows=5">
                     <section class="content"> <!--产品信息-->
 
                         <div class="panel panel-default">

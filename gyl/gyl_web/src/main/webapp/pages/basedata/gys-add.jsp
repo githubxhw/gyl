@@ -393,7 +393,6 @@
         }
         document.getElementsByName("fullname")[0].onblur = function () {
             var name = document.getElementsByName("fullname")[0].value;
-            console
             $.ajax({
                 url: "${pageContext.request.contextPath}/gys/FindFullName",
                 type: "POST",
@@ -422,7 +421,7 @@
             $.ajax({
                 url: "${pageContext.request.contextPath}/gys/FindZjm",
                 type: "POST",
-                data: {"name":name},
+                data: {"zjm":name},
                 dataType: "json",
                 async: false,
                 success: function (data) {

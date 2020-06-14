@@ -147,14 +147,12 @@ public class EarlyWarning_CgrkSerivceImpl implements IEarlyWarning_CgrkService {
         List<EarlyWarning_Cgrk> all = earlyWarning_cgrkDao.findAll();
         Long x = Long.valueOf(1);
         if (all !=null){
-             x = all.get(0).getId();
             for (EarlyWarning_Cgrk a:all){
                 if (a.getId()>=x){
-                    x = x+1;
+                    x = a.getId()+1;
                 }
             }
         }
-
         return x;
     }
 

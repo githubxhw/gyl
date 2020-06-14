@@ -12,7 +12,7 @@
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>盘点单制单</title>
+    <title>销售应收单制单</title>
     <meta name="description" content="AdminLTE">
     <meta name="keywords" content="AdminLTE">
 
@@ -79,7 +79,7 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                盘点单-制单
+                销售应收单-制单
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -91,10 +91,10 @@
                     <a href="#">业务</a>
                 </li>
                 <li>
-                    <a href="#">库存管理</a>
+                    <a href="#">应收应付管理</a>
                 </li>
                 <li>
-                    <a href="#">盘点管理</a>
+                    <a href="#">应收管理</a>
                 </li>
                 <li class="active">制单</li>
             </ol>
@@ -109,8 +109,8 @@
                         <%--1--%>
                         <div class="col-md-2 title">单据号</div>
                         <div class="col-md-4 data">
-                            <input readonly="readonly" type="text" class="form-control" name="djh"
-                                   placeholder="单据号" value="${ddh}">
+                            <input readonly="readonly" type="text" class="form-control" name="ddh"
+                                   placeholder="订单号" value="${ddh}">
                         </div>
                         <%--2--%>
                             <div class="col-md-2 title">公司</div>
@@ -118,24 +118,28 @@
                                 <input type="text" class="form-control" name="gs"
                                        placeholder="公司" value="">
                             </div>
-                            <div class="col-md-2 title">盘点日期</div>
+                            <div class="col-md-2 title">日期</div>
                             <div class="col-md-4 data">
                                 <div class="input-group date">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" readonly="readonly" class="form-control pull-right " name="pdrq">
+                                    <input type="text"  class="form-control pull-right dateTimePicker" name="rq">
                                 </div>
                             </div>
-                            <div class="col-md-2 title">仓库</div>
+                            <div class="col-md-2 title">起算日期</div>
                             <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="ck"
-                                       placeholder="仓库" value="">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text"  class="form-control pull-right dateTimePicker" name="qsrq">
+                                </div>
                             </div>
-                            <div class="col-md-2 title">库存员</div>
+                            <div class="col-md-2 title">客商</div>
                             <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="kcy"
-                                       placeholder="库存员" value="">
+                                <input type="text" class="form-control" name="ks"
+                                       placeholder="客商" value="">
                             </div>
 
                             <div class="col-md-2 title">部门</div>
@@ -143,32 +147,32 @@
                                 <input type="text" class="form-control" name="bm"
                                        placeholder="部门" value="">
                             </div>
-                            <div class="col-md-2 title">盘点人</div>
+                            <div class="col-md-2 title">业务员</div>
                             <div class="col-md-4 data">
-                                <input type="text" readonly="readonly" class="form-control" name="pdr"
-                                       placeholder="盘点人" value="">
+                                <input type="text"  class="form-control" name="ywy"
+                                       placeholder=业务员" value="">
                             </div>
-                            <div class="col-md-2 title">状态</div>
+                            <div class="col-md-2 title">生效标志</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="status">
+                                <select class="form-control" name="sxbz">
                                     <option selected="selected" value="-1">全部</option>
                                 </select>
                             </div>
 
                             <%--4--%>
 
-                            <div class="col-md-2 title">审批人</div>
+                            <div class="col-md-2 title">审核人</div>
                             <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="spr" readonly="readonly"
-                                       placeholder="审批人" value="">
+                                <input type="text" class="form-control" name="sher" readonly="readonly"
+                                       placeholder="审核人" value="">
                             </div>
-                            <div class="col-md-2 title">审批日期</div>
+                            <div class="col-md-2 title">审核日期</div>
                             <div class="col-md-4 data">
                                 <div class="input-group date">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" readonly="readonly" class="form-control pull-right" name="sprq">
+                                    <input type="text" readonly="readonly" class="form-control pull-right" name="shrq">
                                 </div>
                             </div>
 
@@ -188,19 +192,19 @@
                                     <input type="text" readonly="readonly" class="form-control pull-right" name="xgrq">
                                 </div>
                             </div>
-                            <div class="col-md-2 title">调整人</div>
+                            <div class="col-md-2 title">签字人</div>
                             <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="tzr" readonly="readonly"
-                                       placeholder="调整人" value="">
+                                <input type="text" class="form-control" name="qzr" readonly="readonly"
+                                       placeholder="签字人" value="">
                             </div>
-                            <div class="col-md-2 title">调整日期</div>
+                            <div class="col-md-2 title">签字日期</div>
                             <div class="col-md-4 data">
                                 <div class="input-group date">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="text" class="form-control pull-right" readonly="readonly"
-                                           name="tzrq">
+                                           name="qzrq">
                                 </div>
                             </div>
                     </div>
@@ -221,18 +225,20 @@
                             </div>
                         </th>
                         <th class="sorting_asc" width="150px">行号</th>
-                        <th class="text-center sorting" width="150px">存货编号</th>
-                        <th class="text-center sorting" width="150px">型号</th>
-                        <th class="text-center sorting" width="150px">计量单位</th>
-                        <th class="text-center sorting" width="150px">规格</th>
-                        <th class="text-center sorting" width="150px">批次</th>
-                        <th class="text-center sorting" width="150px">生产日期</th>
-                        <th class="text-center sorting" width="150px">失效日期</th>
-                        <th class="text-center sorting" width="150px">账面数量</th>
-                        <th class="text-center sorting" width="150px">盘点数量</th>
-                        <th class="text-center sorting" width="150px">差异数量</th>
-                        <th class="text-center sorting" width="150px">调整数量</th>
-                        <th class="text-center sorting" width="150px">损失率</th>
+                        <th class="text-center sorting" width="150px">数量</th>
+                        <th class="text-center sorting" width="150px">商品名称</th>
+                        <th class="text-center sorting" width="150px">商品编码</th>
+                        <th class="text-center sorting" width="150px">单位</th>
+                        <th class="text-center sorting" width="150px">含税金额</th>
+                        <th class="text-center sorting" width="150px">税额</th>
+                        <th class="text-center sorting" width="150px">无税金额</th>
+                        <th class="text-center sorting" width="150px">来源单据号</th>
+                        <th class="text-center sorting" width="150px">来源行号</th>
+                        <th class="text-center sorting" width="150px">源头单据号</th>
+                        <th class="text-center sorting" width="150px">源头行号</th>
+                        <th class="text-center sorting" width="150px">单价</th>
+                        <th class="text-center sorting" width="150px">累计应收数量</th>
+                        <th class="text-center sorting" width="150px">应收是否结束</th>
                         </thead>
                         <%--内容--%>
                         <tbody id="zib_tbody">
@@ -481,18 +487,24 @@
             var params = $("#form").serialize();
             if(aa($("#zdr"))&& aa($("#zdrq"))){
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/pd/SaveZHuAndZi",
+                    url: "${pageContext.request.contextPath}/ys/Save",
                     type: "POST",
                     data: params,
                     dataType: "json",
                     async: false,
                     success: function (data) {
                         //添加主表信息到页面
-                        if (data.msg == "添加成功!"){
-                            alert(data.msg);
-                            location.href="${pageContext.request.contextPath}/pd/getDdhToAddUI";
-                        }else {
-                            alert(data.msg);
+                        var pageInfo = data;
+                        if (pageInfo.resFlag == "1") {//添加成功
+                            alert("添加成功")
+                            location.href = "${pageContext.request.contextPath}/ys/getDdhToAddUI"
+                        } else {//添加失败
+                            var errors = pageInfo.msgList;
+                            var msg = "添加失败:\n";
+                            for (var i = 0; i < errors.length; i++) {
+                                msg += i + "、" + errors[i] + "\n";
+                            }
+                            alert(msg);
                         }
 
                     },
@@ -503,10 +515,9 @@
             }
 
         });
-        //spbm  dpzk
         //功能：点击跳转到query.jsp
         $("#toquery_button").click(function () {
-            window.location.href = "${pageContext.request.contextPath}/pages/business/pandian-query.jsp";
+            window.location.href = "${pageContext.request.contextPath}/pages/business/xsys-query.jsp";
         });
     });
 
@@ -542,33 +553,37 @@
                 '                                    <i></i><span style="font-size: 15px">-</span>\n' +
                 '                                </button>' +
                 '</td>' +
-                '<td>                            <input id="hh-' + nowCount + '" type="text" readonly="readonly"  class="form-control" name="panDianZis[' + nowCount + '].hh"\n' +
+                '<td>                            <input id="hh-' + nowCount + '" type="text" readonly="readonly"  class="form-control" name="xsysdzhibs[' + nowCount + '].hh"\n' +
                 '                                   placeholder="行号" value="' + nowCount + '"></td>\n' +
 
-                '<td>                            <input id="chbm-' + nowCount + '" type="text" class="form-control"  name="panDianZis[' + nowCount + '].chbm"\n' +
-                '                                   placeholder="存货编号(不为空)"></td>\n' +
-                '<td>                            <input id="type-' + nowCount + '" type="text" class="form-control" name="panDianZis[' + nowCount + '].xh"\n' +
-                '                                   placeholder="型号" value=""></td>\n' +
-                '<td>                            <input id="jldw-' + nowCount + '" type="text" class="form-control" name="panDianZis[' + nowCount + '].dw"\n' +
-                '                                   placeholder="计量单位" value=""></td>\n' +
-                '<td>                            <input id="gg-' + nowCount + '" type="text" class="form-control" name="panDianZis[' + nowCount + '].gg"\n' +
-                '                                   placeholder="规格" value=""></td>\n' +
-                '<td>                            <input id="pc-' + nowCount + '" type="text" class="form-control" name="panDianZis[' + nowCount + '].pc"\n' +
-                '                                   placeholder="批次" value=""></td>\n' +
-                '<td>                            <input id="scrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="panDianZis[' + nowCount + '].scrq"\n' +
-                '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
-                '<td>                            <input id="sxrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="panDianZis[' + nowCount + '].sxrq"\n' +
-                '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
-                '<td>                            <input id="zmsl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="panDianZis[' + nowCount + '].zmsl" ' +
-                '                                   placeholder="账面数量" value=""></td>\n' +
-                '<td>                            <input id="pdsl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="panDianZis[' + nowCount + '].pdsl" ' +
-                '                                   placeholder="盘点数量" value=""></td>\n' +
-                '<td>                            <input id="cysl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="panDianZis[' + nowCount + '].cysl" ' +
-                '                                   placeholder="差异数量" value=""></td>\n' +
-                '<td>                            <input id="tzsl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="panDianZis[' + nowCount + '].tzsl" ' +
-                '                                   placeholder="调整数量" value=""></td>\n' +
-                '<td>                            <input id="sslv-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="panDianZis[' + nowCount + '].sslv" ' +
-                '                                   placeholder="损失率" value=""></td>\n' +
+                '<td>                            <input id="sl-' + nowCount + '" type="text" class="form-control"  name="xsysdzhibs[' + nowCount + '].sl"\n' +
+                '                                   placeholder="数量"></td>\n' +
+                '<td>                            <input id="spmc-' + nowCount + '" type="text" class="form-control" name="xsysdzhibs[' + nowCount + '].spmc"\n' +
+                '                                   placeholder="商品名称" value=""></td>\n' +
+                '<td>                            <input id="spbm-' + nowCount + '" type="text" class="form-control" name="xsysdzhibs[' + nowCount + '].spbm"\n' +
+                '                                   placeholder="商品编码" value=""></td>\n' +
+                '<td>                            <input id="dw-' + nowCount + '" type="text" class="form-control" name="xsysdzhibs[' + nowCount + '].dw"\n' +
+                '                                   placeholder="单位" value=""></td>\n' +
+                '<td>                            <input id="hsje-' + nowCount + '" type="text" class="form-control" name="xsysdzhibs[' + nowCount + '].hsje"\n' +
+                '                                   placeholder="含税金额" value=""></td>\n' +
+                '<td>                            <input id="se-' + nowCount + '" type="text" class="form-control" name="xsysdzhibs[' + nowCount + '].se"\n' +
+                '                                   placeholder="税额" value=""></td>\n' +
+                '<td>                            <input id="wsje-' + nowCount + '" type="text" class="form-control " name="xsysdzhibs[' + nowCount + '].wsje"\n' +
+                '                                   placeholder="无税金额" value=""></td>\n' +
+                '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control"  name="xsysdzhibs[' + nowCount + '].lydjh" ' +
+                '                                   placeholder="来源单据号" value=""></td>\n' +
+                '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control"  name="xsysdzhibs[' + nowCount + '].lyhh" ' +
+                '                                   placeholder="来源行号" value=""></td>\n' +
+                '<td>                            <input id="ytdjh-' + nowCount + '" type="text" class="form-control" name="xsysdzhibs[' + nowCount + '].ytdjh" ' +
+                '                                   placeholder="源头单据号" value=""></td>\n' +
+                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control"  name="xsysdzhibs[' + nowCount + '].ythh" ' +
+                '                                   placeholder="源头行号" value=""></td>\n' +
+                '<td>                            <input id="dj-' + nowCount + '" type="text" class="form-control"  name="xsysdzhibs[' + nowCount + '].dj" ' +
+                '                                   placeholder="单价" value=""></td>\n' +
+                '<td>                            <input id="ljyssl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="xsysdzhibs[' + nowCount + '].ljyssl" ' +
+                '                                   placeholder="累计应收数量" value=""></td>\n' +
+                '<td>                            <input id="isysgb-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="xsysdzhibs[' + nowCount + '].isysgb" ' +
+                '                                   placeholder="应收是否结束" value=""></td>\n' +
                 '</tr>';
             $("#zib_tbody").append(str);
             $("#zib_hh").attr("hh", nowCount);

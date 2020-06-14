@@ -1,5 +1,4 @@
-<%@ page import="cn.cuit.gyl.domain.database.pages.PageBean" %>
-<%@ page import="cn.cuit.gyl.domain.database.gys" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: XHW
   Date: 2020/2/17
@@ -84,7 +83,7 @@
                     <h3 class="box-title">供应商列表</h3>
                 </div>
 
-                <form id="form" method="post" action="${pageContext.request.contextPath}/gys/findByPage">
+                <form id="form" method="post" action="${pageContext.request.contextPath}/gys/findByPage?currentPage=1&rows=5">
                     <section class="content"> <!--产品信息-->
 
                         <div class="panel panel-default">
@@ -345,7 +344,7 @@
                         <div class="box-tools pull-right">
                             <ul class="pagination">
                                 <li>
-                                    <a href="${pageContext.request.contextPath}/gys/findByPage?currentPage=1&id=${Gys.id}&name=${Gys.name}&fullname=${Gys.fullname}&zjm=${Gys.zjm}&jc=${Gys.jc}&dz=${Gys.dz}&status=${Gys.status}&qy=${Gys.qy}&hy=${Gys.hy}&lxr=${Gys.lxr}&dh=${Gys.dh}&mdh=${Gys.mdh}&cz=${Gys.cz}&yb=${Gys.yb}&email=${Gys.email}&khyh=${Gys.khyh}&yhzh=${Gys.yhzh}&swdjh=${Gys.swdjh}&zzsl=${Gys.zzsl}&gj=${Gys.gj}" aria-label="Previous">首页</a>
+                                    <a href="${pageContext.request.contextPath}/gys/findByPage?currentPage=1&rows=5&id=${Gys.id}&name=${Gys.name}&fullname=${Gys.fullname}&zjm=${Gys.zjm}&jc=${Gys.jc}&dz=${Gys.dz}&status=${Gys.status}&qy=${Gys.qy}&hy=${Gys.hy}&lxr=${Gys.lxr}&dh=${Gys.dh}&mdh=${Gys.mdh}&cz=${Gys.cz}&yb=${Gys.yb}&email=${Gys.email}&khyh=${Gys.khyh}&yhzh=${Gys.yhzh}&swdjh=${Gys.swdjh}&zzsl=${Gys.zzsl}&gj=${Gys.gj}" aria-label="Previous">首页</a>
                                 </li>
                                 <li><a href="${pageContext.request.contextPath}/gys/findByPage?currentPage=${pb.currentPage-1}&rows=5 ">上一页</a></li>
                                 <c:forEach begin="1" end="${pb.totalPage}" var="i" >

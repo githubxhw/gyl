@@ -6,13 +6,15 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" isELIgnored="false" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>采购预购单审批</title>
+    <title>销售应收单查询</title>
     <meta name="description" content="AdminLTE">
     <meta name="keywords" content="AdminLTE">
 
@@ -79,8 +81,7 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-
-                采购订单-审批
+                销售应收单-查询
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -92,12 +93,12 @@
                     <a href="#">业务</a>
                 </li>
                 <li>
-                    <a href="#">采购管理</a>
+                    <a href="#">应收应付管理</a>
                 </li>
                 <li>
-                    <a href="#">预购单管理</a>
+                    <a href="#">应收单</a>
                 </li>
-                <li class="active">审批</li>
+                <li class="active">查询</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -108,22 +109,13 @@
             <section class="content"> <!--产品信息-->
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">查询(未审批或者已审批)</div>
+                    <div class="panel-heading">查询(所有)</div>
                     <div class="row data-type">
                         <%--1--%>
-                            <div class="col-md-2 title">订单ID</div>
+                            <div class="col-md-2 title">ID</div>
                             <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="cgddzhubid"
-                                       placeholder="订单ID" value="">
-                            </div>
-                            <div class="col-md-2 title">请购日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="qgrq">
-                                </div>
+                                <input type="text" class="form-control" name="xsysdzhubid"
+                                       placeholder="应收单ID" value="">
                             </div>
                             <%--2--%>
                             <div class="col-md-2 title">公司</div>
@@ -131,82 +123,72 @@
                                 <input type="text" class="form-control" name="gs"
                                        placeholder="公司" value="">
                             </div>
-                            <div class="col-md-2 title">单据号</div>
+                            <div class="col-md-2 title">订单号</div>
                             <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="djh"
-                                       placeholder="单据号" value="">
+                                <input type="text" class="form-control" name="ddh"
+                                       placeholder="订单号" value="">
                             </div>
                             <%--3--%>
-                            <div class="col-md-2 title">请购供应商</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="qggys"
-                                       placeholder="请购供应商" value="">
-                            </div>
-                            <div class="col-md-2 title">采购部门</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="cgbm"
-                                       placeholder="采购部门" value="">
-                            </div>
-                            <div class="col-md-2 title">采购人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="cgr"
-                                       placeholder="采购人" value="">
-                            </div>
-
-
-                            <div class="col-md-2 title">状态</div>
-                            <div class="col-md-4 data">
-                                <select class="form-control" name="status">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <option value="1">结束</option>
-                                    <option value="0">没结束</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-2 title">币种</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="bz"
-                                       placeholder="币种" value="">
-                            </div>
-
-                            <div class="col-md-2 title">整单税率(%)</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="zdsl"
-                                       placeholder="整单税率(%)" value="">
-                            </div>
-
-                            <%--4--%>
-
-                            <div class="col-md-2 title">审批人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="spr"
-                                       placeholder="审批人" value="">
-                            </div>
-                            <div class="col-md-2 title">审批日期</div>
+                            <div class="col-md-2 title">日期</div>
                             <div class="col-md-4 data">
                                 <div class="input-group date">
                                     <div class="input-group-addon">
                                         <i class="fa fa-calendar"></i>
                                     </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="sprq">
+                                    <input type="text" class="form-control pull-right dateTimePicker" name="rq">
                                 </div>
                             </div>
-                            <div class="col-md-2 title">是否审批</div>
+                            <div class="col-md-2 title">起算日期</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="issp">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right dateTimePicker" name="qsrq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">客商</div>
+                            <div class="col-md-4 data">
+                                <input type="text" class="form-control" name="ks"
+                                       placeholder="客商" value="">
+                            </div>
+
+                            <div class="col-md-2 title">部门</div>
+                            <div class="col-md-4 data">
+                                <input type="text" class="form-control" name="bm"
+                                       placeholder="部门" value="">
+                            </div>
+                            <div class="col-md-2 title">业务员</div>
+                            <div class="col-md-4 data">
+                                <input type="text" class="form-control" name="ywy"
+                                       placeholder="业务员" value="">
+                            </div>
+                            <div class="col-md-2 title">生效标志</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" name="sxbz">
                                     <option selected="selected" value="-1">全部</option>
-                                    <option value="1">是</option>
-                                    <option value="0">否</option>
+                                    <option value="1">生效</option>
+                                    <option value="0">没生效</option>
                                 </select>
                             </div>
-                            <div class="col-md-2 title">审批是否通过</div>
+
+                            <%--4--%>
+
+                            <div class="col-md-2 title">审核人</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="spsftg">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <option value="1">是</option>
-                                    <option value="0">否</option>
-                                </select>
+                                <input type="text" class="form-control" name="sher"
+                                       placeholder="审核人" value="">
                             </div>
+                            <div class="col-md-2 title">审核日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right dateTimePicker" name="shrq">
+                                </div>
+                            </div>
+
                             <%--5--%>
                             <div class="col-md-2 title">制单人</div>
                             <div class="col-md-4 data">
@@ -237,7 +219,24 @@
                                     <input type="text" class="form-control pull-right dateTimePicker" name="xgrq">
                                 </div>
                             </div>
+                            <div class="col-md-2 title">签字人</div>
+                            <div class="col-md-4 data">
+                                <input type="text" class="form-control" name="qzr"
+                                       placeholder="签字人" value="">
+                            </div>
+                            <div class="col-md-2 title">签字日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right dateTimePicker" name="qzrq">
+                                </div>
+                            </div>
+
                     </div>
+
+
                 </div>
                 <!--订单信息/--> <!--工具栏-->
                 <div class="box-tools <%--text-center --%>text-right">
@@ -249,45 +248,43 @@
                 </div>
                 <!--工具栏/--> </section>
         </form>
-
         <!--数据列表-->
         <%-- 1：主表--%>
         <from><%--提交ids--%>
             <div style="padding-left: 20px"><h4><%--主表--%></h4></div>
             <div style="overflow: scroll;overflow-y:scroll;height: 200px;width: 99%;">
                 <table id="dataList_zhu" class="table table-bordered table-striped table-hover dataTable"
-                       style="min-width:4000px;border:solid grey 1px">
-                    <thead>
+                       style="min-width:2300px;border:solid grey 1px">
+                    <thead >
                     <th class="" style="padding-right:0px;">
                         <input id="selall_zhu" type="checkbox" class="icheckbox_square-blue">
                     </th>
-                    <th class="sorting_asc" width="200px">单据号</th>
-                    <th class="text-center sorting" width="200px">公司</th>
-                    <th class="text-center sorting" width="200px">请购供应商</th>
-                    <th class="text-center sorting" width="200px">采购部门</th>
-                    <th class="text-center sorting" width="200px">采购人</th>
-                    <th class="text-center sorting" width="200px">请购日期</th>
-                    <th class="text-center sorting" width="200px">状态</th>
-                    <th class="text-center sorting" width="200px">币种</th>
-                    <th class="text-center sorting" width="200px">整单税率(%)</th>
-                    <th class="text-center sorting" width="200px">审批人</th>
-                    <th class="text-center sorting" width="200px">审批日期</th>
-                    <th class="text-center sorting" width="200px">是否审批</th>
-                    <th class="text-center sorting" width="200px">审批是否通过</th>
-                    <th class="text-center sorting" width="200px">制单人</th>
-                    <th class="text-center sorting" width="200px">制单日期</th>
-                    <th class="text-center sorting" width="200px">修改人</th>
-                    <th class="text-center sorting" width="200px">修改日期</th>
+                    <th class="sorting_asc" style="width: 150px">订单号</th>
+                    <th class="text-center sorting" style="width: 150px">公司</th>
+                    <th class="text-center sorting" style="width: 150px">日期</th>
+                    <th class="text-center sorting" style="width: 150px">起算日期</th>
+                    <th class="text-center sorting" style="width: 150px">客商</th>
+                    <th class="text-center sorting" style="width: 150px">部门</th>
+                    <th class="text-center sorting" style="width: 150px">业务员</th>
+                    <th class="text-center sorting" style="width: 150px">生效标志</th>
+                    <th class="text-center sorting" style="width: 150px">制单人</th>
+                    <th class="text-center sorting" style="width: 150px">制单日期</th>
+                    <th class="text-center sorting" style="width: 150px">审核人</th>
+                    <th class="text-center sorting" style="width: 150px">审核日期</th>
+                    <th class="text-center sorting" style="width: 150px">修改人</th>
+                    <th class="text-center sorting" style="width: 150px">修改日期</th>
+                    <th class="text-center sorting" style="width: 150px">签字人</th>
+                    <th class="text-center sorting" style="width: 150px">签字日期</th>
                     </thead>
                     <%--内容--%>
                     <tbody id="zhub_tbody">
+
                     </tbody>
                 </table>
             </div>
-            <span id="zhub_count" count="">共 0 条记录</span>
         </from>
-        <br>
-        <br>
+        <span id="zhub_count" count="">共 0 条记录</span>
+        <br><br>
         <div class="form-group">
             <input id="djh" class="form-control" type="text" readonly="readonly" style="width: 17%;"
                    placeholder="双击已查询的单据号进行选择" value="">
@@ -295,82 +292,36 @@
         <%--2：子表--%>
         <from id="zib_form" zhub_id="-1">
             <div style="padding-left: 20px;"><h4><%--子表--%></h4></div>
-            <div style="overflow: scroll;overflow-y:scroll;height: 300px;width: 99%;">
+            <div style="overflow: scroll;overflow-y:scroll;height: 200px;width: 99%;">
                 <table id="dataList_zi" class="table table-bordered table-striped table-hover dataTable"
-                       style="min-width:4700px;border:solid grey 1px">
+                       style="min-width:2000px;border:solid grey 1px">
                     <thead>
                     <th class="" style="padding-right:0px;">
                         <input id="selall_zi" type="checkbox" class="icheckbox_square-blue">
                     </th>
-                    <th class="sorting_asc" width="350px">行号</th>
-                    <th class="text-center sorting" width="350px">商品编号</th>
-                    <th class="text-center sorting" width="350px">商品名称</th>
-                    <th class="text-center sorting" width="350px">商品型号</th>
-                    <th class="text-center sorting" width="350px">计量单位</th>
-                    <th class="text-center sorting" width="350px">数量</th>
-                    <th class="text-center sorting" width="350px">税率(%)</th>
-                    <th class="text-center sorting" width="350px">无税单价</th>
-                    <th class="text-center sorting" width="350px">含税单价</th>
-                    <th class="text-center sorting" width="350px">无税金额</th>
-                    <th class="text-center sorting" width="350px">含税金额</th>
-                    <th class="text-center sorting" width="350px">税额</th>
-                    <th class="text-center sorting" width="350px">规格</th>
+                    <th class="sorting_asc" width="150px">行号</th>
+                    <th class="text-center sorting" width="150px">数量</th>
+                    <th class="text-center sorting" width="150px">商品名称</th>
+                    <th class="text-center sorting" width="150px">商品编码</th>
+                    <th class="text-center sorting" width="150px">单位</th>
+                    <th class="text-center sorting" width="150px">含税金额</th>
+                    <th class="text-center sorting" width="150px">税额</th>
+                    <th class="text-center sorting" width="150px">无税金额</th>
+                    <th class="text-center sorting" width="150px">来源单据号</th>
+                    <th class="text-center sorting" width="150px">来源行号</th>
+                    <th class="text-center sorting" width="150px">源头单据号</th>
+                    <th class="text-center sorting" width="150px">源头行号</th>
+                    <th class="text-center sorting" width="150px">单价</th>
+                    <th class="text-center sorting" width="150px">累计应收数量</th>
+                    <th class="text-center sorting" width="150px">应收是否结束</th>
                     </thead>
                     <%--内容--%>
                     <tbody id="zib_tbody">
                     </tbody>
                 </table>
             </div>
-            <%--工具栏--%>
-            <div class="pull-left">
-                <div class="form-group form-inline">
-                    <div class="btn-group">
-                        <button onclick="refresh(this)" type="button" class="btn btn-default"
-                                title="刷新"><i
-                                class="fa fa-refresh"></i> 刷新
-                        </button>
-                    </div>
-                    <span id="zib_count" count="">共 0 条记录</span>
-                </div>
-            </div>
-            <%--工具栏/--%>
         </from>
-        <br>
-        <br>
-        <div class="panel panel-default">
-            <div class="row data-type">
-                <div class="col-md-2 title">审批人</div>
-                <div class="col-md-4 data">
-                    <input id="sp_spr" type="text" class="form-control"
-                           placeholder="审批人" value="">
-                </div>
-                <div class="col-md-2 title">审批日期</div>
-                <div class="col-md-4 data">
-                    <div class="input-group date">
-                        <div class="input-group-addon">
-                            <i class="fa fa-calendar"></i>
-                        </div>
-                        <input id="sp_sprq" type="text" class="form-control pull-right dateTimePicker" value="">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <%--工具栏--%>
-        <div class="pull-left">
-            <div class="form-group form-inline">
-                <div class="btn-group">
-                    <button id="sp_forbidden_btn" onclick="sp_forbidden(this)" type="button" class="btn bg-red">审批禁止</button>
-                </div>
-            </div>
-        </div>
-        <div class="pull-right">
-            <div class="form-group form-inline">
-                <div class="btn-group">
-                    <button id="sp_adopt_btn" onclick="sp_adopt(this)" type="button" class="btn bg-green">审批通过</button>
-                </div>
-            </div>
-        </div>
-        <%--工具栏/--%>
+        <span id="zib_count" count="">共 0 条记录</span>
         <br><br><br><br><br>
     </div>
     <!-- 内容区域 /-->
@@ -533,6 +484,7 @@
     $(document).ready(function () {
         $('#datepicker-a3').datetimepicker({
             format: "yyyy-mm-dd hh:ii",
+            showSeconds:true,
             autoclose: true,
             todayBtn: true,
             language: "zh-CN"
@@ -544,19 +496,39 @@
         setSidebarActive("order-manage");
         $("#datepicker-a3").datetimepicker({
             format: "yyyy-mm-dd hh:ii",
+            showSeconds:true,
         });
 
     });
+
+    function statusbe(x){
+        if (x == 1){
+            return "结束";
+        }
+        if (x == 0){
+            return "没结束";
+        }
+        return "";
+    }
+    function sxbe(x){
+        if (x == 1){
+            return "生效";
+        }
+        if (x == 0){
+            return "没生效";
+        }
+        return "";
+    }
 
     /*发表单查询*/
     $(document).ready(function () {
 
         /*start*/
-        //功能：主表：点击查询按钮，根据主表一部分信息查询出所有满足的主表集合
+        //功能：主表：点击查询按钮，根据主表一部分信息查询出所有满足的主表集合 --->注意 sql: Spr IS NULL;
         $("#query").click(function () {
             var params = $("#form").serialize();
             $.ajax({
-                url: "${pageContext.request.contextPath}/cgyg/findByAllAndSfspIsZero",
+                url: "${pageContext.request.contextPath}/ys/findByCondition",
                 type: "post",
                 data: params,
                 dataType: "json",
@@ -564,80 +536,42 @@
                 success: function (data) {
                     //清除$("#zhub_tbody")里面的内容
                     $("#zhub_tbody").innerHTML = '';
-                    var xsdd_zhubs = data;
-
-
+                    var xsys_zhubs = data;
                     var html = '';
-                    for (var i = 0; i < xsdd_zhubs.length; i++) {
-                        var a = FormatTime(xsdd_zhubs[i].qgrq);
-                        var k;
-                        var q;
-                        var  w;
-                        var xgrq = FormatTime(xsdd_zhubs[i].xgrq);
-                        var sprq = FormatTime(xsdd_zhubs[i].sprq);
-                        var zdrq = FormatTime(xsdd_zhubs[i].zdrq);
+                    for (var i = 0; i < xsys_zhubs.length; i++) {
 
-                        if (xsdd_zhubs[i].status == 0){
-                            k = "没结束";
-                        }else{
-                            if (xsdd_zhubs[i].status==1){
-                                k="结束";
-                            }
-                            else {
-                                k="";
-                            }
-                        }
-                        if (xsdd_zhubs[i].spsftg === 0){
-                            q = "否";
-                        }else{
-                            if (xsdd_zhubs[i].spsftg === 1){
-                                q="是";
-                            } else {
-                                q="";
-                            }
-                        }
-                        if (xsdd_zhubs[i].issp === 0){
-                            w = "否";
-                        }else{
-                            if (xsdd_zhubs[i].issp===1){
-                                w="是";
-                            }
-                            else {
-                                w="";
-                            }
-                        }
                         html += '<tr>\n' +
-                            '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + xsdd_zhubs[i].cgqgdzhubid+ '"></td>\n' +
-                            '<td><button i="' + i + '" ddh="' + xsdd_zhubs[i].djh + '" checked="" ondblclick="find_zib(this)" zhubId="' + xsdd_zhubs[i].cgqgdzhubid + '" style="width: 100%;height: 99%">' + xsdd_zhubs[i].djh + '</button></td>\n' +
-                            '<td>' + xsdd_zhubs[i].gs + '</td>\n' +
-                            '<td>' + xsdd_zhubs[i].qggys + '</td>\n' +
-                            '<td>' + xsdd_zhubs[i].cgbm + '</td>\n' +
-                            '<td>' + xsdd_zhubs[i].cgr + '</td>\n' +
-                            '<td>'+a+'</td>\n' +
-                            '<td>' + k+ '</td>\n' +
-                            '<td>' + xsdd_zhubs[i].bz + '</td>\n' +
-                            '<td>' + xsdd_zhubs[i].zdsl + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zhubs[i].spr) + '</td>\n' +
-                            '<td>' + sprq + '</td>\n' +
-                            '<td>' + w+ '</td>\n' +
-                            '<td>' +q+ '</td>\n' +
-                            '<td>' + NoNull(xsdd_zhubs[i].zdr) + '</td>\n' +
-                            '<td>' + zdrq + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zhubs[i].xgr) + '</td>\n' +
-                            '<td>' + xgrq + '</td>\n' +
+                            '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + xsys_zhubs[i].xsysdzhubid+ '"></td>\n' +
+                            '<td><button i="' + i + '" ddh="' + xsys_zhubs[i].ddh + '" checked="" ondblclick="find_zib(this)" zhubId="' + xsys_zhubs[i].xsysdzhubid + '" style="width: 100%;height: 99%">' + xsys_zhubs[i].ddh + '</button></td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].gs) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].rq)+ '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].qsrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].ks) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].bm) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].ywy) + '</td>\n' +
+                            '<td>' + sxbe(xsys_zhubs[i].sxbz) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].zdr) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].zdrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].sher) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].shrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].xgrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].qzr) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].qzrq) + '</td>\n' +
                             '</tr>';
                     }
                     $("#zhub_tbody").html(html);
-                    $("#zhub_count").html("共 " + xsdd_zhubs.length + " 条记录");
-                    $("#zhub_count").attr("count", xsdd_zhubs.length);
+                    $("#zhub_count").html("共 " + xsys_zhubs.length + " 条记录");
+                    $("#zhub_count").attr("count", xsys_zhubs.length);
                 },
                 error: function () {
                     alert("查询失败！")
                 }
             });
         });
-
     });
+
+
     function NoNull(x){
         var k = "";
         if(x == null){
@@ -647,7 +581,7 @@
         }
     }
 
-    //格式化时间
+    //显示日期格式化
     function FormatTime(nowD) {
         if (!nowD) {
             return "";
@@ -683,13 +617,13 @@
         var i = $(x).attr("i");
         $("#checkbox-pos-" + i).prop("checked", true);
         //获取id
-        var xsdd_zhub_id = $(x).attr("zhubId");
+        var ys_zhub_id = $(x).attr("zhubId");
         //获取ddh:对应了子表上面的 单据号：input[xxx],将单据号添加到里面显示，方便查看
         var djh = $(x).attr("ddh");
         $.ajax({
-            url: "${pageContext.request.contextPath}/cgyg/findZiByZhuId",
+            url: "${pageContext.request.contextPath}/ys/findZiByZid",
             type: "GET",
-            data: {"zid": xsdd_zhub_id},
+            data: {"zid": ys_zhub_id},
             dataType: "json",
             async: false,
             success: function (data) {
@@ -697,36 +631,35 @@
                 $("#zib_tbody").innerHTML = '';
 
                 //给子表form的zhub_id赋值
-                $("#zib_form").attr("zhub_id", xsdd_zhub_id);
+                $("#zib_form").attr("zhub_id", ys_zhub_id);
                 /*单据号：<input id="djh"...*/
                 $("#djh").attr("value", djh);
                 //添加内容
-                xsdd_zibs = data;
+                ys_zibs = data;
                 var html = '';
-                for (var i = 0; i < xsdd_zibs.length; i++) {
-
-
+                for (var i = 0; i < ys_zibs.length; i++) {
                     html += '<tr>\n' +
-                        '<td><input name="zib_ids" type="checkbox" value="' + xsdd_zibs[i].cgqgdzhibid + '"></td>\n' +
-                        '<td>' + xsdd_zibs[i].hh + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].spbm) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].spmc) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].xh) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].dw) + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].sl + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].shuilv + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].wsdj + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].hsdj + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].wsje + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].hsje + '</td>\n' +
-                        '<td>' + xsdd_zibs[i].se + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].gg) + '</td>\n' +
-
+                        '<td><input name="zib_ids" type="checkbox" value="' + ys_zibs[i].xsysdzhibid + '"></td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].hh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].sl) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].spmc) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].spbm) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].dw) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].hsje) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].se) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].wsje) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].ytdjh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].dj) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].ljyssl) + '</td>\n' +
+                        '<td>' + statusbe(ys_zibs[i].isysgb) + '</td>\n' +
                         '</tr>';
                 }
                 $("#zib_tbody").html(html);
-                $("#zib_count").attr("count", xsdd_zibs.length);
-                $("#zib_count").html("共 " + xsdd_zibs.length + " 条记录");
+                $("#zib_count").attr("count", ys_zibs.length);
+                $("#zib_count").html("共 " + ys_zibs.length + " 条记录");
             },
             error: function () {
                 alert("查询失败！")
@@ -734,147 +667,10 @@
         });
     }
 
-    /*14*/
-    //功能： 单击 子表下面的刷新按钮触发，对子表进行刷新
-    function refresh(x) {
-        var zhub_id = $("#zib_form").attr("zhub_id");
-
-        if (zhub_id != -1) {
-            //获取id
-            //获取ddh:对应了子表上面的 单据号：input[xxx],将单据号添加到里面显示，方便查看
-            var djh = $("#djh").attr("value");
-            $.ajax({
-                url: "${pageContext.request.contextPath}/cgyg/findZiByZhuId",
-                type: "GET",
-                data: {"zid": xsdd_zhub_id},
-                dataType: "json",
-                async: false,
-                success: function (data) {
-                    //先清除$("#zib_tbody")里面的内容
-                    $("#zib_tbody").innerHTML = '';
-
-                    //给子表form的zhub_id赋值
-                    $("#zib_form").attr("zhub_id", xsdd_zhub_id);
-                    /*单据号：<input id="djh"...*/
-                    $("#djh").attr("value", djh);
-                    //添加内容
-                    xsdd_zibs = data;
-                    var html = '';
-                    for (var i = 0; i < xsdd_zibs.length; i++) {
-
-
-                        html += '<tr>\n' +
-                            '<td><input name="zib_ids" type="checkbox" value="' + xsdd_zibs[i].cgqgdzhibid + '"></td>\n' +
-                            '<td>' + xsdd_zibs[i].hh + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].spbm) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].spmc) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].xh) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].dw) + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].sl + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].shuilv + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].wsdj + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].hsdj + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].wsje + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].hsje + '</td>\n' +
-                            '<td>' + xsdd_zibs[i].se + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].gg) + '</td>\n' +
-
-                            '</tr>';
-                    }
-                    $("#zib_tbody").html(html);
-                    $("#zib_count").attr("count", xsdd_zibs.length);
-                    $("#zib_count").html("共 " + xsdd_zibs.length + " 条记录");
-                },
-                error: function () {
-                    alert("查询失败！")
-                }
-            });
-        }
-    }
-
-
-
-
-    //功能：审批禁止功能 ： 单击子表下面的 审批禁止按钮 触发，给已经选择的订单修改信息
-    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 0;
-    function sp_forbidden(x) {
-        var ddh = $("#djh").attr("value");
-        if(ddh.length <= 0 || ddh == null || ddh == undefined){
-            alert("请选择要审批单据号进行审批!");
-        }else {
-            var msg = "确认审批禁止此订单?";
-            if(confirm(msg) == true){
-                var spr = $("#sp_spr").val();
-                var sprq = $("#sp_sprq").val();
-                if(spr.length <= 0 || spr == null || spr == undefined){
-                    alert("请填写审批人!")
-                }else {
-                    if(sprq.length <= 0 || sprq == null || sprq == undefined){
-                        alert("请填写审批日期!")
-                    }else {
-                        $.ajax({
-                            url: "${pageContext.request.contextPath}/cgyg/spNo",
-                            type: "GET",
-                            data: {"djh":ddh,"spr":spr,"sprq":sprq},
-                            dataType: "json",
-                            //async: false,
-                            success: function (data) {
-                                $("#query").trigger("click");
-                                alert(data.msg);
-                            },
-                            error: function () {
-                                alert("遇到未知问题，联系管理员")
-                            }
-                        });
-                    }
-                }
-            }
-        }
-    }
-
-    //功能：审批通过功能 ： 单击子表下面的 审批通过按钮 触发，给已经选择的订单修改信息
-    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
-    function sp_adopt(x) {
-        var ddh = $("#djh").attr("value");
-        if(ddh.length <= 0 || ddh == null || ddh == undefined){
-            alert("请选择要审批单据号进行审批!");
-        }else {
-            var msg = "确认审批通过此订单?";
-            if(confirm(msg) == true) {
-                var spr = $("#sp_spr").val();
-                var sprq = $("#sp_sprq").val();
-                if(spr.length <= 0 || spr == null || spr == undefined){
-                    alert("请填写审批人!")
-                }else {
-                    if(sprq.length <= 0 || sprq == null || sprq == undefined){
-                        alert("请填写审批日期!")
-                    }else {
-                        $.ajax({
-                            url: "${pageContext.request.contextPath}/cgyg/spOk",
-                            type: "GET",
-                            data: {"djh":ddh,"spr":spr,"sprq":sprq},
-                            dataType: "json",
-                            // async: false,
-                            success: function (data) {
-                                $("#query").trigger("click");
-
-                                alert(data.msg)
-
-                            },
-                            error: function () {
-                                alert("遇到未知问题，联系管理员")
-                            }
-                        });
-                    }
-                }
-            }
-        }
-    }
 </script>
 
 
 </body>
 
 </html>
-
 

@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 采购请购单主表
@@ -31,7 +30,7 @@ public class Cgygdzhub implements Serializable{
 	private String spr;//审批人
 	private Date sprq;//审批日期
 	private Integer issp;//是否审批
-	private Integer spsftg = 0; //审批是否通过 1代表通过 0代表未通过
+	private Integer spsftg; //审批是否通过 1代表通过 0代表未通过
 	
 	private List<Cgygdzhib> cgqgdzhibs;//采购请购单子表
 

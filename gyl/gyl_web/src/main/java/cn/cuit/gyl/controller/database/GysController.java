@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping("gys")
+@RequestMapping("/gys")
 public class GysController {
     @Autowired
     @Qualifier("GysService")
@@ -23,13 +23,10 @@ public class GysController {
 
     @RequestMapping("/findByPage")
     public String findByPage(String currentPage, gys a, HttpServletRequest request)throws Exception{
-        request.setCharacterEncoding("utf-8");
-
         if(a.getStatus()!=null){
             DomainAttrValueConverterUtils<gys> handler=new DomainAttrValueConverterUtils<>(a);
             a = handler.handler(null, "status");
         }
-
         System.out.println(currentPage);
         if (currentPage == null||currentPage.equals("")){
             currentPage = "1";
@@ -44,14 +41,14 @@ public class GysController {
     @RequestMapping("/Delete")
     public void Delete(Long id, HttpServletResponse response,HttpServletRequest request) throws Exception{
         gysService.Delete(id);
-        response.sendRedirect(request.getContextPath()+"/gys/findByPage");
+        response.sendRedirect(request.getContextPath()+"/gys/findByPage?currentPage=1&rows=5");
     }
     @RequestMapping("/Deletes")
     public void Deletes(Long[] ids, HttpServletResponse response,HttpServletRequest request) throws Exception{
         for (long id:ids){
             gysService.Delete(id);
         }
-        response.sendRedirect(request.getContextPath()+"/gys/findByPage");
+        response.sendRedirect(request.getContextPath()+"/gys/findByPage?currentPage=1&rows=5");
     }
 
     @RequestMapping("/findById")
@@ -65,12 +62,13 @@ public class GysController {
     public void Save(gys a, HttpServletResponse response, HttpServletRequest request) throws Exception{
 
         gysService.Save(a);
-        response.sendRedirect(request.getContextPath()+"/gys/findByPage");
+        response.sendRedirect(request.getContextPath()+"/gys/findByPage?currentPage=1&rows=5");
     }
 
     @RequestMapping("/FindName")
     public @ResponseBody
     Information FindName(String name) throws Exception{
+        System.out.println("name"+name);
         gys gys = gysService.FindByName(name);
         Information a = new Information();
         if (gys == null){
@@ -137,6 +135,7 @@ public class GysController {
     @RequestMapping("/FindZjm")
     public @ResponseBody
     Information FindZjm(String zjm) throws Exception{
+        System.out.println(zjm);
         gys gys = gysService.FindByZjm(zjm);
         Information a = new Information();
         if (gys == null){
@@ -170,6 +169,6 @@ public class GysController {
     @RequestMapping("/Update")
     public void Update(gys a, HttpServletResponse response, HttpServletRequest request) throws Exception{
         gysService.Update(a);
-        response.sendRedirect(request.getContextPath()+"/gys/findByPage");
+        response.sendRedirect(request.getContextPath()+"/gys/findByPage?currentPage=1&rows=5");
     }
 }

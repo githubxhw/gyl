@@ -249,6 +249,7 @@
                     <th class="text-center sorting" style="width: 150px">制单日期</th>
                     <th class="text-center sorting" style="width: 150px">制单人</th>
                     <th class="text-center sorting" style="width: 150px">审批人</th>
+                    <th class="text-center sorting" style="width: 150px">审批日期</th>
                     <th class="text-center sorting" style="width: 150px">修改人</th>
                     <th class="text-center sorting" style="width: 150px">修改日期</th>
                     <th class="text-center sorting" style="width: 150px">调整人</th>
@@ -537,9 +538,9 @@
                             '<td>' + NoNull(pd_zhubs[i].spr) + '</td>\n' +
                             '<td>' + FormatTime(pd_zhubs[i].sprq) + '</td>\n' +
                             '<td>' + NoNull(pd_zhubs[i].xgr) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].xgrq) + '</td>\n' +
+                            '<td>' + FormatTime(pd_zhubs[i].xgrq) + '</td>\n' +
                             '<td>' + NoNull(pd_zhubs[i].tzr) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].tzrq) + '</td>\n' +
+                            '<td>' + FormatTime(pd_zhubs[i].tzrq) + '</td>\n' +
                             '</tr>';
                     }
                     $("#zhub_tbody").html(html);
@@ -812,8 +813,6 @@
 
 
         if($("#pdzhib_pdsl-"+i).val() != " "){
-
-
             if($("#pdzhib_pdr-"+i).val() == ""||$("#pdzhib_pdrq-"+i).val() == ""){
                 alert("请输入盘点人和盘点日期")
             }else {
@@ -831,7 +830,7 @@
 
                         },
                         error: function () {
-                            alert("关闭失败！")
+                            alert("盘点失败！")
                         }
                     });
 

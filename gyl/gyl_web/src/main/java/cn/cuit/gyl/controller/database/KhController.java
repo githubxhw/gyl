@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Controller
-@RequestMapping("kh")
+@RequestMapping("/kh")
 public class KhController {
     @Autowired
     @Qualifier("KhService")
@@ -33,9 +33,12 @@ public class KhController {
             DomainAttrValueConverterUtils<kh> handler=new DomainAttrValueConverterUtils<>(a);
             a = handler.handler(null, "sfyygl");
         }
+
+
         if (currentPage == null||currentPage.equals("")){
             currentPage = "1";
         }
+
         PageBean<kh> byPage = khService.findByPage(currentPage, "5", a);
         request.setAttribute("pb",byPage);
         request.setAttribute("kh",a);
@@ -45,7 +48,7 @@ public class KhController {
     @RequestMapping("/Delete")
     public void Delete(String name, HttpServletResponse response,HttpServletRequest request) throws Exception{
         khService.Delete(name);
-        response.sendRedirect(request.getContextPath()+"/kh/findByPage");
+        response.sendRedirect(request.getContextPath()+"/kh/findByPage?currentPage=1&rows=5");
     }
 
     @RequestMapping("/Deletes")
@@ -53,7 +56,7 @@ public class KhController {
         for (String id:names){
             khService.Delete(id);
         }
-        response.sendRedirect(request.getContextPath()+"/kh/findByPage");
+        response.sendRedirect(request.getContextPath()+"/kh/findByPage?currentPage=1&rows=5");
     }
 
     @RequestMapping("/findByName")
@@ -66,13 +69,13 @@ public class KhController {
     @RequestMapping("/Save")
     public void Save(kh a, HttpServletResponse response, HttpServletRequest request) throws Exception{
         khService.Save(a);
-        response.sendRedirect(request.getContextPath()+"/kh/findByPage");
+        response.sendRedirect(request.getContextPath()+"/kh/findByPage?currentPage=1&rows=5");
     }
 
     @RequestMapping("/Update")
     public void Update(kh a, HttpServletResponse response, HttpServletRequest request) throws Exception{
         khService.Update(a);
-        response.sendRedirect(request.getContextPath()+"/kh/findByPage");
+        response.sendRedirect(request.getContextPath()+"/kh/findByPage?currentPage=1&rows=5");
     }
 
     @RequestMapping("/FindName")

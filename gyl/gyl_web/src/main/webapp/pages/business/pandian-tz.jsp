@@ -820,11 +820,11 @@
                         url: "${pageContext.request.contextPath}/pd/TiaoZ",
                         type: "post",
                         data: params,
-                        dataType: "text",
+                        dataType: "json",
                         // async: false,
                         success: function (data) {
                             $("#zib_refresh_btn").trigger("click");
-                            alert("调整成功！");
+                            alert(data.msg);
 
 
                         },
@@ -870,7 +870,6 @@
                 $("#pdzhib_zmsl-" + i).attr("value", pd_zib.zmsl);
                 $("#pdzhib_pdsl-" + i).attr("value", pd_zib.pdsl);
                 $("#pdzhib_cysl-" + i).attr("value", pd_zib.cysl);
-                $("#pdzhib_tzsl-" + i).attr("value", pd_zib.tzsl);
                 $("#pdzhib_sslv-" + i).attr("value", pd_zib.sslv);
 
             },

@@ -13,7 +13,7 @@
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>盘点单修订</title>
+    <title>应收单修订</title>
     <meta name="description" content="AdminLTE">
     <meta name="keywords" content="AdminLTE">
 
@@ -80,7 +80,7 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                盘点单-修订
+                应收单-修订
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -92,10 +92,10 @@
                     <a href="#">业务</a>
                 </li>
                 <li>
-                    <a href="#">库存管理</a>
+                    <a href="#">应收应付管理</a>
                 </li>
                 <li>
-                    <a href="#">盘点单管理</a>
+                    <a href="#">应收单管理</a>
                 </li>
                 <li class="active">修订</li>
             </ol>
@@ -108,120 +108,132 @@
             <section class="content"> <!--产品信息-->
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">查询(审批)</div>
+                    <div class="panel-heading">查询(审核)</div>
                     <div class="row data-type">
                         <%--1--%>
-                            <div class="col-md-2 title">盘点单ID</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="id"
-                                       placeholder="盘点单ID" value="">
-                            </div>
-                            <div class="col-md-2 title">单据号</div>
-                            <div class="col-md-4 data">
-                                <input  type="text" class="form-control" name="djh"
-                                       placeholder="单据号" value="">
-                            </div>
-                            <%--2--%>
-                            <div class="col-md-2 title">公司</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="gs"
-                                       placeholder="公司" value="">
-                            </div>
-                            <div class="col-md-2 title">盘点日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="pdrq">
+                            <div class="panel-heading">查询(所有)</div>
+                            <div class="row data-type">
+                                <%--1--%>
+                                <div class="col-md-2 title">ID</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="xsysdzhubid"
+                                           placeholder="应收单ID" value="">
                                 </div>
-                            </div>
-                            <div class="col-md-2 title">仓库</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="ck"
-                                       placeholder="仓库" value="">
-                            </div>
-                            <div class="col-md-2 title">库存员</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="kcy"
-                                       placeholder="库存员" value="">
-                            </div>
+                                <%--2--%>
+                                <div class="col-md-2 title">公司</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="gs"
+                                           placeholder="公司" value="">
+                                </div>
+                                <div class="col-md-2 title">订单号</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="ddh"
+                                           placeholder="订单号" value="">
+                                </div>
+                                <%--3--%>
+                                <div class="col-md-2 title">日期</div>
+                                <div class="col-md-4 data">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right dateTimePicker" name="rq">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 title">起算日期</div>
+                                <div class="col-md-4 data">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right dateTimePicker" name="qsrq">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 title">客商</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="ks"
+                                           placeholder="客商" value="">
+                                </div>
 
-                            <div class="col-md-2 title">部门</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="bm"
-                                       placeholder="部门" value="">
-                            </div>
-                            <div class="col-md-2 title">盘点人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="pdr"
-                                       placeholder="盘点人" value="">
-                            </div>
-                            <div class="col-md-2 title">状态</div>
-                            <div class="col-md-4 data">
-                                <select class="form-control" name="status">
-                                    <option value="1">审批</option>
-                                </select>
-                            </div>
+                                <div class="col-md-2 title">部门</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="bm"
+                                           placeholder="部门" value="">
+                                </div>
+                                <div class="col-md-2 title">业务员</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="ywy"
+                                           placeholder="业务员" value="">
+                                </div>
+                                <div class="col-md-2 title">生效标志</div>
+                                <div class="col-md-4 data">
+                                    <select class="form-control" name="sxbz">
+                                        <option selected="selected" value="-1">全部</option>
+                                        <option value="1">生效</option>
+                                        <option value="0">没生效</option>
+                                    </select>
+                                </div>
 
-                            <%--4--%>
-                            <div class="col-md-2 title">审批人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="spr"
-                                       placeholder="审批人" value="">
-                            </div>
-                            <div class="col-md-2 title">审批日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="sprq">
+                                <%--4--%>
+
+                                <div class="col-md-2 title">审核人</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="sher"
+                                           placeholder="审核人" value="">
                                 </div>
-                            </div>
-                            <%--5--%>
-                            <div class="col-md-2 title">制单人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="zdr"
-                                       placeholder="制单人" value="">
-                            </div>
-                            <div class="col-md-2 title">制单日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
+                                <div class="col-md-2 title">审核日期</div>
+                                <div class="col-md-4 data">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right dateTimePicker" name="shrq">
                                     </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="zdrq">
                                 </div>
-                            </div>
-                            <%--6--%>
-                            <div class="col-md-2 title">修改人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="xgr"
-                                       placeholder="修改人" value="">
-                            </div>
-                            <div class="col-md-2 title">修改日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="xgrq">
+
+                                <%--5--%>
+                                <div class="col-md-2 title">制单人</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="zdr"
+                                           placeholder="制单人" value="">
                                 </div>
-                            </div>
-                            <div class="col-md-2 title">调整人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="tzr"
-                                       placeholder="调整人" value="">
-                            </div>
-                            <div class="col-md-2 title">调整日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
+                                <div class="col-md-2 title">制单日期</div>
+                                <div class="col-md-4 data">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right dateTimePicker" name="zdrq">
                                     </div>
-                                    <input type="text" class="form-control pull-right"
-                                           name="tzrq">
+                                </div>
+                                <%--6--%>
+                                <div class="col-md-2 title">修改人</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="xgr"
+                                           placeholder="修改人" value="">
+                                </div>
+                                <div class="col-md-2 title">修改日期</div>
+                                <div class="col-md-4 data">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right dateTimePicker" name="xgrq">
+                                    </div>
+                                </div>
+                                <div class="col-md-2 title">签字人</div>
+                                <div class="col-md-4 data">
+                                    <input type="text" class="form-control" name="qzr"
+                                           placeholder="签字人" value="">
+                                </div>
+                                <div class="col-md-2 title">签字日期</div>
+                                <div class="col-md-4 data">
+                                    <div class="input-group date">
+                                        <div class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </div>
+                                        <input type="text" class="form-control pull-right dateTimePicker" name="qzrq">
+                                    </div>
                                 </div>
                             </div>
                     </div>
@@ -234,7 +246,7 @@
                             onclick="history.back(-1);">返回
                     </button>
                 </div>
-                <!--工具栏/--> </section>
+             </section>
         </form>
 
         <!--数据列表-->
@@ -248,22 +260,22 @@
                     <th class="" style="padding-right:0px;">
                         <input id="selall_zhu" type="checkbox" class="icheckbox_square-blue">
                     </th>
-                    <th class="sorting_asc" style="width: 150px">单据号</th>
+                    <th class="sorting_asc" style="width: 150px">订单号</th>
                     <th class="text-center sorting" style="width: 150px">公司</th>
-                    <th class="text-center sorting" style="width: 150px">盘点日期</th>
-                    <th class="text-center sorting" style="width: 150px">仓库</th>
-                    <th class="text-center sorting" style="width: 150px">库存员</th>
+                    <th class="text-center sorting" style="width: 150px">日期</th>
+                    <th class="text-center sorting" style="width: 150px">起算日期</th>
+                    <th class="text-center sorting" style="width: 150px">客商</th>
                     <th class="text-center sorting" style="width: 150px">部门</th>
-                    <th class="text-center sorting" style="width: 150px">盘点人</th>
-                    <th class="text-center sorting" style="width: 150px">单据状态</th>
-                    <th class="text-center sorting" style="width: 150px">制单日期</th>
+                    <th class="text-center sorting" style="width: 150px">业务员</th>
+                    <th class="text-center sorting" style="width: 150px">生效标志</th>
                     <th class="text-center sorting" style="width: 150px">制单人</th>
-                    <th class="text-center sorting" style="width: 150px">审批人</th>
-                    <th class="text-center sorting" style="width: 150px">审批日期</th>
+                    <th class="text-center sorting" style="width: 150px">制单日期</th>
+                    <th class="text-center sorting" style="width: 150px">审核人</th>
+                    <th class="text-center sorting" style="width: 150px">审核日期</th>
                     <th class="text-center sorting" style="width: 150px">修改人</th>
                     <th class="text-center sorting" style="width: 150px">修改日期</th>
-                    <th class="text-center sorting" style="width: 150px">调整人</th>
-                    <th class="text-center sorting" style="width: 150px">调整日期</th>
+                    <th class="text-center sorting" style="width: 150px">签字人</th>
+                    <th class="text-center sorting" style="width: 150px">签字日期</th>
                     <th class="text-center" style="width: 150px">操作</th>
                     </thead>
                     <%--内容--%>
@@ -300,18 +312,20 @@
                         <input id="selall_zi" type="checkbox" class="icheckbox_square-blue">
                     </th>
                     <th class="sorting_asc" width="150px">行号</th>
-                    <th class="text-center sorting" width="150px">存货编号</th>
-                    <th class="text-center sorting" width="150px">型号</th>
-                    <th class="text-center sorting" width="150px">计量单位</th>
-                    <th class="text-center sorting" width="150px">规格</th>
-                    <th class="text-center sorting" width="150px">批次</th>
-                    <th class="text-center sorting" width="150px">生产日期</th>
-                    <th class="text-center sorting" width="150px">失效日期</th>
-                    <th class="text-center sorting" width="150px">账面数量</th>
-                    <th class="text-center sorting" width="150px">盘点数量</th>
-                    <th class="text-center sorting" width="150px">差异数量</th>
-                    <th class="text-center sorting" width="150px">调整数量</th>
-                    <th class="text-center sorting" width="150px">损失率</th>
+                    <th class="text-center sorting" width="150px">数量</th>
+                    <th class="text-center sorting" width="150px">商品名称</th>
+                    <th class="text-center sorting" width="150px">商品编码</th>
+                    <th class="text-center sorting" width="150px">单位</th>
+                    <th class="text-center sorting" width="150px">含税金额</th>
+                    <th class="text-center sorting" width="150px">税额</th>
+                    <th class="text-center sorting" width="150px">无税金额</th>
+                    <th class="text-center sorting" width="150px">来源单据号</th>
+                    <th class="text-center sorting" width="150px">来源行号</th>
+                    <th class="text-center sorting" width="150px">源头单据号</th>
+                    <th class="text-center sorting" width="150px">源头行号</th>
+                    <th class="text-center sorting" width="150px">单价</th>
+                    <th class="text-center sorting" width="150px">累计应收数量</th>
+                    <th class="text-center sorting" width="150px">应收是否结束</th>
                     <th class="text-center" width="150px">操作</th>
                     </thead>
                     <%--内容--%>
@@ -336,7 +350,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        <h4 class="modal-title">添加盘点单子单</h4>
+                                        <h4 class="modal-title">添加应收单子单</h4>
                                     </div>
                                     <div class="modal-body">
                                         <div class="box-body">
@@ -355,100 +369,95 @@
                                                                            class="form-control" name="hh"
                                                                            placeholder="行号" value="">
                                                                 </div>
-                                                                <div class="col-md-2 title">存货编码(不为空)</div>
+                                                                <div class="col-md-2 title">数量</div>
                                                                 <div class="col-md-4 data">
-                                                                    <input type="text" class="form-control" name="chbm"
-                                                                           placeholder="存货编码" value="">
+                                                                    <input type="text" class="form-control" name="sl"
+                                                                           placeholder="数量" value="">
                                                                 </div>
-                                                                <div class="col-md-2 title">商品型号</div>
+                                                                <div class="col-md-2 title">商品名称</div>
                                                                 <div class="col-md-4 data">
-                                                                    <input type="text" class="form-control" name="xh"
-                                                                           placeholder="商品型号" value="">
+                                                                    <input type="text" class="form-control" name="spmc"
+                                                                           placeholder="商品名称" value="">
                                                                 </div>
-                                                                <div class="col-md-2 title">计量单位</div>
+                                                                <div class="col-md-2 title">商品编码</div>
+                                                                <div class="col-md-2 data">
+                                                                    <input type="text" class="form-control" name="spbm"
+                                                                           placeholder="商品编码" value="">
+                                                                </div>
+                                                                <div class="col-md-2 title"></div>
+                                                                <div class="col-md-2 title">单位</div>
                                                                 <div class="col-md-2 data">
                                                                     <input type="text" class="form-control" name="dw"
-                                                                           placeholder="计量单位" value="">
+                                                                           placeholder="单位" value="">
                                                                 </div>
                                                                 <div class="col-md-2 title"></div>
-                                                                <div class="col-md-2 title">规格</div>
+                                                                <div class="col-md-2 title">含税价额</div>
                                                                 <div class="col-md-2 data">
-                                                                    <input type="text" class="form-control" name="gg"
-                                                                           placeholder="规格" value="0">
+                                                                    <input type="text" class="form-control" name="hsje"
+                                                                           placeholder="含税价额" value="">
                                                                 </div>
                                                                 <div class="col-md-2 title"></div>
-                                                                <div class="col-md-2 title">税率(%)</div>
+                                                                <div class="col-md-2 title">税额</div>
                                                                 <div class="col-md-2 data">
-                                                                    <input type="text" class="form-control" name=shuilv"
-                                                                           placeholder="税率" value="">
+                                                                    <input type="text" class="form-control" name="se"
+                                                                           placeholder="税额" value="">
                                                                 </div>
                                                                 <div class="col-md-2 title"></div>
-                                                                <div class="col-md-2 title">规格</div>
-                                                                <div class="col-md-2 data">
-                                                                    <input type="text" class="form-control" name="gg"
-                                                                           placeholder="规格" value="">
-                                                                </div>
-                                                                <div class="col-md-2 title"></div>
-                                                                <div class="col-md-2 title">生产日期</div>
-                                                                <div class="col-md-4 data">
-                                                                    <div class="input-group date">
-                                                                        <div class="input-group-addon">
-                                                                            <i class="fa fa-calendar"></i>
-                                                                        </div>
-                                                                        <input type="text"
-                                                                               class="form-control pull-right dateTimePicker"
-                                                                               readonly="readonly"
-                                                                               name="scrq">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 title">失效日期</div>
-                                                                <div class="col-md-4 data">
-                                                                    <div class="input-group date">
-                                                                        <div class="input-group-addon">
-                                                                            <i class="fa fa-calendar"></i>
-                                                                        </div>
-                                                                        <input type="text"
-                                                                               class="form-control pull-right dateTimePicker"
-                                                                               readonly="readonly"
-                                                                               name="sxrq">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-2 title">账面数量</div>
+                                                                <div class="col-md-2 title">无税价额</div>
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control"
-                                                                               name="zmsl">
+                                                                               placeholder="无税价额"
+                                                                               name="wsje">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2 title">盘点数量</div>
+                                                                <div class="col-md-2 title">来源单据号（发票号）</div>
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control"
-                                                                               name="pdsl">
+                                                                               name="lydjh">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2 title">差异数量</div>
+                                                                <div class="col-md-2 title">来源行号</div>
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control"
-                                                                               name="cysl">
+                                                                               name="lyhh">
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2 title">调整数量</div>
+                                                                <div class="col-md-2 title">源头单据号</div>
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group">
 
                                                                         <input type="text" class="form-control"
-                                                                                name="tzsl">
+                                                                                name="ytdjh">
 
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-2 title">损失率</div>
+                                                                <div class="col-md-2 title">源头行号</div>
                                                                 <div class="col-md-4 data">
-                                                                    <input type="text" class="form-control" name="gbr"
+                                                                    <input type="text" class="form-control" name="ythh"
                                                                             value="">
                                                                 </div>
 
+                                                                <div class="col-md-2 title">单价</div>
+                                                                <div class="col-md-4 data">
+                                                                    <input type="text" class="form-control" name="dj"
+                                                                           value="">
+                                                                </div>
+
+                                                                <div class="col-md-2 title">累计应收数量</div>
+                                                                <div class="col-md-4 data">
+                                                                    <input type="text" class="form-control" readonly="readonly"
+                                                                           name="ljyssl"
+                                                                           value="">
+                                                                </div>
+                                                                <div class="col-md-2 title">是否应收结束</div>
+                                                                <div class="col-md-4 data">
+                                                                    <select class="form-control" name="sxbz">
+                                                                        <option selected="selected" value="-1">全部</option>
+                                                                    </select>
+                                                                </div>
                                                                 <div class="col-md-2 title">修改人</div>
                                                                 <div class="col-md-4 data">
                                                                     <input  id="zzxgr" type="text" class="form-control" name="xgr"
@@ -686,10 +695,19 @@
     });
     function statusbe(x){
         if (x == 1){
-            return "审批";
+            return "结束";
         }
         if (x == 0){
-            return "不审批";
+            return "没结束";
+        }
+        return "";
+    }
+    function sxbe(x){
+        if (x == 1){
+            return "生效";
+        }
+        if (x == 0){
+            return "没生效";
         }
         return "";
     }
@@ -702,7 +720,7 @@
         $("#query").click(function () {
             var params = $("#form").serialize();
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/findBySpIsOne",
+                url: "${pageContext.request.contextPath}/ys/findBySxBzIsOne",
                 type: "post",
                 data: params,
                 dataType: "json",
@@ -710,30 +728,30 @@
                 success: function (data) {
                     //清除$("#zhub_tbody")里面的内容
                     $("#zhub_tbody").innerHTML = '';
-                    var pd_zhubs = data;
+                    var xsys_zhubs = data;
                     var html = '';
-                    for (var i = 0; i < pd_zhubs.length; i++) {
+                    for (var i = 0; i < xsys_zhubs.length; i++) {
 
                         html += '<tr>\n' +
-                            '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + pd_zhubs[i].id+ '"></td>\n' +
-                            '<td><button i="' + i + '" ddh="' + pd_zhubs[i].djh + '" checked="" ondblclick="find_zib(this)" zhubId="' + pd_zhubs[i].id + '" style="width: 100%;height: 99%">' + pd_zhubs[i].djh + '</button></td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].gs) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zhubs[i].pdrq)+ '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].ck ) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].kcy) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].bm) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].pdr) + '</td>\n' +
-                            '<td>' + statusbe(pd_zhubs[i].status) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zhubs[i].zdrq) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].zdr) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].spr) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zhubs[i].sprq) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].xgr) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zhubs[i].xgrq) + '</td>\n' +
-                            '<td>' + NoNull(pd_zhubs[i].tzr) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zhubs[i].tzrq) + '</td>\n' +
+                            '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + xsys_zhubs[i].xsysdzhubid+ '"></td>\n' +
+                            '<td><button i="' + i + '" ddh="' + xsys_zhubs[i].ddh + '" checked="" ondblclick="find_zib(this)" zhubId="' + xsys_zhubs[i].xsysdzhubid + '" style="width: 100%;height: 99%">' + xsys_zhubs[i].ddh + '</button></td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].gs) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].rq)+ '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].qsrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].ks) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].bm) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].ywy) + '</td>\n' +
+                            '<td>' + sxbe(xsys_zhubs[i].sxbz) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].zdr) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].zdrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].sher) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].shrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].xgrq) + '</td>\n' +
+                            '<td>' + NoNull(xsys_zhubs[i].qzr) + '</td>\n' +
+                            '<td>' + FormatTime(xsys_zhubs[i].qzrq) + '</td>\n' +
                             '<td class="text-center">\n' +
-                            '<button id="zhub_xg_btn" i=' + i + ' onclick="zhub_xg_btn(this)" zhubId="' + pd_zhubs[i].id + '" type="button" data-toggle="modal" data-target="#myModal-zhub-' + i + '" class="btn bg-olive btn-xs"\n' +
+                            '<button id="zhub_xg_btn" i=' + i + ' onclick="zhub_xg_btn(this)" zhubId="' + xsys_zhubs[i].xsysdzhubid + '" type="button" data-toggle="modal" data-target="#myModal-zhub-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '">\n' +
                             '    修改\n' +
                             '</button>\n' +
@@ -760,49 +778,61 @@
                             '                                                            <div class="panel-heading">修改销售订单主单</div>\n' +
                             '                                                            <div class="row data-type">\n' +
                             '\n' +                                                           /* 此处是 标记一个主表的id属性，方便根据id更新主表zhub*/
-                            '                                                                <input id="pb_id-' + i + '" type="hidden" name="id" value="">\n' +
+                            '                                                                <input id="ys_id-' + i + '" type="hidden" name="xsysdzhubid" value="">\n' +
                             '                                                                \n' +
-                            '                                                                <div class="col-md-2 title">单据号</div>\n' +
+                            '                                                                <div class="col-md-2 title">订单号</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_djh-' + i + '" readonly="readonly" type="text"\n' +
-                            '                                                                           class="form-control" name="djh"\n' +
-                            '                                                                           placeholder="单据号" value="">\n' +
+                            '                                                                    <input id="ys_ddh-' + i + '" readonly="readonly" type="text"\n' +
+                            '                                                                           class="form-control" name="ddh"\n' +
+                            '                                                                           placeholder="订单号" value="">\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">盘点日期</div>\n' +
+                            '                                                                <div class="col-md-2 title">公司</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <input id="ys_gs-' + i + '" type="text" class="form-control" name="gs"\n' +
+                            '                                                                           placeholder="公司" value="">\n' +
+                            '                                                                </div>\n' +
+
+                            '                                                                <div class="col-md-2 title">日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
                             '                                                                    <div class="input-group date">\n' +
                             '                                                                        <div class="input-group-addon">\n' +
                             '                                                                            <i class="fa fa-calendar"></i>\n' +
                             '                                                                        </div>\n' +
-                            '                                                                        <input id="pb_pdrq-' + i + '" type="text"\n' +
+                            '                                                                        <input id="ys_rq-' + i + '" type="text"\n' +
                             '                                                                               class="form-control pull-right dateTimePicker"\n' +
-                            '                                                                               name="pdrq">\n' +
+                            '                                                                               name="rq">\n' +
                             '                                                                    </div>\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">公司</div>\n' +
+                            '                                                                <div class="col-md-2 title">起算日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_gs-' + i + '" type="text" class="form-control" name="gs"\n' +
-                            '                                                                           placeholder="公司" value="">\n' +
+                            '                                                                    <div class="input-group date">\n' +
+                            '                                                                        <div class="input-group-addon">\n' +
+                            '                                                                            <i class="fa fa-calendar"></i>\n' +
+                            '                                                                        </div>\n' +
+                            '                                                                        <input id="ys_qsrq-' + i + '" type="text"\n' +
+                            '                                                                               class="form-control pull-right dateTimePicker"\n' +
+                            '                                                                               name="qsrq">\n' +
+                            '                                                                    </div>\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">仓库</div>\n' +
+                            '                                                                <div class="col-md-2 title">客商</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_ck-' + i + '" type="text" class="form-control" onblur="" name="ck"\n' +
-                            '                                                                           placeholder="仓库" value="">\n' +
-                            '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">库存员</div>\n' +
-                            '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_kcy-' + i + '" type="text" class="form-control" name="kcy"\n' +
-                            '                                                                           placeholder="库存员" value="">\n' +
+                            '                                                                    <input id="ys_ks-' + i + '" type="text" class="form-control" onblur="" name="ks"\n' +
+                            '                                                                           placeholder="客商" value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">部门</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_bm-' + i + '" type="text" class="form-control" name="bm"\n' +
+                            '                                                                    <input id="ys_bm-' + i + '" type="text" class="form-control" name="bm"\n' +
                             '                                                                           placeholder="部门" value="">\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">业务员</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <input id="ys_ywy-' + i + '" type="text" class="form-control" name="ywy"\n' +
+                            '                                                                           placeholder="业务员" value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">制单人</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_zdr-' + i + '" type="text" class="form-control" name="zdr"\n' +
-                            '                                                                           placeholder="制单人" value="">\n' +
+                            '                                                                    <input id="ys_zdr-' + i + '" type="text" class="form-control" name="zdr"\n' +
+                            '                                                                           value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">制单日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
@@ -810,31 +840,31 @@
                             '                                                                        <div class="input-group-addon">\n' +
                             '                                                                            <i class="fa fa-calendar"></i>\n' +
                             '                                                                        </div>\n' +
-                            '                                                                        <input id="pb_zdrq-' + i + '" type="text"\n' +
+                            '                                                                        <input id="ys_zdrq-' + i + '" type="text"\n' +
                             '                                                                               class="form-control pull-right dateTimePicker"\n' +
                             '                                                                               name="zdrq">\n' +
                             '                                                                    </div>\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">审批人</div>\n' +
+                            '                                                                <div class="col-md-2 title">审核人</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input  id="pb_spr-' + i + '" type="text" class="form-control" name="spr"\n' +
-                            '                                                                           placeholder="审批人" value="">\n' +
+                            '                                                                    <input  id="ys_sher-' + i + '" type="text"  class="form-control" name="sher"\n' +
+                            '                                                                           placeholder="审核人" value="">\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">审批日期</div>\n' +
+                            '                                                                <div class="col-md-2 title">审核日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
                             '                                                                    <div class="input-group date">\n' +
                             '                                                                        <div class="input-group-addon">\n' +
                             '                                                                            <i class="fa fa-calendar"></i>\n' +
                             '                                                                        </div>\n' +
-                            '                                                                        <input  id="pb_sprq-' + i + '" type="text"\n' +
+                            '                                                                        <input  id="ys_shrq-' + i + '" type="text"\n' +
                             '                                                                               class="form-control pull-right dateTimePicker"' +
-                            '                                                                               name="sprq">\n' +
+                            '                                                                               name="shrq">\n' +
                             '                                                                    </div>\n' +
                             '                                                                </div>\n' +
 
                             '                                                                <div class="col-md-2 title">修改人</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input  id="pb_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
+                            '                                                                    <input  id="ys_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
                             '                                                                           placeholder="修改人" value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">修改日期</div>\n' +
@@ -843,38 +873,33 @@
                             '                                                                        <div class="input-group-addon">\n' +
                             '                                                                            <i class="fa fa-calendar"></i>\n' +
                             '                                                                        </div>\n' +
-                            '                                                                        <input  id="pb_xgrq-' + i + '" type="text"\n' +
+                            '                                                                        <input  id="ys_xgrq-' + i + '" type="text"\n' +
                             '                                                                               class="form-control pull-right dateTimePicker"\n' +
                             '                                                                               name="xgrq">\n' +
                             '                                                                    </div>\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">盘点人</div>\n' +
+                            '                                                                <div class="col-md-2 title">生效标志</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input  id="pb_pdr-' + i + '" type="text" class="form-control" name="pdr"\n' +
-                            '                                                                           placeholder="盘点人" value="">\n' +
-                            '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">单据状态</div>\n' +
-                            '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <select class="form-control" name="status">\n' +
-                            '                                                                        <option id="pb_status_option0-' + i + '" value="0">不审批</option>\n' +
-                            '                                                                        <option id="pb_status_option1-' + i + '" value="1">审批</option>\n' +
+                            '                                                                    <select class="form-control" name="sxbz">\n' +
+                            '                                                                        <option id="ys_sxbz_option0-' + i + '" value="0">没生效</option>\n' +
+                            '                                                                        <option id="ys_sxbz_option1-' + i + '" value="1">生效</option>\n' +
                             '                                                                    </select>\n' +
                             '                                                                </div>\n' +
 
-                            '                                                                <div class="col-md-2 title">调整人</div>\n' +
+                            '                                                                <div class="col-md-2 title">签字人</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_tzr-' + i + '" type="text" class="form-control" name="tzr"\n' +
+                            '                                                                    <input id="ys_qzr-' + i + '" type="text" class="form-control" name="qzr"\n' +
                             '                                                                           placeholder="调整人" value="">\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">调整日期</div>\n' +
+                            '                                                                <div class="col-md-2 title">签字日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
                             '                                                                    <div class="input-group date">\n' +
                             '                                                                        <div class="input-group-addon">\n' +
                             '                                                                            <i class="fa fa-calendar"></i>\n' +
                             '                                                                        </div>\n' +
-                            '                                                                        <input  id="pb_tzrq-' + i + '" type="text"\n' +
+                            '                                                                        <input  id="ys_qzrq-' + i + '" type="text"\n' +
                             '                                                                               class="form-control pull-right dateTimePicker"\n' +
-                            '                                                                               name="tzrq">\n' +
+                            '                                                                               name="qzrq">\n' +
                             '                                                                    </div>\n' +
                             '                                                                </div>\n' +
 
@@ -897,7 +922,7 @@
                             '                            <!-- /.modal-dialog -->\n' +
                             '                        </div>' +
                             <%--模拟窗口/--%>
-                            '<button zhubId="' + pd_zhubs[i].id + '" data-toggle="modal" data-target="#myModal_2" type="button" class="btn bg-olive btn-xs"\n' +
+                            '<button zhubId="' + xsys_zhubs[i].xsysdzhubid + '" data-toggle="modal" data-target="#myModal_2" type="button" class="btn bg-olive btn-xs"\n' +
                             '    onclick="delete_zhub(this)">\n' +
                             '    删除\n' +
                             '</button>\n' +
@@ -905,8 +930,8 @@
                             '</tr>';
                     }
                     $("#zhub_tbody").html(html);
-                    $("#zhub_count").html("共 " + pd_zhubs.length + " 条记录");
-                    $("#zhub_count").attr("count", pd_zhubs.length);
+                    $("#zhub_count").html("共 " + xsys_zhubs.length + " 条记录");
+                    $("#zhub_count").attr("count", xsys_zhubs.length);
                 },
                 error: function () {
                     alert("查询失败！")
@@ -925,7 +950,7 @@
 
                     $("#zib_zhub_id_input").attr("value", zhub_id);
                     $.ajax({
-                        url: "${pageContext.request.contextPath}/pd/getZib_hh",
+                        url: "${pageContext.request.contextPath}/ys/getZib_hh",
                         type: "get",
                         data: {"zid": zhub_id},
                         dataType: "json",
@@ -953,7 +978,7 @@
                 alert("请输入修改人和修改日期");
             }else {
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/pd/SaveZi",
+                    url: "${pageContext.request.contextPath}/ys/SaveZi",
                     type: "post",
                     data: params,
                     dataType: "json",
@@ -961,7 +986,17 @@
                     success: function (data) {
                         //添加主表信息到页面
                         $("#zib_refresh_btn").trigger("click");
-                        alert(data.msg)
+                        var pageInfo = data;
+                        if (pageInfo.resFlag == "1") {//添加成功
+                            alert("添加成功")
+                        } else {//添加失败
+                            var errors = pageInfo.msgList;
+                            var msg = "添加失败:\n";
+                            for (var i = 0; i < errors.length; i++) {
+                                msg += i + "、" + errors[i] + "\n";
+                            }
+                            alert(msg);
+                        }
                     },
                     error: function (data) {
                         alert("添加失败！出现未知问题")
@@ -1033,34 +1068,34 @@
         //alert("ok")
         var id = $(x).attr("zhubId");
         $.ajax({
-            url: "${pageContext.request.contextPath}/pd/findZhuById",
+            url: "${pageContext.request.contextPath}/ys/findZhuById",
             type: "get",
             data: {"id": id},
             dataType: "json",
             async: false,
             success: function (data) {
                 //alert("ok");
-                var pd_zhub = data;
+                var ys_zhub = data;
                 //添加数据到模态框中
                 //1,获取点击了该修改按钮所在的行号i
                 var i = $(x).attr("i");
 
 
                 //2,给每一个按钮框添加值
-                $("#pb_id-" + i).attr("value", pd_zhub.id);
-                $("#pb_djh-"+ i).attr("value",pd_zhub.djh);
-                $("#pb_gs-"+i).attr("value",pd_zhub.gs);
-                $("#pb_pdrq-"+i).attr("value",FormatTime(pd_zhub.pdrq));
-                $("#pb_ck-"+i).attr("value",pd_zhub.ck);
-                $("#pb_kcy-"+i).attr("value",pd_zhub.kcy);
-                $("#pb_bm-"+i).attr("value",pd_zhub.bm);
-                $("#pb_pdr-"+i).attr("value",pd_zhub.pdr);
-                $("#pb_spr-"+i).attr("value",pd_zhub.spr);
-                $("#pb_sprq-"+i).attr("value",FormatTime(pd_zhub.sprq));
-                $("#pb_zdr-"+i).attr("value",pd_zhub.zdr);
-                $("#pb_zdrq-"+i).attr("value",FormatTime(pd_zhub.zdrq));
-                $("#pb_tzr-"+i).attr("value",pd_zhub.tzr);
-                $("#pb_tzrq-"+i).attr("value",FormatTime(pd_zhub.tzrq));
+                $("#ys_id-" + i).attr("value", ys_zhub.xsysdzhubid);
+                $("#ys_ddh-"+ i).attr("value",ys_zhub.ddh);
+                $("#ys_gs-"+i).attr("value",ys_zhub.gs);
+                $("#ys_rq-"+i).attr("value",FormatTime(ys_zhub.rq));
+                $("#ys_qsrq-"+i).attr("value",FormatTime(ys_zhub.qsrq));
+                $("#ys_ks-"+i).attr("value",ys_zhub.ks);
+                $("#ys_ywy-"+i).attr("value",ys_zhub.ywy);
+                $("#ys_bm-"+i).attr("value",ys_zhub.bm);
+                $("#ys_sher-"+i).attr("value",ys_zhub.sher);
+                $("#ys_shrq-"+i).attr("value",FormatTime(ys_zhub.shrq));
+                $("#ys_zdr-"+i).attr("value",ys_zhub.zdr);
+                $("#ys_zdrq-"+i).attr("value",FormatTime(ys_zhub.zdrq));
+                $("#ys_qzr-"+i).attr("value",ys_zhub.qzr);
+                $("#ys_qzrq-"+i).attr("value",FormatTime(ys_zhub.qzrq));
 
 
 
@@ -1073,10 +1108,10 @@
                 // $("#zhub_xg_select_ysbz-" + i).attr("disabled", "disabled");
                 // $("#zhub_xg_select_status-" + i).attr("disabled", "disabled");
 
-                if (pd_zhub.status == 1) {
-                    $("#pb_status_option1-" + i).attr("selected", "selected");
+                if (ys_zhub.sxbz == 1) {
+                    $("#ys_sxbz_option1-" + i).attr("selected", "selected");
                 } else {
-                    $("#pb_status_option0-" + i).attr("selected", "selected");
+                    $("#ys_sxbz_option0-" + i).attr("selected", "selected");
                 }
 
             },
@@ -1100,22 +1135,29 @@
         // $("#zhub_xg_select_ysbz-" + i).removeAttr("disabled");
         // $("#zhub_xg_select_status-" + i).removeAttr("disabled");
         //表单数据
-        if($("#pb_xgr-"+i).val() == ""||$("#pb_xgrq-"+i).val() == ""){
+        if($("#ys_xgr-"+i).val() == ""||$("#ys_xgrq-"+i).val() == ""){
             alert("请输入修改人和修改日期 ");
         }else {
             var params = $("#zhub_xg_form-" + i).serialize();
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/UpdateZhuB",
+                url: "${pageContext.request.contextPath}/ys/UpdateZhuB",
                 type: "post",
                 data: params,
                 dataType: "json",
                 // async: false,
                 success: function (data) {
                     $("#query").trigger("click");
-                    if (data.msg == "更新成功"){
-                        alert("修改成功，请重新查询！");
-                    }else {
-                        alert(data.msg);
+                    var pageInfo = data;
+                    if (pageInfo.resFlag == "1") {//成功
+
+                        alert("修改成功");
+                    } else {//失败
+                        var errors = pageInfo.msgList;
+                        var msg = "修改失败:\n";
+                        for (var i = 0; i < errors.length; i++) {
+                            msg += i + "、" + errors[i] + "\n";
+                        }
+                        alert(msg);
                     }
 
                 },
@@ -1133,11 +1175,11 @@
         //判断是否删除
         var msg = "是否确认删除?";
         if (confirm(msg) == true) {
-            var pd_zhub_id = $(x).attr("zhubId");
+            var ys_zhub_id = $(x).attr("zhubId");
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/DeleteZhuB",
+                url: "${pageContext.request.contextPath}/ys/DeleteZhuB",
                 type: "GET",
-                data: {"id": pd_zhub_id},
+                data: {"id": ys_zhub_id},
                 dataType: "text",
                 async: false,
                 success: function (data) {
@@ -1183,7 +1225,7 @@
                 }
             }
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/DeleteZhuBs",
+                url: "${pageContext.request.contextPath}/ys/DeleteZhuBs",
                 type: "GET",
                 data: {"ids": ids},
                 dataType: "text",
@@ -1226,44 +1268,45 @@
         var i = $(x).attr("i");
         $("#checkbox-pos-" + i).prop("checked", true);
         //获取id
-        var pd_zhub_id = $(x).attr("zhubId");
+        var ys_zhub_id = $(x).attr("zhubId");
         //获取ddh:对应了子表上面的 单据号：input[xxx],将单据号添加到里面显示，方便查看
         var djh = $(x).attr("ddh");
         $.ajax({
-            url: "${pageContext.request.contextPath}/pd/findZiByZid",
+            url: "${pageContext.request.contextPath}/ys/findZiByZid",
             type: "GET",
-            data: {"zid": pd_zhub_id},
+            data: {"zid": ys_zhub_id},
             dataType: "json",
             async: false,
             success: function (data) {
                 //先清除$("#zib_tbody")里面的内容
                 $("#zib_tbody").innerHTML = '';
                 //给子表form的zhub_id赋值
-                $("#zib_form").attr("zhub_id", pd_zhub_id);
+                $("#zib_form").attr("zhub_id", ys_zhub_id);
                 /*单据号：<input id="djh"...*/
                 $("#djh").attr("value", djh);
                 //添加内容
-                pd_zibs = data;
+                ys_zibs = data;
                 var html = '';
-                for (var i = 0; i < pd_zibs.length; i++) {
-
+                for (var i = 0; i < ys_zibs.length; i++) {
                     html += '<tr>\n' +
-                        '<td><input name="zib_ids" type="checkbox" value="' + pd_zibs[i].id + '"></td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].hh) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].chbm) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].xh) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].dw) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].gg) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].pc) + '</td>\n' +
-                        '<td>' + FormatTime(pd_zibs[i].scrq) + '</td>\n' +
-                        '<td>' + FormatTime(pd_zibs[i].sxrq) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].zmsl) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].pdsl) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].cysl) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].tzsl) + '</td>\n' +
-                        '<td>' + NoNull(pd_zibs[i].sslv) + '</td>\n' +
+                        '<td><input name="zib_ids" type="checkbox" value="' + ys_zibs[i].xsysdzhibid + '"></td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].hh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].sl) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].spmc) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].spbm) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].dw) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].hsje) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].se) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].wsje) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].ytdjh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].dj) + '</td>\n' +
+                        '<td>' + NoNull(ys_zibs[i].ljyssl) + '</td>\n' +
+                        '<td>' + statusbe(ys_zibs[i].isysgb) + '</td>\n' +
                         '<td class="text-center">\n' +
-                        '<button id="zib_xg_btn" i="' + i + '" zibId="' + pd_zibs[i].id+ '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
+                        '<button id="zib_xg_btn" i="' + i + '" zibId="' + ys_zibs[i].xsysdzhibid+ '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                         '    >\n' +
                         '    修改\n' +
                         '</button>\n' +
@@ -1287,102 +1330,94 @@
                         '                                                    <section class="content"> <!--产品信息-->\n' +
                         '\n' +
                         '                                                        <div class="panel panel-default">\n' +
-                        '                                                            <div class="panel-heading">盘点单子单</div>\n' +
+                        '                                                            <div class="panel-heading">应收单子单</div>\n' +
                         '                                                            <div class="row data-type">\n' +
-                        '                        <input id="pdzhib_zid-' + i + '" type="hidden" name="zid" value="">\n' + /*主表id--》外键*/
-                        '                        <input id="pdzhib_id-' + i + '" type="hidden" name="id" value="">\n' + /*子表id*/
+                        '                        <input id="yszhib_zid-' + i + '" type="hidden" name="zid" value="">\n' + /*主表id--》外键*/
+                        '                        <input id="yszhib_id-' + i + '" type="hidden" name="xsysdzhibid" value="">\n' + /*子表id*/
                         '                        <div class="col-md-2 title">行号</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input id="pdzhib_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
+                        '                            <input id="yszhib_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
                         '                                   placeholder="行号" value="">\n' +
                         '                        </div>\n' +
-                        '                        <div class="col-md-2 title">存货编码</div>\n' +
+                        '                        <div class="col-md-2 title">数量</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input id="pdzhib_chbm-' + i + '" type="text" readonly="readonly"  class="form-control" name="chbm"\n' +
-                        '                                   placeholder="存货编码" value="">\n' +
+                        '                            <input id="yszhib_sl-' + i + '" type="text" readonly="readonly"  class="form-control" name="sl"\n' +
+                        '                                   placeholder="数量" value="">\n' +
                         '                        </div>\n' +
-                        '                        <div class="col-md-2 title">规格</div>\n' +
+                        '                        <div class="col-md-2 title">商品名称</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input id="pdzhib_gg-' + i + '" type="text" readonly="readonly"  class="form-control" name="gg"\n' +
-                        '                                   placeholder="规格" value="">\n' +
+                        '                            <input id="yszhib_spmc-' + i + '" type="text" readonly="readonly"  class="form-control" name="spmc"\n' +
+                        '                                   placeholder="商品名称" value="">\n' +
                         '                        </div>\n' +
-                        '                        <div class="col-md-2 title">型号</div>\n' +
+                        '                        <div class="col-md-2 title">商品编码</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input id="pdzhib_xh-' + i + '" type="text" class="form-control" name="xh"\n' +
-                        '                                   placeholder="型号" value="">\n' +
+                        '                            <input id="yszhib_spbm-' + i + '" type="text" class="form-control" name="spbm"\n' +
+                        '                                   placeholder="商品编码" value="">\n' +
                         '                        </div>\n' +
-                        '                        <div class="col-md-2 title">计量单位</div>\n' +
+                        '                        <div class="col-md-2 title">单位</div>\n' +
                         '                        <div class="col-md-2 data">\n' +
-                        '                            <input id="pdzhib_dw-' + i + '" type="text" class="form-control" name="dw"\n' +
-                        '                                   placeholder="计量单位" value="">\n' +
+                        '                            <input id="yszhib_dw-' + i + '" type="text" class="form-control" name="dw"\n' +
+                        '                                   placeholder="单位" value="">\n' +
                         '                        </div>\n' +
                         '                        <div class="col-md-2 title"></div>\n' +
-                        '                        <div class="col-md-2 title">批次</div>\n' +
+                        '                        <div class="col-md-2 title">含税金额</div>\n' +
                         '                        <div class="col-md-2 data">\n' +
-                        '                            <input id="pdzhib_pc-' + i + '" type="text" class="form-control" name="pc"\n' +
-                        '                                   placeholder="批次" value="">\n' +
+                        '                            <input id="yszhib_hsje-' + i + '" type="text" class="form-control" name="hsje"\n' +
+                        '                                   placeholder="含税金额" value="">\n' +
                         '                        </div>\n' +
                         '                        <div class="col-md-2 title"></div>\n' +
-                        '                        <div class="col-md-2 title">生产日期</div>\n' +
-                        '                        <div class="col-md-4 data">\n' +
-                        '                           <div class="input-group date">\n' +
-                        '                                 <div class="input-group-addon">\n' +
-                        '                                      <i class="fa fa-calendar"></i>\n' +
-                        '                                  </div>\n' +
-                        '                               <input  id="pdzhib_scrq-' + i + '" type="text"\n' +
-                        '                                   class="form-control pull-right dateTimePicker"\n' +
-                        '                                   name="scrq">\n' +
-                        '                            </div>\n' +
-                        '                         </div>\n' +
-                        '                        <div class="col-md-2 title">失效日期</div>\n' +
-                        '                        <div class="col-md-4 data">\n' +
-                        '                           <div class="input-group date">\n' +
-                        '                                 <div class="input-group-addon">\n' +
-                        '                                      <i class="fa fa-calendar"></i>\n' +
-                        '                                  </div>\n' +
-                        '                               <input  id="pdzhib_sxrq-' + i + '" type="text"\n' +
-                        '                                   class="form-control pull-right dateTimePicker"\n' +
-                        '                                   name="sxrq">\n' +
-                        '                            </div>\n' +
-                        '                         </div>\n' +
-                        '                        <div class="col-md-2 title">账面数量</div>\n' +
+                        '                        <div class="col-md-2 title">税额</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group">\n' +
-                        '                                <input id="pdzhib_zmsl-' + i + '" type="text" class="form-control" name="zmsl">\n' +
+                        '                                <input id="yszhib_se-' + i + '" type="text" placeholder="税额" class="form-control" name="se">\n' +
                         '                            </div>\n' +
                         '                        </div>\n' +
 
-                        '                        <div class="col-md-2 title">盘点数量</div>\n' +
+                        '                        <div class="col-md-2 title">无税金额</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group">\n' +
-                        '                                <input id="pdzhib_pdsl-' + i + '" type="text" class="form-control" name="pdsl">\n' +
+                        '                                <input id="yszhib_wsje-' + i + '" type="text" placeholder="无税金额" class="form-control" name="wsje">\n' +
                         '                            </div>\n' +
                         '                        </div>\n' +
 
-                        '                        <div class="col-md-2 title">差异数量</div>\n' +
+                        '                        <div class="col-md-2 title">来源单据号（发票号）</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group">\n' +
-                        '                                <input id="pdzhib_cysl-' + i + '" type="text" class="form-control" name="cysl">\n' +
+                        '                                <input id="yszhib_lydjh-' + i + '" type="text" placeholder="来源单据号" class="form-control" name="lydjh">\n' +
                         '                            </div>\n' +
                         '                        </div>\n' +
 
-                        '                        <div class="col-md-2 title">调整数量</div>\n' +
+                        '                        <div class="col-md-2 title">来源行号</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group">\n' +
 
-                        '                                <input id="pdzhib_tzsl-' + i + '" type="text" class="form-control" name="tzsl">\n' +
+                        '                                <input id="yszhib_lyhh-' + i + '" type="text" placeholder="来源行号" class="form-control" name="lyhh">\n' +
                         '                            </div>\n' +
                         '                        </div>\n' +
 
-                        '                        <div class="col-md-2 title">损失率</div>\n' +
+                        '                        <div class="col-md-2 title">源头单据号</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input id="pdzhib_sslv-' + i + '" type="text" class="form-control" name="sslv"\n' +
-                        '                                   placeholder="损失率" value="">\n' +
+                        '                            <input id="yszhib_ytdjh-' + i + '" type="text" class="form-control" name="ytdjh"\n' +
+                        '                                   placeholder="源头单据号" value="">\n' +
                         '                        </div>' +
-
+                        '                        <div class="col-md-2 title">源头行号</div>\n' +
+                        '                        <div class="col-md-4 data">\n' +
+                        '                            <input id="yszhib_ythh-' + i + '" type="text" class="form-control" name="ythh"\n' +
+                        '                                   placeholder="源头行号" value="">\n' +
+                        '                        </div>' +
+                        '                        <div class="col-md-2 title">单价</div>\n' +
+                        '                        <div class="col-md-4 data">\n' +
+                        '                            <input id="yszhib_dj-' + i + '" type="text" class="form-control" name="dj"\n' +
+                        '                                   placeholder="单价" value="">\n' +
+                        '                        </div>' +
+                        '                        <div class="col-md-2 title">累计应收数量</div>\n' +
+                        '                        <div class="col-md-4 data">\n' +
+                        '                            <input id="yszhib_ljyssl-' + i + '" type="text" readonly class="form-control" name="ljyssl"\n' +
+                        '                                   placeholder="累计应收数量" value="">\n' +
+                        '                        </div>' +
                         '                          <div class="col-md-2 title">修改人</div>\n' +
                         '                              <div class="col-md-4 data">\n' +
-                        '                                  <input  id="pdzhib_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
+                        '                                  <input  id="yszhib_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
                         '                                        placeholder="修改人" value="">\n' +
                         '                               </div>\n' +
                         '                        <div class="col-md-2 title">修改日期</div>\n' +
@@ -1391,7 +1426,7 @@
                         '                                 <div class="input-group-addon">\n' +
                         '                                      <i class="fa fa-calendar"></i>\n' +
                         '                                  </div>\n' +
-                        '                               <input  id="pdzhib_xgrq-' + i + '" type="text"\n' +
+                        '                               <input  id="yszhib_xgrq-' + i + '" type="text"\n' +
                         '                                   class="form-control pull-right dateTimePicker"\n' +
                         '                                   name="xgrq">\n' +
                         '                            </div>\n' +
@@ -1406,7 +1441,7 @@
                         '                                        </div>\n' +
                         '                                    </div>\n' +
                         '                                    <div class="modal-footer">\n' +
-                        '                                        <button zibId="' + pd_zibs[i].id + '" i="' + i + '" onclick="updateZibById(this)" type="button" class="btn btn-outline" data-dismiss="modal">修改</button>\n' +
+                        '                                        <button zibId="' + ys_zibs[i].xsysdzhibid + '" i="' + i + '" onclick="updateZibById(this)" type="button" class="btn btn-outline" data-dismiss="modal">修改</button>\n' +
                         '                                        <button type="button" class="btn btn-outline" data-dismiss="modal">取消</button>\n' +
                         '                                    </div>\n' +
                         '                                </div>\n' +
@@ -1416,7 +1451,7 @@
                         '                            <!-- /.modal-dialog -->\n' +
                         '                        </div>' +
                         <%--模拟窗口/--%>
-                        '<button zibId="' + pd_zibs[i].id + '" type="button" class="btn bg-olive btn-xs"\n' +
+                        '<button zibId="' + ys_zibs[i].xsysdzhibid + '" type="button" class="btn bg-olive btn-xs"\n' +
                         '    onclick="delete_zib(this)">\n' +
                         '    删除\n' +
                         '</button>\n' +
@@ -1424,8 +1459,8 @@
                         '</tr>';
                 }
                 $("#zib_tbody").html(html);
-                $("#zib_count").attr("count", pd_zibs.length);
-                $("#zib_count").html("共 " + pd_zibs.length + " 条记录");
+                $("#zib_count").attr("count", ys_zibs.length);
+                $("#zib_count").html("共 " + ys_zibs.length + " 条记录");
             },
             error: function () {
                 alert("查询失败！")
@@ -1436,38 +1471,36 @@
     /*8*/
     //功能：单击 子表中的 修改按钮，把该行的信息填充到模拟div中
     function zib_xg_btn(x) {
-        var pd_zib_id = $(x).attr("zibId");
+        var ys_zib_id = $(x).attr("zibId");
         $.ajax({
-            url: "${pageContext.request.contextPath}/pd/findZiById",
+            url: "${pageContext.request.contextPath}/ys/findZiById",
             type: "get",
-            data: {"id": pd_zib_id},
+            data: {"id": ys_zib_id},
             dataType: "json",
             async: false,
             success: function (data) {
-                var pd_zib = data;
+                var ys_zib = data;
                 //添加数据到模态框中
                 //1,获取点击了该修改按钮所在的行号i
                 var i = $(x).attr("i");
 
                     //2,给每一个按钮框添加值
-                $("#pdzhib_zid-" + i).attr("value", pd_zib.zid); /*主表d --》外键*/
-                $("#pdzhib_id-" + i).attr("value", pd_zib.id);/*子表id*/
-                $("#pdzhib_hh-" + i).attr("value", pd_zib.hh);
-                $("#pdzhib_chbm-" + i).attr("value", pd_zib.chbm);
-                $("#pdzhib_gg-" + i).attr("value", pd_zib.gg);
-                $("#pdzhib_xh-" + i).attr("value", pd_zib.xh);
-                $("#pdzhib_dw-" + i).attr("value", pd_zib.dw);
-                $("#pdzhib_pc-" + i).attr("value", pd_zib.pc);
-                $("#pdzhib_scrq-" + i).attr("value", FormatTime(pd_zib.scrq));
-                $("#pdzhib_sxrq-" + i).attr("value", FormatTime(pd_zib.sxrq));
-                $("#pdzhib_zmsl-" + i).attr("value", pd_zib.zmsl);
-                $("#pdzhib_pdsl-" + i).attr("value", pd_zib.pdsl);
-                $("#pdzhib_cysl-" + i).attr("value", pd_zib.cysl);
-                $("#pdzhib_tzsl-" + i).attr("value", pd_zib.tzsl);
-                $("#pdzhib_sslv-" + i).attr("value", pd_zib.sslv);
-
-
-
+                $("#yszhib_zid-" + i).attr("value", ys_zib.zid); /*主表d --》外键*/
+                $("#yszhib_id-" + i).attr("value", ys_zib.xsysdzhibid);/*子表id*/
+                $("#yszhib_hh-" + i).attr("value", ys_zib.hh);
+                $("#yszhib_sl-" + i).attr("value", ys_zib.sl);
+                $("#yszhib_spmc-" + i).attr("value", ys_zib.spmc);
+                $("#yszhib_spbm-" + i).attr("value", ys_zib.spbm);
+                $("#yszhib_dw-" + i).attr("value", ys_zib.dw);
+                $("#yszhib_hsje-" + i).attr("value", ys_zib.hsje);
+                $("#yszhib_se-" + i).attr("value", ys_zib.se);
+                $("#yszhib_wsje-" + i).attr("value", ys_zib.wsje);
+                $("#yszhib_lydjh-" + i).attr("value", ys_zib.lydjh);
+                $("#yszhib_lyhh-" + i).attr("value", ys_zib.lyhh);
+                $("#yszhib_ytdjh-" + i).attr("value", ys_zib.ytdjh);
+                $("#yszhib_ythh-" + i).attr("value", ys_zib.ythh);
+                $("#yszhib_dj-" + i).attr("value", ys_zib.dj);
+                $("#yszhib_ljyssl-" + i).attr("value", ys_zib.ljyssl);
 
 
 
@@ -1485,21 +1518,29 @@
         var i = $(x).attr("i");
         //表单数据
         var params = $("#zib_xg_form-" + i).serialize();
-        if($("#pdzhib_xgr-"+i).val() == ""||$("#pdzhib_xgrq-"+i).val() == ""){
+        if($("#yszhib_xgr-"+i).val() == ""||$("#yszhib_xgrq-"+i).val() == ""){
             alert("请输入修改人和修改日期")
         }else {
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/pd/UpdateZiB",
+                    url: "${pageContext.request.contextPath}/ys/UpdateZiB",
                     type: "post",
                     data: params,
                     dataType: "json",
                     // async: false,
                     success: function (data) {
-                        $("#zib_refresh_btn").trigger("click");
-                        if (data.msg == "更新成功"){
-                            alert("修改成功！");
-                        }else{
-                            alert(data.msg)
+
+                        var pageInfo = data;
+                        if (pageInfo.resFlag == "1") {//成功
+                            $("#zib_refresh_btn").trigger("click");
+                            alert("修改成功");
+
+                        } else {//失败
+                            var errors = pageInfo.msgList;
+                            var msg = "修改失败:\n";
+                            for (var i = 0; i < errors.length; i++) {
+                                msg += i + "、" + errors[i] + "\n";
+                            }
+                            alert(msg);
                         }
 
                     },
@@ -1518,9 +1559,9 @@
         if (confirm(msg) == true) {
             var zibId = $(x).attr("zibId");
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/DeleteZiB",
+                url: "${pageContext.request.contextPath}/ys/DeleteZiB",
                 type: "GET",
-                data: {"zibId": zibId},
+                data: {"id": zibId},
                 dataType: "text",
                 async: false,
                 success: function (data) {
@@ -1565,7 +1606,7 @@
                 }
             }
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/DeleteZiBs",
+                url: "${pageContext.request.contextPath}/ys/DeleteZiBs",
                 type: "GET",
                 data: {"ids": ids},
                 dataType: "text",
@@ -1597,7 +1638,7 @@
         var zhub_id = $("#zib_form").attr("zhub_id");
         if (zhub_id != -1) {
             $.ajax({
-                url: "${pageContext.request.contextPath}/pd/findZiByZid",
+                url: "${pageContext.request.contextPath}/ys/findZiByZid",
                 type: "GET",
                 data: {"zid": zhub_id},
                 dataType: "json",
@@ -1608,27 +1649,28 @@
                     //给子表form的zhub_id赋值
                     $("#zib_form").attr("zhub_id", zhub_id);
                     //添加内容
-                    pd_zibs = data;
+                    ys_zibs = data;
                     var html = '';
-                    for (var i = 0; i < pd_zibs.length; i++) {
-
+                    for (var i = 0; i < ys_zibs.length; i++) {
                         html += '<tr>\n' +
-                            '<td><input name="zib_ids" type="checkbox" value="' + pd_zibs[i].id + '"></td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].hh) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].chbm) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].xh) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].dw) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].gg) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].pc) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zibs[i].scrq) + '</td>\n' +
-                            '<td>' + FormatTime(pd_zibs[i].sxrq) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].zmsl) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].pdsl) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].cysl) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].tzsl) + '</td>\n' +
-                            '<td>' + NoNull(pd_zibs[i].sslv) + '</td>\n' +
+                            '<td><input name="zib_ids" type="checkbox" value="' + ys_zibs[i].xsysdzhibid + '"></td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].hh) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].sl) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].spmc) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].spbm) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].dw) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].hsje) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].se) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].wsje) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].lydjh) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].lyhh) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].ytdjh) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].ythh) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].dj) + '</td>\n' +
+                            '<td>' + NoNull(ys_zibs[i].ljyssl) + '</td>\n' +
+                            '<td>' + statusbe(ys_zibs[i].isysgb) + '</td>\n' +
                             '<td class="text-center">\n' +
-                            '<button id="zib_xg_btn" i="' + i + '" zibId="' + pd_zibs[i].id+ '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
+                            '<button id="zib_xg_btn" i="' + i + '" zibId="' + ys_zibs[i].xsysdzhibid+ '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '    >\n' +
                             '    修改\n' +
                             '</button>\n' +
@@ -1652,102 +1694,94 @@
                             '                                                    <section class="content"> <!--产品信息-->\n' +
                             '\n' +
                             '                                                        <div class="panel panel-default">\n' +
-                            '                                                            <div class="panel-heading">盘点单子单</div>\n' +
+                            '                                                            <div class="panel-heading">应收单子单</div>\n' +
                             '                                                            <div class="row data-type">\n' +
-                            '                        <input id="pdzhib_zid-' + i + '" type="hidden" name="zid" value="">\n' + /*主表id--》外键*/
-                            '                        <input id="pdzhib_id-' + i + '" type="hidden" name="id" value="">\n' + /*子表id*/
+                            '                        <input id="yszhib_zid-' + i + '" type="hidden" name="zid" value="">\n' + /*主表id--》外键*/
+                            '                        <input id="yszhib_id-' + i + '" type="hidden" name="xsysdzhibid" value="">\n' + /*子表id*/
                             '                        <div class="col-md-2 title">行号</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="pdzhib_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
+                            '                            <input id="yszhib_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
                             '                                   placeholder="行号" value="">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-md-2 title">存货编码</div>\n' +
+                            '                        <div class="col-md-2 title">数量</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="pdzhib_chbm-' + i + '" type="text" readonly="readonly"  class="form-control" name="chbm"\n' +
-                            '                                   placeholder="存货编码" value="">\n' +
+                            '                            <input id="yszhib_sl-' + i + '" type="text" readonly="readonly"  class="form-control" name="sl"\n' +
+                            '                                   placeholder="数量" value="">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-md-2 title">规格</div>\n' +
+                            '                        <div class="col-md-2 title">商品名称</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="pdzhib_gg-' + i + '" type="text" readonly="readonly"  class="form-control" name="gg"\n' +
-                            '                                   placeholder="规格" value="">\n' +
+                            '                            <input id="yszhib_spmc-' + i + '" type="text" readonly="readonly"  class="form-control" name="spmc"\n' +
+                            '                                   placeholder="商品名称" value="">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-md-2 title">型号</div>\n' +
+                            '                        <div class="col-md-2 title">商品编码</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="pdzhib_xh-' + i + '" type="text" class="form-control" name="xh"\n' +
-                            '                                   placeholder="型号" value="">\n' +
+                            '                            <input id="yszhib_spbm-' + i + '" type="text" class="form-control" name="spbm"\n' +
+                            '                                   placeholder="商品编码" value="">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-md-2 title">计量单位</div>\n' +
+                            '                        <div class="col-md-2 title">单位</div>\n' +
                             '                        <div class="col-md-2 data">\n' +
-                            '                            <input id="pdzhib_dw-' + i + '" type="text" class="form-control" name="dw"\n' +
-                            '                                   placeholder="计量单位" value="">\n' +
+                            '                            <input id="yszhib_dw-' + i + '" type="text" class="form-control" name="dw"\n' +
+                            '                                   placeholder="单位" value="">\n' +
                             '                        </div>\n' +
                             '                        <div class="col-md-2 title"></div>\n' +
-                            '                        <div class="col-md-2 title">批次</div>\n' +
+                            '                        <div class="col-md-2 title">含税金额</div>\n' +
                             '                        <div class="col-md-2 data">\n' +
-                            '                            <input id="pdzhib_pc-' + i + '" type="text" class="form-control" name="pc"\n' +
-                            '                                   placeholder="批次" value="">\n' +
+                            '                            <input id="yszhib_hsje-' + i + '" type="text" class="form-control" name="hsje"\n' +
+                            '                                   placeholder="含税金额" value="">\n' +
                             '                        </div>\n' +
                             '                        <div class="col-md-2 title"></div>\n' +
-                            '                        <div class="col-md-2 title">生产日期</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                           <div class="input-group date">\n' +
-                            '                                 <div class="input-group-addon">\n' +
-                            '                                      <i class="fa fa-calendar"></i>\n' +
-                            '                                  </div>\n' +
-                            '                               <input  id="pdzhib_scrq-' + i + '" type="text"\n' +
-                            '                                   class="form-control pull-right dateTimePicker"\n' +
-                            '                                   name="scrq">\n' +
-                            '                            </div>\n' +
-                            '                         </div>\n' +
-                            '                        <div class="col-md-2 title">失效日期</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                           <div class="input-group date">\n' +
-                            '                                 <div class="input-group-addon">\n' +
-                            '                                      <i class="fa fa-calendar"></i>\n' +
-                            '                                  </div>\n' +
-                            '                               <input  id="pdzhib_sxrq-' + i + '" type="text"\n' +
-                            '                                   class="form-control pull-right dateTimePicker"\n' +
-                            '                                   name="sxrq">\n' +
-                            '                            </div>\n' +
-                            '                         </div>\n' +
-                            '                        <div class="col-md-2 title">账面数量</div>\n' +
+                            '                        <div class="col-md-2 title">税额</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group">\n' +
-                            '                                <input id="pdzhib_zmsl-' + i + '" type="text" class="form-control" name="zmsl">\n' +
+                            '                                <input id="yszhib_se-' + i + '" type="text" placeholder="税额" class="form-control" name="se">\n' +
                             '                            </div>\n' +
                             '                        </div>\n' +
 
-                            '                        <div class="col-md-2 title">盘点数量</div>\n' +
+                            '                        <div class="col-md-2 title">无税金额</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group">\n' +
-                            '                                <input id="pdzhib_pdsl-' + i + '" type="text" class="form-control" name="pdsl">\n' +
+                            '                                <input id="yszhib_wsje-' + i + '" type="text" placeholder="无税金额" class="form-control" name="wsje">\n' +
                             '                            </div>\n' +
                             '                        </div>\n' +
 
-                            '                        <div class="col-md-2 title">差异数量</div>\n' +
+                            '                        <div class="col-md-2 title">来源单据号（发票号）</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group">\n' +
-                            '                                <input id="pdzhib_cysl-' + i + '" type="text" class="form-control" name="cysl">\n' +
+                            '                                <input id="yszhib_lydjh-' + i + '" type="text" placeholder="来源单据号" class="form-control" name="lydjh">\n' +
                             '                            </div>\n' +
                             '                        </div>\n' +
 
-                            '                        <div class="col-md-2 title">调整数量</div>\n' +
+                            '                        <div class="col-md-2 title">来源行号</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group">\n' +
 
-                            '                                <input id="pdzhib_tzsl-' + i + '" type="text" class="form-control" name="tzsl">\n' +
+                            '                                <input id="yszhib_lyhh-' + i + '" type="text" placeholder="来源行号" class="form-control" name="lyhh">\n' +
                             '                            </div>\n' +
                             '                        </div>\n' +
 
-                            '                        <div class="col-md-2 title">损失率</div>\n' +
+                            '                        <div class="col-md-2 title">源头单据号</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="pdzhib_sslv-' + i + '" type="text" class="form-control" name="sslv"\n' +
-                            '                                   placeholder="损失率" value="">\n' +
+                            '                            <input id="yszhib_ytdjh-' + i + '" type="text" class="form-control" name="ytdjh"\n' +
+                            '                                   placeholder="源头单据号" value="">\n' +
                             '                        </div>' +
-
+                            '                        <div class="col-md-2 title">源头行号</div>\n' +
+                            '                        <div class="col-md-4 data">\n' +
+                            '                            <input id="yszhib_ythh-' + i + '" type="text" class="form-control" name="ythh"\n' +
+                            '                                   placeholder="源头行号" value="">\n' +
+                            '                        </div>' +
+                            '                        <div class="col-md-2 title">单价</div>\n' +
+                            '                        <div class="col-md-4 data">\n' +
+                            '                            <input id="yszhib_dj-' + i + '" type="text" class="form-control" name="dj"\n' +
+                            '                                   placeholder="单价" value="">\n' +
+                            '                        </div>' +
+                            '                        <div class="col-md-2 title">累计应收数量</div>\n' +
+                            '                        <div class="col-md-4 data">\n' +
+                            '                            <input id="yszhib_ljyssl-' + i + '" type="text" readonly class="form-control" name="ljyssl"\n' +
+                            '                                   placeholder="累计应收数量" value="">\n' +
+                            '                        </div>' +
                             '                          <div class="col-md-2 title">修改人</div>\n' +
                             '                              <div class="col-md-4 data">\n' +
-                            '                                  <input  id="pdzhib_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
+                            '                                  <input  id="yszhib_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
                             '                                        placeholder="修改人" value="">\n' +
                             '                               </div>\n' +
                             '                        <div class="col-md-2 title">修改日期</div>\n' +
@@ -1756,7 +1790,7 @@
                             '                                 <div class="input-group-addon">\n' +
                             '                                      <i class="fa fa-calendar"></i>\n' +
                             '                                  </div>\n' +
-                            '                               <input  id="pdzhib_xgrq-' + i + '" type="text"\n' +
+                            '                               <input  id="yszhib_xgrq-' + i + '" type="text"\n' +
                             '                                   class="form-control pull-right dateTimePicker"\n' +
                             '                                   name="xgrq">\n' +
                             '                            </div>\n' +
@@ -1771,7 +1805,7 @@
                             '                                        </div>\n' +
                             '                                    </div>\n' +
                             '                                    <div class="modal-footer">\n' +
-                            '                                        <button zibId="' + pd_zibs[i].id + '" i="' + i + '" onclick="updateZibById(this)" type="button" class="btn btn-outline" data-dismiss="modal">修改</button>\n' +
+                            '                                        <button zibId="' + ys_zibs[i].xsysdzhibid + '" i="' + i + '" onclick="updateZibById(this)" type="button" class="btn btn-outline" data-dismiss="modal">修改</button>\n' +
                             '                                        <button type="button" class="btn btn-outline" data-dismiss="modal">取消</button>\n' +
                             '                                    </div>\n' +
                             '                                </div>\n' +
@@ -1781,7 +1815,7 @@
                             '                            <!-- /.modal-dialog -->\n' +
                             '                        </div>' +
                             <%--模拟窗口/--%>
-                            '<button zibId="' + pd_zibs[i].id + '" type="button" class="btn bg-olive btn-xs"\n' +
+                            '<button zibId="' + ys_zibs[i].xsysdzhibid + '" type="button" class="btn bg-olive btn-xs"\n' +
                             '    onclick="delete_zib(this)">\n' +
                             '    删除\n' +
                             '</button>\n' +
@@ -1789,8 +1823,8 @@
                             '</tr>';
                     }
                     $("#zib_tbody").html(html);
-                    $("#zib_count").attr("count", pd_zibs.length);
-                    $("#zib_count").html("共 " + pd_zibs.length + " 条记录");
+                    $("#zib_count").attr("count", ys_zibs.length);
+                    $("#zib_count").html("共 " + ys_zibs.length + " 条记录");
                 },
                 error: function () {
                     alert("查询失败！")

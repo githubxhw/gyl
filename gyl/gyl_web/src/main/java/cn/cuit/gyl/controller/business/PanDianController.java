@@ -174,12 +174,21 @@ public class PanDianController {
     }
 
     @RequestMapping("/PanD")
-    public @ResponseBody void PanD(PanDianZi panDianZi, String pdr, Date sprq)throws Exception{
-        panDianService.PanD(panDianZi, pdr, sprq);
+    public @ResponseBody void PanD(PanDianZi panDianZi, String pdr, Date pdrq)throws Exception{
+        panDianService.PanD(panDianZi, pdr, pdrq);
     }
 
     @RequestMapping("/TiaoZ")
-    public @ResponseBody void TiaoZ(PanDianZi panDianZi, String tzr, Date tzrq)throws Exception{
-        panDianService.TiaoZ(panDianZi, tzr, tzrq);
+    public @ResponseBody
+    Information TiaoZ(PanDianZi panDianZi, String tzr, Date tzrq)throws Exception{
+        Information a = new Information();
+        try {
+            panDianService.TiaoZ(panDianZi, tzr, tzrq);
+            a.setMsg("调整成功");
+            return a;
+        }catch (MyException e){
+            a.setMsg(e.getMsg());
+            return a;
+        }
     }
 }

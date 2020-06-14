@@ -219,7 +219,6 @@
                             <div class="col-md-4 data">
                                 <select class="form-control" name="spsftg">
                                     <option selected="selected" value="-1">全部</option>
-
                                 </select>
                             </div>
                             <%--5--%>
@@ -1318,7 +1317,7 @@
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">冻结状态</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <select class="form-control" name="isth" >\n' +
+                            '                                                                    <select class="form-control" name="djzt" >\n' +
                             '                                                                        <option id="cgddzhub_djzt_option1-' + i + '" value="0">否</option>\n' +
                             '                                                                    </select>\n' +
                             '                                                                </div>\n' +

@@ -42,7 +42,7 @@ public interface IXsfhd_zibDao {
 
     //根据 源头单据号 和 源头行号 查询所有的子表
     @Select("select * from xsfhd_zib where ytdjh=#{ytdjh} and ythh=#{ythh}")
-    List<Xsfhd_zib> findByYtdjhAndYthh(@Param("ytdjh") String ytdjh,@Param("ythh") Integer ythh) throws Exception;
+    List<Xsfhd_zib> findByYtdjhAndYthh(@Param("ytdjh") String ytdjh, @Param("ythh") Integer ythh) throws Exception;
 
     //根据id删除信息
     @Delete("delete from xsfhd_zib where xsfhd_zib_id=#{xsfhd_zib_id}")
@@ -54,8 +54,8 @@ public interface IXsfhd_zibDao {
 
     //根据主表id和行号hh查询一条信息
     @Select("select * from xsfhd_zib where xsfhd_zhub_id=#{xsfhd_zhub_id} and hh=#{hh}")
-    Xsfhd_zib findByZhubIdAndHh(@Param("xsfhd_zhub_id") Integer xsfhd_zhub_id,@Param("hh") Integer hh) throws Exception;
+    Xsfhd_zib findByZhubIdAndHh(@Param("xsfhd_zhub_id") Integer xsfhd_zhub_id, @Param("hh") Integer hh) throws Exception;
 
     @Select("select * from xsfhd_zib where lydjh=#{lydjh} and lyhh=#{lyhh}")
-    List<Xsfhd_zib> findByLydjhAndLyhh(@Param("lydjh") String lydjh,@Param("lyhh") Integer lyhh) throws Exception;
+    List<Xsfhd_zib> findByLydjhAndLyhh(@Param("lydjh") String lydjh, @Param("lyhh") Integer lyhh) throws Exception;
 }

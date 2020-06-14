@@ -7,7 +7,7 @@ import java.util.List;
 public interface IUserService {
 
     //查询所有用户UserInfo
-    List<UserInfo> findAll(Integer pageNum,Integer pageSize) throws Exception;
+    List<UserInfo> findAll(Integer pageNum, Integer pageSize) throws Exception;
 
     //添加一个用户
     void save(UserInfo userInfo) throws Exception;

@@ -13,7 +13,6 @@ import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.PanDianService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
 import cn.cuit.gyl.utils.StringConverterUtils;
-import cn.cuit.gyl.utils.StringToIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -274,6 +273,11 @@ public class PanDianServiceImpl implements PanDianService {
             }else {
                 byStoreIdAndpNum.setStockNumber(panDianZi.getZmsl()+panDianZi.getTzsl());
             }//修改系统的数量
+
+            if (!byStoreIdAndpNum.getStockNumber().equals(panDianZi.getPdsl())){
+                System.out.println(byStoreIdAndpNum.getStockNumber()+"-----"+panDianZi.getPdsl());
+                throw new MyException("调整后的数量与盘点数量不相等");
+            }
             iStoreDao.updateStockNumberByStoreIdAndPnum(byStoreIdAndpNum);
             System.out.println("Number"+byStoreIdAndpNum.getStockNumber());
             panDianZi.setZmsl(byStoreIdAndpNum.getStockNumber());//修改账面数量
