@@ -107,7 +107,7 @@
             <section class="content"> <!--产品信息-->
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">查询(未审批)</div>
+                    <div class="panel-heading">修订</div>
                     <div class="row data-type">
                         <%--1--%>
                             <div class="col-md-2 title">公司</div>
@@ -709,7 +709,7 @@
                             '                                                    <section class="content"> <!--产品信息-->\n' +
                             '\n' +
                             '                                                        <div class="panel panel-default">\n' +
-                            '                                                            <div class="panel-heading">修改销售订单主单</div>\n' +
+                            '                                                            <div class="panel-heading">修改采购发票主表</div>\n' +
                             '                                                            <div class="row data-type">\n' +
                             '\n' +                                                           /* 此处是 标记一个主表的id属性，方便根据id更新主表zhub*/
                             '                                                                <input id="zhub_xg_cgfp_zhub_id-' + i + '" type="hidden" name="cgfp_zhub_id" value="">\n' +
@@ -728,7 +728,7 @@
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">单据状态</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="zhub_xg_djzt-' + i + '" readonly="readonly" type="text"\n' +
+                            '                                                                    <input id="zhub_xg_djzt-' + i + '" type="text"\n' +
                             '                                                                           class="form-control" name="djzt"\n' +
                             '                                                                           placeholder="单据状态" value="">\n' +
                             '                                                                </div>\n' +
@@ -765,7 +765,7 @@
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">发票类型</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="zhub_xg_fplx-' + i + '" readonly="readonly" type="text" class="form-control" name="fplx"\n' +
+                            '                                                                    <input id="zhub_xg_fplx-' + i + '" type="text" class="form-control" name="fplx"\n' +
                             '                                                                           placeholder="发票类型" value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">业务员</div>\n' +
@@ -930,17 +930,15 @@
         //获取点击了该修改按钮所在的行号i
         var i = $(x).attr("i");
         //alert(i);
-        //一定要移除disabled属性 ???????
         $("#zhub_xg_select_isycyf-" + i).removeAttr("disabled");
         //表单数据
-        var params = $("#zhub_xg_form-" + i).serialize();
-        // console.log(params);
+            var params = $("#zhub_xg_form-" + i).serialize();
+        console.log(params);
         $.ajax({
             url: "${pageContext.request.contextPath}/cgfp/updateCgfp_zhubById",
             type: "post",
             data: params,
             dataType: "text",
-            // async: false,
             success: function () {
                 $("#query").trigger("click");
                 alert("修改成功，请重新查询！");
@@ -1056,7 +1054,6 @@
                 $("#zib_tbody").innerHTML = '';
                 //给子表form的zhub_id赋值
                 $("#zib_form").attr("zhub_id", cgfp_zhub_id);
-                /*单据号：<input id="djh"...*/
                 $("#gs").attr("value", gs);
                 //添加内容
                 cgfp_zibs = data;
@@ -1107,7 +1104,7 @@
                         '                                                    <section class="content"> <!--产品信息-->\n' +
                         '\n' +
                         '                                                        <div class="panel panel-default">\n' +
-                        '                                                            <div class="panel-heading">销售订单子单</div>\n' +
+                        '                                                            <div class="panel-heading">采购发票子表</div>\n' +
                         '                                                            <div class="row data-type">\n' +
                         '                        <input id="zib_xg_cgfp_zhub_id-' + i + '" type="hidden" name="cgfp_zhub_id" value="">\n' + /*主表id--》外键*/
                         '                        <input id="zib_xg_cgfp_zib_id-' + i + '" type="hidden" name="cgfp_zib_id" value="">\n' + /*子表id*/
@@ -1136,11 +1133,11 @@
                         '                            <input id="zib_xg_xh-' + i + '" type="text" readonly="readonly" class="form-control" name="xh"\n' +
                         '                                   placeholder="型号" value="">\n' +
                         '                        </div>\n' +
-                        '                        <div class="col-md-2 title">无税金额</div>\n' +
+                        '                        <div class="col-md-2 title">无税单价</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group">\n' +
                         '                                <span class="input-group-addon">¥</span>\n' +
-                        '                                <input id="zib_xg_wsje-' + i + '" type="text" readonly="readonly" class="form-control" name="wsje">\n' +
+                        '                                <input id="zib_xg_wsdj-' + i + '" type="text" readonly="readonly" class="form-control" name="wsdj">\n' +
                         '                                <span class="input-group-addon">元</span>\n' +
                         '                            </div>\n' +
                         '                        </div>\n' +
@@ -1306,6 +1303,7 @@
         var i = $(x).attr("i");
         //表单数据
         var params = $("#zib_xg_form-" + i).serialize();
+        console.log(params);
         $.ajax({
             url: "${pageContext.request.contextPath}/cgfp/updateCgfp_zibById",
             type: "post",
@@ -1420,7 +1418,7 @@
                     //添加内容
                     cgfp_zibs = data;
                     var html = '';
-                    for (var i = 0; i < xsdd_zibs.length; i++) {
+                    for (var i = 0; i < cgfp_zibs.length; i++) {
                         html += '<tr>\n' +
                             '<td><input name="zib_ids" type="checkbox" value="' + cgfp_zibs[i].cgfp_zib_id + '"></td>\n' +
                             '<td>' + cgfp_zibs[i].hh + '</td>\n' +
@@ -1460,13 +1458,13 @@
                             '                                    <div class="modal-body">\n' +
                             '                                        <div class="box-body">\n' +
                             '                                            <div class="form-horizontal">\n' +
-                            '                                                <%--主表修改--%>\n' +
+                            '                                                <%--子表修改--%>\n' +
                             '                                                <form id="zib_xg_form-' + i + '" method="post">\n' +
                             '                                                    <!-- 正文区域 -->\n' +
                             '                                                    <section class="content"> <!--产品信息-->\n' +
                             '\n' +
                             '                                                        <div class="panel panel-default">\n' +
-                            '                                                            <div class="panel-heading">销售订单子单</div>\n' +
+                            '                                                            <div class="panel-heading">采购发票子单</div>\n' +
                             '                                                            <div class="row data-type">\n' +
                             '                        <input id="zib_xg_cgfp_zhub_id-' + i + '" type="hidden" name="cgfp_zhub_id" value="">\n' + /*主表id--》外键*/
                             '                        <input id="zib_xg_cgfp_zib_id-' + i + '" type="hidden" name="cgfp_zib_id" value="">\n' + /*子表id*/
@@ -1495,11 +1493,11 @@
                             '                            <input id="zib_xg_xh-' + i + '" type="text" readonly="readonly" class="form-control" name="xh"\n' +
                             '                                   placeholder="型号" value="">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-md-2 title">无税金额</div>\n' +
+                            '                        <div class="col-md-2 title">无税单价</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group">\n' +
                             '                                <span class="input-group-addon">¥</span>\n' +
-                            '                                <input id="zib_xg_wsje-' + i + '" type="text" readonly="readonly" class="form-control" name="wsje">\n' +
+                            '                                <input id="zib_xg_wsje-' + i + '" type="text" readonly="readonly" class="form-control" name="wsdj">\n' +
                             '                                <span class="input-group-addon">元</span>\n' +
                             '                            </div>\n' +
                             '                        </div>\n' +
