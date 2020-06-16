@@ -12,7 +12,6 @@ import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.CgygdService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
 import cn.cuit.gyl.utils.StringConverterUtils;
-import cn.cuit.gyl.utils.StringToIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -56,11 +55,14 @@ public class CgYgdServiceImpl implements CgygdService {
 
     @Override
     public void SaveCgYgZhuAndZiD(Cgygdzhub a) throws Exception {
+        DomainAttrValueConverterUtils<Cgygdzhub> handler = new DomainAttrValueConverterUtils<>(a);
+        a = handler.handler(null,"issp","spsftg","status");
         cgygDao.SaveCgYgd(a);
         List<Cgygdzhib> cgqgdzhibs = a.getCgqgdzhibs();
+        Cgygdzhub byDjh = cgygDao.findByDjh(a.getDjh());
         if (cgqgdzhibs!=null){
             for (Cgygdzhib x:cgqgdzhibs){
-                x.setZid(a.getCgqgdzhubid());
+                x.setZid(byDjh.getCgqgdzhubid());
                 cgygzibDao.addCgYgdZib(x);
             }
         }

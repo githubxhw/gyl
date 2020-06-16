@@ -587,20 +587,19 @@
                                 k="";
                             }
                         }
-                        if (xsdd_zhubs[i].spsftg == 0){
+                        if (xsdd_zhubs[i].spsftg === 0){
                             q = "否";
                         }else{
-                            if (xsdd_zhubs[i].spsftg==1){
+                            if (xsdd_zhubs[i].spsftg === 1){
                                 q="是";
-                            }
-                            else {
+                            } else {
                                 q="";
                             }
                         }
-                        if (xsdd_zhubs[i].issp == 0){
+                        if (xsdd_zhubs[i].issp === 0){
                             w = "否";
                         }else{
-                            if (xsdd_zhubs[i].issp==1){
+                            if (xsdd_zhubs[i].issp===1){
                                 w="是";
                             }
                             else {
@@ -614,8 +613,6 @@
                             '<td>' + xsdd_zhubs[i].qggys + '</td>\n' +
                             '<td>' + xsdd_zhubs[i].cgbm + '</td>\n' +
                             '<td>' + xsdd_zhubs[i].cgr + '</td>\n' +
-
-
                             '<td>'+a+'</td>\n' +
                             '<td>' + k+ '</td>\n' +
                             '<td>' + xsdd_zhubs[i].bz + '</td>\n' +
@@ -623,7 +620,7 @@
                             '<td>' + NoNull(xsdd_zhubs[i].spr) + '</td>\n' +
                             '<td>' + sprq + '</td>\n' +
                             '<td>' + w+ '</td>\n' +
-                            '<td>' + q + '</td>\n' +
+                            '<td>' +q+ '</td>\n' +
                             '<td>' + NoNull(xsdd_zhubs[i].zdr) + '</td>\n' +
                             '<td>' + zdrq + '</td>\n' +
                             '<td>' + NoNull(xsdd_zhubs[i].xgr) + '</td>\n' +

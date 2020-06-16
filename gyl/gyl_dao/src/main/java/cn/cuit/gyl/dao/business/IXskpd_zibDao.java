@@ -45,5 +45,5 @@ public interface IXskpd_zibDao {
     void deleteById(Integer xskpd_zib_id) throws Exception;
 
     @Select("select * from xskpd_zib where lydjh=#{lydjh} and lyhh=#{lyhh}")
-    List<Xskpd_zib> findByLydjhAndLyhh(@Param("lydjh") String lydjh,@Param("lyhh") Integer lyhh) throws Exception;
+    List<Xskpd_zib> findByLydjhAndLyhh(@Param("lydjh") String lydjh, @Param("lyhh") Integer lyhh) throws Exception;
 }

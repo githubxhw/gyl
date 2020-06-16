@@ -1,7 +1,6 @@
 package cn.cuit.gyl.dao.business;
 
 
-import cn.cuit.gyl.domain.business.Cgddzhub;
 import cn.cuit.gyl.domain.business.Cgygdzhub;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.mapping.FetchType;

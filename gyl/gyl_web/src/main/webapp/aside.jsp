@@ -72,13 +72,13 @@
                     </security:authorize>
 
                     <security:authorize access="hasRole('ROLE_SUPPLIER_QUERY')">
-                        <li><a href="${pageContext.request.contextPath}/#"><i
+                        <li><a href="${pageContext.request.contextPath}/gys/findByPage?currentPage=1"><i
                                 class="fa fa-circle-o"></i> 供应商
                         </a></li>
                     </security:authorize>
 
                     <security:authorize access="hasRole('ROLE_CUSTOMER_QUERY')">
-                        <li><a href="${pageContext.request.contextPath}/#"><i
+                        <li><a href="${pageContext.request.contextPath}/kh/findByPage?currentPage=1"><i
                                 class="fa fa-circle-o"></i> 客户
                         </a></li>
                     </security:authorize>
@@ -117,8 +117,23 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgygd-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/cgyg/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制单
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgygd-update.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgygd-sp.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 审批
                                         </a>
                                     </li>
                                 </ul>
@@ -134,29 +149,90 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdd-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/cgdd/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制单
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdd-update.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdd-sp.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 审批
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdd-dj.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 冻结和解冻
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-                            <%--采购管理子项：采购入库管理--%>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-plus"></i>
-                                    <span>采购入库管理</span>
-                                    <span class="pull-right-container">
+                                <%--采购管理子项：到货单管理--%>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-plus"></i>
+                                        <span>采购到货单管理</span>
+                                        <span class="pull-right-container">
                         				<i class="fa fa-angle-left pull-right"></i>
                    				 	</span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-query.jsp">
+                                                <i class="fa fa-circle-o"></i> 查询
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/cgdhd/getDdhToAddUI">
+                                                <i class="fa fa-circle-o"></i> 制单
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-update.jsp">
+                                                <i class="fa fa-circle-o"></i> 修订
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-sp.jsp">
+                                                <i class="fa fa-circle-o"></i> 审批
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-sure.jsp">
+                                                <i class="fa fa-circle-o"></i> 确认到货
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <%--采购管理子项：采购入库管理--%>
+                                <li class="treeview">
+                                    <a href="#">
+                                        <i class="fa fa-plus"></i>
+                                        <span>采购入库管理</span>
+                                        <span class="pull-right-container">
+                        				<i class="fa fa-angle-left pull-right"></i>
+                   				 	</span>
+                                    </a>
+                                    <ul class="treeview-menu">
+                                        <li>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-query.jsp" <%--href="all-form-general.html"--%>>
+                                                <i class="fa fa-circle-o"></i> 查询
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/cgrkd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
+                                                <i class="fa fa-circle-o"></i> 制单
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-update.jsp" <%--href="all-form-general.html"--%>>
+                                                <i class="fa fa-circle-o"></i> 修订
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-sp.jsp" <%--href="all-form-general.html"--%>>
+                                                <i class="fa fa-circle-o"></i> 审批
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-sure.jsp" <%--href="all-form-general.html"--%>>
+                                                <i class="fa fa-circle-o"></i> 确认出库
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                             <%--采购管理子项：采购发票管理--%>
                             <li class="treeview">
                                 <a href="#">
@@ -168,8 +244,14 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgfp-query.jsp">
+                                                    <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgfp-update.jsp">
+                                                    <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                        <a href="${pageContext.request.contextPath}/cgfp/getFphToAddUI">
+                                                    <i class="fa fa-circle-o"></i> 制单
                                         </a>
                                     </li>
                                 </ul>
@@ -227,8 +309,33 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pd/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制表
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-sp.jsp">
+                                            <i class="fa fa-circle-o"></i>  审批
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-update.jsp">
+                                            <i class="fa fa-circle-o"></i>  修订
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-pd.jsp">
+                                            <i class="fa fa-circle-o"></i>  盘点
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/pandian-tz.jsp">
+                                            <i class="fa fa-circle-o"></i>  调整
                                         </a>
                                     </li>
                                 </ul>
@@ -530,8 +637,29 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/xsys-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/ys/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制表
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/xsys-sh.jsp">
+                                            <i class="fa fa-circle-o"></i> 审核
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/xsys-update.jsp">
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/xsys-qz.jsp">
+                                            <i class="fa fa-circle-o"></i> 签字
                                         </a>
                                     </li>
                                 </ul>
@@ -550,7 +678,7 @@
                         </a>
                         <ul class="treeview-menu">
                             <li>
-                                <a href="all-form-general.html">
+                                <a href="${pageContext.request.contextPath}/earlyWarning_Cgrk/findEWCgByPage">
                                     <i class="fa fa-circle-o"></i> 采购入库预警
                                 </a>
                             </li>

@@ -69,5 +69,5 @@ public interface IXsdd_zibDao {
 
     //根据主表id和子表行号查询信息
     @Select("select * from xsdd_zib where xsdd_zhub_id=#{xsdd_zhub_id} and hh=#{hh}")
-    Xsdd_zib findByZhubIdAndHh(@Param("xsdd_zhub_id") Integer xsdd_zhub_id,@Param("hh") Integer hh) throws Exception;
+    Xsdd_zib findByZhubIdAndHh(@Param("xsdd_zhub_id") Integer xsdd_zhub_id, @Param("hh") Integer hh) throws Exception;
 }

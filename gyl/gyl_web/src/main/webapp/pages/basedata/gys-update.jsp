@@ -430,7 +430,7 @@
             $.ajax({
                 url: "${pageContext.request.contextPath}/gys/FindZjmU",
                 type: "POST",
-                data: {"name":name,"id":id},
+                data: {"zjm":name,"id":id},
                 dataType: "json",
                 async: false,
                 success: function (data) {

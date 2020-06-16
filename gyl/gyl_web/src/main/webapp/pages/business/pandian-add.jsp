@@ -1,4 +1,4 @@
-<%--
+ <%--
   Created by IntelliJ IDEA.
   User: XHW
   Date: 2020/2/17
@@ -135,7 +135,7 @@
                             <div class="col-md-2 title">库存员</div>
                             <div class="col-md-4 data">
                                 <input type="text" class="form-control" name="kcy"
-                                       placeholder="库存元" value="">
+                                       placeholder="库存员" value="">
                             </div>
 
                             <div class="col-md-2 title">部门</div>

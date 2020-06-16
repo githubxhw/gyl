@@ -388,6 +388,7 @@
                                                                     <input type="text" class="form-control" name="gg"
                                                                            placeholder="规格" value="">
                                                                 </div>
+                                                                <div class="col-md-2 title"></div>
                                                                 <div class="col-md-2 title">生产日期</div>
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group date">
@@ -790,7 +791,7 @@
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">库存员</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="pb_cky-' + i + '" type="text" class="form-control" name="cky"\n' +
+                            '                                                                    <input id="pb_kcy-' + i + '" type="text" class="form-control" name="kcy"\n' +
                             '                                                                           placeholder="库存员" value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">部门</div>\n' +
@@ -1519,7 +1520,7 @@
             $.ajax({
                 url: "${pageContext.request.contextPath}/pd/DeleteZiB",
                 type: "GET",
-                data: {"id": zibId},
+                data: {"zibId": zibId},
                 dataType: "text",
                 async: false,
                 success: function (data) {

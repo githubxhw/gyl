@@ -1,12 +1,10 @@
 package cn.cuit.gyl.domain.business;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * 采购订单主表
@@ -32,7 +30,7 @@ public class Cgddzhub implements Serializable{
 	private String spr;//审批人
 	private Date sprq;//审批日期
 	private Integer issp;//审批是否通过
-	private Integer spsftg = 0; //审批是否通过 1代表通过 0代表未通过
+	private Integer spsftg; //审批是否通过 1代表通过 0代表未通过
 	private String zdr;//制单人
 	private Date zdrq;//制单日期
 	private String xgr;//修改人

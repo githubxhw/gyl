@@ -1,6 +1,5 @@
 package cn.cuit.gyl.service.database;
 
-import cn.cuit.gyl.domain.database.gys;
 import cn.cuit.gyl.domain.database.kh;
 import cn.cuit.gyl.domain.database.pages.PageBean;
 

@@ -249,6 +249,7 @@
                     <th class="text-center sorting" style="width: 150px">制单日期</th>
                     <th class="text-center sorting" style="width: 150px">制单人</th>
                     <th class="text-center sorting" style="width: 150px">审批人</th>
+                    <th class="text-center sorting" style="width: 150px">审批日期</th>
                     <th class="text-center sorting" style="width: 150px">修改人</th>
                     <th class="text-center sorting" style="width: 150px">修改日期</th>
                     <th class="text-center sorting" style="width: 150px">调整人</th>
@@ -820,11 +821,11 @@
                         url: "${pageContext.request.contextPath}/pd/TiaoZ",
                         type: "post",
                         data: params,
-                        dataType: "text",
+                        dataType: "json",
                         // async: false,
                         success: function (data) {
                             $("#zib_refresh_btn").trigger("click");
-                            alert("调整成功！");
+                            alert(data.msg);
 
 
                         },
@@ -870,7 +871,6 @@
                 $("#pdzhib_zmsl-" + i).attr("value", pd_zib.zmsl);
                 $("#pdzhib_pdsl-" + i).attr("value", pd_zib.pdsl);
                 $("#pdzhib_cysl-" + i).attr("value", pd_zib.cysl);
-                $("#pdzhib_tzsl-" + i).attr("value", pd_zib.tzsl);
                 $("#pdzhib_sslv-" + i).attr("value", pd_zib.sslv);
 
             },

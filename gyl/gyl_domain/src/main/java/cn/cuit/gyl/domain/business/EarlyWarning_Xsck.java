@@ -15,7 +15,7 @@ public class EarlyWarning_Xsck {
     private Date yqfhrq;//要求发货日期
     private String yqfhrqStr;
     private Integer checkDays;//预警的天数：在要求发货日期的前checkDays内开始预警
-    private Integer invalidDays;//预警失效天数：意思是如果要求发货日期到仍然没有发货，那么依然需要预警（即status状态为1），连续预警invalidDays后就不在预警了（即修改staus为0）；\r\n说明，没有值情况下默认一直预警。
+    private Integer invalidDays;//预警失效天数：意思是如果要求发货日期到仍然没有发货，那么依然需要预警（即status状态为1），连续预警invalidDays后就不在预警了（即修改staus为0）；\r\n说明，没有值情况下默认不预警。
     private Integer status;//预警状态 是否需要预警 1是 0否
 
     @Override

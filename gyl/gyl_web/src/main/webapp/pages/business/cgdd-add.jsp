@@ -213,8 +213,9 @@
                         </div>
                         <div class="col-md-2 title">冻结状态</div>
                         <div class="col-md-4 data">
-                             <input type="text" class="form-control" name="djzt" readonly="readonly"
-                                       placeholder="冻结状态" value="">
+                            <select class="form-control" name="djzt">
+                                <option value="0">否</option>
+                            </select>
                         </div>
                         <%--9--%>
 
@@ -692,7 +693,7 @@
                                                             '<i class="fa fa-calendar"></i>'+
                                                         '</div>'+
                                                         '<input readonly="readonly" type="text" class="form-control pull-right"\n'+
-                                                        'name="cgddzhibs[' + nowCount + ']gbrq">'+
+                                                        'name="cgddzhibs[' + nowCount + '].gbrq">'+
                                                  '</div></td>\n' +
                 '<td>                            <input id="gg-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgddzhibs[' + nowCount + '].gg"\n' +
                 '                                   placeholder="规格" value=""></td>\n' +

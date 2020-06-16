@@ -57,7 +57,7 @@ public class CgddController {
     @RequestMapping("/saveZhubAndZib")
     public  @ResponseBody
     Information saveZhubAndZib(Cgddzhub cgdd_zhub) throws Exception{
-        System.out.println("传入的==="+cgdd_zhub);
+        System.out.println("传入的===Save"+cgdd_zhub);
         Information message = new Information();
         try {
 
@@ -74,6 +74,7 @@ public class CgddController {
     @RequestMapping("/findByAllAndSfspIsZero")
     @ResponseBody
     public List<Cgddzhub> findByAllAndSfspIsZero(Cgddzhub cgddzhub) throws Exception{
+
         List<Cgddzhub> cgddzhubs = cgddService.findByAllAndSfspIsZero(cgddzhub);
         return cgddzhubs;
     }

@@ -34,12 +34,12 @@ public class Cgddzhib implements Serializable{
 	private String shck; //到货仓库
 	private String fhdw; //发货单位
 	private Date jhfhrq; //计划发货日期
-	private Date yqshrq; //要求收货日期
+	private Date yqshrq; //要求到货日期
 	private Long yfwrksl = 0L; //应发未入库数量
 	private Long ljdhsl = 0L; //累计到货数量
 	private Long ljrksl = 0L; //累计入库数量
 	private Long ljkpsl = 0L; //累计开票数量
-	private Long ljyssl = 0L; //累计应收数量
+	private Long ljyssl = 0L; //累计应付数量
 	private Integer sfdhgb = 0; //是否到货结束 关闭 0没有关闭 1关闭
 	private Integer sfrkgb = 0; //是否入库结束 关闭 0没有关闭 1关闭
 	private Integer sfkpgb = 0; //是否开票结束 关闭 0没有关闭 1关闭

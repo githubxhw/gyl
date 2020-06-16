@@ -33,7 +33,7 @@ public interface IMessageDao {
     //保存一条记录(没有mid),并返回新插入的id值到对象message中
     @Insert("insert into message (type,msg,sender,sendTime,receiver,status) values (#{type},#{msg},#{sender},#{sendTime},#{receiver},#{status})")
     @Options(useGeneratedKeys = true,keyProperty = "mid",keyColumn = "mid")
-    void saveNotHasMid(Message message) throws Exception;
+    void saveNotHasMidAndReturnId(Message message) throws Exception;
 
     //根据mid查询信息
     @Select("select * from message where mid=#{mid}")

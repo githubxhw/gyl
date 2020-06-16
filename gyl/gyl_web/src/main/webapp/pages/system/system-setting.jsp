@@ -120,6 +120,17 @@
                                         <%--<div class="radio"><label><input checked="checked" type="radio" name="optionsRadios" value="4">未启动</label></div>--%>
                                     </div>
                                 </div>
+                                <div class="col-md-1 title">销售出库预警周期</div>
+                                <div class="col-md-2 data">
+                                    <div class="form-group form-inline">
+                                        <div>
+                                            <label>
+                                                <input type="text" class="form-control" name="desc"
+                                                       placeholder="盘点周期" value="">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-1 title">盘点周期</div>
                                 <div class="col-md-2 data">
                                     <div class="form-group form-inline">
