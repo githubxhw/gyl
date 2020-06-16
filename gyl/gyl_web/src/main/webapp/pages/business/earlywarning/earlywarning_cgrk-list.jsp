@@ -217,7 +217,6 @@
                                                                                 <input id="xg_yqdhrq_${status.index}"
                                                                                        readonly = "readonly"
                                                                                        name="yqdhrq"
-                                                                                       class="form-control pull-right dateTimePicker"
                                                                                        type="text">
                                                                             </td>
                                                                         </tr>
@@ -343,7 +342,6 @@
                                                                             <input name="yqdhrq"
                                                                                    readonly = "readonly"
                                                                                    id="yqdhrq"
-                                                                                   class="form-control pull-right dateTimePicker"
                                                                                    type="text">
                                                                         </td>
                                                                     </tr>

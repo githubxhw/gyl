@@ -14,6 +14,7 @@ import cn.cuit.gyl.domain.database.UserInfo;
 import cn.cuit.gyl.domain.privilege.Role;
 import cn.cuit.gyl.service.socket.MyWebSocket;
 import cn.cuit.gyl.utils.SpringUtils;
+import cn.cuit.gyl.utils.TimeUtils;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -68,7 +69,6 @@ public class CgRkEarlyWarningJob implements Job {
             List<EarlyWarning_Cgrk> earlyWarning_stores = iEarlyWarning_cgrkDao.findAllWhereStatusIsTrue();
             if(earlyWarning_stores!=null){
                 Iterator<EarlyWarning_Cgrk> iterator = earlyWarning_stores.iterator();
-                ObjectMapper mapper = new ObjectMapper();
                 while (iterator.hasNext()){
                     //System.out.println("-------------------------");
                     EarlyWarning_Cgrk earlyWarning_cgrk = iterator.next();
@@ -82,29 +82,39 @@ public class CgRkEarlyWarningJob implements Job {
                     //1、检查存货过期的到达天数
                     if(checkExpDays != null){
                         Date today = new Date();
-                        //System.out.println("today:"+today);
                         Cgddzhib byZIdAndHh = iCgDao.findByZIdAndHh(iCgDao2.findByDjh(Djh).getCgddzhubid(), Hh);
                         Date exp = byZIdAndHh.getYqshrq();
-                        //System.out.println("exp:"+exp);
                         Calendar calendar = Calendar.getInstance();
                         calendar.setTime(exp);
                         calendar.add(Calendar.DATE, -checkExpDays);
                         Date earlyWarningTime = calendar.getTime();
                         //System.out.println("earlyWarningTime:"+earlyWarningTime);
-                        boolean before = today.before(earlyWarningTime);//判断今天是否到了预警的最近日期
                         //System.out.println(before);
-                        if(before == false){//需要添加预警消息
-                            count--;
-                            if(today.before(exp)){//未过期
-                                String timeDifference = getTimeDifference(today,exp);
-                                buffer.append("\t距离到货的要求日期还有"+timeDifference+"的时间。请准备入库\n");
-                            }else {//过期
-                                String timeDifference = getTimeDifference(exp,today);
-                                buffer.append("\t超过到货的要求日期已有"+timeDifference+"的时间。请尽快入库\n");
-
+                        if(today.after(earlyWarningTime)){
+                            if(today.before(exp)){//预警的临界日期 <= 今天 <= 要求出库日期yqfhrq
+                                String timeDifference = TimeUtils.getTimeDifference(today, exp);
+                                buffer.append("\t距离要求入库日期还有"+timeDifference+"的时间。\n");
+                                count--;
+                            }else {//今天 > 要求出库日期yqfhrq
+                                Integer invalidDays = earlyWarning_cgrk.getInvalidDays();
+                                if(invalidDays == null){//过了要求发货日期，不需要继续预警情况
+                                    EarlyWarning_Cgrk byId = iEarlyWarning_cgrkDao.findById(earlyWarning_cgrk.getId());
+                                    byId.setStatus(0);
+                                    iEarlyWarning_cgrkDao.updateById(byId);//设置status为0，不预警状态
+                                }else {//过了要求发货日期，需要继续预警情况:并且需要连续预警invalidDays天
+                                    calendar.setTime(exp);//证明过了要求发货日期后，就不需要预警了。
+                                    calendar.add(Calendar.DATE, +invalidDays);
+                                    if(today.before(calendar.getTime())){//要求发货日期  < 今天 < 要求发货日期+invalidDays，即需要继续预警
+                                        String timeDifference = TimeUtils.getTimeDifference(exp,today);
+                                        buffer.append("\t要求入库日期已过"+timeDifference+"的时间。\n");
+                                        count--;
+                                    }else {//今天 > 要求发货日期+invalidDays，即不继续预警
+                                        EarlyWarning_Cgrk byId = iEarlyWarning_cgrkDao.findById(earlyWarning_cgrk.getId());
+                                        byId.setStatus(0);
+                                        iEarlyWarning_cgrkDao.updateById(byId);//设置status为0，不预警状态
+                                    }
+                                }
                             }
-                        }else {//不用添加
-                            //...
                         }
                     }
                     buffer.append("以上是预警消息，请做好相应的工作！\n");
@@ -134,6 +144,7 @@ public class CgRkEarlyWarningJob implements Job {
                                 message.setStatus(0);
                                 message.setSendTime(new Date());
                                 iMessageDao.saveNotHasMidAndReturnId(message);//保存信息并获取message的id到地址对象中
+                                ObjectMapper mapper = new ObjectMapper();
                                 //System.out.println("mid:"+message.getMid());
                                 //System.out.println("username:"+userInfo.getUsername());
                                 String msg = mapper.writeValueAsString(message);

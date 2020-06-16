@@ -249,6 +249,7 @@
                     <th class="text-center sorting" style="width: 150px">制单日期</th>
                     <th class="text-center sorting" style="width: 150px">制单人</th>
                     <th class="text-center sorting" style="width: 150px">审批人</th>
+                    <th class="text-center sorting" style="width: 150px">审批日期</th>
                     <th class="text-center sorting" style="width: 150px">修改人</th>
                     <th class="text-center sorting" style="width: 150px">修改日期</th>
                     <th class="text-center sorting" style="width: 150px">调整人</th>

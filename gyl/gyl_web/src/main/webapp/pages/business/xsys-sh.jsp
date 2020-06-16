@@ -759,17 +759,17 @@
     function sp_forbidden(x) {
         var ddh = $("#djh").attr("value");
         if(ddh.length <= 0 || ddh == null || ddh == undefined){
-            alert("请选择要审批单据号进行审批!");
+            alert("请选择要审核单据号进行审核!");
         }else {
-            var msg = "确认审批禁止此订单?";
+            var msg = "确认审核禁止此订单?";
             if(confirm(msg) == true){
                 var shr = $("#sp_shr").val();
                 var shrq = $("#sp_shrq").val();
                 if(shr.length <= 0 || shr == null || shr == undefined){
-                    alert("请填写审批人!")
+                    alert("请填写审核人!")
                 }else {
                     if(shrq.length <= 0 || shrq == null || shrq == undefined){
-                        alert("请填写审批日期!")
+                        alert("请填写审核日期!")
                     }else {
                         $.ajax({
                             url: "${pageContext.request.contextPath}/ys/shNo",
@@ -806,17 +806,17 @@
     function sp_adopt(x) {
         var ddh = $("#djh").attr("value");
         if(ddh.length <= 0 || ddh == null || ddh == undefined){
-            alert("请选择要审批单据号进行审批!");
+            alert("请选择要审核单据号进行审批!");
         }else {
-            var msg = "确认审批通过此订单?";
+            var msg = "确认审核通过此订单?";
             if(confirm(msg) == true) {
                 var shr = $("#sp_shr").val();
                 var shrq = $("#sp_shrq").val();
                 if(shr.length <= 0 || shr == null || shr == undefined){
-                    alert("请填写审批人!")
+                    alert("请填写审核人!")
                 }else {
                     if(shrq.length <= 0 || shrq == null || shrq == undefined){
-                        alert("请填写审批日期!")
+                        alert("请填写审核日期!")
                     }else {
                         $.ajax({
                             url: "${pageContext.request.contextPath}/ys/shOk",
