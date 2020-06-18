@@ -2,8 +2,8 @@ package cn.cuit.gyl.service.business.impl;
 
 import cn.cuit.gyl.dao.business.IXsydd_zhubDao;
 import cn.cuit.gyl.dao.business.IXsydd_zibDao;
-import cn.cuit.gyl.domain.business.Xsydd_zhub;
-import cn.cuit.gyl.domain.business.Xsydd_zib;
+import cn.cuit.gyl.domain.business.*;
+import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.IXsyddService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
 import cn.cuit.gyl.utils.StringToIntegerUtils;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service("xsyddServiceImpl")
@@ -27,7 +28,7 @@ public class XsyddServiceImpl implements IXsyddService {
     @Override
     public List<Xsydd_zhub> findXsydd_zhub(Xsydd_zhub xsydd_zhub) throws Exception {
         DomainAttrValueConverterUtils<Xsydd_zhub> handler = new DomainAttrValueConverterUtils<>(xsydd_zhub);
-        Xsydd_zhub x = handler.handler(null, "status");
+        Xsydd_zhub x = handler.handler(null, "sfsp","spsftg","status");
         List<Xsydd_zhub> xsydd_zhubs = iXsydd_zhubDao.findByXsydd_zhub(x);
         return xsydd_zhubs;
     }
@@ -135,5 +136,43 @@ public class XsyddServiceImpl implements IXsyddService {
         }
     }
 
+    @Override
+    public List<Xsydd_zhub> findByAllAndSfspIsZero(Xsydd_zhub xsydd_zhub) throws Exception {
+        DomainAttrValueConverterUtils<Xsydd_zhub> handler = new DomainAttrValueConverterUtils<>(xsydd_zhub);
+        Xsydd_zhub x = handler.handler(null,"sfsp","spsftg","status");
+        List<Xsydd_zhub> xsydd_zhubs = iXsydd_zhubDao.findByAllAndSfspIsZero(x);
+        return xsydd_zhubs;
+    }
 
+    @Override
+    public void spForbidden(String ddh, String spr, Date sprq) throws Exception {
+        Xsydd_zhub xsydd_zhub = iXsydd_zhubDao.findByDdh(ddh);
+        if(xsydd_zhub.getSfsp() == 0){
+            //还没审批，则修改
+            xsydd_zhub.setSfsp(1);
+            xsydd_zhub.setSpsftg(0);
+            xsydd_zhub.setSpr(spr);
+            xsydd_zhub.setSprq(sprq);
+            iXsydd_zhubDao.updateById(xsydd_zhub);
+        }else {
+            //已经审批
+            throw new MyException("已经审批！");
+        }
+    }
+
+    @Override
+    public void spAdopt(String ddh, String spr, Date sprq) throws Exception {
+        Xsydd_zhub xsydd_zhub = iXsydd_zhubDao.findByDdh(ddh);
+        if(xsydd_zhub.getSfsp() == 0){
+            //还没审批，则修改
+            xsydd_zhub.setSfsp(1);
+            xsydd_zhub.setSpsftg(1);
+            xsydd_zhub.setSpr(spr);
+            xsydd_zhub.setSprq(sprq);
+            iXsydd_zhubDao.updateById(xsydd_zhub);
+        }else {
+            //已经审批
+            throw new MyException("已经审批！");
+        }
+    }
 }

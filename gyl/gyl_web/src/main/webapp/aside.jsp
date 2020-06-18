@@ -365,7 +365,7 @@
                                 <ul class="treeview-menu">
                                     <security:authorize access="hasRole('ROLE_UI_XSYDD_QUERY')">
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/xsydd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
+                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-query.jsp" <%--href="all-form-general.html"--%>>
                                                 <i class="fa fa-circle-o"></i> 查询
                                             </a>
                                         </li>
@@ -381,7 +381,7 @@
 
                                     <security:authorize access="hasRole('ROLE_UI_XSYDD_UPDATE')">
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/xsydd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
+                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-update.jsp" <%--href="all-form-general.html"--%>>
                                                 <i class="fa fa-circle-o"></i> 修订
                                             </a>
                                         </li>
@@ -389,7 +389,7 @@
 
                                     <security:authorize access="hasRole('ROLE_UI_XSYDD_SP')">
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-query.jsp" <%--href="all-form-general.html"--%>>
+                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-sp.jsp" <%--href="all-form-general.html"--%>>
                                                 <i class="fa fa-circle-o"></i> 审批
                                             </a>
                                         </li>

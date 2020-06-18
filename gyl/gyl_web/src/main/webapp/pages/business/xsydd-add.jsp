@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: XHW
+  User: HR
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -79,7 +79,7 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                销售预订单
+                销售预购单
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -94,7 +94,7 @@
                     <a href="#">销售管理</a>
                 </li>
                 <li>
-                    <a href="#">销售预订单管理</a>
+                    <a href="#">销售预购单管理</a>
                 </li>
                 <li class="active">添加</li>
             </ol>
@@ -122,47 +122,65 @@
                             </div>
                         </div>
                         <%--2--%>
+                        <div class="col-md-2 title">失效日期</div>
+                        <div class="col-md-4 data">
+                             <div class="input-group date">
+                                <div class="input-group-addon">
+                                     <i class="fa fa-calendar"></i>
+                                </div>
+                                <input type="text" class="form-control pull-right dateTimePicker" name="sxrq">
+                             </div>
+                        </div>
                         <div class="col-md-2 title">客户名称</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="khmc"
                                    placeholder="客户名称" value="">
                         </div>
+                        <%--3--%>
                         <div class="col-md-2 title">销售部门</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="xsbm"
                                    placeholder="销售部门" value="">
                         </div>
-                        <%--3--%>
                         <div class="col-md-2 title">业务员</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="ywy"
                                    placeholder="业务员" value="">
                         </div>
+                        <%--4--%>
                         <div class="col-md-2 title">审批人</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="spr"
-                                   placeholder="审批人" value="">
+                            <input readonly="readonly" type="text" class="form-control" name="spr"
+                                placeholder="审批人" value="">
                         </div>
-                        <%--4--%>
-                        <div class="col-md-2 title">制单人</div>
-                        <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="zdr"
-                                   placeholder="制单人" value="">
-                        </div>
-                        <div class="col-md-2 title">修改人</div>
-                        <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="xgr"
-                                   placeholder="修改人" value="">
-                        </div>
-                        <%--5--%>
                         <div class="col-md-2 title">审批日期</div>
                         <div class="col-md-4 data">
                             <div class="input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right dateTimePicker" name="sprq">
+                                <input readonly="readonly" type="text" class="form-control pull-right"
+                                      name="sprq">
                             </div>
+                        </div>
+                        <%--5--%>
+                        <div class="col-md-2 title">是否审批</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control" name="sfsp">
+                                <option selected="selected" value="0">否</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">审批是否通过</div>
+                        <div class="col-md-4 data">
+                             <select class="form-control" name="spsftg">
+                                <option selected="selected" value="0">否</option>
+                             </select>
+                        </div>
+                        <%--6--%>
+                        <div class="col-md-2 title">制单人</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="zdr"
+                                  placeholder="制单人" value="">
                         </div>
                         <div class="col-md-2 title">制单日期</div>
                         <div class="col-md-4 data">
@@ -173,16 +191,23 @@
                                 <input type="text" class="form-control pull-right dateTimePicker" name="zdrq">
                             </div>
                         </div>
-                        <%--6--%>
+                        <%--7--%>
+                        <div class="col-md-2 title">修改人</div>
+                        <div class="col-md-4 data">
+                            <input readonly="readonly" type="text" class="form-control" name="xgr"
+                                  placeholder="修改人" value="">
+                        </div>
                         <div class="col-md-2 title">修改日期</div>
                         <div class="col-md-4 data">
                             <div class="input-group date">
-                                <div class="input-group-addon">
+                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
-                                </div>
-                                <input type="text" class="form-control pull-right dateTimePicker" name="xgrq">
+                                 </div>
+                                <input readonly="readonly" type="text" class="form-control pull-right"
+                                           name="xgrq">
                             </div>
                         </div>
+                        <%--8--%>
                         <div class="col-md-2 title">状态</div>
                         <div class="col-md-4 data">
                             <select class="form-control" name="status">
