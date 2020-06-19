@@ -58,4 +58,8 @@ public interface IEarlyWarning_XsckDao {
             "values " +
             "(#{ddh},#{hh},#{productNum},#{productName},#{yqfhrq},#{checkDays},#{invalidDays},#{status})")
     void saveEWXNotHasId(EarlyWarning_Xsck earlyWarning_xsck) throws Exception;
+
+    //查询所有status=0的销售出库预警s
+    @Select("select * from earlywarning_xsck where status=0")
+    List<EarlyWarning_Xsck> findAllWhereStatusIsFalse() throws Exception;
 }

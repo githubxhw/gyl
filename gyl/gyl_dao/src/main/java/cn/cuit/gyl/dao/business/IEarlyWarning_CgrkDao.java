@@ -53,4 +53,8 @@ public interface IEarlyWarning_CgrkDao {
     //查询所有status为1的预警
     @Select("select * from earlywarning_cgrk where status = 1")
     List<EarlyWarning_Cgrk> findAllWhereStatusIsTrue() throws Exception;
+
+    //查询所有status=0的采购入库预警s
+    @Select("select * from earlywarning_cgrk where status = 0")
+    List<EarlyWarning_Cgrk> findAllWhereStatusIsFalse() throws Exception;
 }

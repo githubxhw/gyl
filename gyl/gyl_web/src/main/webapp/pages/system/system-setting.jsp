@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -99,68 +99,205 @@
             <div class="box-body">
                 <!--tab页-->
                 <div class="nav-tabs-custom">
-                    <!--tab头-->
-                    <%--<ul class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#tab-form" data-toggle="tab">点评设置</a>
-                        </li>
-                    </ul>--%>
-                    <!--tab头/-->
                     <!--tab内容-->
                     <div class="tab-content">
                         <!--基本设置-->
                         <div class="tab-pane active" id="tab-form">
                             <div class="row data-type">
-                                <div class="col-md-1 title">任务调度器</div>
+                                <%--1--%>
+                                <div class="col-md-2 title">任务调度器</div>
                                 <div class="col-md-2 data">
                                     <div class="form-group form-inline" style="text-align: center;">
                                         <div style="float: left">关闭</div>
-                                            <input id="quartzManagerInput" class="switch switch-anim" type="checkbox" onchange="quartzManager(this);" <%--checked="checked"--%>>
+                                        <input id="quartzManagerInput" class="switch switch-anim" type="checkbox"
+                                               onchange="quartzManager(this);" <%--checked="checked"--%>>
                                         <div style="float: right">开启</div>
                                         <%--<div class="radio"><label><input checked="checked" type="radio" name="optionsRadios" value="4">未启动</label></div>--%>
                                     </div>
                                 </div>
-                                <div class="col-md-1 title">销售出库预警周期</div>
-                                <div class="col-md-2 data">
+                                <div class="col-md-1 data"></div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：打开后，即可进行任务的调度，请在任务管理界面进行操作。</label>
+                                </div>
+                                <%--1 /--%>
+                                <%--2--%>
+                                <div class="col-md-2 title">采购入库提前预警天数</div>
+                                <div class="col-md-3 data">
                                     <div class="form-group form-inline">
                                         <div>
                                             <label>
-                                                <input type="text" class="form-control" name="desc"
-                                                       placeholder="盘点周期" value="">
+                                                <input id="cgEarlyWarningDays-id" type="number" class="form-control"
+                                                       name="cgEarlyWarningDays"
+                                                       placeholder="采购入库提前预警天数" value="">
                                             </label>
+                                            <button type="button" onclick="UpdateCgEarlyWarningDays();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-1 title">盘点周期</div>
-                                <div class="col-md-2 data">
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置在生成采购入库预警表信息时的默认的提前预警值。</label>
+                                </div>
+                                <%--2 /--%>
+                                <%--3--%>
+                                <div class="col-md-2 title">采购入库日期失效持续预警天数</div>
+                                <div class="col-md-3 data">
                                     <div class="form-group form-inline">
                                         <div>
                                             <label>
-                                                <input type="text" class="form-control" name="desc"
-                                                       placeholder="盘点周期" value="">
+                                                <input id="cgEarlyWarningInvalidDays-id" type="number"
+                                                       class="form-control"
+                                                       name="cgEarlyWarningInvalidDays"
+                                                       placeholder="采购入库失效持续预警天数" value="">
                                             </label>
+                                            <button type="button" onclick="UpdateCgEarlyWarningInvalidDays();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-                                <%--<div class="col-md-2 title">游记评论</div>
-                                <div class="col-md-10 data line-height36">
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置当采购入库日期失效后，系统还要连续预警的天数。</label>
+                                </div>
+                                <%--3 /--%>
+                                <%--4--%>
+                                <div class="col-md-2 title">采购入库预警保留天数</div>
+                                <div class="col-md-3 data">
                                     <div class="form-group form-inline">
-                                        <div class="checkbox"><label><input type="checkbox" value="1"> 自动审核</label></div>
-                                        <div class="checkbox"><label><input type="checkbox" value="2"> 显示验证码</label></div>
+                                        <div>
+                                            <label>
+                                                <input id="cgEarlyWarningDaysBeforeRetention-id" type="number"
+                                                       class="form-control" name="cgEarlyWarningDaysBeforeRetention"
+                                                       placeholder="采购入库提前预警天数" value="">
+                                            </label>
+                                            <button type="button" onclick="UpdateCgEarlyWarningDaysBeforeRetention();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>--%>
-                                <%--<div class="col-md-2 title">评论时限</div>
-                                <div class="col-md-1 data">
-                                    <input type="text" class="form-control" placeholder="秒" value="">
                                 </div>
-                                <div class="col-md-9 data text">
-                                    秒内不能重复评论
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置采购入库没有预警情况下的信息的系统保留时间，过了这个时间将不会保留信息，自动清除。</label>
                                 </div>
-                                <div class="col-md-2 title"></div>
-                                <div class="col-md-10 data text-center">
-                                    <button type="button" class="btn bg-maroon">保存</button>
-                                    <button type="button" class="btn bg-default" onclick="history.back(-1);">返回</button>
-                                </div>--%>
+                                <%--4 /--%>
+                                <%--5--%>
+                                <div class="col-md-2 title">存货过期提前预警天数</div>
+                                <div class="col-md-3 data">
+                                    <div class="form-group form-inline">
+                                        <div>
+                                            <label>
+                                                <input id="storeEarlyWarningDays-id" type="number" class="form-control"
+                                                       name="storeEarlyWarningDays"
+                                                       placeholder="存货过期提前预警天数" value="">
+                                            </label>
+                                            <button type="button" onclick="UpdateStoreEarlyWarningDays();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置仓库中所有的存货的过期的提前预警天数。</label>
+                                </div>
+                                <%--5 /--%>
+                                <%--6--%>
+                                <div class="col-md-2 title">销售出库提前预警天数</div>
+                                <div class="col-md-3 data">
+                                    <div class="form-group form-inline">
+                                        <div>
+                                            <label>
+                                                <input id="fhEarlyWarningDays-id" type="number" class="form-control"
+                                                       name="fhEarlyWarningDays"
+                                                       placeholder="销售出库提前预警天数" value="">
+                                            </label>
+                                            <button type="button" onclick="UpdateFhEarlyWarningDays();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置在生成销售出库预警表信息时的默认的提前预警值。</label>
+                                </div>
+                                <%--6 /--%>
+                                <%--7--%>
+                                <div class="col-md-2 title">销售出库日期失效持续预警天数</div>
+                                <div class="col-md-3 data">
+                                    <div class="form-group form-inline">
+                                        <div>
+                                            <label>
+                                                <input id="fhEarlyWarningInvalidDays-id" type="number"
+                                                       class="form-control"
+                                                       name="fhEarlyWarningInvalidDays"
+                                                       placeholder="销售出库日期失效持续预警天数" value="">
+                                            </label>
+                                            <button type="button" onclick="UpdateFhEarlyWarningInvalidDays();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置当销售出库日期失效后，系统还要连续预警的天数。</label>
+                                </div>
+                                <%--7 /--%>
+                                <%--8--%>
+                                <div class="col-md-2 title">销售出库预警保留天数</div>
+                                <div class="col-md-3 data">
+                                    <div class="form-group form-inline">
+                                        <div>
+                                            <label>
+                                                <input id="fhEarlyWarningDaysBeforeRetention-id" type="number"
+                                                       class="form-control" name="fhEarlyWarningDaysBeforeRetention"
+                                                       placeholder="采购入库保留天数" value="">
+                                            </label>
+                                            <button type="button" onclick="UpdateFhEarlyWarningDaysBeforeRetention();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置销售出库表中没有预警情况下的信息的系统保留时间，过了这个时间将不会保留信息，自动清除。</label>
+                                </div>
+                                <%--8 /--%>
+                                <%--9--%>
+                                <div class="col-md-2 title">保留日志天数</div>
+                                <div class="col-md-3 data">
+                                    <div class="form-group form-inline">
+                                        <div>
+                                            <label>
+                                                <input id="syslogDaysBeforeRetention-id" type="number"
+                                                       class="form-control" name="syslogDaysBeforeRetention"
+                                                       placeholder="保留日志天数" value="">
+                                            </label>
+                                            <button type="button" onclick="UpdateSyslogDaysBeforeRetention();"
+                                                    class="btn btn-success">确认修改
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：设置日志保留天数，如：设置7天，那么系统将会保留前7天的日志信息，自动清除7天外的日志信息。</label>
+                                </div>
+                                <%--9 /--%>
+                                <%--10--%>
+                                <div class="col-md-2 title">停止登录</div>
+                                <div class="col-md-2 data">
+                                    <div class="form-group form-inline" style="text-align: center;">
+                                        <div style="float: left">关闭</div>
+                                        <input id="isUsersLoginForbidden-id" class="switch switch-anim" type="checkbox"
+                                               onchange="UpdateIsUsersLoginForbidden();"
+                                               name="isUsersLoginForbidden" <%--checked="checked"--%>>
+                                        <div style="float: right">开启</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 data"></div>
+                                <div class="col-md-7 title">
+                                    <label style="">说明：开启后，除了拥有系统设置权限的人员外，将禁止所有的用户进行登录。</label>
+                                </div>
+                                <%--10 /--%>
                             </div>
                         </div>
                         <!--基本设置/-->
@@ -271,13 +408,13 @@
 <script
         src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 选择框
         $(".select2").select2();
 
         // WYSIHTML5编辑器
         $(".textarea").wysihtml5({
-            locale : 'zh-CN'
+            locale: 'zh-CN'
         });
     });
 
@@ -290,85 +427,115 @@
         }
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 激活导航位置
         setSidebarActive("admin-index");
     });
 
     //页面加载请求
-    $(document).ready(function() {
+    $(document).ready(function () {
         //1,加载任务调度器信息
         $.ajax({
-            url:"${pageContext.request.contextPath}/quartz/isStart",
-            type:"get",
-            data:{},
-            dataType:"text",
-            async:true,
-            success:function (data) {
+            url: "${pageContext.request.contextPath}/quartz/isStart",
+            type: "get",
+            data: {},
+            dataType: "text",
+            async: true,
+            success: function (data) {
                 var isStart = data;
-                if(isStart == "true"){//开启
-                    $("#quartzManagerInput").prop("checked",true);
+                if (isStart == "true") {//开启
+                    $("#quartzManagerInput").prop("checked", true);
                 }
             },
-            error:function () {
+            error: function () {
                 alert("任务调度器信息加载失败。")
             }
         });
 
         //其他请求...
+        $.ajax({
+            url: "${pageContext.request.contextPath}/sysSetting/findSysSettingById",
+            type: "get",
+            data: {"id": 1},
+            dataType: "json",
+            async: true,
+            success: function (data) {
+                var SysSetting = data;
+                $("#cgEarlyWarningDays-id").attr("value", SysSetting.cgEarlyWarningDays);
+                $("#cgEarlyWarningDaysBeforeRetention-id").attr("value", SysSetting.cgEarlyWarningDaysBeforeRetention);
+                $("#cgEarlyWarningInvalidDays-id").attr("value", SysSetting.cgEarlyWarningInvalidDays);
+                $("#storeEarlyWarningDays-id").attr("value", SysSetting.storeEarlyWarningDays);
+                $("#fhEarlyWarningDays-id").attr("value", SysSetting.fhEarlyWarningDays);
+                $("#fhEarlyWarningDaysBeforeRetention-id").attr("value", SysSetting.fhEarlyWarningDaysBeforeRetention);
+                $("#fhEarlyWarningInvalidDays-id").attr("value", SysSetting.fhEarlyWarningInvalidDays);
+                $("#syslogDaysBeforeRetention-id").attr("value", SysSetting.syslogDaysBeforeRetention);
+                if (SysSetting.isUsersLoginForbidden == 1) {
+                    $("#isUsersLoginForbidden-id").prop("checked", true);
+                } else {
+                    $("#isUsersLoginForbidden-id").prop("checked", false);
+                }
+            },
+            error: function () {
+                alert("查询系统设置失败：系统异常。")
+            }
+        });
+
     });
 
     //任务调度的验证方法
-    function quartzManager(x){
+    function quartzManager(x) {
         var $x = $(x);
         var isOpen = $x.prop("checked");
         // alert(isOpen)
-        if(isOpen == true){
-            if(confirm("是否开启服务?") == true){
+        if (isOpen == true) {
+            if (confirm("是否开启服务?") == true) {
                 //启动任务调度器
                 $.ajax({
-                    url:"${pageContext.request.contextPath}/quartz/startScheduler",
-                    type:"get",
-                    data:{},
-                    dataType:"text",
-                    async:true,
-                    success:function (data) {
+                    url: "${pageContext.request.contextPath}/quartz/startScheduler",
+                    type: "get",
+                    data: {},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
                         /*alert("启动成功。");*/
-                        $x.prop("checked",true);
+                        $x.prop("checked", true);
                     },
-                    error:function () {
+                    error: function () {
                         alert("启动失败。");
-                        $x.prop("checked",false);
+                        $x.prop("checked", false);
                     }
                 });
-            }else {
-                $x.attr("checked",false);
+            } else {
+                $x.attr("checked", false);
             }
-        }else {
-            if(confirm("是否关闭服务?") == true){
+        } else {
+            if (confirm("是否关闭服务?") == true) {
                 //暂停任务调度器
                 $.ajax({
-                    url:"${pageContext.request.contextPath}/quartz/delayScheduler",
-                    type:"get",
-                    data:{},
-                    dataType:"text",
-                    async:true,
-                    success:function (data) {
+                    url: "${pageContext.request.contextPath}/quartz/delayScheduler",
+                    type: "get",
+                    data: {},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
                         /*alert("已关闭服务。")*/
-                        $x.prop("checked",false);
+                        $x.prop("checked", false);
                     },
-                    error:function () {
+                    error: function () {
                         alert("关闭服务失败。")
-                        $x.prop("checked",true);
+                        $x.prop("checked", true);
                     }
                 });
-            }else {
-                $x.prop("checked",true);
+            } else {
+                $x.prop("checked", true);
             }
         }
     }
 
+    //修改：采购入库提前预警天数
+    function UpdateCgEarlyWarningDay() {
 
+    }
 
 </script>
 </body>
