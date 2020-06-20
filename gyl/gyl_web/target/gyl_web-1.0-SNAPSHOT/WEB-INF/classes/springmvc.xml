@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:websocket="http://www.springframework.org/schema/websocket"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/mvc
+           http://www.springframework.org/schema/mvc/spring-mvc.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop
+		   http://www.springframework.org/schema/aop/spring-aop.xsd
+		   http://www.springframework.org/schema/websocket
+		   http://www.springframework.org/schema/websocket/spring-websocket.xsd
+		   http://www.springframework.org/schema/task
+		   http://www.springframework.org/schema/task/spring-task.xsd
+
+">
+    <!--定时器相关设置-->
+    <!-- 定时器注解开关， 可以配置 scheduler参数 -->
+    <task:annotation-driven></task:annotation-driven>
+
+    <!-- bean注解开关 -->
+    <context:annotation-config/>
+
+    <!--扫描包-->
+    <context:component-scan base-package="cn.cuit.gyl">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+    </context:component-scan>
+
+    <!--视图管理器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/pages/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--释放静态资源-->
+    <!-- 设置静态资源不过滤 -->
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/img/" mapping="/img/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/plugins/" mapping="/plugins/**"/>
+    <mvc:resources mapping="/pages/**" location="/pages/"/>
+
+    <!--类型转换器-->
+    <bean id="conversionServiceFactoryBean" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <bean class="cn.cuit.gyl.utils.StringToDate"/>
+        </property>
+    </bean>
+
+    <!--配置WebSocket-->
+    <!--<bean id="myWebSocket" class="cn.cuit.gyl.service.socket.MyWebSocket"></bean>-->
+    <websocket:handlers allowed-origins="*">
+        <websocket:mapping path="/builtSocket" handler="myWebSocket"/>
+        <!--webSocket握手-->
+        <!--拦截器-->
+        <!--<websocket:handshake-interceptors>
+            <bean id="" class="">? implements HandshakeInterceptor</bean>
+        </websocket:handshake-interceptors>-->
+    </websocket:handlers>
+
+    <!--打开注解支持，配置映射器和适配器-->
+    <mvc:annotation-driven conversion-service="conversionServiceFactoryBean"/>
+
+    <!-- 开启 spring 对注解 AOP 的支持 -->
+    <!--<aop:aspectj-autoproxy/>-->
+    <!--
+		支持AOP的注解支持，AOP底层使用代理技术
+		JDK动态代理，要求必须有接口
+		cglib代理，生成子类对象，proxy-target-class="true" 代理类，false代理接口 默认使用cglib的方式
+	-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!--配置：proxy-->
+    <!--<aop:config>
+        <aop:pointcut id="ref_pointcut" expression="execution(* com.itxhw.service.impl.*.*(..))"/>
+        <aop:aspect id="transferMannager_advice" ref="transferMannager">
+            &lt;!&ndash;前置通知&ndash;&gt;
+            <aop:before method="startTransfer" pointcut-ref="ref_pointcut"></aop:before>
+            &lt;!&ndash;后置通知&ndash;&gt;
+            <aop:after-returning method="commitTransfer" pointcut-ref="ref_pointcut"></aop:after-returning>
+            &lt;!&ndash;异常通知&ndash;&gt;
+            <aop:after-throwing method="rollbackTransfer" pointcut-ref="ref_pointcut"></aop:after-throwing>
+            &lt;!&ndash;最终通知&ndash;&gt;
+            <aop:after method="relase" pointcut-ref="ref_pointcut"></aop:after>
+        </aop:aspect>
+    </aop:config>-->
+</beans>

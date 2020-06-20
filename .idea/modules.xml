@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/gyl/gyl.iml" filepath="$PROJECT_DIR$/gyl/gyl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/gyl-version1.0.iml" filepath="$PROJECT_DIR$/.idea/gyl-version1.0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gyl/gyl_dao/gyl_dao.iml" filepath="$PROJECT_DIR$/gyl/gyl_dao/gyl_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gyl/gyl_domain/gyl_domain.iml" filepath="$PROJECT_DIR$/gyl/gyl_domain/gyl_domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gyl/gyl_service/gyl_service.iml" filepath="$PROJECT_DIR$/gyl/gyl_service/gyl_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gyl/gyl_utils/gyl_utils.iml" filepath="$PROJECT_DIR$/gyl/gyl_utils/gyl_utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gyl/gyl_web/gyl_web.iml" filepath="$PROJECT_DIR$/gyl/gyl_web/gyl_web.iml" />
+    </modules>
+  </component>
+</project>
