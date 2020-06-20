@@ -1589,7 +1589,7 @@
             }else {
 
                     $.ajax({
-                        url: "${pageContext.request.contextPath}/cgdd/CloseZhiB",
+                        url: "${pageContext.request.contextPath}/cgdd/UpdateZhiB",
                         type: "post",
                         data: params,
                         dataType: "json",

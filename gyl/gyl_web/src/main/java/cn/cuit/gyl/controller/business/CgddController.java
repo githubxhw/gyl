@@ -2,8 +2,6 @@ package cn.cuit.gyl.controller.business;
 
 import cn.cuit.gyl.domain.business.Cgddzhib;
 import cn.cuit.gyl.domain.business.Cgddzhub;
-import cn.cuit.gyl.domain.business.Cgygdzhib;
-import cn.cuit.gyl.domain.business.Cgygdzhub;
 import cn.cuit.gyl.domain.database.gys;
 import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.CgddService;
@@ -161,20 +159,6 @@ public class CgddController {
             message.setMsg("错误原因："+e.getMsg());
             return message;
         }
-    }
-    @RequestMapping("/CloseZhiB")
-    public @ResponseBody Information CloseZhiB(Cgddzhib a )throws Exception{
-        Information information = new Information();
-        try {
-            cgddService.updateZiById(a);
-            information.setMsg("更新成功");
-            return information;
-        }catch (MyException e){
-            information.setMsg("错误原因："+e.getMsg());
-            return information;
-        }
-
-
     }
 
     @RequestMapping("/DeleteZhiB")
