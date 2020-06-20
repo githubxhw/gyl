@@ -128,7 +128,7 @@
                                             <label>
                                                 <input id="cgEarlyWarningDays-id" type="number" class="form-control"
                                                        name="cgEarlyWarningDays"
-                                                       placeholder="采购入库提前预警天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateCgEarlyWarningDays();"
                                                     class="btn btn-success">确认修改
@@ -149,7 +149,7 @@
                                                 <input id="cgEarlyWarningInvalidDays-id" type="number"
                                                        class="form-control"
                                                        name="cgEarlyWarningInvalidDays"
-                                                       placeholder="采购入库失效持续预警天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateCgEarlyWarningInvalidDays();"
                                                     class="btn btn-success">确认修改
@@ -169,7 +169,7 @@
                                             <label>
                                                 <input id="cgEarlyWarningDaysBeforeRetention-id" type="number"
                                                        class="form-control" name="cgEarlyWarningDaysBeforeRetention"
-                                                       placeholder="采购入库提前预警天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateCgEarlyWarningDaysBeforeRetention();"
                                                     class="btn btn-success">确认修改
@@ -189,7 +189,7 @@
                                             <label>
                                                 <input id="storeEarlyWarningDays-id" type="number" class="form-control"
                                                        name="storeEarlyWarningDays"
-                                                       placeholder="存货过期提前预警天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateStoreEarlyWarningDays();"
                                                     class="btn btn-success">确认修改
@@ -209,7 +209,7 @@
                                             <label>
                                                 <input id="fhEarlyWarningDays-id" type="number" class="form-control"
                                                        name="fhEarlyWarningDays"
-                                                       placeholder="销售出库提前预警天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateFhEarlyWarningDays();"
                                                     class="btn btn-success">确认修改
@@ -230,7 +230,7 @@
                                                 <input id="fhEarlyWarningInvalidDays-id" type="number"
                                                        class="form-control"
                                                        name="fhEarlyWarningInvalidDays"
-                                                       placeholder="销售出库日期失效持续预警天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateFhEarlyWarningInvalidDays();"
                                                     class="btn btn-success">确认修改
@@ -250,7 +250,7 @@
                                             <label>
                                                 <input id="fhEarlyWarningDaysBeforeRetention-id" type="number"
                                                        class="form-control" name="fhEarlyWarningDaysBeforeRetention"
-                                                       placeholder="采购入库保留天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateFhEarlyWarningDaysBeforeRetention();"
                                                     class="btn btn-success">确认修改
@@ -270,7 +270,7 @@
                                             <label>
                                                 <input id="syslogDaysBeforeRetention-id" type="number"
                                                        class="form-control" name="syslogDaysBeforeRetention"
-                                                       placeholder="保留日志天数" value="">
+                                                       value="">
                                             </label>
                                             <button type="button" onclick="UpdateSyslogDaysBeforeRetention();"
                                                     class="btn btn-success">确认修改
@@ -288,7 +288,7 @@
                                     <div class="form-group form-inline" style="text-align: center;">
                                         <div style="float: left">关闭</div>
                                         <input id="isUsersLoginForbidden-id" class="switch switch-anim" type="checkbox"
-                                               onchange="UpdateIsUsersLoginForbidden();"
+                                               onchange="UpdateIsUsersLoginForbidden(this);"
                                                name="isUsersLoginForbidden" <%--checked="checked"--%>>
                                         <div style="float: right">开启</div>
                                     </div>
@@ -469,7 +469,7 @@
                 $("#fhEarlyWarningDaysBeforeRetention-id").attr("value", SysSetting.fhEarlyWarningDaysBeforeRetention);
                 $("#fhEarlyWarningInvalidDays-id").attr("value", SysSetting.fhEarlyWarningInvalidDays);
                 $("#syslogDaysBeforeRetention-id").attr("value", SysSetting.syslogDaysBeforeRetention);
-                if (SysSetting.isUsersLoginForbidden == 1) {
+                if (SysSetting.isUsersLoginForbidden == 0) {
                     $("#isUsersLoginForbidden-id").prop("checked", true);
                 } else {
                     $("#isUsersLoginForbidden-id").prop("checked", false);
@@ -482,6 +482,7 @@
 
     });
 
+    //1
     //任务调度的验证方法
     function quartzManager(x) {
         var $x = $(x);
@@ -532,9 +533,260 @@
         }
     }
 
+    //2
     //修改：采购入库提前预警天数
-    function UpdateCgEarlyWarningDay() {
+    function UpdateCgEarlyWarningDays() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#cgEarlyWarningDays-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateCgEarlyWarningDays",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
 
+    //3
+    //修改：采购入库日期失效持续预警天数
+    function UpdateCgEarlyWarningInvalidDays() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#cgEarlyWarningInvalidDays-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateCgEarlyWarningInvalidDays",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //4
+    //修改：采购入库预警保留天数
+    function UpdateCgEarlyWarningDaysBeforeRetention() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#cgEarlyWarningDaysBeforeRetention-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateCgEarlyWarningDaysBeforeRetention",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //5
+    //修改：存货过期提前预警天数
+    function UpdateStoreEarlyWarningDays() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#storeEarlyWarningDays-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateStoreEarlyWarningDays",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //6
+    //修改：销售出库提前预警天数
+    function UpdateFhEarlyWarningDays() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#fhEarlyWarningDays-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateFhEarlyWarningDays",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //7
+    //修改：销售出库日期失效持续预警天数
+    function UpdateFhEarlyWarningInvalidDays() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#fhEarlyWarningInvalidDays-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateFhEarlyWarningInvalidDays",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //8
+    //修改：销售出库预警保留天数
+    function UpdateFhEarlyWarningDaysBeforeRetention() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#fhEarlyWarningDaysBeforeRetention-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateFhEarlyWarningDaysBeforeRetention",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //9
+    //修改：保留日志天数
+    function UpdateSyslogDaysBeforeRetention() {
+        if(confirm("是否确认修改？") == true){
+            var val = $("#syslogDaysBeforeRetention-id").val();
+            if(val < 0){
+                alert("值不能小于0。");
+            }else {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateSyslogDaysBeforeRetention",
+                    type: "get",
+                    data: {"val":val},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        alert("修改成功！")
+                        window.location.href = "${pageContext.request.contextPath}/pages/system/system-setting.jsp";
+                    },
+                    error: function () {
+                        alert("修改失败！");
+                    }
+                });
+            }
+        }
+    }
+
+    //10
+    //修改：停止登录
+    function UpdateIsUsersLoginForbidden(x) {
+        var $x = $(x);
+        var isOpen = $x.prop("checked");
+        if (isOpen == true) {
+            if (confirm("是否停止用户登录?") == true) {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateIsUsersLoginForbidden",
+                    type: "get",
+                    data: {"isUsersLoginForbidden":1},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        $x.prop("checked", true);
+                        alert("阻止用户登录服务成功。")
+                    },
+                    error: function () {
+                        $x.prop("checked", false);
+                        alert("阻止用户登录服务失败。")
+                    }
+                });
+            } else {
+                $x.attr("checked", false);
+            }
+        } else {
+            if (confirm("是否开启用户登录?") == true) {
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/sysSetting/UpdateIsUsersLoginForbidden",
+                    type: "get",
+                    data: {"isUsersLoginForbidden":0},
+                    dataType: "text",
+                    async: true,
+                    success: function (data) {
+                        $x.prop("checked", false);
+                        alert("开启用户登录服务成功。")
+                    },
+                    error: function () {
+                        $x.prop("checked", true);
+                        alert("开启用户登录服务失败。")
+                    }
+                });
+            } else {
+                $x.prop("checked", true);
+            }
+        }
     }
 
 </script>

@@ -46,4 +46,13 @@ public interface IUserDao {
     //根据role的id查询出所有拥有该角色的用户s
     @Select("select * from user where id in (select user_id from user_role where role_id=#{id})")
     List<UserInfo> findByRoleId(Integer id) throws Exception;
+
+    @Update("UPDATE USER SET USER.`status`=0")
+    void setAllStatusFalse() throws Exception;
+
+    @Update("UPDATE USER SET USER.`status`=1")
+    void setAllStatusTrue() throws Exception;
+
+    @Update("UPDATE USER SET USER.`status`=1 WHERE id=#{id}")
+    void setStatusTrueById(Integer id) throws Exception;
 }

@@ -454,28 +454,318 @@
                             <tr data-tt-id="2-1-1" data-tt-parent-id="2-1">
                                 <td>请购单管理</td>
                             </tr>
+                            <tr data-tt-id="2-1-1-1" data-tt-parent-id="2-1-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="59"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 59}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-1-2" data-tt-parent-id="2-1-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="60"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 60}">checked="checked"</c:if>
+                                    </c:forEach>>制单
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-1-3" data-tt-parent-id="2-1-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="70"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 70}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-1-4" data-tt-parent-id="2-1-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="80"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 80}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <%----%>
                             <tr data-tt-id="2-1-2" data-tt-parent-id="2-1">
                                 <td>订单管理</td>
                             </tr>
+                            <tr data-tt-id="2-1-2-1" data-tt-parent-id="2-1-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="81"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 81}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-2-2" data-tt-parent-id="2-1-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="82"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 82}">checked="checked"</c:if>
+                                    </c:forEach>>制单
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-2-3" data-tt-parent-id="2-1-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="83"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 83}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-2-4" data-tt-parent-id="2-1-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="84"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 84}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-2-5" data-tt-parent-id="2-1-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="85"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 85}">checked="checked"</c:if>
+                                    </c:forEach>>冻结和解冻
+                                </td>
+                            </tr>
+
+                            <%----%>
                             <tr data-tt-id="2-1-3" data-tt-parent-id="2-1">
                                 <td>到货单管理</td>
                             </tr>
+                            <tr data-tt-id="2-1-3-1" data-tt-parent-id="2-1-3">
+                                <td>
+                                    <input name="ids" type="checkbox" value="86"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 86}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-3-2" data-tt-parent-id="2-1-3">
+                                <td>
+                                    <input name="ids" type="checkbox" value="87"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 87}">checked="checked"</c:if>
+                                    </c:forEach>>制单
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-3-3" data-tt-parent-id="2-1-3">
+                                <td>
+                                    <input name="ids" type="checkbox" value="88"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 88}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-3-4" data-tt-parent-id="2-1-3">
+                                <td>
+                                    <input name="ids" type="checkbox" value="89"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 89}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-3-5" data-tt-parent-id="2-1-3">
+                                <td>
+                                    <input name="ids" type="checkbox" value="90"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 90}">checked="checked"</c:if>
+                                    </c:forEach>>确认到货
+                                </td>
+                            </tr>
+
+                            <%----%>
                             <tr data-tt-id="2-1-4" data-tt-parent-id="2-1">
                                 <td>入库单管理</td>
                             </tr>
+                            <tr data-tt-id="2-1-4-1" data-tt-parent-id="2-1-4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="91"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 91}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-4-2" data-tt-parent-id="2-1-4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="92"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 92}">checked="checked"</c:if>
+                                    </c:forEach>>制单
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-4-3" data-tt-parent-id="2-1-4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="93"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 93}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-4-4" data-tt-parent-id="2-1-4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="94"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 94}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-4-5" data-tt-parent-id="2-1-4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="95"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 95}">checked="checked"</c:if>
+                                    </c:forEach>>确认入库
+                                </td>
+                            </tr>
+
+                            <%----%>
                             <tr data-tt-id="2-1-5" data-tt-parent-id="2-1">
                                 <td>发票单管理</td>
                             </tr>
+                            <tr data-tt-id="2-1-5-1" data-tt-parent-id="2-1-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="96"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 96}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-5-2" data-tt-parent-id="2-1-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="97"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 97}">checked="checked"</c:if>
+                                    </c:forEach>>制单
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-5-3" data-tt-parent-id="2-1-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="98"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 98}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-5-4" data-tt-parent-id="2-1-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="99"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 99}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-1-5-5" data-tt-parent-id="2-1-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="100"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 100}">checked="checked"</c:if>
+                                    </c:forEach>>确认开票
+                                </td>
+                            </tr>
+
                             <tr data-tt-id="2-2" data-tt-parent-id="2">
                                 <td>库存管理</td>
                             </tr>
                             <tr data-tt-id="2-2-1" data-tt-parent-id="2-2">
                                 <td>期初管理</td>
                             </tr>
+                            <tr data-tt-id="2-2-1-1" data-tt-parent-id="2-2-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="101"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 101}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-1-2" data-tt-parent-id="2-2-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="102"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 102}">checked="checked"</c:if>
+                                    </c:forEach>>制单
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-1-3" data-tt-parent-id="2-2-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="103"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 103}">checked="checked"</c:if>
+                                    </c:forEach>>修改
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-1-4" data-tt-parent-id="2-2-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="104"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 104}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-1-5" data-tt-parent-id="2-2-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="105"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 105}">checked="checked"</c:if>
+                                    </c:forEach>>确认入库
+                                </td>
+                            </tr>
+
+                            <%----%>
                             <tr data-tt-id="2-2-2" data-tt-parent-id="2-2">
                                 <td>盘点</td>
                             </tr>
-                            <%--end？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？--%>
+                            <tr data-tt-id="2-2-2-1" data-tt-parent-id="2-2-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="106"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 106}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-2-2" data-tt-parent-id="2-2-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="107"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 107}">checked="checked"</c:if>
+                                    </c:forEach>>制表
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-2-3" data-tt-parent-id="2-2-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="108"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 108}">checked="checked"</c:if>
+                                    </c:forEach>>审批
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-2-4" data-tt-parent-id="2-2-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="109"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 109}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-2-5" data-tt-parent-id="2-2-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="110"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 110}">checked="checked"</c:if>
+                                    </c:forEach>>盘点
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-2-2-6" data-tt-parent-id="2-2-2">
+                                <td>
+                                    <input name="ids" type="checkbox" value="111"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 111}">checked="checked"</c:if>
+                                    </c:forEach>>调整
+                                </td>
+                            </tr>
+
                             <tr data-tt-id="2-3" data-tt-parent-id="2">
                                 <td>销售管理</td>
                             </tr>
@@ -685,20 +975,77 @@
                             <tr data-tt-id="2-4-1" data-tt-parent-id="2-4">
                                 <td>采购应付单管理</td>
                             </tr>
+                            <%----%>
                             <tr data-tt-id="2-4-1" data-tt-parent-id="2-4">
                                 <td>销售应收单管理</td>
                             </tr>
+                            <tr data-tt-id="2-4-1-1" data-tt-parent-id="2-4-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="125"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 125}">checked="checked"</c:if>
+                                    </c:forEach>>查询
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-4-1-2" data-tt-parent-id="2-4-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="126"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 126}">checked="checked"</c:if>
+                                    </c:forEach>>制表
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-4-1-3" data-tt-parent-id="2-4-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="127"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 127}">checked="checked"</c:if>
+                                    </c:forEach>>审核
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-4-1-4" data-tt-parent-id="2-4-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="128"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 128}">checked="checked"</c:if>
+                                    </c:forEach>>修订
+                                </td>
+                            </tr>
+                            <tr data-tt-id="2-4-1-5" data-tt-parent-id="2-4-1">
+                                <td>
+                                    <input name="ids" type="checkbox" value="129"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 129}">checked="checked"</c:if>
+                                    </c:forEach>>签字
+                                </td>
+                            </tr>
+                            <%----%>
                             <tr data-tt-id="2-5" data-tt-parent-id="2">
                                 <td>预警管理</td>
                             </tr>
                             <tr data-tt-id="2-5-1" data-tt-parent-id="2-5">
-                                <td>采购入库预警</td>
+                                <td>
+                                    <input name="ids" type="checkbox" value="58"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 58}">checked="checked"</c:if>
+                                    </c:forEach>>采购入库预警
+                                </td>
                             </tr>
-                            <tr data-tt-id="2-5-1" data-tt-parent-id="2-5">
-                                <td>销售发货预警</td>
+                            <tr data-tt-id="2-5-2" data-tt-parent-id="2-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="56"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 56}">checked="checked"</c:if>
+                                    </c:forEach>>仓库预警
+                                </td>
                             </tr>
-                            <tr data-tt-id="2-5-1" data-tt-parent-id="2-5">
-                                <td>销售出库预警</td>
+                            <tr data-tt-id="2-5-3" data-tt-parent-id="2-5">
+                                <td>
+                                    <input name="ids" type="checkbox" value="57"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 57}">checked="checked"</c:if>
+                                    </c:forEach>>销售出库预警
+                                </td>
                             </tr>
                             <%--end？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？？--%>
 
@@ -734,6 +1081,22 @@
                                     <c:forEach var="permission" items="${permissions}">
                                            <c:if test="${permission.id == 55}">checked="checked"</c:if>
                                     </c:forEach>>访问日志
+                                </td>
+                            </tr>
+                            <tr data-tt-id="4-2" data-tt-parent-id="4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="118"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 118}">checked="checked"</c:if>
+                                    </c:forEach>>任务管理
+                                </td>
+                            </tr>
+                            <tr data-tt-id="4-3" data-tt-parent-id="4">
+                                <td>
+                                    <input name="ids" type="checkbox" value="119"
+                                    <c:forEach var="permission" items="${permissions}">
+                                           <c:if test="${permission.id == 119}">checked="checked"</c:if>
+                                    </c:forEach>>系统管理
                                 </td>
                             </tr>
 
