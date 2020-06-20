@@ -45,7 +45,7 @@
 
                     <security:authorize access="hasRole('ROLE_ROLE_QUERY')">
                         <li><a
-                                href="${pageContext.request.contextPath}/#"><i
+                                href="${pageContext.request.contextPath}/role/findAll"><i
                                 class="fa fa-circle-o"></i> 角色
                         </a></li>
                     </security:authorize>
@@ -116,26 +116,36 @@
                    				 	</span>
                                 </a>
                                 <ul class="treeview-menu">
-                                    <li>
-                                        <a href="${pageContext.request.contextPath}/pages/business/cgygd-query.jsp">
-                                            <i class="fa fa-circle-o"></i> 查询
-                                        </a>
-                                    </li>
+                                    <security:authorize access="hasRole('ROLE_UI_CGQGD_QUERY')">
+                                        <li>
+                                            <a href="${pageContext.request.contextPath}/pages/business/cgygd-query.jsp">
+                                                <i class="fa fa-circle-o"></i> 查询
+                                            </a>
+                                        </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGQGD_ADD')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/cgyg/getDdhToAddUI">
                                             <i class="fa fa-circle-o"></i> 制单
                                         </a>
                                     </li>
+                                    </security:authorize>
+
+                                    <security:authorize access="hasRole('UI_CGQGD_UPDATE')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgygd-update.jsp" <%--href="all-form-general.html"--%>>
                                             <i class="fa fa-circle-o"></i> 修订
                                         </a>
                                     </li>
+                                    </security:authorize>
+
+                                    <security:authorize access="hasRole('UI_CGQGD_SP')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgygd-sp.jsp" <%--href="all-form-general.html"--%>>
                                             <i class="fa fa-circle-o"></i> 审批
                                         </a>
                                     </li>
+                                    </security:authorize>
                                 </ul>
                             </li>
                             <%--采购管理子项：采购顶购单管理--%>
@@ -148,91 +158,137 @@
                    				 	</span>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_CGDD_QUERY')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgdd-query.jsp">
                                             <i class="fa fa-circle-o"></i> 查询
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDD_ADD')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/cgdd/getDdhToAddUI">
                                             <i class="fa fa-circle-o"></i> 制单
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDD_UPDATE')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgdd-update.jsp" <%--href="all-form-general.html"--%>>
                                             <i class="fa fa-circle-o"></i> 修订
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDD_SP')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgdd-sp.jsp" <%--href="all-form-general.html"--%>>
                                             <i class="fa fa-circle-o"></i> 审批
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDD_JD_AND_DJ')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgdd-dj.jsp" <%--href="all-form-general.html"--%>>
                                             <i class="fa fa-circle-o"></i> 冻结和解冻
                                         </a>
                                     </li>
+                                    </security:authorize>
                                 </ul>
                             </li>
-                                <%--采购管理子项：到货单管理--%>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-plus"></i>
-                                        <span>采购到货单管理</span>
-                                        <span class="pull-right-container">
+                            <%--采购管理子项：到货单管理--%>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-plus"></i>
+                                    <span>采购到货单管理</span>
+                                    <span class="pull-right-container">
                         				<i class="fa fa-angle-left pull-right"></i>
                    				 	</span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-query.jsp">
-                                                <i class="fa fa-circle-o"></i> 查询
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/cgdhd/getDdhToAddUI">
-                                                <i class="fa fa-circle-o"></i> 制单
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-update.jsp">
-                                                <i class="fa fa-circle-o"></i> 修订
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-sp.jsp">
-                                                <i class="fa fa-circle-o"></i> 审批
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgdhd-sure.jsp">
-                                                <i class="fa fa-circle-o"></i> 确认到货
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <%--采购管理子项：采购入库管理--%>
-                                <li class="treeview">
-                                    <a href="#">
-                                        <i class="fa fa-plus"></i>
-                                        <span>采购入库管理</span>
-                                        <span class="pull-right-container">
+                                </a>
+                                <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_CGDHD_QUERY')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdhd-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDHD_ADD')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/cgdhd/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制单
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDHD_UPDATE')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdhd-update.jsp">
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDHD_SP')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdhd-sp.jsp">
+                                            <i class="fa fa-circle-o"></i> 审批
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGDHD_SURE')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgdhd-sure.jsp">
+                                            <i class="fa fa-circle-o"></i> 确认到货
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                </ul>
+                            </li>
+                            <%--采购管理子项：采购入库管理--%>
+                            <li class="treeview">
+                                <a href="#">
+                                    <i class="fa fa-plus"></i>
+                                    <span>采购入库管理</span>
+                                    <span class="pull-right-container">
                         				<i class="fa fa-angle-left pull-right"></i>
                    				 	</span>
-                                    </a>
-                                    <ul class="treeview-menu">
-                                        <li>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-query.jsp" <%--href="all-form-general.html"--%>>
-                                                <i class="fa fa-circle-o"></i> 查询
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/cgrkd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
-                                                <i class="fa fa-circle-o"></i> 制单
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-update.jsp" <%--href="all-form-general.html"--%>>
-                                                <i class="fa fa-circle-o"></i> 修订
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-sp.jsp" <%--href="all-form-general.html"--%>>
-                                                <i class="fa fa-circle-o"></i> 审批
-                                            </a>
-                                            <a href="${pageContext.request.contextPath}/pages/business/cgrkd-sure.jsp" <%--href="all-form-general.html"--%>>
-                                                <i class="fa fa-circle-o"></i> 确认出库
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
+                                </a>
+                                <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_CGRK_QUERY')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgrkd-query.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGRK_ADD')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/cgrkd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 制单
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGRK_UPDATE')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgrkd-update.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGRK_SP')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgrkd-sp.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 审批
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGRK_SURE')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgrkd-sure.jsp" <%--href="all-form-general.html"--%>>
+                                            <i class="fa fa-circle-o"></i> 确认出库
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                </ul>
+                            </li>
                             <%--采购管理子项：采购发票管理--%>
                             <li class="treeview">
                                 <a href="#">
@@ -243,17 +299,29 @@
                    				 	</span>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_CGFP_QUERY')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/cgfp-query.jsp">
-                                                    <i class="fa fa-circle-o"></i> 查询
-                                        </a>
-                                        <a href="${pageContext.request.contextPath}/pages/business/cgfp-update.jsp">
-                                                    <i class="fa fa-circle-o"></i> 修订
-                                        </a>
-                                        <a href="${pageContext.request.contextPath}/cgfp/getFphToAddUI">
-                                                    <i class="fa fa-circle-o"></i> 制单
+                                            <i class="fa fa-circle-o"></i> 查询
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGFP_ADD')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/cgfp/getFphToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制单
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGFP_UPDATE')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgfp-update.jsp">
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <%--<security:authorize access="hasRole('UI_CGFP_SP')"></security:authorize>
+                                    <security:authorize access="hasRole('UI_CGFP_SURE')"></security:authorize>--%>
                                 </ul>
                             </li>
                         </ul>
@@ -279,23 +347,41 @@
                    				 	</span>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_QC_QUERY')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/qc-query.jsp">
                                             <i class="fa fa-circle-o"></i> 查询
                                         </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_QC_ADD')">
+                                    <li>
                                         <a href="${pageContext.request.contextPath}/qc/getDdhToAddUI">
                                             <i class="fa fa-circle-o"></i> 制单<%--/getDdhToAddUI--%>
                                         </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_QC_UPDATE')">
+                                    <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/qc-update.jsp">
                                             <i class="fa fa-circle-o"></i> 修改
                                         </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_QC_SP')">
+                                    <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/qc-sp.jsp">
                                             <i class="fa fa-circle-o"></i> 审批
                                         </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_QC_SURE')">
+                                    <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/qc-sure.jsp">
                                             <i class="fa fa-circle-o"></i> 确认入库
                                         </a>
                                     </li>
+                                    </security:authorize>
                                 </ul>
                             </li>
                             <%--库存管理子项：盘点--%>
@@ -308,36 +394,48 @@
                    				 	</span>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_PD_QUERY')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/pandian-query.jsp">
                                             <i class="fa fa-circle-o"></i> 查询
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_PD_ADD')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pd/getDdhToAddUI">
                                             <i class="fa fa-circle-o"></i> 制表
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_PD_SP')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/pandian-sp.jsp">
-                                            <i class="fa fa-circle-o"></i>  审批
+                                            <i class="fa fa-circle-o"></i> 审批
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_PD_UPDATE')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/pandian-update.jsp">
-                                            <i class="fa fa-circle-o"></i>  修订
+                                            <i class="fa fa-circle-o"></i> 修订
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_PD_PD')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/pandian-pd.jsp">
-                                            <i class="fa fa-circle-o"></i>  盘点
+                                            <i class="fa fa-circle-o"></i> 盘点
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_PD_TZ')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/pandian-tz.jsp">
-                                            <i class="fa fa-circle-o"></i>  调整
+                                            <i class="fa fa-circle-o"></i> 调整
                                         </a>
                                     </li>
+                                    </security:authorize>
                                 </ul>
                             </li>
                         </ul>
@@ -365,7 +463,7 @@
                                 <ul class="treeview-menu">
                                     <security:authorize access="hasRole('ROLE_UI_XSYDD_QUERY')">
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/xsydd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
+                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-query.jsp" <%--href="all-form-general.html"--%>>
                                                 <i class="fa fa-circle-o"></i> 查询
                                             </a>
                                         </li>
@@ -381,7 +479,7 @@
 
                                     <security:authorize access="hasRole('ROLE_UI_XSYDD_UPDATE')">
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/xsydd/getDdhToAddUI" <%--href="all-form-general.html"--%>>
+                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-update.jsp" <%--href="all-form-general.html"--%>>
                                                 <i class="fa fa-circle-o"></i> 修订
                                             </a>
                                         </li>
@@ -389,7 +487,7 @@
 
                                     <security:authorize access="hasRole('ROLE_UI_XSYDD_SP')">
                                         <li>
-                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-query.jsp" <%--href="all-form-general.html"--%>>
+                                            <a href="${pageContext.request.contextPath}/pages/business/xsydd-sp.jsp" <%--href="all-form-general.html"--%>>
                                                 <i class="fa fa-circle-o"></i> 审批
                                             </a>
                                         </li>
@@ -599,6 +697,12 @@
                         </ul>
                     </li>
 
+                        <%--<security:authorize access="hasRole('UI_CGYFD_1')"></security:authorize>
+                                    <security:authorize access="hasRole('UI_CGYFD_2')"></security:authorize>
+                                    <security:authorize access="hasRole('UI_CGYFD_3')"></security:authorize>
+                                    <security:authorize access="hasRole('UI_CGYFD_4')"></security:authorize>
+                                    <security:authorize access="hasRole('UI_CGYFD_5')"></security:authorize>--%>
+
                     <%--应收应付管理--%>
                     <li class="treeview">
                         <a href="#">
@@ -636,32 +740,41 @@
                    				 	</span>
                                 </a>
                                 <ul class="treeview-menu">
+                                    <security:authorize access="hasRole('UI_XSYDD_QUERY')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/xsys-query.jsp">
                                             <i class="fa fa-circle-o"></i> 查询
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_XSYDD_ADD')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/ys/getDdhToAddUI">
                                             <i class="fa fa-circle-o"></i> 制表
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_XSYDD_SP')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/xsys-sh.jsp">
                                             <i class="fa fa-circle-o"></i> 审核
                                         </a>
                                     </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_XSYDD_UPDATE')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/xsys-update.jsp">
                                             <i class="fa fa-circle-o"></i> 修订
                                         </a>
                                     </li>
-
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_XSYDD_QZ')">
                                     <li>
                                         <a href="${pageContext.request.contextPath}/pages/business/xsys-qz.jsp">
                                             <i class="fa fa-circle-o"></i> 签字
                                         </a>
                                     </li>
+                                    </security:authorize>
                                 </ul>
                             </li>
                         </ul>
@@ -677,30 +790,37 @@
                     </span>
                         </a>
                         <ul class="treeview-menu">
+                            <security:authorize access="hasRole('UI_EWS_CGRK')">
                             <li>
                                 <a href="${pageContext.request.contextPath}/earlyWarning_Cgrk/findEWCgByPage">
                                     <i class="fa fa-circle-o"></i> 采购入库预警
                                 </a>
                             </li>
+                            </security:authorize>
+                            <security:authorize access="hasRole('UI_EWS_STORE')">
                             <li>
                                 <a href="${pageContext.request.contextPath}/earlyWarning_Store/findEWSsByPage">
                                     <i class="fa fa-circle-o"></i> 仓库预警
                                 </a>
                             </li>
+                            </security:authorize>
+                            <security:authorize access="hasRole('UI_EWS_XSCK')">
                             <li>
                                 <a href="${pageContext.request.contextPath}/earlyWarning_Xsck/findEWXsByPage">
                                     <i class="fa fa-circle-o"></i> 销售出库预警
                                 </a>
                             </li>
+                            </security:authorize>
                         </ul>
                     </li>
-                    <%--<li>
-                        <a href="all-form-general.html">
-                            <i class="fa fa-circle-o"></i> 业务1
-                        </a>
-                    </li>--%>
+
                 </ul>
             </li>
+
+
+
+
+
 
             <%--权限管理模块--%>
             <li class="treeview">
@@ -712,14 +832,18 @@
 				</span></a>
 
                 <ul class="treeview-menu">
+                    <security:authorize access="hasRole('UI_CONFIGURE_PRIVILEGE')">
                     <li><a
                             href="${pageContext.request.contextPath}/privilege/findAllRoles"> <i
                             class="fa fa-circle-o"></i> 角色配置权限
                     </a></li>
+                    </security:authorize>
+                    <security:authorize access="hasRole('UI_PRIVILEGE')">
                     <li><a
                             href="${pageContext.request.contextPath}/privilege/findAllPrivileges"> <i
                             class="fa fa-circle-o"></i> 资源权限
                     </a></li>
+                    </security:authorize>
                 </ul>
             </li>
 
@@ -734,18 +858,24 @@
 				</span></a>
 
                 <ul class="treeview-menu">
+                    <security:authorize access="hasRole('UI_SYSLOG')">
                     <li>
                         <a href="${pageContext.request.contextPath}/sysLog/findAllBySysLogOrTime?queryMethod=TimePeriodQuery">
                             <i class="fa fa-circle-o"></i> 访问日志
                         </a></li>
+                    </security:authorize>
+                    <security:authorize access="hasRole('UI_XTGL_JOB')">
                     <li>
                         <a href="${pageContext.request.contextPath}/job/findJobsByPage">
                             <i class="fa fa-circle-o"></i> 任务管理
                         </a></li>
+                    </security:authorize>
+                    <security:authorize access="hasRole('UI_XTGL_SYSSETTING')">
                     <li>
                         <a href="${pageContext.request.contextPath}/pages/system/system-setting.jsp">
                             <i class="fa fa-circle-o"></i> 系统设置
                         </a></li>
+                    </security:authorize>
                 </ul>
             </li>
 

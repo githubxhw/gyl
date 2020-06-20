@@ -170,8 +170,11 @@ public class TestController {
     }
 
     public static void main(String[] args) throws Exception {
-        boolean validExpression = CronExpression.isValidExpression("0 */1 * * * ?");
-        System.out.println(validExpression);
+           /* Long a = 1l;
+            Long b= 1l;
+            System.out.println(a==b);*/
+        //boolean validExpression = CronExpression.isValidExpression("0 */1 * * * ?");
+        //System.out.println(validExpression);
         /*Date today = new Date();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(today);

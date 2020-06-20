@@ -61,7 +61,7 @@ public interface ICgfp_zhubDao {
             "bz=#{bz}," +
             "zdsl=#{zdsl}," +
             "isycyf=#{isycyf}" +
-            "where cgfp_zhub_id=#{cgfp_zhub_id}")
+            " where cgfp_zhub_id=#{cgfp_zhub_id}")
     void updateById(Cgfp_zhub cgfp_zhub) throws Exception;
 
     //根据id删除信息

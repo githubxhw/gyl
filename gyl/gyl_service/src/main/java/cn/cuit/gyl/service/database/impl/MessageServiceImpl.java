@@ -60,7 +60,7 @@ public class MessageServiceImpl implements IMessageService {
         Iterator<Message> iterator = messages.iterator();
         while (iterator.hasNext()){
             Message next = iterator.next();
-            if(next.getMid() == mid){
+            if(next.getMid().equals(mid)){
                 iterator.remove();
                 break;
             }

@@ -12,6 +12,8 @@ public class Xsydd_zhub implements Serializable {
     private Integer xsydd_zhub_id; //销售预订单主表id
     private String ddh; //预订单号
     private Date dhrq; //定货日期
+    private Date sxrq; //失效日期
+    private String sxrqStr;
     private String dhrqStr;
     private String khmc;//客户名称
     private String xsbm;//销售部门
@@ -19,6 +21,10 @@ public class Xsydd_zhub implements Serializable {
     private String spr;//审批人
     private Date sprq;//审批日期
     private String sprqStr;
+    private Integer sfsp = 0;//是否审批 1已经审批 0还没有审批
+    private String sfspStr;
+    private Integer spsftg = 0; //审批是否通过 1代表通过 0代表未通过
+    private String spsftgStr;
     private String zdr;//制单人
     private Date zdrq;//制单日期
     private String zdrqStr;
@@ -46,12 +52,18 @@ public class Xsydd_zhub implements Serializable {
                 ", ddh='" + ddh + '\'' +
                 ", dhrq=" + dhrq +
                 ", dhrqStr='" + dhrqStr + '\'' +
+                ", sxrq=" + sxrq +
+                ", sxrqStr='" + sxrqStr + '\'' +
                 ", khmc='" + khmc + '\'' +
                 ", xsbm='" + xsbm + '\'' +
                 ", ywy='" + ywy + '\'' +
                 ", spr='" + spr + '\'' +
                 ", sprq=" + sprq +
                 ", sprqStr='" + sprqStr + '\'' +
+                ", sfsp=" + sfsp +
+                ", sfspStr='" + sfspStr + '\'' +
+                ", spsftg=" + spsftg +
+                ", spsftgStr='" + spsftgStr + '\'' +
                 ", zdr='" + zdr + '\'' +
                 ", zdrq=" + zdrq +
                 ", zdrqStr='" + zdrqStr + '\'' +
@@ -62,6 +74,71 @@ public class Xsydd_zhub implements Serializable {
                 ", statusStr='" + statusStr + '\'' +
                 ", xsydd_zibs=" + xsydd_zibs +
                 '}';
+    }
+
+    public Integer getSfsp() {
+        return sfsp;
+    }
+
+    public void setSfsp(Integer sfsp) {
+        if(sfsp != null){
+            if(sfsp == 1){
+                this.sfspStr = "是";
+            }else {
+                this.sfspStr = "否";
+            }
+        }
+        this.sfsp = sfsp;
+    }
+
+    public String getSfspStr() {
+        return sfspStr;
+    }
+
+    public void setSfspStr(String sfspStr) {
+        this.sfspStr = sfspStr;
+    }
+
+    public Integer getSpsftg() {
+        return spsftg;
+    }
+
+    public void setSpsftg(Integer spsftg) {
+        if(spsftg != null){
+            if(spsftg == 1){
+                this.spsftgStr = "通过";
+            }else {
+                this.spsftgStr = "未通过";
+            }
+        }
+        this.spsftg = spsftg;
+    }
+
+    public String getSpsftgStr() {
+        return spsftgStr;
+    }
+
+    public void setSpsftgStr(String spsftgStr) {
+        this.spsftgStr = spsftgStr;
+    }
+
+    public Date getSxrq() {
+        return sxrq;
+    }
+
+    public void setSxrq(Date sxrq) {
+        if(sxrq != null){
+            this.sxrqStr = ConverterUtils.dateToString(sxrq, "yyyy-MM-dd HH:mm");
+        }
+        this.sxrq = sxrq;
+    }
+
+    public String getSxrqStr() {
+        return sxrqStr;
+    }
+
+    public void setSxrqStr(String sxrqStr) {
+        this.sxrqStr = sxrqStr;
     }
 
     public Integer getXsydd_zhub_id() {

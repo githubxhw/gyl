@@ -377,7 +377,7 @@ public class CgdhdServiceImpl implements ICgdhdService {
             }
         }
         if(statusFlag > 0){
-            throw new MyException("不能重复发货!");
+            throw new MyException("不能重复到货!");
         }else {
             //到货
             int flag = 0;

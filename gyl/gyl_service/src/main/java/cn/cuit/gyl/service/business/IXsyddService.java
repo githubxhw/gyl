@@ -3,6 +3,7 @@ package cn.cuit.gyl.service.business;
 import cn.cuit.gyl.domain.business.Xsydd_zhub;
 import cn.cuit.gyl.domain.business.Xsydd_zib;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IXsyddService {
@@ -48,4 +49,15 @@ public interface IXsyddService {
 
     //功能：在xsydd-add.jsp保存主表和子表信息
     void saveZhubAndZib(Xsydd_zhub xsydd_zhub) throws Exception;
+
+    //功能：点击xsdd-update.jsp中的 搜索按钮触发，查询 没有经过 审批即（sfsp = 0）的所有主表信息
+    List<Xsydd_zhub> findByAllAndSfspIsZero(Xsydd_zhub xsydd_zhub) throws Exception;
+
+    //功能：审批禁止功能 ： 单击子表下面的 审批禁止按钮 触发，给已经选择的预购单修改信息
+    //在服务器 判断是否该预购单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 0;
+    void spForbidden(String ddh, String spr, Date sprq) throws Exception;
+
+    //功能：审批通过功能 ： 单击子表下面的 审批通过按钮 触发，给已经选择的预购单修改信息
+    //在服务器 判断是否该预购单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
+    void spAdopt(String ddh, String spr, Date sprq) throws Exception;
 }

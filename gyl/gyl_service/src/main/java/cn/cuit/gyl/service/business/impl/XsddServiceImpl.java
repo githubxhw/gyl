@@ -3,6 +3,7 @@ package cn.cuit.gyl.service.business.impl;
 import cn.cuit.gyl.dao.business.IEarlyWarning_XsckDao;
 import cn.cuit.gyl.dao.business.IXsdd_zhubDao;
 import cn.cuit.gyl.dao.business.IXsdd_zibDao;
+import cn.cuit.gyl.dao.system.ISysSettingDao;
 import cn.cuit.gyl.domain.business.EarlyWarning_Xsck;
 import cn.cuit.gyl.domain.business.Xsdd_zhub;
 import cn.cuit.gyl.domain.business.Xsdd_zib;
@@ -31,6 +32,10 @@ public class XsddServiceImpl implements IXsddService {
     @Autowired
     @Qualifier("iEarlyWarning_XsckDao")
     IEarlyWarning_XsckDao iEarlyWarning_xsckDao = null;
+
+    @Autowired
+    @Qualifier("iSysSettingDao")
+    ISysSettingDao sysSettingDao = null;
 
     @Override
     public void saveZhubAndZib(Xsdd_zhub xsdd_zhub) throws Exception {
@@ -191,15 +196,17 @@ public class XsddServiceImpl implements IXsddService {
             //生成销售出库预警表
             List<Xsdd_zib> xsdd_zibs = iXsdd_zibDao.findByZhubId(xsdd_zhub.getXsdd_zhub_id());
             if(xsdd_zibs!=null){
+                Integer checkDays = sysSettingDao.findFhEarlyWarningDaysById(1);
+                Integer invalidDays = sysSettingDao.findFhEarlyWarningInvalidDaysById(1);
                 for (Xsdd_zib x : xsdd_zibs){
                     EarlyWarning_Xsck earlyWarning_xsck = new EarlyWarning_Xsck();
                     earlyWarning_xsck.setDdh(ddh1);//销售订单号
                     earlyWarning_xsck.setHh(x.getHh());//行号
                     earlyWarning_xsck.setProductNum(x.getSpbm());//商品编码
                     earlyWarning_xsck.setProductName(x.getSpmc());//商品名称
-                    earlyWarning_xsck.setYqfhrq(x.getYqshrq());//要求发货日期
-                    earlyWarning_xsck.setCheckDays(3);//需要修改，从数据库中查询数据 预警的天数：在要求发货日期的前checkDays内开始预警
-                    earlyWarning_xsck.setInvalidDays(2);//需要修改，从数据库中查询数据 预警失效天数：意思是如果要求发货日期到仍然没有发货，那么依然需要预警（即status状态为1），连续预警invalidDays后就不在预警了（即修改staus为0）；\r\n说明，没有值情况下默认不预警。
+                    earlyWarning_xsck.setYqfhrq(x.getJhfhrq());//计划发货日期
+                    earlyWarning_xsck.setCheckDays(checkDays);//需要修改，从数据库中查询数据 预警的天数：在要求发货日期的前checkDays内开始预警
+                    earlyWarning_xsck.setInvalidDays(invalidDays);//需要修改，从数据库中查询数据 预警失效天数：意思是如果要求发货日期到仍然没有发货，那么依然需要预警（即status状态为1），连续预警invalidDays后就不在预警了（即修改staus为0）；\r\n说明，没有值情况下默认不预警。
                     earlyWarning_xsck.setStatus(1);//预警状态 是否需要预警 1是 0否
                     //添加一条数据
                     iEarlyWarning_xsckDao.saveEWXNotHasId(earlyWarning_xsck);

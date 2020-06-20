@@ -36,4 +36,7 @@ public interface ISysLogDao {
 
     @Delete("delete from syslog where id=#{id}")
     void deleteById(Long id) throws Exception;
+
+    @Delete("delete from syslog where visit_time < #{time}")
+    void deleteWhereVisit_timeBeforDate(Date time) throws Exception;
 }

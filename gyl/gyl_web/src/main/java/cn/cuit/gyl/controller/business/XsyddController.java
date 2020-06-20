@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 //销售预订单的V
@@ -159,6 +160,32 @@ public class XsyddController {
     @ResponseBody
     public void saveZhubAndZib(Xsydd_zhub xsydd_zhub) throws Exception{
         service.saveZhubAndZib(xsydd_zhub);
+        return;
+    }
+
+    //功能：点击xsdd-update.jsp中的 搜索按钮触发，查询没有经过 审批 即（sfsp = 0）的所有主表信息
+    @RequestMapping("/findByAllAndSfspIsZero")
+    @ResponseBody
+    public List<Xsydd_zhub> findByAllAndSfspIsZero(Xsydd_zhub xsydd_zhub) throws Exception{
+        List<Xsydd_zhub> xsydd_zhubs = service.findByAllAndSfspIsZero(xsydd_zhub);
+        return xsydd_zhubs;
+    }
+
+    //功能：审批禁止功能 ： 单击子表下面的 审批禁止按钮 触发，给已经选择的预购单修改信息
+    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 0;
+    @RequestMapping("/spForbidden")
+    @ResponseBody
+    public void spForbidden(String ddh, String spr, Date sprq) throws Exception{
+        service.spForbidden(ddh,spr,sprq);
+        return;
+    }
+
+    //功能：审批通过功能 ： 单击子表下面的 审批通过按钮 触发，给已经选择的订单修改信息
+    //在服务器 判断是否该预购单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
+    @RequestMapping("/spAdopt")
+    @ResponseBody
+    public void spAdopt(String ddh, String spr, Date sprq) throws Exception{
+        service.spAdopt(ddh,spr,sprq);
         return;
     }
 }
