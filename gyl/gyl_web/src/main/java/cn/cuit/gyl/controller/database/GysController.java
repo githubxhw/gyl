@@ -85,7 +85,7 @@ public class GysController {
     public @ResponseBody
     Information FindNameU(String name, Long id) throws Exception{
         gys gys = gysService.FindByName(name);
-        if (gys.getId()!=null&&gys.getId() == id){
+        if (gys!=null&&gys.getId()!=null&&gys.getId().equals(id)){
             gys =null;
         }
         Information a = new Information();
@@ -118,7 +118,7 @@ public class GysController {
     public @ResponseBody
     Information FindFullNameU(String name, Long id) throws Exception{
         gys gys = gysService.FindByFullName(name);
-        if (gys.getId()!=null&&gys.getId() == id){
+        if (gys!=null&&gys.getId()!=null&&gys.getId().equals(id)){
             gys =null;
         }
         Information a = new Information();
@@ -152,7 +152,7 @@ public class GysController {
     public @ResponseBody
     Information FindZjmU(String zjm, Long id) throws Exception{
         gys gys = gysService.FindByZjm(zjm);
-        if (gys.getId()!=null&&gys.getId() == id){
+        if (gys!=null&&gys.getId()!=null&&gys.getId().equals(id)){
             gys =null;
         }
         Information a = new Information();
