@@ -62,8 +62,11 @@ public class CgYgdServiceImpl implements CgygdService {
         Cgygdzhub byDjh = cgygDao.findByDjh(a.getDjh());
         if (cgqgdzhibs!=null){
             for (Cgygdzhib x:cgqgdzhibs){
-                x.setZid(byDjh.getCgqgdzhubid());
-                cgygzibDao.addCgYgdZib(x);
+                if (x.getHh() !=null){
+                    x.setZid(byDjh.getCgqgdzhubid());
+                    cgygzibDao.addCgYgdZib(x);
+                }
+
             }
         }
 
