@@ -318,7 +318,7 @@ public class XsysdServiceImpl implements IXsysdService {
                     byDdh.setStatus(1);
                 }//判断该订单的所有子表是不是全部结束
             }
-            System.out.println("销售z"+byZhubIdAndHh);
+            System.out.println("销售"+byZhubIdAndHh);
             System.out.println("xsdd"+byDdh);
             iXsdd_zibDao.updateById(byZhubIdAndHh);
             iXsdd_zhubDao.updateById(byDdh);
@@ -328,6 +328,6 @@ public class XsysdServiceImpl implements IXsysdService {
         xsysdzhub.setQzr(qzr);
         xsysdzhub.setQzrq(qzrq);
         iXsysdZubDao.updateById(xsysdzhub);
-        return null;
+        return pageInfo;
     }
 }
