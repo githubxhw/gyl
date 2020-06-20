@@ -86,7 +86,7 @@ public class KhController {
         if (gys == null){
             a.setMsg("Ok");
         }else {
-            a.setMsg("该名称的客户已存在");
+            a.setMsg("该名称的供应商已存在");
 
         }
         return a;
@@ -98,13 +98,13 @@ public class KhController {
     Information FindNameU(String name, Long id) throws Exception{
         kh gys = khService.FindByName(name);
         Information a = new Information();
-        if (gys!=null&&gys.getId()!=null&&gys.getId().equals(id)){
+        if (gys.getId()!=null&&gys.getId() == id){
             gys = null;
         }
         if (gys == null){
             a.setMsg("Ok");
         }else {
-            a.setMsg("该名称的客户已存在");
+            a.setMsg("该名称的供应商已存在");
 
         }
         return a;
@@ -119,7 +119,7 @@ public class KhController {
         if (gys == null){
             a.setMsg("Ok");
         }else {
-            a.setMsg("该全称的客户已存在");
+            a.setMsg("该全称的供应商已存在");
 
         }
         return a;
@@ -130,14 +130,14 @@ public class KhController {
     public @ResponseBody
     Information FindFullNameU(String name, Long id) throws Exception{
         kh gys = khService.FindByFullName(name);
-        if (gys!=null&&gys.getId()!=null&&gys.getId().equals(id)){
+        if (gys.getId()!=null&&gys.getId() == id){
             gys = null;
         }
         Information a = new Information();
         if (gys == null){
             a.setMsg("Ok");
         }else {
-            a.setMsg("该全称的客户已存在");
+            a.setMsg("该全称的供应商已存在");
 
         }
         return a;
@@ -152,7 +152,7 @@ public class KhController {
         if (gys == null){
             a.setMsg("Ok");
         }else {
-            a.setMsg("该助记码的客户已存在");
+            a.setMsg("该助记码的供应商已存在");
 
         }
         return a;
@@ -163,14 +163,14 @@ public class KhController {
     public @ResponseBody
     Information FindZjmU(String zjm, Long id) throws Exception{
         kh gys = khService.FindByZjm(zjm);
-        if (gys!=null&&gys.getId()!=null&&gys.getId().equals(id)){
+        if (gys.getId()!=null&&gys.getId() == id){
             gys =null;
         }
         Information a = new Information();
         if (gys == null){
             a.setMsg("Ok");
         }else {
-            a.setMsg("该助记码的客户已存在");
+            a.setMsg("该助记码的供应商已存在");
 
         }
         return a;
