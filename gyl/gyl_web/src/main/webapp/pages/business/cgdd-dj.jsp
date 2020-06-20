@@ -80,7 +80,7 @@
         <section class="content-header">
             <h1>
 
-                采购订单-审批
+                采购订单-冻结
             </h1>
             <ol class="breadcrumb">
                 <li>

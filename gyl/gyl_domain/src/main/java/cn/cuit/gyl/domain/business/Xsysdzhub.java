@@ -16,7 +16,7 @@ public class Xsysdzhub implements Serializable {
     private String ks;//客商
     private String bm;//部门
     private String ywy;//业务员
-    private Integer sxbz = 0;//生效标志 0为没生效，1位生效
+    private Integer sxbz;//生效标志 0为没生效，1位生效
     private String zdr;//制单人
     private Date zdrq;//制单日期
     private String sher;//审核人
