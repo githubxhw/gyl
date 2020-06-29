@@ -1,8 +1,11 @@
 package cn.cuit.gyl.service.business.impl;
 
+import cn.cuit.gyl.dao.business.IEarlyWarning_CgrkDao;
 import cn.cuit.gyl.dao.database.GysDao;
+import cn.cuit.gyl.dao.system.ISysSettingDao;
 import cn.cuit.gyl.domain.business.Cgddzhib;
 import cn.cuit.gyl.domain.business.Cgddzhub;
+import cn.cuit.gyl.domain.business.EarlyWarning_Cgrk;
 import cn.cuit.gyl.domain.database.gys;
 import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.CgddService;
@@ -28,6 +31,13 @@ public class CgddServiceImpl implements CgddService {
     @Autowired
     @Qualifier("GysDao")
     GysDao gysDao;
+    @Autowired
+    @Qualifier("iSysSettingDao")
+    ISysSettingDao sysSettingDao = null;
+    @Autowired
+    @Qualifier("IEarlyWarning_CgrkDao")
+    private IEarlyWarning_CgrkDao earlyWarning_cgrkDao;
+
     @Override
     public List<Cgddzhub> findAll() {
         return cgdddao.findAllDd();
@@ -141,6 +151,26 @@ public class CgddServiceImpl implements CgddService {
                 byDjh.setSprq(sprq);
                 byDjh.setIssp(1);
                 cgdddao.updateCgddzhub(byDjh);
+
+                List<Cgddzhib> byzid = cgddzhidao.findByzid(byDjh.getCgddzhubid());
+                if (byzid !=null){
+                    Integer checkDays = sysSettingDao.findCgEarlyWarningDaysById(1);
+                    Integer invalidDays = sysSettingDao.findCgEarlyWarningInvalidDaysById(1);
+
+                    for (Cgddzhib cgddzhib:byzid){
+                        EarlyWarning_Cgrk earlyWarning_cgrk = new EarlyWarning_Cgrk();
+                        earlyWarning_cgrk.setDjh(djh);
+                        earlyWarning_cgrk.setHh(cgddzhib.getHh());
+                        earlyWarning_cgrk.setProductNum(cgddzhib.getSpbm());
+                        earlyWarning_cgrk.setProductName(cgddzhib.getSpmc());
+                        earlyWarning_cgrk.setYqdhrq(cgddzhib.getJhdhrq());
+                        earlyWarning_cgrk.setCheckDays(checkDays);
+                        earlyWarning_cgrk.setInvalidDays(invalidDays);
+                        earlyWarning_cgrk.setStatus(1);
+                        earlyWarning_cgrkDao.save(earlyWarning_cgrk);
+                    }
+                }
+
             }else {
                 throw new MyException("已经审批合格了");
             }
