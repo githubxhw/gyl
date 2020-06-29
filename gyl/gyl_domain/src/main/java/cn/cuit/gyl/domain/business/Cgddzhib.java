@@ -33,13 +33,13 @@ public class Cgddzhib implements Serializable{
 	private Integer hstatus;//行状态
 	private String shck; //到货仓库
 	private String fhdw; //发货单位
-	private Date jhfhrq; //计划发货日期
+	private Date jhdhrq; //计划到货日期
 	private Date yqshrq; //要求到货日期
 	private Long yfwrksl = 0L; //应发未入库数量
 	private Long ljdhsl = 0L; //累计到货数量
 	private Long ljrksl = 0L; //累计入库数量
 	private Long ljkpsl = 0L; //累计开票数量
-	private Long ljyssl = 0L; //累计应付数量
+	private Long ljyfsl = 0L; //累计应付数量
 	private Integer sfdhgb = 0; //是否到货结束 关闭 0没有关闭 1关闭
 	private Integer sfrkgb = 0; //是否入库结束 关闭 0没有关闭 1关闭
 	private Integer sfkpgb = 0; //是否开票结束 关闭 0没有关闭 1关闭
@@ -61,14 +61,6 @@ public class Cgddzhib implements Serializable{
 
 	public void setFhdw(String fhdw) {
 		this.fhdw = fhdw;
-	}
-
-	public Date getJhfhrq() {
-		return jhfhrq;
-	}
-
-	public void setJhfhrq(Date jhfhrq) {
-		this.jhfhrq = jhfhrq;
 	}
 
 	public Date getYqshrq() {
@@ -111,12 +103,20 @@ public class Cgddzhib implements Serializable{
 		this.ljkpsl = ljkpsl;
 	}
 
-	public Long getLjyssl() {
-		return ljyssl;
+	public Date getJhdhrq() {
+		return jhdhrq;
 	}
 
-	public void setLjyssl(Long ljyssl) {
-		this.ljyssl = ljyssl;
+	public void setJhdhrq(Date jhdhrq) {
+		this.jhdhrq = jhdhrq;
+	}
+
+	public Long getLjyfsl() {
+		return ljyfsl;
+	}
+
+	public void setLjyfsl(Long ljyfsl) {
+		this.ljyfsl = ljyfsl;
 	}
 
 	public Integer getSfdhgb() {
@@ -362,13 +362,13 @@ public class Cgddzhib implements Serializable{
 				", hstatus=" + hstatus +
 				", shck='" + shck + '\'' +
 				", fhdw='" + fhdw + '\'' +
-				", jhfhrq=" + jhfhrq +
+				", jhdhrq=" + jhdhrq +
 				", yqshrq=" + yqshrq +
 				", yfwrksl=" + yfwrksl +
 				", ljdhsl=" + ljdhsl +
 				", ljrksl=" + ljrksl +
 				", ljkpsl=" + ljkpsl +
-				", ljyssl=" + ljyssl +
+				", ljyfsl=" + ljyfsl +
 				", sfdhgb=" + sfdhgb +
 				", sfrkgb=" + sfrkgb +
 				", sfkpgb=" + sfkpgb +

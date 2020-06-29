@@ -175,6 +175,7 @@ public class CgddController {
         }
     }
 
+
     @RequestMapping("/DeleteZhiB")
     public  @ResponseBody void DeleteZhiB(Long id) throws Exception{
         cgddService.deleteZiById(id);

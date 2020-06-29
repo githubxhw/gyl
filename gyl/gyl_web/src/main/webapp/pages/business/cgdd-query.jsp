@@ -460,13 +460,13 @@
                     <th class="text-center sorting" width="350px">行状态</th>
                     <th class="text-center sorting" width="350px">收货仓库</th>
                     <th class="text-center sorting" width="350px">到货单位</th>
-                    <th class="text-center sorting" width="350px">计划发货日期</th>
+                    <th class="text-center sorting" width="350px">计划到货日期</th>
                     <th class="text-center sorting" width="350px">要求收货日期</th>
                     <th class="text-center sorting" width="350px">应发未出库数量</th>
                     <th class="text-center sorting" width="350px">累计到货数量</th>
                     <th class="text-center sorting" width="350px">累计入库数量</th>
                     <th class="text-center sorting" width="350px">累计开票数量</th>
-                    <th class="text-center sorting" width="350px">累计应收数量</th>
+                    <th class="text-center sorting" width="350px">累计应付数量</th>
                     <th class="text-center sorting" width="350px">是否到货关闭</th>
                     <th class="text-center sorting" width="350px">是否入库关闭</th>
                     <th class="text-center sorting" width="350px">是否开票关闭</th>
@@ -905,13 +905,13 @@
                         '<td>' + hstatus + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].shck) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].fhdw) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].jhfhrq) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].yqshrq) + '</td>\n' +
+                        '<td>' + FormatTime(xsdd_zibs[i].jhdhrq) + '</td>\n' +
+                        '<td>' + FormatTime(xsdd_zibs[i].yqshrq) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].yfwrksl) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljdhsl) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljrksl) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljkpsl) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].ljyssl) + '</td>\n' +
+                        '<td>' + NoNull(xsdd_zibs[i].ljyfsl) + '</td>\n' +
                         '<td>' + statusbe(xsdd_zibs[i].sfdhgb) + '</td>\n' +
                         '<td>' + statusbe(xsdd_zibs[i].sfrkgb) + '</td>\n' +
                         '<td>' + statusbe(xsdd_zibs[i].sfkpgb) + '</td>\n' +
