@@ -2,32 +2,227 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="gyl_web:war" />
+      <artifact name="gyl_web:war exploded" />
     </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b877d07-c4f6-4774-b6f5-fa6776fbf0c0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gyl/.idea/gyl.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/business/IEarlyWarning_StoreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/business/IEarlyWarning_StoreDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/database/IMessageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/database/IMessageDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/database/IStoreDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/database/IStoreDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/privilege/IRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/privilege/IRoleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/system/IJobDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/src/main/java/cn/cuit/gyl/dao/system/IJobDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/src/main/resources/mysql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/src/main/resources/mysql.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/business/IQcService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/business/IQcService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/business/IXsfhdService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/business/IXsfhdService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/business/impl/PanDianServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/business/impl/PanDianServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/database/IDepartmentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/database/IDepartmentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/database/IStoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/database/IStoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/database/impl/GysServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/database/impl/GysServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/socket/Send.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/socket/Send.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/system/IJobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/src/main/java/cn/cuit/gyl/service/system/IJobService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/pages/business/xsys-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/pages/business/xsys-query.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__c3p0_c3p0_0_9_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_10_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_10_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_10_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_jsr250_api_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_jsr250_api_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jstl_jstl_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_12.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_15.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_15.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_6_8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_6_8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_3_4_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mybatis_mybatis_spring_1_3_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_2_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_quartz_scheduler_quartz_2_2_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_6_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_6_6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_acl_5_0_1_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_acl_5_0_1_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_0_1_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_0_1_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_0_1_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_0_1_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_taglibs_5_0_1_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_taglibs_5_0_1_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_0_1_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_0_1_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_websocket_5_0_2_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_websocket_5_0_2_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/gyl_dao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/gyl_dao.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/target/classes/cn/cuit/gyl/dao/business/cgddzhidao.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/target/classes/cn/cuit/gyl/dao/business/cgddzhidao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_dao/target/classes/mysql.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_dao/target/classes/mysql.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_domain/gyl_domain.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_domain/gyl_domain.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_domain/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_domain/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_domain/src/main/java/cn/cuit/gyl/domain/database/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_domain/src/main/java/cn/cuit/gyl/domain/database/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_domain/target/classes/cn/cuit/gyl/domain/business/Cgddzhib.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_domain/target/classes/cn/cuit/gyl/domain/business/Cgddzhib.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_domain/target/classes/cn/cuit/gyl/domain/business/Xsysdzhub.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_domain/target/classes/cn/cuit/gyl/domain/business/Xsysdzhub.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/gyl_service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/gyl_service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/CgddServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/CgddServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/CgfpServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/CgfpServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/EarlyWarning_CgrkSerivceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/EarlyWarning_CgrkSerivceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/EarlyWarning_StoreServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/EarlyWarning_StoreServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/EarlyWarning_XsckServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/EarlyWarning_XsckServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/ICgrkdSerivceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/ICgrkdSerivceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/QcServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/QcServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XsckdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XsckdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XsfhdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XsfhdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XskpdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XskpdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XsysdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/business/impl/XsysdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/database/impl/KhServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/database/impl/KhServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/database/impl/ProductServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/database/impl/ProductServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/QuartzManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/QuartzManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/job/earlywarning/cgrk/CgRkEarlyWarningJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/job/earlywarning/cgrk/CgRkEarlyWarningJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/job/earlywarning/store/StoreEarlyWarningJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/job/earlywarning/store/StoreEarlyWarningJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/job/earlywarning/xsck/XsckEarlyWarningJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/quartz/job/earlywarning/xsck/XsckEarlyWarningJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/security/impl/UserLoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/security/impl/UserLoginServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/socket/MyWebSocket.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/socket/MyWebSocket.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/system/impl/JobServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_service/target/classes/cn/cuit/gyl/service/system/impl/JobServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_utils/gyl_utils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_utils/gyl_utils.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/ConverterUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/ConverterUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/DomainAttrValueConverterUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/DomainAttrValueConverterUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/StringConverterUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/StringConverterUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/StringToDate.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/StringToDate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/StringToIntegerUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_utils/target/classes/cn/cuit/gyl/utils/StringToIntegerUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/gyl_web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/gyl_web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/pages/basedata/role-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/pages/basedata/role-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/pages/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/pages/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/TestController/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/TestController/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/aop/LogAop.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/aop/LogAop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/CgYgdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/CgYgdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/CgddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/CgddController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/CgfpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/CgfpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/EarlyWarning_CgrkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/EarlyWarning_CgrkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/EarlyWarning_XsckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/EarlyWarning_XsckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/PanDianController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/PanDianController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/XsyddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/business/XsyddController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/GysController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/GysController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/KhController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/KhController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/database/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/system/SysLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/controller/system/SysLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/init/MyAuthenticationSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/classes/cn/cuit/gyl/init/MyAuthenticationSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/TestController/TestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/TestController/TestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/aop/LogAop.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/aop/LogAop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/CgYgdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/CgYgdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/CgddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/CgddController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/CgfpController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/CgfpController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/EarlyWarning_CgrkController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/EarlyWarning_CgrkController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/EarlyWarning_XsckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/EarlyWarning_XsckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/PanDianController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/PanDianController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/XsyddController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/business/XsyddController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/GysController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/GysController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/KhController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/KhController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/ProductController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/database/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/system/SysLogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/controller/system/SysLogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/init/MyAuthenticationSuccessHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/classes/cn/cuit/gyl/init/MyAuthenticationSuccessHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_dao-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_dao-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_domain-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_domain-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_service-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_service-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_utils-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/WEB-INF/lib/gyl_utils-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/aside.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/aside.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/department-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/department-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/department-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/department-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/department-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/department-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/gys-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/gys-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/gys-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/gys-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/gys-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/gys-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/kh-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/kh-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/kh-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/kh-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/kh-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/kh-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-StockNumber.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-StockNumber.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/product-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-productsAndStockNumber.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-productsAndStockNumber.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/basedata/store-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-dj.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-dj.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-sure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-sure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgdhd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgfp-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgfp-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgfp-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgfp-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-sure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-sure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgrkd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/cgygd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/earlywarning/earlywarning_cgrk-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/earlywarning/earlywarning_cgrk-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-pd.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-pd.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-tz.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-tz.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/pandian-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-sure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-sure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/qc-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-sure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-sure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsckd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsdd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-sure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-sure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsfhd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-sure.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-sure.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xskpd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-sp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-sp.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-sure.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsydd-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-add.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-add.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-query.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-query.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-qz.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-qz.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-sh.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-sh.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-update.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/business/xsys-update.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/privilege/configure_permissions.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/privilege/configure_permissions.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/system/system-setting.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/gyl_web/target/gyl_web-1.0-SNAPSHOT/pages/system/system-setting.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gyl/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gyl/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,13 +233,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="D:\gyl-version1.0\.idea" />
-      </set>
-    </option>
-  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -53,35 +241,41 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Maven\maven_repository" />
+        <option name="mavenHome" value="E:\Maven\apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="E:\Maven\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
     </option>
   </component>
   <component name="ProjectId" id="1ccLgFOAkmlcW5HGNbbapc4sxJR" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gylnew" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gyl/gyl_web/src/main/webapp/img/index" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -92,11 +286,11 @@
       <recent name="cn.cuit.gyl.dao.business" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\ideal_workspace\new\gyl\gyl_web\src\main\webapp\img\index" />
       <recent name="D:\gyl-version1.0\gyl\gyl_web\src\main\webapp\pages\business\earlywarning" />
       <recent name="D:\gyl-version1.0\gyl\gyl_web\src\main\webapp\pages\business" />
       <recent name="D:\gyl-version1.0\gyl\gyl_web\src\main\webapp\pages\basedata" />
       <recent name="D:\gyl-version1.0\gyl\gyl_web\src\main\java\cn\cuit\gyl\controller\database" />
-      <recent name="D:\gyl-version1.0\gyl\gyl_web\src\main\java\cn\cuit\gyl\controller\business" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -105,18 +299,18 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Tomcat 8.5.50" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.50" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="11" nameIsGenerated="true">
-      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+    <configuration name="Tomcat 9.0.21" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.21" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
       <deployment>
-        <artifact name="gyl_web:war">
+        <artifact name="gyl_web:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/gyl_web_war" />
+            <option name="CONTEXT_PATH" value="/gyl" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_gyl_4" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_gyl" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -124,7 +318,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50725" />
+        <option name="DEBUG_PORT" value="55608" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -174,34 +368,12 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="gyl_web:war" />
+          <artifact name="gyl_web:war exploded" />
         </option>
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <option name="contentProportion" value="0.08401639" />
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -235,6 +407,15 @@
       <workItem from="1592553026104" duration="203000" />
       <workItem from="1592553507292" duration="70000" />
       <workItem from="1592633312398" duration="3328000" />
+      <workItem from="1602055599264" duration="955000" />
+      <workItem from="1602056579982" duration="709000" />
+      <workItem from="1602057300651" duration="611000" />
+      <workItem from="1602057916468" duration="85000" />
+      <workItem from="1602058005574" duration="245000" />
+      <workItem from="1602058253136" duration="340000" />
+      <workItem from="1602058597335" duration="67000" />
+      <workItem from="1602058668251" duration="6985000" />
+      <workItem from="1602230834497" duration="1677000" />
     </task>
     <task id="LOCAL-00001" summary="传入的是采购订单，预购单和盘点和供应商，客户的dao，实体类，service，controller，jsp页面文件">
       <created>1590910662535</created>
@@ -317,7 +498,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -364,11 +545,12 @@
         </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="传入的是采购订单，预购单和盘点和供应商，客户的dao，实体类，service，controller，jsp页面文件" />
@@ -383,113 +565,73 @@
     <option name="LAST_COMMIT_MESSAGE" value="对供应商和客户的一些修改" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1592262031548">
+    <state x="223" y="58" width="1089" height="766" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602080804460">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1592262031548" />
-    <state x="614" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1590907604045">
+    <state x="223" y="58" width="1089" height="766" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602080804460" />
+    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser" timestamp="1602078920341">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="614" y="302" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1536.824@0.0.1536.824" timestamp="1590907604045" />
-    <state x="252" y="0" key="CommitChangelistDialog2" timestamp="1592635819464">
+    <state x="511" y="113" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1602078920341" />
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602081673587">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="252" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1592635819464" />
-    <state x="132" y="77" key="DiffContextDialog" timestamp="1592635369794">
+    <state x="499" y="158" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602081673587" />
+    <state x="856" y="128" key="FileChooserDialogImpl" timestamp="1602057020538">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="132" y="77" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1592635369794" />
-    <state x="538" y="139" key="FileChooserDialogImpl" timestamp="1592636446681">
+    <state x="856" y="128" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602057020538" />
+    <state width="1264" height="348" key="GridCell.Tab.0.bottom" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="538" y="139" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592636446681" />
-    <state width="1340" height="206" key="GridCell.Tab.0.bottom" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.0.center" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.0.center" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.0.left" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.0.left" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.0.right" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.0.right" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.1.bottom" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.1.bottom" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.1.center" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.1.center" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.1.left" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.1.left" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.1.right" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.1.right" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.2.bottom" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.2.bottom" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.2.center" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.2.center" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.2.left" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.2.left" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state width="1264" height="348" key="GridCell.Tab.2.right" timestamp="1602231714278">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state width="1340" height="206" key="GridCell.Tab.2.right" timestamp="1592635491136">
+    <state width="1264" height="348" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1602231714278" />
+    <state x="167" y="18" key="SettingsEditor" timestamp="1602057027218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1340" height="206" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1592635491136" />
-    <state x="231" y="142" key="MergeDialog" timestamp="1592635196271">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="231" y="142" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592635196271" />
-    <state x="561" y="226" key="MultipleFileMergeDialog" timestamp="1592635203758">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="561" y="226" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1592635203758" />
-    <state x="595" y="123" key="RollbackChangesDialog" timestamp="1592634881613">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="595" y="123" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1592634881613" />
-    <state x="270" y="0" key="SettingsEditor" timestamp="1592116295831">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="270" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592116295831" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1592635834841">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592635834841" />
-    <state x="449" y="237" key="com.intellij.ide.util.TipDialog" timestamp="1592553507542">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="449" y="237" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1592553507542" />
-    <state x="571" y="147" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog" timestamp="1592634871077">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="571" y="147" key="com.intellij.openapi.vcs.changes.SpecificFilesViewDialog/0.0.1536.824@0.0.1536.824" timestamp="1592634871077" />
-    <state x="562" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592636696126">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="562" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1592636696126" />
-    <state x="457" y="204" key="git4idea.merge.GitPullDialog" timestamp="1591241292352">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="457" y="204" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1591241292352" />
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup" timestamp="1591251547134">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1591251547134" />
+    <state x="167" y="18" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1602057027218" />
   </component>
 </project>

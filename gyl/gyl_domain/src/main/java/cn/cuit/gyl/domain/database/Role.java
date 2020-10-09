@@ -13,7 +13,7 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Department{" +
+        return "Role{" +
                 "id=" + id +
                 ", role_name='" + role_name + '\'' +
                 ", role_desc='" + role_desc + '\'' +

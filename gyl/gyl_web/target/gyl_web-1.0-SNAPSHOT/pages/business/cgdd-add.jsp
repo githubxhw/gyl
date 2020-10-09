@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: XHW
+  User: Kxin
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -334,13 +334,13 @@
                         <th class="text-center sorting" width="350px">行状态</th>
                         <th class="text-center sorting" width="350px">收货仓库</th>
                         <th class="text-center sorting" width="350px">到货单位</th>
-                        <th class="text-center sorting" width="350px">计划发货日期</th>
+                        <th class="text-center sorting" width="350px">计划到货日期</th>
                         <th class="text-center sorting" width="350px">要求收货日期</th>
                         <th class="text-center sorting" width="350px">应发未出库数量</th>
                         <th class="text-center sorting" width="350px">累计到货数量</th>
                         <th class="text-center sorting" width="350px">累计入库数量</th>
                         <th class="text-center sorting" width="350px">累计开票数量</th>
-                        <th class="text-center sorting" width="350px">累计应收数量</th>
+                        <th class="text-center sorting" width="350px">累计应付数量</th>
                         <th class="text-center sorting" width="350px">是否到货关闭</th>
                         <th class="text-center sorting" width="350px">是否入库关闭</th>
                         <th class="text-center sorting" width="350px">是否开票关闭</th>
@@ -711,7 +711,7 @@
                 '                                   placeholder="收货仓库" value=""></td>\n' +
                 '<td>                            <input id="shdw-' + nowCount + '" type="text" class="form-control" name="cgddzhibs[' + nowCount + '].fhdw"\n' +
                 '                                   placeholder="发货单位" value=""></td>\n' +
-                '<td>                            <input id="jhfhrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgddzhibs[' + nowCount + '].jhfhrq"\n' +
+                '<td>                            <input id="jhdhrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgddzhibs[' + nowCount + '].jhdhrq"\n' +
                 '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
                 '<td>                            <input id="yqshrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgddzhibs[' + nowCount + '].yqshrq"\n' +
                 '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
@@ -723,8 +723,8 @@
                 '                                   placeholder="累计入库数量" value="0"></td>\n' +
                 '<td>                            <input id="ljkpsl-' + nowCount + '" type="text" class="form-control"  name="cgddzhibs[' + nowCount + '].ljkpsl"\n' +
                 '                                   placeholder="累计开票数量" value="0"></td>\n' +
-                '<td>                            <input id="ljyssl-' + nowCount + '" type="text" class="form-control"  name="cgddzhibs[' + nowCount + '].ljyssl"\n' +
-                '                                   placeholder="累计应收数量" value="0"></td>\n' +
+                '<td>                            <input id="ljyfsl-' + nowCount + '" type="text" class="form-control"  name="cgddzhibs[' + nowCount + '].ljyfsl"\n' +
+                '                                   placeholder="累计应付数量" value="0"></td>\n' +
                 '<td>                            <select id="sffhgb-' + nowCount + '" type="text" class="form-control" name="cgddzhibs[' + nowCount + '].sfdhgb">\n' +
                 '                                   <option selected="selected" value="0">未结束</option>' +
                 '                                </select></td>\n' +

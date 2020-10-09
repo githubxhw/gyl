@@ -7,7 +7,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script>
     window.onload = function (ev) {
-        var webSocket = new WebSocket("ws://localhost:8888/gyl_web_war/builtSocket");
+        var webSocket = new WebSocket("ws://localhost:8080/gyl/builtSocket");
         /*建立连接后*/
         webSocket.onopen = function (ev1) {
             /*alert("建立连接...")*/
@@ -502,7 +502,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">修改密码</a>
+                                <%--<a href="#" class="btn btn-default btn-flat">修改密码</a>--%>
                             </div>
                             <div class="pull-right">
                                 <a href="${pageContext.request.contextPath}/logout"

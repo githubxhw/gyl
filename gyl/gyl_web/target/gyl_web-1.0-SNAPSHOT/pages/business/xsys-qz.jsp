@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: XHW
+  User: YT
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -787,7 +787,7 @@
 
                             },
                             error: function () {
-                                alert("遇到未知问题，联系管理员")
+                                alert("遇到未知问题，联系管理员");
                             }
                         });
                     }

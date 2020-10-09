@@ -1,7 +1,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
-  User: XHW
+  User: Kxin
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -438,13 +438,13 @@
                     <th class="text-center sorting" width="350px">行状态</th>
                     <th class="text-center sorting" width="350px">收货仓库</th>
                     <th class="text-center sorting" width="350px">到货单位</th>
-                    <th class="text-center sorting" width="350px">计划发货日期</th>
+                    <th class="text-center sorting" width="350px">计划到货日期</th>
                     <th class="text-center sorting" width="350px">要求收货日期</th>
                     <th class="text-center sorting" width="350px">应发未出库数量</th>
                     <th class="text-center sorting" width="350px">累计到货数量</th>
                     <th class="text-center sorting" width="350px">累计入库数量</th>
                     <th class="text-center sorting" width="350px">累计开票数量</th>
-                    <th class="text-center sorting" width="350px">累计应收数量</th>
+                    <th class="text-center sorting" width="350px">累计应付数量</th>
                     <th class="text-center sorting" width="350px">是否到货关闭</th>
                     <th class="text-center sorting" width="350px">是否入库关闭</th>
                     <th class="text-center sorting" width="350px">是否开票关闭</th>
@@ -660,7 +660,7 @@
                                                                     <input type="text" class="form-control" name="fhdw"
                                                                            placeholder="发货单位" value="">
                                                                 </div>
-                                                                <div class="col-md-2 title">计划发货日期</div>
+                                                                <div class="col-md-2 title">计划到货日期</div>
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group date">
                                                                         <div class="input-group-addon">
@@ -668,7 +668,7 @@
                                                                         </div>
                                                                         <input type="text"
                                                                                class="form-control pull-right dateTimePicker"
-                                                                               name="jhfhrq">
+                                                                               name="jhdhrq">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-2 title">要求收货日期</div>
@@ -710,12 +710,12 @@
                                                                            name="ljkpsl"
                                                                            placeholder="累计开票数量" value="0">
                                                                 </div>
-                                                                <div class="col-md-2 title">累计应收数量</div>
+                                                                <div class="col-md-2 title">累计应付数量</div>
                                                                 <div class="col-md-4 data">
                                                                     <input readonly="readonly" type="text"
                                                                            class="form-control"
-                                                                           name="ljyssl"
-                                                                           placeholder="累计应收数量" value="0">
+                                                                           name="ljyfsl"
+                                                                           placeholder="累计应付数量" value="0">
                                                                 </div>
                                                                 <div class="col-md-2 title">是否到货结束</div>
                                                                 <div class="col-md-4 data">
@@ -1772,13 +1772,13 @@
                         '<td>' + hstatus + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].shck) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].fhdw) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].jhfhrq) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].yqshrq) + '</td>\n' +
+                        '<td>' + FormatTime(xsdd_zibs[i].jhdhrq) + '</td>\n' +
+                        '<td>' + FormatTime(xsdd_zibs[i].yqshrq) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].yfwrksl) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljdhsl) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljrksl) + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljkpsl) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].ljyssl) + '</td>\n' +
+                        '<td>' + NoNull(xsdd_zibs[i].ljyfsl) + '</td>\n' +
                         '<td>' + statusbe(xsdd_zibs[i].sfdhgb) + '</td>\n' +
                         '<td>' + statusbe(xsdd_zibs[i].sfrkgb) + '</td>\n' +
                         '<td>' + statusbe(xsdd_zibs[i].sfkpgb) + '</td>\n' +
@@ -1929,14 +1929,14 @@
                         '                            <input id="cgddzhib_fhdw-' + i + '" type="text" class="form-control" name="fhdw"\n' +
                         '                                   placeholder="发货单位" value="">\n' +
                         '                        </div>' +
-                        '                        <div class="col-md-2 title">计划发货日期</div>\n' +
+                        '                        <div class="col-md-2 title">计划到货日期</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group date">\n' +
                         '                                <div class="input-group-addon">\n' +
                         '                                            <i class="fa fa-calendar"></i>\n' +
                         '                                </div>\n' +
-                        '                                <input id="cgddzhib_jhfhrq-' + i + '" type="text"\n' +
-                        '                                      class="form-control pull-right dateTimePicker" name="jhfhrq">\n' +
+                        '                                <input id="cgddzhib_jhdhrq-' + i + '" type="text"\n' +
+                        '                                      class="form-control pull-right dateTimePicker" name="jhdhrq">\n' +
                         '                             </div>\n' +
                         '                         </div>\n' +
                         '                        <div class="col-md-2 title">要求收货日期</div>\n' +
@@ -1969,10 +1969,10 @@
                         '                            <input readonly="readonly" id="cgddzhib_ljkpsl-' + i + '" type="text" class="form-control" name="ljkpsl"\n' +
                         '                                   placeholder="累计开票数量" value="">\n' +
                         '                        </div>' +
-                        '                        <div class="col-md-2 title">累计应收数量</div>\n' +
+                        '                        <div class="col-md-2 title">累计应付数量</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input readonly="readonly" id="cgddzhib_ljyssl-' + i + '" type="text" class="form-control" name="ljyssl"\n' +
-                        '                                   placeholder="累计应收数量" value="">\n' +
+                        '                            <input readonly="readonly" id="cgddzhib_ljyfsl-' + i + '" type="text" class="form-control" name="ljyfsl"\n' +
+                        '                                   placeholder="累计应付数量" value="">\n' +
                         '                        </div>' +
                         '                         <div class="col-md-2 title">是否到货结束</div>\n' +
                         '                         <div class="col-md-4 data">\n' +
@@ -2119,13 +2119,13 @@
                     $("#cgddzhib_gg-" + i).attr("value", xsdd_zib.gg);
                     $("#cgddzhib_shck-" + i).attr("value", xsdd_zib.shck);
                     $("#cgddzhib_fhdw-" + i).attr("value", xsdd_zib.fhdw);
-                    $("#cgddzhib_jhfhrq-" + i).attr("value", FormatTime(xsdd_zib.jhfhrq));
+                    $("#cgddzhib_jhdhrq-" + i).attr("value", FormatTime(xsdd_zib.jhdhrq));
                     $("#cgddzhib_yqshrq-" + i).attr("value", FormatTime(xsdd_zib.yqshrq));
                     $("#cgddzhib_yfwrksl-" + i).attr("value", xsdd_zib.yfwrksl);
                     $("#cgddzhib_ljdhsl-" + i).attr("value", xsdd_zib.ljdhsl);
                     $("#cgddzhib_ljrksl-" + i).attr("value", xsdd_zib.ljrksl);
                     $("#cgddzhib_ljkpsl-" + i).attr("value", xsdd_zib.ljkpsl);
-                    $("#cgddzhib_ljyssl-" + i).attr("value", xsdd_zib.ljyssl);
+                    $("#cgddzhib_ljyfsl-" + i).attr("value", xsdd_zib.ljyfsl);
 
                     /*zp*/
                     if (xsdd_zib.hgb == 1) {
@@ -2363,13 +2363,13 @@
                             '<td>' + hstatus + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].shck) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].fhdw) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].jhfhrq) + '</td>\n' +
+                            '<td>' + NoNull(xsdd_zibs[i].jhdhrq) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].yqshrq) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].yfwrksl) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljdhsl) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljrksl) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljkpsl) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].ljyssl) + '</td>\n' +
+                            '<td>' + NoNull(xsdd_zibs[i].ljyfsl) + '</td>\n' +
                             '<td>' + statusbe(xsdd_zibs[i].sfdhgb) + '</td>\n' +
                             '<td>' + statusbe(xsdd_zibs[i].sfrkgb) + '</td>\n' +
                             '<td>' + statusbe(xsdd_zibs[i].sfkpgb) + '</td>\n' +
@@ -2519,14 +2519,14 @@
                             '                            <input id="cgddzhib_fhdw-' + i + '" type="text" class="form-control" name="fhdw"\n' +
                             '                                   placeholder="发货单位" value="">\n' +
                             '                        </div>' +
-                            '                        <div class="col-md-2 title">计划发货日期</div>\n' +
+                            '                        <div class="col-md-2 title">计划到货日期</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group date">\n' +
                             '                                <div class="input-group-addon">\n' +
                             '                                            <i class="fa fa-calendar"></i>\n' +
                             '                                </div>\n' +
-                            '                                <input id="cgddzhib_jhfhrq-' + i + '" type="text"\n' +
-                            '                                      class="form-control pull-right dateTimePicker" name="jhfhrq">\n' +
+                            '                                <input id="cgddzhib_jhdhrq-' + i + '" type="text"\n' +
+                            '                                      class="form-control pull-right dateTimePicker" name="jhdhrq">\n' +
                             '                             </div>\n' +
                             '                         </div>\n' +
                             '                        <div class="col-md-2 title">要求收货日期</div>\n' +
@@ -2559,10 +2559,10 @@
                             '                            <input readonly="readonly" id="cgddzhib_ljkpsl-' + i + '" type="text" class="form-control" name="ljkpsl"\n' +
                             '                                   placeholder="累计开票数量" value="">\n' +
                             '                        </div>' +
-                            '                        <div class="col-md-2 title">累计应收数量</div>\n' +
+                            '                        <div class="col-md-2 title">累计应付数量</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input readonly="readonly" id="cgddzhib_ljyssl-' + i + '" type="text" class="form-control" name="ljyssl"\n' +
-                            '                                   placeholder="累计应收数量" value="">\n' +
+                            '                            <input readonly="readonly" id="cgddzhib_ljyfsl-' + i + '" type="text" class="form-control" name="ljyfsl"\n' +
+                            '                                   placeholder="累计应付数量" value="">\n' +
                             '                        </div>' +
                             '                         <div class="col-md-2 title">是否到货结束</div>\n' +
                             '                         <div class="col-md-4 data">\n' +

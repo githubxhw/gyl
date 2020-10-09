@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: XHW
+  User: HR
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -298,7 +298,7 @@
                 </div>
                 <!--订单信息/--> <!--工具栏-->
                 <div class="box-tools <%--text-center --%>text-right">
-                    <button id="query" type="button" class="btn <%--bg-maroon--%> bg-red">索搜</button>
+                    <button id="query" type="button" class="btn <%--bg-maroon--%> bg-red">搜索</button>
                     <button type="reset" class="btn bg-orange">重置</button>
                     <button type="button" class="btn bg-yellow"
                             onclick="history.back(-1);">返回

@@ -98,12 +98,12 @@
                         <input name="id" value="${role.id}" type="hidden">
                         <div class="col-md-2 title">角色名称</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="name"
+                            <input type="text" class="form-control" name="role_name"
                                    placeholder="" value="${role.role_name}">
                         </div>
                         <div class="col-md-2 title">角色描述</div>
                         <div class="col-md-4 data">
-                            <input type="text" class="form-control" name="desc"
+                            <input type="text" class="form-control" name="role_desc"
                                    placeholder="" value="${role.role_desc}">
                         </div>
 

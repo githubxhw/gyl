@@ -6,14 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gyl_service" />
+        <module name="gyl_web" />
+        <module name="gyl_domain" />
         <module name="gyl_utils" />
         <module name="gyl_dao" />
-        <module name="gyl_service" />
-        <module name="gyl_domain" />
-        <module name="gyl_web" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="8">
       <module name="gyl" target="1.5" />
       <module name="gyl_dao" target="1.8" />
       <module name="gyl_domain" target="1.8" />

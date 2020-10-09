@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: XHW
+  User: YT
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -524,7 +524,7 @@
     $(document).ready(function () {
 
         /*start*/
-        //功能：主表：点击查询按钮
+        //功能：主表：点击查询按钮，根据主表一部分信息查询出所有满足的主表集合 --->注意 sql: Spr IS NULL;
         $("#query").click(function () {
             var params = $("#form").serialize();
             $.ajax({

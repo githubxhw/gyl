@@ -154,19 +154,19 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img style="height: 100%" src="${pageContext.request.contextPath}/img/main.png" alt="图片1">
+						<img style="height: 100%;width: 100%" src="${pageContext.request.contextPath}/img/index/gyl1.png" alt="图片1">
 						<div class="carousel-caption">
 							图片1
 						</div>
 					</div>
 					<div class="item">
-						<img style="height: 100%" src="${pageContext.request.contextPath}/img/main.png" alt="图片2">
+						<img style="height: 100%;width: 100%" src="${pageContext.request.contextPath}/img/index/gyl2.png" alt="图片2">
 						<div class="carousel-caption">
 							图片2
 						</div>
 					</div>
 					<div class="item">
-						<img style="height: 100%" src="${pageContext.request.contextPath}/img/main.png" alt="图片3">
+						<img style="height: 100%;width: 100%" src="${pageContext.request.contextPath}/img/index/gyl3.png" alt="图片3">
 						<div class="carousel-caption">
 							图片3
 						</div>

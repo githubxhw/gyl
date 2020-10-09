@@ -652,7 +652,7 @@
                     var i = $("#put1").val();
                     $("#xg_productNum_" + i).attr("value", Cgdd.spbm);
                     $("#xg_productName_" + i).attr("value", Cgdd.spmc);
-                    $("#xg_yqdhrq_" + i).attr("value", FormatTime(Cgdd.yqshrq));
+                    $("#xg_yqdhrq_" + i).attr("value", FormatTime(Cgdd.jhdhrq));
                 }
             }
         })
@@ -670,7 +670,7 @@
                 if (Cgdd != null){
                     $("#productNum").attr("value", Cgdd.spbm);
                     $("#productName").attr("value", Cgdd.spmc);
-                    $("#yqdhrq").attr("value", FormatTime(Cgdd.yqshrq));
+                    $("#yqdhrq").attr("value", FormatTime(Cgdd.jhdhhrq));
                 }
             }
         })

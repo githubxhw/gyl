@@ -6,7 +6,7 @@
         <b>Version</b> 1.0
     </div>
     <strong>Copyright &copy; 2019-2020 <a
-            href="#">cuit</a>.
+            href="#">xxx</a>.
     </strong> All rights reserved.
 </footer>
 <!-- 底部导航 /-->
