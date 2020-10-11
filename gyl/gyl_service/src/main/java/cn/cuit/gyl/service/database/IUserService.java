@@ -23,4 +23,7 @@ public interface IUserService {
 
     //通过id更新用户
     void updateById(UserInfo userInfo) throws Exception;
+
+    //模糊查询
+    List<UserInfo> findByFuzzyName(String fuzzyName, Integer pageNum, Integer pageSize);
 }

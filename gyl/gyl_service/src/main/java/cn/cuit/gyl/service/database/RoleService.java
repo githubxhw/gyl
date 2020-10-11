@@ -23,4 +23,7 @@ public interface RoleService {
 
     //根据一个id查询一个角色
     Role findById(Integer id) throws Exception;
+
+    //模糊查询
+    List<Role> findByFuzzyName(String fuzzyName, Integer pageNum, Integer pageSize);
 }

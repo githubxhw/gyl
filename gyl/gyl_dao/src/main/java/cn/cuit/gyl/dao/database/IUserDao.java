@@ -55,4 +55,7 @@ public interface IUserDao {
 
     @Update("UPDATE USER SET USER.`status`=1 WHERE id=#{id}")
     void setStatusTrueById(Integer id) throws Exception;
+
+    @Select("select * from user where username like '%${fuzzyName}%'")
+    List<UserInfo> findByFuzzyName(@Param(value = "fuzzyName") String fuzzyName);
 }

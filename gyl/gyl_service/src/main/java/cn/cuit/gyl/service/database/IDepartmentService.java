@@ -23,4 +23,7 @@ public interface IDepartmentService {
 
     //根据一个id查询一个部门
     Department findById(Integer id) throws Exception;
+
+    //根据部门名称，模糊分页查询部门信息
+    List<Department> findByFuzzyName(String fuzzyName, Integer pageNum, Integer pageSize);
 }

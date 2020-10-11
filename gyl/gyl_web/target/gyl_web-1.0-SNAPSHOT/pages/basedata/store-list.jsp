@@ -46,7 +46,6 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
-
 <body class="hold-transition skin-purple sidebar-mini">
 
 <div class="wrapper">
@@ -97,10 +96,10 @@
                                 <span class="glyphicon glyphicon-search form-control-feedback"></span>
                             </div>
                         </div>--%>
-                        <form method="post" action="${pageContext.request.contextPath}/store/findStoreByStoreIdAndPage">
+                        <form id="query_from" method="post" action="${pageContext.request.contextPath}/store/findStoreByStoreIdAndPage" onsubmit="return checkId()">
                             <div class="box-tools pull-right">
                                 <div class="has-feedback form-group form-inline">
-                                    <input type="text" name="id" class="form-control input-sm" placeholder="仓库号">
+                                    <input type="text" name="id" class="form-control input-sm" placeholder="仓库ID">
                                     <button type="submit" class="btn btn-group-sm">搜索</button>
                                 </div>
                             </div>
@@ -291,6 +290,7 @@
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 <script src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="${pageContext.request.contextPath}/js/myjs/datacheck.js"></script>
 <script>
     $(document).ready(function () {
 
@@ -311,6 +311,19 @@
             liObj.parent().parent().addClass("active");
             liObj.addClass("active");
         }
+    }
+
+    function checkId(){
+        var form = document.getElementById("query_from");
+        var id = form.id.value;
+        if(id != null && id.length > 0){
+            if(IsInt(id)){
+                return true;
+            }
+            alert("请输入整数!");
+            return false;
+        }
+        return false;
     }
 
 

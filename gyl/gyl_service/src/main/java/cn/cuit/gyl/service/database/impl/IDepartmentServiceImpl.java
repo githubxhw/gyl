@@ -3,6 +3,7 @@ package cn.cuit.gyl.service.database.impl;
 import cn.cuit.gyl.dao.database.IDepartmentDao;
 import cn.cuit.gyl.domain.database.Department;
 import cn.cuit.gyl.service.database.IDepartmentService;
+import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -51,5 +52,11 @@ public class IDepartmentServiceImpl implements IDepartmentService {
     public Department findById(Integer id) throws Exception {
         Department department = dao.findById(id);
         return department;
+    }
+
+    @Override
+    public List<Department> findByFuzzyName(String fuzzyName, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return dao.findByFuzzyName(fuzzyName);
     }
 }

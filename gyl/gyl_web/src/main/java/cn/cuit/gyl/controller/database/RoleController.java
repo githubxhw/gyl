@@ -70,8 +70,14 @@ public class RoleController {
 
     //模糊查询角色
     @RequestMapping("/findByFuzzyName")
-    public String findByFuzzyName(@RequestParam(name = "fuzzyName") String fuzzyName){
-        return "";
+    public String findByFuzzyName(HttpServletRequest request,
+                                  @RequestParam(name = "fuzzyName") String fuzzyName,
+                                  @RequestParam(name = "pageNum",required = false,defaultValue = "1") Integer pageNum,
+                                  @RequestParam(name = "pageSize",required = false,defaultValue = "6") Integer pageSize){
+        List<Role> roles = service.findByFuzzyName(fuzzyName,pageNum,pageSize);
+        PageInfo pageInfo = new PageInfo(roles);
+        request.setAttribute("pageInfo", pageInfo);
+        return "forward:/pages/basedata/role-list.jsp";
     }
 
 }

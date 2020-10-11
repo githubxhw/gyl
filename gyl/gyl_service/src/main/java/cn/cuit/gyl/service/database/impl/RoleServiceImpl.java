@@ -53,4 +53,10 @@ public class RoleServiceImpl implements RoleService {
         Role role = dao.findById(id);
         return role;
     }
+
+    @Override
+    public List<Role> findByFuzzyName(String fuzzyName, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return dao.findByFuzzyName(fuzzyName);
+    }
 }

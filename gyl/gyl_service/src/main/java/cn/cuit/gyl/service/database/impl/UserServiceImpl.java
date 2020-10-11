@@ -51,4 +51,10 @@ public class UserServiceImpl implements IUserService {
     public void updateById(UserInfo userInfo) throws Exception {
         dao.updateById(userInfo);
     }
+
+    @Override
+    public List<UserInfo> findByFuzzyName(String fuzzyName, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return dao.findByFuzzyName(fuzzyName);
+    }
 }

@@ -85,7 +85,14 @@
                 <div class="box-header with-border">
                     <h3 class="box-title">用户列表</h3>
                 </div>
-
+                <form method="post" action="${pageContext.request.contextPath}/user/findByFuzzyName?pageNum=1&pageSize=6">
+                    <div class="box-tools pull-right">
+                        <div class="has-feedback form-group form-inline">
+                            <input type="text" name="fuzzyName" class="form-control input-sm" placeholder="用户名称">
+                            <button type="submit" class="btn btn-group-sm">搜索</button>
+                        </div>
+                    </div>
+                </form>
                 <form action="${pageContext.request.contextPath}/user/deleteByIds" method="post">
                     <div class="box-body">
 
@@ -98,14 +105,6 @@
                                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                 </div>
                             </div>--%>
-                            <form method="post" action="${pageContext.request.contextPath}/department/findByFuzzyName">
-                                <div class="box-tools pull-right">
-                                    <div class="has-feedback form-group form-inline">
-                                        <input type="text" name="fuzzyName" class="form-control input-sm" placeholder="用户名称">
-                                        <button type="submit" class="btn btn-group-sm">搜索</button>
-                                    </div>
-                                </div>
-                            </form>
                             <!--工具栏/-->
 
                             <!--数据列表-->

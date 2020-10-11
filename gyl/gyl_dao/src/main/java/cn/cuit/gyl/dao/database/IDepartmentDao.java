@@ -2,6 +2,7 @@ package cn.cuit.gyl.dao.database;
 
 import cn.cuit.gyl.domain.database.Department;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -30,4 +31,8 @@ public interface IDepartmentDao {
     //根据一个id查询一个部门
     @Select("select * from department where id = #{id}")
     Department findById(Integer id);
+
+    //根据部门名称模糊查询
+    @Select("select * from department where name like '%${fuzzyName}%'")
+    List<Department> findByFuzzyName(@Param(value = "fuzzyName") String fuzzyName);
 }

@@ -70,8 +70,14 @@ public class DepartmentController {
 
     //模糊查询部门
     @RequestMapping("/findByFuzzyName")
-    public String findByFuzzyName(@RequestParam(name = "fuzzyName") String fuzzyName){
-        return "";
+    public String findByFuzzyName(HttpServletRequest request,
+                                  @RequestParam(name = "fuzzyName") String fuzzyName,
+                                  @RequestParam(name = "pageNum",required = true,defaultValue = "1") Integer pageNum,
+                                  @RequestParam(name = "pageSize",required = true,defaultValue = "6") Integer pageSize){
+        List<Department> departments = service.findByFuzzyName(fuzzyName,pageNum,pageSize);
+        PageInfo pageInfo = new PageInfo(departments);
+        request.setAttribute("pageInfo", pageInfo);
+        return "forward:/pages/basedata/department-list.jsp";
     }
 
 }

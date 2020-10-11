@@ -2,6 +2,7 @@ package cn.cuit.gyl.dao.database;
 
 import cn.cuit.gyl.domain.database.Role;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
@@ -34,4 +35,8 @@ public interface IRoleDao {
     //根据一个id查询一个角色
     @Select("select * from role where id = #{id}")
     Role findById(Integer id);
+
+    //模糊查询
+    @Select("select * from role where role_name like '%${fuzzyName}%'")
+    List<Role> findByFuzzyName(@Param(value = "fuzzyName") String fuzzyName);
 }

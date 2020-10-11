@@ -1,6 +1,7 @@
 package cn.cuit.gyl.controller.database;
 
 
+import cn.cuit.gyl.domain.database.Role;
 import cn.cuit.gyl.domain.database.UserInfo;
 import cn.cuit.gyl.service.database.IUserService;
 import com.github.pagehelper.PageInfo;
@@ -59,6 +60,18 @@ public class UserController {
     public String updateById(UserInfo userInfo) throws Exception{
         service.updateById(userInfo);
         return "redirect:/user/findById?id="+userInfo.getId();
+    }
+
+    //模糊查询用户
+    @RequestMapping("/findByFuzzyName")
+    public String findByFuzzyName(HttpServletRequest request,
+                                  @RequestParam(name = "fuzzyName") String fuzzyName,
+                                  @RequestParam(name = "pageNum",required = false,defaultValue = "1") Integer pageNum,
+                                  @RequestParam(name = "pageSize",required = false,defaultValue = "6") Integer pageSize){
+        List<UserInfo> userInfos = service.findByFuzzyName(fuzzyName,pageNum,pageSize);
+        PageInfo pageInfo = new PageInfo(userInfos);
+        request.setAttribute("pageInfo", pageInfo);
+        return "forward:/pages/basedata/user-list.jsp";
     }
 
 }
