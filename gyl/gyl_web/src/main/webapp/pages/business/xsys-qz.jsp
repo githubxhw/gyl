@@ -535,7 +535,7 @@
         $("#query").click(function () {
             var params = $("#form").serialize();
             $.ajax({
-                url: "${pageContext.request.contextPath}/ys/findBySxBzIsOne",
+                url: "${pageContext.request.contextPath}/ys/findByNoQz",
                 type: "post",
                 data: params,
                 dataType: "json",

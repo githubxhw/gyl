@@ -23,26 +23,39 @@ public class XsYsController {
 
     @RequestMapping("/findByCondition")
     public @ResponseBody List<Xsysdzhub> findByCondition(Xsysdzhub xsysdzhub) throws Exception{
-        System.out.println("传入==="+xsysdzhub);
+//        System.out.println("传入==="+xsysdzhub);
         List<Xsysdzhub> byCondition = service.findByCondition(xsysdzhub);
-        System.out.println("传出===="+byCondition);
+//        System.out.println("传出===="+byCondition);
         return byCondition;
     }
 
     @RequestMapping("/findByNoSh")
     public @ResponseBody List<Xsysdzhub> findByNoSh(Xsysdzhub xsysdzhub) throws Exception{
-        System.out.println("传入==="+xsysdzhub);
+//        System.out.println("传入==="+xsysdzhub);
         List<Xsysdzhub> byCondition = service.findByNoSh(xsysdzhub);
-        System.out.println("传出===="+byCondition);
+//        System.out.println("传出===="+byCondition);
         return byCondition;
     }
 
     @RequestMapping("/findBySxBzIsOne")
     public @ResponseBody List<Xsysdzhub> findBySxBzIsOne(Xsysdzhub xsysdzhub) throws Exception{
         xsysdzhub.setSxbz(1);
-        System.out.println(xsysdzhub);
         List<Xsysdzhub> byCondition = service.findBySxBzIsOne(xsysdzhub);
+        return byCondition;
+    }
 
+    @RequestMapping("/findByNoQz")
+    public @ResponseBody List<Xsysdzhub> findByNoQz(Xsysdzhub xsysdzhub) throws Exception{
+        xsysdzhub.setSxbz(1);
+        List<Xsysdzhub> byCondition = service.findBySxBzIsOne(xsysdzhub);
+        if (byCondition !=null||byCondition.size() != 0){
+            for (int i = 0;i<byCondition.size();i++){
+                Xsysdzhub xsysdzhub1 = byCondition.get(i);
+                if(xsysdzhub1.getQzrq() !=null||!xsysdzhub1.getQzr().equals("")){
+                    byCondition.remove(i);
+                }
+            }
+        }
         return byCondition;
     }
 
@@ -55,7 +68,7 @@ public class XsYsController {
     @RequestMapping("/Save")
     public @ResponseBody
     PageInfo SaveZhuAndZi(Xsysdzhub xsysdzhub) throws Exception{
-        System.out.println(xsysdzhub);
+//        System.out.println(xsysdzhub);
         PageInfo pageInfo = service.AddXsYsZhuB(xsysdzhub);
         return pageInfo;
     }

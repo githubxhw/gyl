@@ -267,7 +267,7 @@ public class PanDianServiceImpl implements PanDianService {
             PanDian panDian1 = panDDao.FindById(panDianZi.getZid());//得到主表的信息
             Store byCkbm = iStoreDao.findByCkbm(panDian1.getCk());//得到仓库的编码
             Store_Product byStoreIdAndpNum = iStoreDao.findByStoreIdAndpNum(byCkbm.getId(), panDianZi.getChbm());//得到仓库与存货的联系的表
-            System.out.println("sslv=="+panDianZi.getSslv());
+//            System.out.println("sslv=="+panDianZi.getSslv());
             if (panDianZi.getSslv()>0){//判断是增加还是减少系统的数量
                 byStoreIdAndpNum.setStockNumber(panDianZi.getZmsl()-panDianZi.getTzsl());
             }else {
@@ -279,7 +279,7 @@ public class PanDianServiceImpl implements PanDianService {
                 throw new MyException("调整后的数量与盘点数量不相等");
             }
             iStoreDao.updateStockNumberByStoreIdAndPnum(byStoreIdAndpNum);
-            System.out.println("Number"+byStoreIdAndpNum.getStockNumber());
+//            System.out.println("Number"+byStoreIdAndpNum.getStockNumber());
             panDianZi.setZmsl(byStoreIdAndpNum.getStockNumber());//修改账面数量
             panDZiDao.Update(panDianZi);
             Long zid = panDianZi.getZid();

@@ -14,6 +14,7 @@ import cn.cuit.gyl.utils.StringConverterUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -47,9 +48,7 @@ public class CgddServiceImpl implements CgddService {
     public List<Cgddzhub> findByCondition(Cgddzhub cgddzhub) throws Exception{
         DomainAttrValueConverterUtils<Cgddzhub> handler=new DomainAttrValueConverterUtils<>(cgddzhub);
         Cgddzhub x  =handler.handler(null,"issp","spsftg","isth","djzt","status","dhbz","rkbz","kpbz","ysbz");
-        System.out.println(x);
         List<Cgddzhub> byPage = cgdddao.findByPage(x);
-        System.out.println(byPage);
         return byPage;
     }
 
@@ -134,6 +133,7 @@ public class CgddServiceImpl implements CgddService {
     }
 
     @Override
+    @Transactional
     public void spOk(String djh, String spr, Date sprq) throws Exception {
         Cgddzhub byDjh = cgdddao.findByDjh(djh);
         if (byDjh.getZdr() == null){
@@ -158,6 +158,9 @@ public class CgddServiceImpl implements CgddService {
                     Integer invalidDays = sysSettingDao.findCgEarlyWarningInvalidDaysById(1);
 
                     for (Cgddzhib cgddzhib:byzid){
+                        if (cgddzhib !=null && cgddzhib.getJhdhrq() == null){
+                            throw new MyException("计划到货时间没有填写");
+                        }
                         EarlyWarning_Cgrk earlyWarning_cgrk = new EarlyWarning_Cgrk();
                         earlyWarning_cgrk.setDjh(djh);
                         earlyWarning_cgrk.setHh(cgddzhib.getHh());
@@ -218,13 +221,16 @@ public class CgddServiceImpl implements CgddService {
     }
 
     public  void SaveZhuAndZi(Cgddzhub cgdd_zhub) throws  Exception{
-        System.out.println("传入的==="+cgdd_zhub);
+//        System.out.println("传入的==="+cgdd_zhub);
         DomainAttrValueConverterUtils<Cgddzhub> handler=new DomainAttrValueConverterUtils<>(cgdd_zhub);
         cgdd_zhub  =handler.handler(null,"issp","spsftg","isth","djzt","status","dhbz","rkbz","kpbz","ysbz");
         if (cgdd_zhub.getCgddzhibs()!=null){
             for (Cgddzhib a:cgdd_zhub.getCgddzhibs()){
                 if (a.getSl()!=null&&a.getLjdhsl()!=null){
                     a.setYfwrksl(a.getSl()-a.getLjdhsl());
+                }
+                if(a.getHh()!=null && a.getJhdhrq() == null){
+                    throw new MyException("没有写入计划到货日期");
                 }
                 if(a.getShuilv()!=null){
                     if (a.getShuilv() <1){
@@ -296,7 +302,6 @@ public class CgddServiceImpl implements CgddService {
         DomainAttrValueConverterUtils<Cgddzhub> handler=new DomainAttrValueConverterUtils<>(cgddzhub);
         Cgddzhub x  =handler.handler(null,"issp","spsftg","isth","djzt","status","dhbz","rkbz","kpbz","ysbz");
         x.setIssp(0);
-        System.out.println(x);
         List<Cgddzhub> byPage = cgdddao.findByPage(x);
         return byPage;
     }
@@ -307,7 +312,8 @@ public class CgddServiceImpl implements CgddService {
                 if (a.getShuilv()<1){
                     throw new MyException("税率小于了1%");
                 }
-                Float shuilv = a.getShuilv()/100;
+//                Float shuilv = a.getShuilv()/100;
+                Float shuilv = a.getShuilv();
                 a.setShuilv(shuilv);
             }
         }

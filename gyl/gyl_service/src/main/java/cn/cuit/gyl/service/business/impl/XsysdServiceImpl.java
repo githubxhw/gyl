@@ -286,6 +286,11 @@ public class XsysdServiceImpl implements IXsysdService {
             String ytdjh = a.getYtdjh();//得到源头的单据号
             Integer ythh = a.getYthh();//得到源头的行号
             Xsdd_zhub byDdh = iXsdd_zhubDao.findByDdh(ytdjh);//得到源头的订单
+            if (byDdh == null){
+                pageInfo.setResFlag("0");
+                msgList.add("无源头单据");
+                return pageInfo;
+            }
             Xsdd_zib byZhubIdAndHh = iXsdd_zibDao.findByZhubIdAndHh(byDdh.getXsdd_zhub_id(), ythh);//得到订单的子表
             Long sl = a.getSl();//得到应收的数量
             Long ljyssl = byZhubIdAndHh.getLjyssl();//得到之前累积的数量
@@ -318,8 +323,8 @@ public class XsysdServiceImpl implements IXsysdService {
                     byDdh.setStatus(1);
                 }//判断该订单的所有子表是不是全部结束
             }
-            System.out.println("销售"+byZhubIdAndHh);
-            System.out.println("xsdd"+byDdh);
+//            System.out.println("销售"+byZhubIdAndHh);
+//            System.out.println("xsdd"+byDdh);
             iXsdd_zibDao.updateById(byZhubIdAndHh);
             iXsdd_zhubDao.updateById(byDdh);
             iXsysdZhibDao.updateById(a);

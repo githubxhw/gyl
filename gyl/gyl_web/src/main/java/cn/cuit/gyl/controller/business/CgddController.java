@@ -41,9 +41,9 @@ public class CgddController {
     @RequestMapping("/findZiByZhuId")
 
     public  @ResponseBody List<Cgddzhib> findZiByZhuId(Long zid) throws Exception{
-        System.out.println("zid="+zid);
+//        System.out.println("zid="+zid);
         List<Cgddzhib> zibByZhuId = cgddService.findZibByZhuId(zid);
-        System.out.println("Cgddzhibs="+zibByZhuId);
+//        System.out.println("Cgddzhibs="+zibByZhuId);
         return zibByZhuId;
     }
 
@@ -57,7 +57,7 @@ public class CgddController {
     @RequestMapping("/saveZhubAndZib")
     public  @ResponseBody
     Information saveZhubAndZib(Cgddzhub cgdd_zhub) throws Exception{
-        System.out.println("传入的===Save"+cgdd_zhub);
+//        System.out.println("传入的===Save"+cgdd_zhub);
         Information message = new Information();
         try {
 
@@ -84,7 +84,7 @@ public class CgddController {
     Cgddzhub findZhujd(Long id) throws Exception{
         Cgddzhub byId = cgddService.findById(id);
 
-        System.out.println("byid="+byId);
+//        System.out.println("byid="+byId);
         return byId;
     }
 
@@ -95,14 +95,14 @@ public class CgddController {
         if (byId.getDjzt()!=null&&byId.getDjzt()==1){
             throw new MyException("这个订单已经冻结");
         }
-        System.out.println("byid="+byId);
+//        System.out.println("byid="+byId);
         return byId;
     }
 
     @RequestMapping("/UpdateZhuB")
     public  @ResponseBody
     Information UpdateZhuB(Cgddzhub cgddzhub) throws Exception{
-        System.out.println("update="+cgddzhub);
+//        System.out.println("update="+cgddzhub);
         Information message = new Information();
 
         try {
@@ -157,7 +157,7 @@ public class CgddController {
         if (zibByZiId.getHgb()!=null&&zibByZiId.getHgb()==1){
             throw  new MyException("这个子表已经关闭");
         }
-        System.out.println("cgddzhib=="+zibByZiId);
+//        System.out.println("cgddzhib=="+zibByZiId);
         return zibByZiId;
     }
 
@@ -263,9 +263,9 @@ public class CgddController {
     @RequestMapping("/FindG")
     public @ResponseBody
     Information fg(String name) throws Exception{
-        System.out.println(name);
+//        System.out.println(name);
         gys gys = cgddService.FindByGName(name);
-        System.out.println(gys);
+//        System.out.println(gys);
         Information a = new Information();
         if (gys != null){
             a.setMsg("Ok");

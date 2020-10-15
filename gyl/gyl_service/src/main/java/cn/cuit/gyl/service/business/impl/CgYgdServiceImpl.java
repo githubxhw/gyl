@@ -42,7 +42,6 @@ public class CgYgdServiceImpl implements CgygdService {
     public List<Cgygdzhub> findByCondition(Cgygdzhub a) throws Exception{
         DomainAttrValueConverterUtils<Cgygdzhub> handler = new DomainAttrValueConverterUtils<>(a);
         Cgygdzhub x = handler.handler(null,"issp","spsftg","status");
-        System.out.println("xxx ===="+x);
         List<Cgygdzhub> byCondition = cgygDao.findByCondition(x);
         return byCondition;
     }

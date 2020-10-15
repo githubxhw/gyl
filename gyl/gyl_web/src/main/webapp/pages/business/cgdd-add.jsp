@@ -717,13 +717,13 @@
                 '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
                 '<td>                            <input id="yfwcksl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="cgddzhibs[' + nowCount + '].yfwrksl"\n' +
  '                                   placeholder="应发未入库数量" value="0"></td>\n' +
-                '<td>                            <input id="ljfhsl-' + nowCount + '" type="text" class="form-control" name="cgddzhibs[' + nowCount + '].ljdhsl"\n' +
+                '<td>                            <input id="ljfhsl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="cgddzhibs[' + nowCount + '].ljdhsl"\n' +
                 '                                   placeholder="累计到货数量" value="0"></td>\n' +
-                '<td>                            <input id="ljcksl-' + nowCount + '" type="text" class="form-control" name="cgddzhibs[' + nowCount + '].ljrksl"\n' +
+                '<td>                            <input id="ljcksl-' + nowCount + '" type="text" class="form-control" readonly="readonly" name="cgddzhibs[' + nowCount + '].ljrksl"\n' +
                 '                                   placeholder="累计入库数量" value="0"></td>\n' +
-                '<td>                            <input id="ljkpsl-' + nowCount + '" type="text" class="form-control"  name="cgddzhibs[' + nowCount + '].ljkpsl"\n' +
+                '<td>                            <input id="ljkpsl-' + nowCount + '" type="text" class="form-control" readonly="readonly"  name="cgddzhibs[' + nowCount + '].ljkpsl"\n' +
                 '                                   placeholder="累计开票数量" value="0"></td>\n' +
-                '<td>                            <input id="ljyfsl-' + nowCount + '" type="text" class="form-control"  name="cgddzhibs[' + nowCount + '].ljyfsl"\n' +
+                '<td>                            <input id="ljyfsl-' + nowCount + '" type="text" class="form-control"  readonly="readonly" name="cgddzhibs[' + nowCount + '].ljyfsl"\n' +
                 '                                   placeholder="累计应付数量" value="0"></td>\n' +
                 '<td>                            <select id="sffhgb-' + nowCount + '" type="text" class="form-control" name="cgddzhibs[' + nowCount + '].sfdhgb">\n' +
                 '                                   <option selected="selected" value="0">未结束</option>' +
