@@ -1062,7 +1062,7 @@
                     $("#cgddzhub_bz-"+i).attr("value",xsdd_zhub.bz);
                     $("#cgddzhub_zdsl-"+i).attr("value",xsdd_zhub.zdsl);
                     $("#cgddzhub_spr-"+i).attr("value",xsdd_zhub.spr);
-                    $("#cgddzhub_sprq-"+i).attr("value",);
+                    $("#cgddzhub_sprq-"+i).attr("value",FormatTime(xsdd_zhub.sprq));
                     $("#cgddzhub_zdr-"+i).attr("value",xsdd_zhub.zdr);
                     $("#cgddzhub_zdrq-"+i).attr("value",FormatTime(xsdd_zhub.zdrq));
                     $("#cgddzhub_xgr-"+i).attr("value",xsdd_zhub.xgr);

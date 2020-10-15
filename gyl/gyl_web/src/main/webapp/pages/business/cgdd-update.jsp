@@ -2363,8 +2363,8 @@
                             '<td>' + hstatus + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].shck) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].fhdw) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].jhdhrq) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].yqshrq) + '</td>\n' +
+                            '<td>' + FormatTime(xsdd_zibs[i].jhdhrq) + '</td>\n' +
+                            '<td>' + FormatTime(xsdd_zibs[i].yqshrq) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].yfwrksl) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljdhsl) + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljrksl) + '</td>\n' +

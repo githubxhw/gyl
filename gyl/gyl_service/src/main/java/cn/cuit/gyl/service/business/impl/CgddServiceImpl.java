@@ -236,7 +236,7 @@ public class CgddServiceImpl implements CgddService {
                     if (a.getShuilv() <1){
                         throw new MyException("税率小于了1%");
                     }
-                    Float x = a.getShuilv()/100;
+                    Float x = a.getShuilv();
                     a.setShuilv(x);
                 }
             }
@@ -332,7 +332,7 @@ public class CgddServiceImpl implements CgddService {
                 if (cgddzhib.getShuilv()<1){
                     throw new MyException("税率小于了1%");
                 }
-                Float x=cgddzhib.getShuilv()/100;
+                Float x=cgddzhib.getShuilv();
                 cgddzhib.setShuilv(x);
             }
         }
