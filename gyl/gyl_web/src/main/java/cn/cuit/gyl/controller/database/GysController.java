@@ -31,7 +31,7 @@ public class GysController {
         if (currentPage == null||currentPage.equals("")){
             currentPage = "1";
         }
-        System.out.println(currentPage);
+//        System.out.println(currentPage);
         PageBean<gys> byPage = gysService.findByPage(currentPage, "5", a);
         request.setAttribute("pb",byPage);
         request.setAttribute("Gys",a);
@@ -68,7 +68,7 @@ public class GysController {
     @RequestMapping("/FindName")
     public @ResponseBody
     Information FindName(String name) throws Exception{
-        System.out.println("name"+name);
+//        System.out.println("name"+name);
         gys gys = gysService.FindByName(name);
         Information a = new Information();
         if (gys == null){
@@ -135,7 +135,7 @@ public class GysController {
     @RequestMapping("/FindZjm")
     public @ResponseBody
     Information FindZjm(String zjm) throws Exception{
-        System.out.println(zjm);
+//        System.out.println(zjm);
         gys gys = gysService.FindByZjm(zjm);
         Information a = new Information();
         if (gys == null){
