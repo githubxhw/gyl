@@ -12,6 +12,7 @@ import cn.cuit.gyl.utils.PageInfo;
 import cn.cuit.gyl.utils.StringToIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -397,6 +398,40 @@ public class CgdhdServiceImpl implements ICgdhdService {
                 }
             }
         }
+    }
+
+
+    /**
+     * 根据源头单据号和源头行号来得到应到数量和累计到货数量
+     * @param ytdjh
+     * @param ythh
+     * @return
+     */
+    public PageInfo getydsl(String ytdjh, Integer ythh){
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setResFlag("1");
+        List<String> msgList = new ArrayList<>();
+        Cgddzhub byDjh = iCgdd_zhubDao.findByDjh(ytdjh);
+        if (byDjh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("源头单据号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        Cgddzhib byZIdAndHh = iCgdd_zibDao.findByZIdAndHh(byDjh.getCgddzhubid(), ythh);
+        if (byZIdAndHh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("源头行号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        String sl = String.valueOf(byZIdAndHh.getSl());
+        String s = String.valueOf(byZIdAndHh.getLjdhsl());
+        msgList.add(sl);
+        msgList.add(s);
+        pageInfo.setMsgList(msgList);
+        return pageInfo;
+
     }
 }
 

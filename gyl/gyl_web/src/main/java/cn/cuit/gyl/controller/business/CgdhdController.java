@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -196,5 +197,18 @@ public class CgdhdController {
     public void updateZibStatusByIds(String ids,String xgr,Date xgsj) throws Exception {
         service.updateZibStatusByIds(ids,xgr,xgsj);
         return;
+    }
+
+    /**
+     * 根据源头单据号和源头行号来得到应到数量和累计到货数量
+     * @param ytdjh
+     * @param ythh
+     * @return
+     */
+    @RequestMapping("/getydsl")
+    @ResponseBody
+    public PageInfo getydsl(@RequestParam("ytdjh")String ytdjh,@RequestParam("ythh")Integer ythh){
+        PageInfo pageInfo = service.getydsl(ytdjh,ythh);
+        return pageInfo;
     }
 }

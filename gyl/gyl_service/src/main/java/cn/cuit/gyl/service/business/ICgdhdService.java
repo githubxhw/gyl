@@ -65,4 +65,12 @@ public interface ICgdhdService {
 
     //功能：单机子表下面的 确认发货按钮，根据ids将选择的所有子表中的status修改为1
     void updateZibStatusByIds(String ids,String xgr,Date xgsj) throws Exception;
+
+    /**
+     * 根据源头单据号和源头行号来得到应到数量和累计到货数量
+     * @param ytdjh
+     * @param ythh
+     * @return
+     */
+    PageInfo getydsl(String ytdjh, Integer ythh);
 }
