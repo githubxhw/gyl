@@ -335,7 +335,7 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
 
             }
 
-
+            cgdd_zib1.setYfwrksl(cgdd_zib1.getSl()-cgdd_zib1.getLjrksl());
             iCgdd_zibDao.updateCgddzhib(cgdd_zib1);
 
             Cgdhd_zhub cgdhd_zhub = iCgdhd_zhubDao.findByDdh(lydjh);

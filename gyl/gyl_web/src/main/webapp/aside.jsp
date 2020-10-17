@@ -724,8 +724,29 @@
                                 </a>
                                 <ul class="treeview-menu">
                                     <li>
-                                        <a href="all-form-general.html">
-                                            <i class="fa fa-circle-o"></i> 业务1
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgyf-query.jsp">
+                                            <i class="fa fa-circle-o"></i> 查询
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/yf/getDdhToAddUI">
+                                            <i class="fa fa-circle-o"></i> 制表
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgyf-sh.jsp">
+                                            <i class="fa fa-circle-o"></i> 审核
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgyf-update.jsp">
+                                            <i class="fa fa-circle-o"></i> 修订
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgyf-qz.jsp">
+                                            <i class="fa fa-circle-o"></i> 签字
                                         </a>
                                     </li>
                                 </ul>
