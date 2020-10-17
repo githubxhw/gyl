@@ -110,7 +110,7 @@
                             <input id="zhub_ddh" readonly="readonly" type="text" class="form-control" name="djh"
                                    placeholder="订单号" value="${djh}">
                         </div>
-                        <div class="col-md-2 title">入库日期</div>
+                        <div class="col-md-2 title">单据日期</div>
                         <div class="col-md-4 data">
                             <div class="input-group date">
                                 <div class="input-group-addon">
@@ -233,8 +233,6 @@
                         <th class="text-center sorting" width="350px">计量单位</th>
                         <th class="text-center sorting" width="350px">生产日期</th>
                         <th class="text-center sorting" width="350px">失效日期</th>
-                        <th class="text-center sorting" width="350px">应到数量</th>
-                        <th class="text-center sorting" width="350px">实到数量</th>
                         <th class="text-center sorting" width="350px">单价</th>
                         <th class="text-center sorting" width="350px">金额</th>
                         <th class="text-center sorting" width="350px">是否为赠品</th>
@@ -242,6 +240,8 @@
                         <th class="text-center sorting" width="350px">源头行号</th>
                         <th class="text-center sorting" width="350px">来源单据号</th>
                         <th class="text-center sorting" width="350px">来源行号</th>
+                        <th class="text-center sorting" width="350px">应入库数量</th>
+                        <th class="text-center sorting" width="350px">实入库数量</th>
                         <th class="text-center sorting" width="350px">累计入库数量</th>
                         <th class="text-center sorting" width="350px">状态</th>
                         </thead>
@@ -520,10 +520,6 @@
                 '                                   placeholder="生产日期" value=""></td >\n' +
                 '<td>                            <input id="sxrq-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].sxrq"\n' +
                 '                                   placeholder="失效日期" value=""></td >\n' +
-                '<td>                            <input id="ydsl-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ydsl"\n' +
-                '                                   placeholder="应到数量" value=""></td>\n' +
-                '<td>                            <input id="sdsl-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].sdsl"\n' +
-                '                                   placeholder="实到数量" value=""></td>\n' +
                 '<td>                            <input id="dj-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].dj"\n' +
                 '                                   placeholder="单价" value=""></td>\n' +
                 '<td>                            <input id="je-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].je"\n' +
@@ -534,12 +530,16 @@
                 '                                </select></td>\n' +
                 '<td>                            <input id="ytdjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ytdjh" ' +
                 '                                   placeholder="源头单据号" value=""></td>\n' +
-                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ythh"\n' +
+                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "checkydsl(this)"  name="cgrkd_zibs[' + nowCount + '].ythh"\n' +
                 '                                   placeholder="源头行号" value=""></td>\n' +
                 '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].lydjh"\n' +
                 '                                   placeholder="来源单据号" value=""></td>\n' +
                 '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].lyhh"\n' +
                 '                                   placeholder="来源行号" value=""></td>\n' +
+                '<td>                            <input id="ydsl-' + nowCount + '" readonly="readonly" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ydsl"\n' +
+                '                                   placeholder="应入库数量" value=""></td>\n' +
+                '<td>                            <input id="sdsl-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].sdsl"\n' +
+                '                                   placeholder="实入库数量" value=""></td>\n' +
                 '<td>                            <input readonly="readonly" id="ljdhsl-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ljrksl" ' +
                 '                                   placeholder="累计入库数量" value="0"></td>\n' +
                 '                                </select></td>\n' +
@@ -552,6 +552,37 @@
         }
     }
 
+    function checkydsl(x) {
+        var i = $(x).attr("i");
+        var ythh = $("#ythh-"+i).val();
+        var ytdjh = $("#ytdjh-"+i).val();
+        if(ythh == ""||ytdjh == ""){
+            alert("源头行号或者源头单据号为空");
+            return;
+        }
+        $.ajax({
+            url: "${pageContext.request.contextPath}/cgrkd/GetYdslAndLjrksl",
+            type: "get",
+            data: {"ytdjh":ytdjh,"ythh":ythh},
+            dataType: "json",
+            async: false,
+            success:function (data) {
+                var pageInfo = data;
+                var msgs = pageInfo.msgList;
+                if (pageInfo.resFlag == "1") {//修改成功
+                    $("#ydsl-" + i).attr("value",msgs[0]);
+                    $("#ljdhsl-"+i).attr("value",msgs[1]);
+                } else {//修改失败
+                    var msg = "查询应到数量信息失败:\n";
+                    for (var j = 0; j < msgs.length; j++) {
+                        msg += j + "、" + msgs[i] + "\n";
+                    }
+                    alert(msg);
+                }
+
+            }
+        });
+    }
     //功能： 点击 按钮-号，在子表中删除当前列
     function delete_zib(x) {
         var pos = $(x).attr("pos");

@@ -112,7 +112,7 @@
                             <input type="text" class="form-control" name="djh"
                                    placeholder="入库号" value="">
                         </div>
-                        <div class="col-md-2 title">到货日期</div>
+                        <div class="col-md-2 title">单据日期</div>
                         <div class="col-md-4 data">
                             <div class="input-group date">
                                 <div class="input-group-addon">
@@ -234,7 +234,7 @@
                         <input id="selall_zhu" type="checkbox" class="icheckbox_square-blue">
                     </th>
                     <th class="sorting_asc" width="200px">入库号</th>
-                    <th class="text-center sorting" width="200px">入库日期</th>
+                    <th class="text-center sorting" width="200px">单据日期</th>
                     <th class="text-center sorting" width="200px">仓库</th>
                     <th class="text-center sorting" width="200px">库管员</th>
                     <th class="text-center sorting" width="200px">部门</th>
@@ -354,7 +354,7 @@
                                                                         </div>
                                                                         <input type="text"
                                                                                class="form-control pull-right dateTimePicker"
-                                                                               name="djrq">
+                                                                               name="rkrq">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-2 title">存货编码</div>
@@ -692,6 +692,43 @@
 
     });
 
+    //显示日期格式化
+    function FormatTime(nowD) {
+        if (!nowD) {
+            return "";
+        }
+// 日期过滤
+        if(typeof nowD === 'string'){
+            nowD = DateFilter(nowD);
+        }
+        nowD = new Date(nowD);
+        let YY = nowD.getFullYear(),
+            MM = nowD.getMonth() + 1,
+            DD = nowD.getDate(),
+            hh = nowD.getHours(),
+            mm = nowD.getMinutes(),
+            ss = nowD.getSeconds();
+        return YY+"-"+MM+"-"+DD+" "+hh+":"+mm;
+        // return {
+        //
+        // YY: YY,
+        // MM: ("00" + MM).substr(("" + MM).length),
+        // DD: ("00" + DD).substr(("" + DD).length),
+        // hh: ("00" + hh).substr(("" + hh).length),
+        // mm: ("00" + mm).substr(("" + mm).length),
+        // ss: ("00" + ss).substr(("" + ss).length)
+        // };
+    }
+
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
+
     /*发表单查询*/
     $(document).ready(function () {
 
@@ -719,21 +756,21 @@
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgrkd_zhubs[i].cgrkd_zhub_id + '"></td>\n' +
                             '<td><button id="zhub_djh_btn-" i="' + i + '" djh="' + cgrkd_zhubs[i].djh + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgrkd_zhubs[i].cgrkd_zhub_id + '" style="width: 100%;height: 99%">' + cgrkd_zhubs[i].djh + '</button></td>\n' +
-                            '<td>' + cgrkd_zhubs[i].djrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].ck + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].kgy + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].bm + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].kh + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].zdr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].zdrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].spr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].shrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sfsh + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].shsftg + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].xgr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].xgsj + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sfth+ '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].status + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].djrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].ck) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].kgy) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].bm) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].kh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].zdr)+ '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].zdrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].spr) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].shrq) + '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].sfsh == 1?"已审核":"未审核")+ '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].shsftg == 1?"已审核":"未审核") + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].xgrq) + '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].sfth == 1?"是":"否")+ '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].status == 1?"开启":"关闭") + '</td>\n' +
                             '<td class="text-center">\n' +
                             '<button id="zhub_xg_btn" i=' + i + ' onclick="zhub_xg_btn(this)" zhubId="' + cgrkd_zhubs[i].cgrkd_zhub_id + '" type="button" data-toggle="modal" data-target="#myModal-zhub-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '">\n' +
@@ -770,7 +807,7 @@
                             '                                                                           class="form-control" name="djh"\n' +
                             '                                                                           placeholder="入库号" value="">\n' +
                             '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">到货日期</div>\n' +
+                            '                                                                <div class="col-md-2 title">单据日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
                             '                                                                    <div class="input-group date">\n' +
                             '                                                                        <div class="input-group-addon">\n' +
@@ -1022,17 +1059,17 @@
                 //2,给每一个按钮框添加值
                 $("#zhub_xg_cgrkd_zhub_id-" + i).attr("value", cgrkd_zhub.cgrkd_zhub_id);
                 $("#zhub_xg_djh-" + i).attr("value", cgrkd_zhub.djh);
-                $("#zhub_xg_djrq-" + i).attr("value", cgrkd_zhub.djrq);
-                $("#zhub_xg_ck-" + i).attr("value", cgrkd_zhub.ck);
-                $("#zhub_xg_kgy-" + i).attr("value", cgrkd_zhub.kgy);
-                $("#zhub_xg_bm-" + i).attr("value", cgrkd_zhub.bm);
-                $("#zhub_xg_kh-" + i).attr("value", cgrkd_zhub.kh);
-                $("#zhub_xg_zdr-" + i).attr("value", cgrkd_zhub.zdr);
-                $("#zhub_xg_zdrq-" + i).attr("value", cgrkd_zhub.zdrq);
-                $("#zhub_xg_spr-" + i).attr("value", cgrkd_zhub.spr);
-                $("#zhub_xg_shrq-" + i).attr("value", cgrkd_zhub.shrq);
-                $("#zhub_xg_xgr-" + i).attr("value", cgrkd_zhub.xgr);
-                $("#zhub_xg_xgsj-" + i).attr("value", cgrkd_zhub.xgsj);
+                $("#zhub_xg_djrq-" + i).attr("value", FormatTime(cgrkd_zhub.djrq));
+                $("#zhub_xg_ck-" + i).attr("value", NoNull(cgrkd_zhub.ck));
+                $("#zhub_xg_kgy-" + i).attr("value", NoNull(cgrkd_zhub.kgy));
+                $("#zhub_xg_bm-" + i).attr("value", NoNull(cgrkd_zhub.bm));
+                $("#zhub_xg_kh-" + i).attr("value", NoNull(cgrkd_zhub.kh));
+                $("#zhub_xg_zdr-" + i).attr("value", NoNull(cgrkd_zhub.zdr));
+                $("#zhub_xg_zdrq-" + i).attr("value", FormatTime(cgrkd_zhub.zdrq));
+                $("#zhub_xg_spr-" + i).attr("value", NoNull(cgrkd_zhub.spr));
+                $("#zhub_xg_shrq-" + i).attr("value", FormatTime(cgrkd_zhub.shrq));
+                $("#zhub_xg_xgr-" + i).attr("value", NoNull(cgrkd_zhub.xgr));
+                $("#zhub_xg_xgsj-" + i).attr("value", FormatTime(cgrkd_zhub.xgrq));
 
                 //添加disabled="disabled" 注意：在提交表单的时候，需要把disabled移除，不然提交不了数据
                 //zhub_xg_select_status-'+i+'
@@ -1194,25 +1231,25 @@
                 for (var i = 0; i < cgrkd_zibs.length; i++) {
                     html += '<tr>\n' +
                         '<td><input name="zib_ids" type="checkbox" value="' + cgrkd_zibs[i].cgrkd_zib_id + '"></td>\n' +
-                        '<td>' + cgrkd_zibs[i].hh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].djrq+ '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].spbm + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].spmc + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].type + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].dw + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].scrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].sxrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ydsl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].sdsl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].dj + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].je + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].zp + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ytdjh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ythh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].lydjh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].lyhh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ljrksl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].status + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].hh) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].rkrq) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].spbm) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].spmc) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].type) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].dw) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].scrq) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].sxrq) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ydsl) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].sdsl) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].dj) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].je) + '</td>\n' +
+                        '<td>' +  (cgrkd_zibs[i].zp == 1?"是":"不是") + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ytdjh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ljrksl) + '</td>\n' +
+                        '<td>' + (cgrkd_zibs[i].status==1 ?"关闭":"没关闭") + '</td>\n' +
                         '<td class="text-center">\n' +
                         '<button id="zib_xg_btn-'+i+'" status="'+cgrkd_zibs[i].status+'" i="' + i + '" zibId="' + cgrkd_zibs[i].cgrkd_zib_id + '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                         '    >\n' +
@@ -1247,14 +1284,14 @@
                         '                            <input id="zib_xg_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
                         '                                   placeholder="行号" value="">\n' +
                         '                        </div>\n' +
-                        '                        <div class="col-md-2 title">到货日期</div>\n' +
+                        '                        <div class="col-md-2 title">入库日期</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
                         '                            <div class="input-group date">\n' +
                         '                                <div class="input-group-addon">\n' +
                         '                                            <i class="fa fa-calendar"></i>\n' +
                         '                                </div>\n' +
                         '                                <input id="zib_xg_djrq-' + i + '" type="text"\n' +
-                        '                                      class="form-control pull-right dateTimePicker" name="djrq">\n' +
+                        '                                      class="form-control pull-right dateTimePicker" name="rkrq">\n' +
                         '                             </div>\n' +
                         '                         </div>\n' +
                         '                        <div class="col-md-2 title">存货编码</div>\n' +
@@ -1422,31 +1459,31 @@
                     var cgrkd_zib = data;
                     //添加数据到模态框中
                     //2,给每一个按钮框添加值
-                    $("#zib_xg_cgrkd_zhub_id-" + i).attr("value", cgrkd_zib.cgrkd_zhub_id); /*主表d --》外键*/
-                    $("#zib_xg_cgrkd_zib_id-" + i).attr("value", cgrkd_zib.cgrkd_zib_id);/*子表id*/
-                    $("#zib_xg_hh-" + i).attr("value", cgrkd_zib.hh);
-                    $("#zib_xg_djrq-" + i).attr("value", cgrkd_zib.djrq);
-                    $("#zib_xg_spbm-" + i).attr("value", cgrkd_zib.spbm);
-                    $("#zib_xg_spmc-" + i).attr("value", cgrkd_zib.spmc);
-                    $("#zib_xg_type-" + i).attr("value", cgrkd_zib.type);
-                    $("#zib_xg_dw-" + i).attr("value", cgrkd_zib.dw);
-                    $("#zib_xg_scrq-" + i).attr("value", cgrkd_zib.scrq);
-                    $("#zib_xg_sxrq-" + i).attr("value", cgrkd_zib.sxrq);
-                    $("#zib_xg_ydsl-" + i).attr("value", cgrkd_zib.ydsl);
-                    $("#zib_xg_sdsl-" + i).attr("value", cgrkd_zib.sdsl);
-                    $("#zib_xg_dj-" + i).attr("value", cgrkd_zib.dj);
-                    $("#zib_xg_je-" + i).attr("value", cgrkd_zib.je);
+                    $("#zib_xg_cgrkd_zhub_id-" + i).attr("value", NoNull(cgrkd_zib.cgrkd_zhub_id)); /*主表d --》外键*/
+                    $("#zib_xg_cgrkd_zib_id-" + i).attr("value", NoNull(cgrkd_zib.cgrkd_zib_id));/*子表id*/
+                    $("#zib_xg_hh-" + i).attr("value", NoNull(grkd_zib.hh));
+                    $("#zib_xg_djrq-" + i).attr("value", FormatTime(cgrkd_zib.djrq));
+                    $("#zib_xg_spbm-" + i).attr("value", NoNull(cgrkd_zib.spbm));
+                    $("#zib_xg_spmc-" + i).attr("value", NoNull(cgrkd_zib.spmc));
+                    $("#zib_xg_type-" + i).attr("value", NoNull(cgrkd_zib.type));
+                    $("#zib_xg_dw-" + i).attr("value", NoNull(cgrkd_zib.dw));
+                    $("#zib_xg_scrq-" + i).attr("value", FormatTime(cgrkd_zib.scrq));
+                    $("#zib_xg_sxrq-" + i).attr("value", FormatTime(cgrkd_zib.sxrq));
+                    $("#zib_xg_ydsl-" + i).attr("value", NoNull(cgrkd_zib.ydsl));
+                    $("#zib_xg_sdsl-" + i).attr("value", NoNull(cgrkd_zib.sdsl));
+                    $("#zib_xg_dj-" + i).attr("value", NoNull(cgrkd_zib.dj));
+                    $("#zib_xg_je-" + i).attr("value", NoNull(cgrkd_zib.je));
                     /*zp*/
                     if (cgrkd_zib.zp == 1) {
                         $("#zib_xg_zp1_option-" + i).attr("selected", "selected");
                     } else {
                         $("#zib_xg_zp0_option-" + i).attr("selected", "selected");
                     }
-                    $("#zib_xg_ytdjh-" + i).attr("value", cgrkd_zib.ytdjh);
-                    $("#zib_xg_ythh-" + i).attr("value", cgrkd_zib.ythh);
-                    $("#zib_xg_lydjh-" + i).attr("value", cgrkd_zib.lydjh);
-                    $("#zib_xg_lyhh-" + i).attr("value", cgrkd_zib.lyhh);
-                    $("#zib_xg_ljrksl-" + i).attr("value", cgrkd_zib.ljrksl);
+                    $("#zib_xg_ytdjh-" + i).attr("value", NoNull(cgrkd_zib.ytdjh));
+                    $("#zib_xg_ythh-" + i).attr("value", NoNull(cgrkd_zib.ythh));
+                    $("#zib_xg_lydjh-" + i).attr("value", NoNull(cgrkd_zib.lydjh));
+                    $("#zib_xg_lyhh-" + i).attr("value", NoNull(cgrkd_zib.lyhh));
+                    $("#zib_xg_ljrksl-" + i).attr("value", NoNull(cgrkd_zib.ljrksl));
 
                     /*设置包括下面select的不可以选择*/
                     //zib_xg_select_sfskgb
@@ -1591,25 +1628,25 @@
                     for (var i = 0; i < cgrkd_zibs.length; i++) {
                         html += '<tr>\n' +
                             '<td><input name="zib_ids" type="checkbox" value="' + cgrkd_zibs[i].cgrkd_zib_id + '"></td>\n' +
-                            '<td>' + cgrkd_zibs[i].hh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].djrq + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].spbm + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].spmc + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].type + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].dw + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].scrq + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].sxrq+ '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ydsl + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].sdsl + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].dj + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].je + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].zp + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ytdjh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ythh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].lydjh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].lyhh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ljrksl + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].status + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].hh) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zibs[i].rkrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].spbm) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].spmc) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].type) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].dw) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zibs[i].scrq) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zibs[i].sxrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ydsl) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].sdsl) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].dj) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].je) + '</td>\n' +
+                            '<td>' +  (cgrkd_zibs[i].zp == 1?"是":"不是")+ '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ytdjh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ythh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].lydjh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].lyhh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ljrksl) + '</td>\n' +
+                            '<td>' + (cgrkd_zibs[i].status==1 ?"关闭":"没关闭") + '</td>\n' +
                             '<td class="text-center">\n' +
                             '<button id="zib_xg_btn-'+i+'" status="'+cgrkd_zibs[i].status+'" i="' + i + '" zibId="' + cgrkd_zibs[i].cgrkd_zib_id + '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '    >\n' +
@@ -1644,14 +1681,14 @@
                             '                            <input id="zib_xg_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
                             '                                   placeholder="行号" value="">\n' +
                             '                        </div>\n' +
-                            '                        <div class="col-md-2 title">到货日期</div>\n' +
+                            '                        <div class="col-md-2 title">入库日期</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
                             '                            <div class="input-group date">\n' +
                             '                                <div class="input-group-addon">\n' +
                             '                                            <i class="fa fa-calendar"></i>\n' +
                             '                                </div>\n' +
                             '                                <input id="zib_xg_djrq-' + i + '" type="text"\n' +
-                            '                                      class="form-control pull-right dateTimePicker" name="djrq">\n' +
+                            '                                      class="form-control pull-right dateTimePicker" name="rkrq">\n' +
                             '                             </div>\n' +
                             '                         </div>\n' +
                             '                        <div class="col-md-2 title">存货编码</div>\n' +

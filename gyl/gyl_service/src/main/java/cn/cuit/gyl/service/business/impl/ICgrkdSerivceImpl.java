@@ -467,4 +467,38 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
             }
         }
     }
+
+    /**
+     * 根据源头单据号和源头行号来得到应入库数量和累计入库数量
+     * @param ytdjh
+     * @param ythh
+     * @return
+     */
+    @Override
+    public PageInfo getydsl(String ytdjh, Integer ythh) {
+        PageInfo pageInfo = new PageInfo();
+        pageInfo.setResFlag("1");
+        List<String> msgList = new ArrayList<>();
+        Cgddzhub byDjh = iCgdd_zhubDao.findByDjh(ytdjh);
+        if (byDjh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("源头单据号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        Cgddzhib byZIdAndHh = iCgdd_zibDao.findByZIdAndHh(byDjh.getCgddzhubid(), ythh);
+        if (byZIdAndHh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("源头行号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        String sl = String.valueOf(byZIdAndHh.getSl());
+        String s = String.valueOf(byZIdAndHh.getLjrksl());
+        msgList.add(sl);
+        msgList.add(s);
+        pageInfo.setMsgList(msgList);
+        return pageInfo;
+
+    }
 }

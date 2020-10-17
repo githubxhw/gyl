@@ -496,7 +496,42 @@
         });
 
     });
+    //显示日期格式化
+    function FormatTime(nowD) {
+        if (!nowD) {
+            return "";
+        }
+// 日期过滤
+        if(typeof nowD === 'string'){
+            nowD = DateFilter(nowD);
+        }
+        nowD = new Date(nowD);
+        let YY = nowD.getFullYear(),
+            MM = nowD.getMonth() + 1,
+            DD = nowD.getDate(),
+            hh = nowD.getHours(),
+            mm = nowD.getMinutes(),
+            ss = nowD.getSeconds();
+        return YY+"-"+MM+"-"+DD+" "+hh+":"+mm;
+        // return {
+        //
+        // YY: YY,
+        // MM: ("00" + MM).substr(("" + MM).length),
+        // DD: ("00" + DD).substr(("" + DD).length),
+        // hh: ("00" + hh).substr(("" + hh).length),
+        // mm: ("00" + mm).substr(("" + mm).length),
+        // ss: ("00" + ss).substr(("" + ss).length)
+        // };
+    }
 
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
     /*发表单查询*/
     $(document).ready(function () {
 
@@ -521,21 +556,21 @@
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgrkd_zhubs[i].cgrkd_zhub_id + '"></td>\n' +
                             '<td><button id="zhub_ddh_btn-" i="' + i + '" djh="' + cgrkd_zhubs[i].djh + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgrkd_zhubs[i].cgrkd_zhub_id + '" style="width: 100%;height: 99%">' + cgrkd_zhubs[i].djh + '</button></td>\n' +
-                            '<td>' + cgrkd_zhubs[i].djrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].ck + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].kgy + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].bm + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].kh + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].zdr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].zdrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].spr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].shrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sfsh + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].shsftg + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].xgr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].xgrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sfth+ '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].status + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].djrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].ck) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].kgy) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].bm) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].kh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].zdr)+ '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].zdrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].spr) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].shrq) + '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].sfsh == 1?"已审核":"未审核")+ '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].shsftg == 1?"已审核":"未审核") + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].xgrq) + '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].sfth == 1?"是":"否")+ '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].status == 1?"开启":"关闭") + '</td>\n' +
                             '</tr>';
                     }
                     $("#zhub_tbody").html(html);
@@ -581,25 +616,25 @@
                 for (var i = 0; i < cgrkd_zibs.length; i++) {
                     html += '<tr>\n' +
                         '<td><input name="zib_ids" type="checkbox" value="' + cgrkd_zibs[i].cgrkd_zib_id + '"></td>\n' +
-                        '<td>' + cgrkd_zibs[i].hh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].rkrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].spbm + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].spmc + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].type + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].dw + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].scrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].sxrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ydsl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].sdsl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].dj + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].je + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].zp + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ytdjh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ythh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].lydjh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].lyhh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ljrksl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].status + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].hh) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].rkrq) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].spbm) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].spmc) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].type) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].dw) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].scrq) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].sxrq) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ydsl) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].sdsl) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].dj) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].je) + '</td>\n' +
+                        '<td>' + (cgrkd_zibs[i].zp == 1?"是":"不是") + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ytdjh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ljrksl) + '</td>\n' +
+                        '<td>' + (cgrkd_zibs[i].status==1 ?"关闭":"没关闭") + '</td>\n' +
                         '</tr>';
                 }
                 $("#zib_tbody").html(html);

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -190,8 +191,8 @@ public class CgrkdController {
     //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
     @RequestMapping("/spAdopt")
     @ResponseBody
-    public void spAdopt(String djh, String spr, Date sprq) throws Exception {
-        service.spAdopt(djh,spr,sprq);
+    public void spAdopt(String djh, String spr, Date shrq) throws Exception {
+        service.spAdopt(djh,spr,shrq);
         return;
     }
 
@@ -201,5 +202,12 @@ public class CgrkdController {
     public void updateZibStatusByIds(String ids,String xgr,Date xgsj) throws Exception {
         service.updateZibStatusByIds(ids,xgr,xgsj);
         return;
+    }
+
+    @RequestMapping("/GetYdslAndLjrksl")
+    @ResponseBody
+    public PageInfo GetYdslAndLjrksl(@RequestParam("ytdjh")String ytdjh, @RequestParam("ythh")Integer ythh){
+        PageInfo pageInfo = service.getydsl(ytdjh,ythh);
+        return pageInfo;
     }
 }

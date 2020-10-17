@@ -112,13 +112,13 @@
                             <input type="text" class="form-control" name="djh"
                                    placeholder="入库号" value="">
                         </div>
-                        <div class="col-md-2 title">入库日期</div>
+                        <div class="col-md-2 title">单据日期</div>
                         <div class="col-md-4 data">
                             <div class="input-group date">
                                 <div class="input-group-addon">
                                     <i class="fa fa-calendar"></i>
                                 </div>
-                                <input type="text" class="form-control pull-right dateTimePicker" name="dhrq">
+                                <input type="text" class="form-control pull-right dateTimePicker" name="djrq">
                             </div>
                         </div>
                         <div class="col-md-2 title">仓库</div>
@@ -235,7 +235,7 @@
                         <input id="selall_zhu" type="checkbox" class="icheckbox_square-blue">
                     </th>
                     <th class="sorting_asc" width="200px">入库号</th>
-                    <th class="text-center sorting" width="200px">入库日期</th>
+                    <th class="text-center sorting" width="200px">单据日期</th>
                     <th class="text-center sorting" width="200px">仓库</th>
                     <th class="text-center sorting" width="200px">库管员</th>
                     <th class="text-center sorting" width="200px">部门</th>
@@ -511,6 +511,42 @@
         });
 
     });
+    //显示日期格式化
+    function FormatTime(nowD) {
+        if (!nowD) {
+            return "";
+        }
+// 日期过滤
+        if(typeof nowD === 'string'){
+            nowD = DateFilter(nowD);
+        }
+        nowD = new Date(nowD);
+        let YY = nowD.getFullYear(),
+            MM = nowD.getMonth() + 1,
+            DD = nowD.getDate(),
+            hh = nowD.getHours(),
+            mm = nowD.getMinutes(),
+            ss = nowD.getSeconds();
+        return YY+"-"+MM+"-"+DD+" "+hh+":"+mm;
+        // return {
+        //
+        // YY: YY,
+        // MM: ("00" + MM).substr(("" + MM).length),
+        // DD: ("00" + DD).substr(("" + DD).length),
+        // hh: ("00" + hh).substr(("" + hh).length),
+        // mm: ("00" + mm).substr(("" + mm).length),
+        // ss: ("00" + ss).substr(("" + ss).length)
+        // };
+    }
+
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
 
     /*发表单查询*/
     $(document).ready(function () {
@@ -535,20 +571,21 @@
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgrkd_zhubs[i].cgrkd_zhub_id + '"></td>\n' +
                             '<td><button id="zhub_djh_btn-" i="' + i + '" djh="' + cgrkd_zhubs[i].djh + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgrkd_zhubs[i].cgrkd_zhub_id + '" style="width: 100%;height: 99%">' + cgrkd_zhubs[i].djh + '</button></td>\n' +
-                            '<td>' + cgrkd_zhubs[i].dhrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].ck + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].kgy + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].bm + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].kh + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].zdr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].spr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sprq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sfsh + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].shsftg + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].xgr + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].xgrq + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].sfth + '</td>\n' +
-                            '<td>' + cgrkd_zhubs[i].status+ '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].djrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].ck) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].kgy) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].bm) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].kh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].zdr)+ '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].zdrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].spr) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].shrq) + '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].sfsh == 1?"已审核":"未审核")+ '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].shsftg == 1?"已审核":"未审核") + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zhubs[i].xgrq) + '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].sfth == 1?"是":"否")+ '</td>\n' +
+                            '<td>' + (cgrkd_zhubs[i].status == 1?"开启":"关闭") + '</td>\n' +
                             '</td>\n' +
                             '</tr>';
                     }
@@ -596,25 +633,25 @@
                 for (var i = 0; i < cgrkd_zibs.length; i++) {
                     html += '<tr>\n' +
                         '<td><input name="zib_ids" type="checkbox" value="' + cgrkd_zibs[i].cgrkd_zib_id + '"></td>\n' +
-                        '<td>' + cgrkd_zibs[i].hh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].rkrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].spbm + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].spmc + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].type + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].dw + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].scrq+ '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].sxrq + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ydsl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].sdsl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].dj + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].je + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].zp + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ytdjh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ythh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].lydjh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].lyhh + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].ljrksl + '</td>\n' +
-                        '<td>' + cgrkd_zibs[i].status + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].hh) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].rkrq) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].spbm) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].spmc) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].type) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].dw) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].scrq) + '</td>\n' +
+                        '<td>' + FormatTime(cgrkd_zibs[i].sxrq) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ydsl) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].sdsl) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].dj) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].je) + '</td>\n' +
+                        '<td>' +  (cgrkd_zibs[i].zp == 1?"是":"不是") + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ytdjh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(cgrkd_zibs[i].ljrksl) + '</td>\n' +
+                        '<td>' + (cgrkd_zibs[i].status==1 ?"关闭":"没关闭") + '</td>\n' +
                         '</tr>';
                 }
                 $("#zib_tbody").html(html);
@@ -697,205 +734,25 @@
                     for (var i = 0; i < cgrkd_zibs.length; i++) {
                         html += '<tr>\n' +
                             '<td><input name="zib_ids" type="checkbox" value="' + cgrkd_zibs[i].cgrkd_zib_id + '"></td>\n' +
-                            '<td>' + cgrkd_zibs[i].hh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].rkrq + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].spbm + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].spmc + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].type + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].dw + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].scrq + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].sxrq + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ydsl + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].sdsl + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].dj + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].je + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].zp + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ytdjh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ythh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].lydjh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].lyhh + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].ljrksl + '</td>\n' +
-                            '<td>' + cgrkd_zibs[i].status + '</td>\n' +
-                            '<td class="text-center">\n' +
-                            '<button id="zib_xg_btn-'+i+'" status="'+cgrkd_zibs[i].status+'" i="' + i + '" zibId="' + cgrkd_zibs[i].cgrkd_zib_id + '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
-                            '    >\n' +
-                            '    修改\n' +
-                            '</button>\n' +
-                            <%--模拟窗口--%>
-                            '\n' +
-                            '                        <div id="myModal-zib-' + i + '" class="modal modal-primary" role="dialog">\n' +
-                            '                            <div class="modal-dialog modal-lg">\n' +
-                            '                                <div class="modal-content">\n' +
-                            '                                    <div class="modal-header">\n' +
-                            '                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">\n' +
-                            '                                            <span aria-hidden="true">&times;</span>\n' +
-                            '                                        </button>\n' +
-                            '                                        <h4 class="modal-title">修改子表信息</h4>\n' +
-                            '                                    </div>\n' +
-                            '                                    <div class="modal-body">\n' +
-                            '                                        <div class="box-body">\n' +
-                            '                                            <div class="form-horizontal">\n' +
-                            '                                                <%--主表修改--%>\n' +
-                            '                                                <form id="zib_xg_form-' + i + '" method="post">\n' +
-                            '                                                    <!-- 正文区域 -->\n' +
-                            '                                                    <section class="content"> <!--产品信息-->\n' +
-                            '\n' +
-                            '                                                        <div class="panel panel-default">\n' +
-                            '                                                            <div class="panel-heading">修改采购入库单子单</div>\n' +
-                            '                                                            <div class="row data-type">\n' +
-                            '                        <input id="zib_xg_cgrkd_zhub_id-' + i + '" type="hidden" name="cgrkd_zhub_id" value="">\n' + /*主表id--》外键*/
-                            '                        <input id="zib_xg_cgrkd_zib_id-' + i + '" type="hidden" name="cgrkd_zib_id" value="">\n' + /*子表id*/
-                            '                        <div class="col-md-2 title">行号</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_hh-' + i + '" type="text" readonly="readonly"  class="form-control" name="hh"\n' +
-                            '                                   placeholder="行号" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">入库日期</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <div class="input-group date">\n' +
-                            '                                <div class="input-group-addon">\n' +
-                            '                                            <i class="fa fa-calendar"></i>\n' +
-                            '                                </div>\n' +
-                            '                                <input id="zib_xg_dhrq-' + i + '" type="text"\n' +
-                            '                                      class="form-control pull-right dateTimePicker" name="dhrq">\n' +
-                            '                             </div>\n' +
-                            '                         </div>\n' +
-                            '                        <div class="col-md-2 title">存货编码</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_spbm-' + i + '" type="text" class="form-control" name="spbm"\n' +
-                            '                                   placeholder="存货编码" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">存货名称</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_spmc-' + i + '" type="text" class="form-control" name="spmc"\n' +
-                            '                                   placeholder="存货名称" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">型号</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_type-' + i + '" type="text" class="form-control" name="type"\n' +
-                            '                                   placeholder="型号" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">计量单位</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_dw-' + i + '" type="text" class="form-control" name="dw"\n' +
-                            '                                   placeholder="计量单位" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">生产日期</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <div class="input-group date">\n' +
-                            '                                <div class="input-group-addon">\n' +
-                            '                                            <i class="fa fa-calendar"></i>\n' +
-                            '                                </div>\n' +
-                            '                                <input id="zib_xg_scrq-' + i + '" type="text"\n' +
-                            '                                      class="form-control pull-right dateTimePicker" name="scrq">\n' +
-                            '                             </div>\n' +
-                            '                         </div>\n' +
-                            '                        <div class="col-md-2 title">失效日期</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <div class="input-group date">\n' +
-                            '                                <div class="input-group-addon">\n' +
-                            '                                            <i class="fa fa-calendar"></i>\n' +
-                            '                                </div>\n' +
-                            '                                <input id="zib_xg_sxrq-' + i + '" type="text"\n' +
-                            '                                      class="form-control pull-right dateTimePicker" name="sxrq">\n' +
-                            '                             </div>\n' +
-                            '                         </div>\n' +
-                            '                        <div class="col-md-2 title">应到数量</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_ydsl-' + i + '" type="text" class="form-control" name="ydsl"\n' +
-                            '                                   placeholder="应到数量" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">实到数量</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_sdsl-' + i + '" type="text" class="form-control" name="sdsl"\n' +
-                            '                                   placeholder="实到数量" value="">\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">单价</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <div class="input-group">\n' +
-                            '                                <span class="input-group-addon">¥</span>\n' +
-                            '                                <input id="zib_xg_dj-' + i + '" type="text" class="form-control" name="dj">\n' +
-                            '                                <span class="input-group-addon">元</span>\n' +
-                            '                            </div>\n' +
-                            '                        </div>\n' +
-                            '                        <div class="col-md-2 title">金额</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <div class="input-group">\n' +
-                            '                                <span class="input-group-addon">¥</span>\n' +
-                            '                                <input id="zib_xg_je-' + i + '" type="text" class="form-control" name="je">\n' +
-                            '                                <span class="input-group-addon">元</span>\n' +
-                            '                            </div>\n' +
-                            '                        </div>\n' +
-                            '                         <div class="col-md-2 title">是否为赠品</div>\n' +
-                            '                         <div class="col-md-4 data">\n' +
-                            '                             <select id="zib_xg_select_zp-' + i + '" class="form-control" name="zp">\n' +
-                            '                                    <option id="zib_xg_zp1_option-' + i + '" value="1">是</option>\n' +
-                            '                                    <option id="zib_xg_zp0_option-' + i + '" value="0">否</option>\n' +
-                            '                             </select>\n' +
-                            '                          </div>\n' +
-                            '                        <div class="col-md-2 title">源头单据号</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_ytdjh-' + i + '" type="text" class="form-control" name="ytdjh"\n' +
-                            '                                   placeholder="源头单据号" value="">\n' +
-                            '                        </div>' +
-                            '                        <div class="col-md-2 title">源头行号</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_ythh-' + i + '" type="text" class="form-control" name="ythh"\n' +
-                            '                                   placeholder="源头行号" value="">\n' +
-                            '                        </div>' +
-                            '                        <div class="col-md-2 title">来源单据号</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_lydjh-' + i + '" type="text" class="form-control" name="lydjh"\n' +
-                            '                                   placeholder="来源单据号" value="">\n' +
-                            '                        </div>' +
-                            '                        <div class="col-md-2 title">来源行号</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="zib_xg_lyhh-' + i + '" type="text" class="form-control" name="lyhh"\n' +
-                            '                                   placeholder="来源行号" value="">\n' +
-                            '                        </div>' +
-                            '                        <div class="col-md-2 title">累计入库数量</div>\n' +
-                            '                        <div class="col-md-4 data">\n' +
-                            '                            <input readonly="readonly" id="zib_xg_ljdhsl-' + i + '"  type="text" class="form-control" name="ljdhsl"\n' +
-                            '                                   placeholder="累计入库数量" value="">\n' +
-                            '                        </div>' +
-                            '                         <div class="col-md-2 title">是否入库结束</div>\n' +
-                            '                         <div class="col-md-4 data">\n' +
-                            '                             <select id="zib_xg_select_sfrkjs-' + i + '" class="form-control" name="sfrkjs">\n' +
-                            '                                    <option id="zib_xg_sfrkjs0_option-' + i + '" value="0">未结束</option>\n' +
-                            '                             </select>\n' +
-                            '                          </div>\n' +
-                            '                         <div class="col-md-2 title">状态</div>\n' +
-                            '                         <div class="col-md-4 data">\n' +
-                            '                             <select id="zib_xg_select_status-' + i + '" class="form-control" name="status">\n' +
-                            '                                    <option id="zib_xg_status1_option-' + i + '" value="1">结束</option>\n' +
-                            '                                    <option id="zib_xg_status0_option-' + i + '" value="0">未结束</option>\n' +
-                            '                             </select>\n' +
-                            '                          </div>\n' +
-
-                            '                                                        </div>\n' +
-                            '                                                        </div>\n' +
-                            '                                                    </section>\n' +
-                            '                                                    <!-- 正文区域 /-->\n' +
-                            '                                                </form>\n' +
-                            '                                            </div>\n' +
-                            '                                        </div>\n' +
-                            '                                    </div>\n' +
-                            '                                    <div class="modal-footer">\n' +
-                            '                                        <button zibId="' + cgrkd_zibs[i].cgrkd_zib_id + '" i="' + i + '" onclick="updateZibById(this)" type="button" class="btn btn-outline" data-dismiss="modal">修改</button>\n' +
-                            '                                        <button type="button" class="btn btn-outline" data-dismiss="modal">取消</button>\n' +
-                            '                                    </div>\n' +
-                            '                                </div>\n' +
-                            '                                <!-- /.modal-content -->\n' +
-                            '                            </div>\n' +
-                            '\n' +
-                            '                            <!-- /.modal-dialog -->\n' +
-                            '                        </div>' +
-                            <%--模拟窗口/--%>
-                            '<button zibId="' + cgrkd_zibs[i].cgrkd_zib_id + '" type="button" class="btn bg-olive btn-xs"\n' +
-                            '    onclick="delete_zib(this)">\n' +
-                            '    删除\n' +
-                            '</button>\n' +
-                            '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].hh) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zibs[i].rkrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].spbm) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].spmc) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].type) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].dw) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zibs[i].scrq) + '</td>\n' +
+                            '<td>' + FormatTime(cgrkd_zibs[i].sxrq) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ydsl) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].sdsl) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].dj) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].je) + '</td>\n' +
+                            '<td>' +  (cgrkd_zibs[i].zp == 1?"是":"不是")+ '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ytdjh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ythh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].lydjh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].lyhh) + '</td>\n' +
+                            '<td>' + NoNull(cgrkd_zibs[i].ljrksl) + '</td>\n' +
+                            '<td>' + (cgrkd_zibs[i].status==1 ?"关闭":"没关闭") + '</td>\n' +
                             '</tr>';
                     }
                     $("#zib_tbody").html(html);
