@@ -36,6 +36,10 @@ public interface IXskpd_zibDao {
     @Select("select * from xskpd_zib where xskpd_zib_id=#{xskpd_zib_id}")
     Xskpd_zib findById(Integer xskpd_zib_id) throws Exception;
 
+    //根据主表id和行号查询信息
+    @Select("select * from xskpd_zib where xskpd_zhub_id=#{xskpd_zhub_id} and hh=#{hh}")
+    Xskpd_zib findByZhuIdAndHh(@Param("xskpd_zhub_id") Integer xskpd_zhub_id,@Param("hh") Integer hh) throws Exception;
+
     //根据主表id查询最大行号hh
     @Select("select MAX(xskpd_zib.`hh`) from xskpd_zib where xskpd_zhub_id=#{xskpd_zhub_id}")
     Integer findMaxHhByZhubId(Integer xskpd_zhub_id) throws Exception;

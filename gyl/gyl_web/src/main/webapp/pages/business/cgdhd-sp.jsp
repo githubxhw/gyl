@@ -541,6 +541,14 @@
 
     });
 
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
     /*到货单查询*/
     $(document).ready(function () {
 
@@ -564,22 +572,22 @@
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgdhd_zhubs[i].cgdhd_zhub_id + '"></td>\n' +
                             '<td><button id="zhub_ddh_btn-" i="' + i + '" ddh="' + cgdhd_zhubs[i].ddh + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgdhd_zhubs[i].cgdhd_zhub_id + '" style="width: 100%;height: 99%">' + cgdhd_zhubs[i].ddh + '</button></td>\n' +
-                            '<td>' + cgdhd_zhubs[i].dhrqStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].ck + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].kgy + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].bm + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].kh + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].zdr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].zdsjStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].spr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].spsjStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].sfspStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].spsftgStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].xgr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].xgsjStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].sfthStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].sfrkjsStr + '</td>\n' +
-                            '<td>' + cgdhd_zhubs[i].statusStr + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].dhrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].ck) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].kgy) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].bm) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].kh) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].zdr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].zdsjStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].spr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].spsjStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].sfspStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].spsftgStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].xgsjStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].sfthStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].sfrkjsStr) + '</td>\n' +
+                            '<td>' + NoNull(cgdhd_zhubs[i].statusStr) + '</td>\n' +
                             '</tr>';
                     }
                     $("#zhub_tbody").html(html);
@@ -625,26 +633,26 @@
                 for (var i = 0; i < cgdhd_zibs.length; i++) {
                     html += '<tr>\n' +
                         '<td><input name="zib_ids" type="checkbox" value="' + cgdhd_zibs[i].cgdhd_zib_id + '"></td>\n' +
-                        '<td>' + cgdhd_zibs[i].hh + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].dhrqStr + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].spbm + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].spmc + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].type + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].dw + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].scrqStr + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].sxrqStr + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].ydsl + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].sdsl + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].dj + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].je + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].zpStr + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].ytdjh + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].ythh + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].lydjh + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].lyhh + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].ljdhsl + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].sfrkjsStr + '</td>\n' +
-                        '<td>' + cgdhd_zibs[i].statusStr + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].hh) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].dhrqStr) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].spbm) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].spmc) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].type) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].dw) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].scrqStr) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].sxrqStr) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].ydsl) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].sdsl) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].dj) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].je)+ '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].zpStr) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].ytdjh) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].ljdhsl) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].sfrkjsStr) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].statusStr) + '</td>\n' +
                         '</tr>';
                 }
                 $("#zib_tbody").html(html);

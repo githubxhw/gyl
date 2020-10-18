@@ -1,13 +1,7 @@
 package cn.cuit.gyl.service.business.impl;
 
-import cn.cuit.gyl.dao.business.IXsdd_zhubDao;
-import cn.cuit.gyl.dao.business.IXsdd_zibDao;
-import cn.cuit.gyl.dao.business.IXsysdZhibDao;
-import cn.cuit.gyl.dao.business.IXsysdZubDao;
-import cn.cuit.gyl.domain.business.Xsdd_zhub;
-import cn.cuit.gyl.domain.business.Xsdd_zib;
-import cn.cuit.gyl.domain.business.Xsysdzhib;
-import cn.cuit.gyl.domain.business.Xsysdzhub;
+import cn.cuit.gyl.dao.business.*;
+import cn.cuit.gyl.domain.business.*;
 import cn.cuit.gyl.service.business.IXsysdService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
 import cn.cuit.gyl.utils.PageInfo;
@@ -35,6 +29,14 @@ public class XsysdServiceImpl implements IXsysdService {
     @Qualifier("iXsdd_zibDao")
     private IXsdd_zibDao iXsdd_zibDao;
 
+    @Autowired
+    @Qualifier("iXskpd_zibDao")
+    private IXskpd_zibDao iXskpd_zibDao;
+
+
+    @Autowired
+    @Qualifier("iXskpd_zhubDao")
+    private IXskpd_zhubDao iXskpd_zhubDao;
     @Override
     public List<Xsysdzhub> findByCondition(Xsysdzhub xsysdzhub) throws Exception {
         DomainAttrValueConverterUtils<Xsysdzhub> handler=new DomainAttrValueConverterUtils<>(xsysdzhub);
@@ -152,13 +154,43 @@ public class XsysdServiceImpl implements IXsysdService {
         if (xsysdzhub.getXsysdzhibs() !=null){
             List<Xsysdzhib> xsysdzhibs = xsysdzhub.getXsysdzhibs();
             for (Xsysdzhib a:xsysdzhibs){
-                if (a.getDw()!=null){
+                if (a.getHh()!=null){
                     a.setZid(byDdh.getXsysdzhubid());
+                    Xskpd_zhub fph = iXskpd_zhubDao.findByFph(a.getLydjh());
+                    if (fph == null){
+                        pageInfo.setResFlag("0");
+                        msgList.add("来源单据号不存在");
+                        iXsysdZubDao.deleteById(byDdh.getXsysdzhubid());
+                        return pageInfo;
+                    }
+                    Xskpd_zib byZhuIdAndHh = iXskpd_zibDao.findByZhuIdAndHh(fph.getXskpd_zhub_id(), a.getLyhh());
+                    if (byZhuIdAndHh == null){
+                        pageInfo.setResFlag("0");
+                        msgList.add("来源行号不存在");
+                        iXsysdZubDao.deleteById(byDdh.getXsysdzhubid());
+                        return pageInfo;
+                    }
+
+                    Xsdd_zhub byDdh1 = iXsdd_zhubDao.findByDdh(a.getYtdjh());
+                    if (byDdh1 == null){
+                        pageInfo.setResFlag("0");
+                        msgList.add("源头单据号不存在");
+                        iXsysdZubDao.deleteById(byDdh.getXsysdzhubid());
+                        return pageInfo;
+                    }
+                    Xsdd_zib byZhubIdAndHh = iXsdd_zibDao.findByZhubIdAndHh(byDdh1.getXsdd_zhub_id(), a.getYthh());
+                    if (byZhubIdAndHh == null){
+                        pageInfo.setResFlag("0");
+                        msgList.add("源头行号不存在");
+                        iXsysdZubDao.deleteById(byDdh.getXsysdzhubid());
+                        return pageInfo;
+                    }
+                    }
+
                     iXsysdZhibDao.save(a);
                 }
 
             }
-        }
         return pageInfo;
     }
 
@@ -285,6 +317,10 @@ public class XsysdServiceImpl implements IXsysdService {
         for (Xsysdzhib a:xsysdzhibs){
             String ytdjh = a.getYtdjh();//得到源头的单据号
             Integer ythh = a.getYthh();//得到源头的行号
+            String lydjh = a.getLydjh();
+            Integer lyhh = a.getLyhh();
+            Xskpd_zhub byFph = iXskpd_zhubDao.findByFph(lydjh);
+            Xskpd_zib byZhuIdAndHh = iXskpd_zibDao.findByZhuIdAndHh(byFph.getXskpd_zhub_id(), lyhh);//得到来源的发票
             Xsdd_zhub byDdh = iXsdd_zhubDao.findByDdh(ytdjh);//得到源头的订单
             if (byDdh == null){
                 pageInfo.setResFlag("0");
@@ -301,16 +337,18 @@ public class XsysdServiceImpl implements IXsysdService {
             }
             if (byDdh.getStatus() == 1){
                 pageInfo.setResFlag("0");
-                msgList.add("改订单已结束");
+                msgList.add("该订单已结束");
                 return pageInfo;
             }
             byZhubIdAndHh.setLjyssl(sl+ljyssl);//更新累积的应收数量
             a.setLjyssl(sl+ljyssl);//更新累积的应收数量
+            byZhuIdAndHh.setLjysksl(sl+ljyssl);
             if (byZhubIdAndHh.getCount().equals(byZhubIdAndHh.getLjyssl()) ){
                 //判断应收是否结束
                 byZhubIdAndHh.setSfskgb(1);
                 a.setIsysgb(1);
                 byZhubIdAndHh.setStatus(1);
+                byZhuIdAndHh.setSfyskjs(1);
                 List<Xsdd_zib> byZhubId = iXsdd_zibDao.findByZhubId(byDdh.getXsdd_zhub_id());
                 int flag = 0;
                 for (Xsdd_zib xsdd_zib:byZhubId){
@@ -322,12 +360,25 @@ public class XsysdServiceImpl implements IXsysdService {
                 if (flag == 0){
                     byDdh.setStatus(1);
                 }//判断该订单的所有子表是不是全部结束
+                List<Xskpd_zib> xskpd_zibs = iXskpd_zibDao.findByZhubId(byZhuIdAndHh.getXskpd_zhub_id());
+                int yy = 0;
+                for (Xskpd_zib xskpd_zib:xskpd_zibs){
+                    if (xskpd_zib.getSfyskjs() == 0){
+                        yy = 1;
+                        break;
+                    }
+                }
+                if (yy == 0){
+                    byFph.setYsksfjs(1);
+                }
             }
 //            System.out.println("销售"+byZhubIdAndHh);
 //            System.out.println("xsdd"+byDdh);
             iXsdd_zibDao.updateById(byZhubIdAndHh);
             iXsdd_zhubDao.updateById(byDdh);
             iXsysdZhibDao.updateById(a);
+            iXskpd_zibDao.updateById(byZhuIdAndHh);
+            iXskpd_zhubDao.updateById(byFph);
         }
         xsysdzhub.setXsysdzhibs(xsysdzhibs);
         xsysdzhub.setQzr(qzr);
