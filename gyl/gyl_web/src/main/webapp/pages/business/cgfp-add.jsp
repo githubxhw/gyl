@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: Arbitrary
+  User: XHW
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -13,7 +13,7 @@
     <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>销售订单制单</title>
+    <title>采购发票制单</title>
     <meta name="description" content="AdminLTE">
     <meta name="keywords" content="AdminLTE">
 
@@ -122,11 +122,6 @@
                                 <input readonly="readonly" type="text" class="form-control" name="fph"
                                        placeholder="发票号" value="${fph}">
                             </div>
-                            <div class="col-md-2 title">单据状态</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="djzt"
-                                       placeholder="单据状态" value="">
-                            </div>
                             <div class="col-md-2 title">发票日期</div>
                             <div class="col-md-4 data">
                                 <div class="input-group date">
@@ -206,6 +201,66 @@
                                     <option value="0">否</option>
                                 </select>
                             </div>
+                            <div class="col-md-2 title">制单人</div>
+                            <div class="col-md-4 data">
+                                <input type="text" class="form-control" name="zdr"
+                                       placeholder="制单人" value="">
+                            </div>
+                            <div class="col-md-2 title">制单日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" class="form-control pull-right dateTimePicker" name="zdrq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">审批人</div>
+                            <div class="col-md-4 data">
+                                <input readonly="readonly" type="text" class="form-control" name="spr"
+                                       placeholder="审核人" value="">
+                            </div>
+                            <div class="col-md-2 title">审批日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input readonly="readonly" type="text" class="form-control pull-right" name="sprq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">是否审批</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" name="sfsp">
+                                    <option value="0">否</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 title">审批是否通过</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" name="spsftg">
+                                    <option value="0">否</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 title">修改人</div>
+                            <div class="col-md-4 data">
+                                <input readonly="readonly" type="text" class="form-control" name="xgr"
+                                       placeholder="修改人" value="">
+                            </div>
+                            <div class="col-md-2 title">修改日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input readonly="readonly" type="text" class="form-control pull-right" name="xgrq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">单据状态</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" name="status">
+                                    <option value="0">未结束</option>
+                                </select>
+                            </div>
                     </div>
                 </div>
                 <!-- zhub /-->
@@ -240,6 +295,7 @@
                         <th class="text-center sorting" width="200px">来源行号</th>
                         <th class="text-center sorting" width="200px">源头单据号</th>
                         <th class="text-center sorting" width="200px">源头行号</th>
+                        <th class="text-center sorting" width="200px">状态</th>
                         </thead>
                         <%--内容--%>
                         <tbody id="zib_tbody">
@@ -519,6 +575,9 @@
                 '                                   placeholder="源头单据号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.ytdjh}</option></c:forEach>></select></td>\n' +
                 '<td>                            <select id="ythh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ythh"\n' +
                 '                                   placeholder="源头行号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.ythh}</option></c:forEach>></select></td>\n' +
+                '<td>                            <select id="status-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].status">\n' +
+                '                                   <option selected="selected" value="0">未结束</option>' +
+                '                                </select></td>\n' +
                 '</tr>';
             $("#zib_tbody").append(str);
             $("#zib_hh").attr("hh", nowCount);

@@ -1,6 +1,6 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Arbitrary
+  User: XHW
   Date: 2020/2/17
   Time: 22:23
   To change this template use File | Settings | File Templates.
@@ -120,11 +120,6 @@
                                 <input type="text" class="form-control" name="fph"
                                        placeholder="发票号" value="">
                             </div>
-                            <div class="col-md-2 title">单据状态</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="djzt"
-                                       placeholder="单据状态" value="">
-                            </div>
                             <div class="col-md-2 title">发票日期</div>
                             <div class="col-md-4 data">
                                 <div class="input-group date">
@@ -184,6 +179,66 @@
                                     <option value="0">否</option>
                                 </select>
                             </div>
+                            <div class="col-md-2 title">制单人</div>
+                            <div class="col-md-4 data">
+                                <input type="text" class="form-control" name="zdr"
+                                       placeholder="制单人" value="">
+                            </div>
+                            <div class="col-md-2 title">制单日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text"  class="form-control pull-right dateTimePicker" name="zdrq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">审批人</div>
+                            <div class="col-md-4 data">
+                                <input type="text"  readonly class="form-control" name="spr"
+                                       placeholder="审核人" value="">
+                            </div>
+                            <div class="col-md-2 title">审批日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" readonly class="form-control pull-right dateTimePicker" name="sprq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">是否审批</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" readonly name="sfsp">
+                                    <option value="0">否</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 title">审批是否通过</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" readonly name="spsftg">
+                                    <option value="0">未通过</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 title">修改人</div>
+                            <div class="col-md-4 data">
+                                <input type="text" readonly class="form-control" name="xgr"
+                                       placeholder="修改人" value="">
+                            </div>
+                            <div class="col-md-2 title">修改日期</div>
+                            <div class="col-md-4 data">
+                                <div class="input-group date">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-calendar"></i>
+                                    </div>
+                                    <input type="text" readonly class="form-control pull-right dateTimePicker" name="xgrq">
+                                </div>
+                            </div>
+                            <div class="col-md-2 title">单据状态</div>
+                            <div class="col-md-4 data">
+                                <select class="form-control" readonly name="status">
+                                    <option value="0">未结束</option>
+                                </select>
+                            </div>
 
                     </div>
                 </div>
@@ -204,24 +259,32 @@
             <div style="padding-left: 20px"><h4><%--主表--%></h4></div>
             <div style="overflow: scroll;overflow-y:scroll;height: 200px;width: 99%;">
                 <table id="dataList_zhu" class="table table-bordered table-striped table-hover dataTable"
-                       style="min-width:2000px;border:solid grey 1px">
+                       style="min-width:3125px;border:solid grey 1px">
                     <thead>
                     <th class="" style="padding-right:0px;">
                         <input id="selall_zhu" type="checkbox" class="icheckbox_square-blue">
                     </th>
-                    <th class="sorting_asc" width="200px">公司</th>
-                    <th class="text-center sorting" width="200px">发票号</th>
-                    <th class="text-center sorting" width="200px">单据状态</th>
-                    <th class="text-center sorting" width="200px">发票日期</th>
-                    <th class="text-center sorting" width="200px">票到日期</th>
-                    <th class="text-center sorting" width="200px">供应商</th>
-                    <th class="text-center sorting" width="200px">采购部门</th>
-                    <th class="text-center sorting" width="200px">发票类型</th>
-                    <th class="text-center sorting" width="200px">业务员</th>
-                    <th class="text-center sorting" width="200px">币种</th>
-                    <th class="text-center sorting" width="200px">整单税率</th>
-                    <th class="text-center sorting" width="200px">是否已传应付</th>
-                    <th class="text-center" width="200px">操作</th>
+                    <th class="sorting_asc" width="350px">公司</th>
+                    <th class="text-center sorting" width="350px">发票号</th>
+                    <th class="text-center sorting" width="350px">发票日期</th>
+                    <th class="text-center sorting" width="350px">票到日期</th>
+                    <th class="text-center sorting" width="350px">供应商</th>
+                    <th class="text-center sorting" width="350px">采购部门</th>
+                    <th class="text-center sorting" width="350px">发票类型</th>
+                    <th class="text-center sorting" width="350px">业务员</th>
+                    <th class="text-center sorting" width="350px">币种</th>
+                    <th class="text-center sorting" width="350px">整单税率</th>
+                    <th class="text-center sorting" width="350px">是否已传应付</th>
+                    <th class="text-center sorting" width="350px">制单人</th>
+                    <th class="text-center sorting" width="350px">制单日期</th>
+                    <th class="text-center sorting" width="350px">审批人</th>
+                    <th class="text-center sorting" width="350px">审批日期</th>
+                    <th class="text-center sorting" width="350px">是否审批</th>
+                    <th class="text-center sorting" width="350px">审批是否通过</th>
+                    <th class="text-center sorting" width="350px">修改人</th>
+                    <th class="text-center sorting" width="350px">修改日期</th>
+                    <th class="text-center sorting" width="350px">单据状态</th>
+                    <th class="text-center" width="350px">操作</th>
                     </thead>
                     <%--内容--%>
                     <tbody id="zhub_tbody">
@@ -274,6 +337,7 @@
                     <th class="text-center sorting" width="200px">来源行号</th>
                     <th class="text-center sorting" width="200px">源头单据号</th>
                     <th class="text-center sorting" width="200px">源头行号</th>
+                    <th class="text-center sorting" width="200px">单据状态</th>
                     <th class="text-center" width="200px">操作</th>
                     </thead>
                     <%--内容--%>
@@ -430,6 +494,13 @@
                                                                 <div class="col-md-2 data">
                                                                     <input type="text" class="form-control" name="ythh"
                                                                            placeholder="源头行号" value="">
+                                                                </div>
+                                                                <div class="col-md-2 title">状态</div>
+                                                                <div class="col-md-4 data">
+                                                                    <select class="form-control" name="status">
+                                                                        <option selected="selected" value="0">未结束
+                                                                        </option>
+                                                                    </select>
                                                                 </div>
                                                                 <%--外键id--%>
                                                                 <input id="zib_zhub_id_input" type="hidden"
@@ -674,7 +745,6 @@
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgfp_zhubs[i].cgfp_zhub_id + '"></td>\n' +
                             '<td><button i="' + i + '" gs="' + cgfp_zhubs[i].gs + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" style="width: 100%;height: 99%">' + cgfp_zhubs[i].gs + '</button></td>\n' +
                             '<td>' + cgfp_zhubs[i].fph + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].djzt + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].fprqStr + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].pdrqStr + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].gys + '</td>\n' +
@@ -684,6 +754,15 @@
                             '<td>' + cgfp_zhubs[i].bz + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].zdsl + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].isycyfStr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].zdr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].zdrqStr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].spr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].sprqStr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].sfspStr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].spsftgStr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].xgr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].xgrqStr + '</td>\n' +
+                            '<td>' + cgfp_zhubs[i].statusStr + '</td>\n' +
                             '<td class="text-center">\n' +
                             '<button id="zhub_xg_btn" i=' + i + ' onclick="zhub_xg_btn(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" type="button" data-toggle="modal" data-target="#myModal-zhub-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '">\n' +
@@ -725,12 +804,6 @@
                             '                                                                    <input id="zhub_xg_fph-' + i + '" readonly="readonly" type="text"\n' +
                             '                                                                           class="form-control" name="fph"\n' +
                             '                                                                           placeholder="发票号" value="">\n' +
-                            '                                                                </div>\n' +
-                            '                                                                <div class="col-md-2 title">单据状态</div>\n' +
-                            '                                                                <div class="col-md-4 data">\n' +
-                            '                                                                    <input id="zhub_xg_djzt-' + i + '" type="text"\n' +
-                            '                                                                           class="form-control" name="djzt"\n' +
-                            '                                                                           placeholder="单据状态" value="">\n' +
                             '                                                                </div>\n' +
                             '                                                                <div class="col-md-2 title">发票日期</div>\n' +
                             '                                                                <div class="col-md-4 data">\n' +
@@ -790,6 +863,75 @@
                             '                                                                        <option id="zhub_xg_isycyf0_option-' + i + '" value="0">否</option>\n' +
                             '                                                                    </select>\n' +
                             '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">制单人</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <input id="zhub_xg_zdr-' + i + '" type="text" class="form-control" name="zdr"\n' +
+                            '                                                                           placeholder="制单人" value="">\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">制单日期</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <div class="input-group date">\n' +
+                            '                                                                        <div class="input-group-addon">\n' +
+                            '                                                                            <i class="fa fa-calendar"></i>\n' +
+                            '                                                                        </div>\n' +
+                            '                                                                        <input id="zhub_xg_zdrq-' + i + '" type="text"\n' +
+                            '                                                                               class="form-control pull-right dateTimePicker"\n' +
+                            '                                                                               name="zdrq">\n' +
+                            '                                                                    </div>\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">审批人</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <input readonly="readonly" id="zhub_xg_spr-' + i + '" type="text" class="form-control" name="spr"\n' +
+                            '                                                                           placeholder="审批人" value="">\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">审批日期</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <div class="input-group date">\n' +
+                            '                                                                        <div class="input-group-addon">\n' +
+                            '                                                                            <i class="fa fa-calendar"></i>\n' +
+                            '                                                                        </div>\n' +
+                            '                                                                        <input readonly="readonly" id="zhub_xg_sprq-' + i + '" type="text"\n' +
+                            '                                                                               class="form-control pull-right"\n' +
+                            '                                                                               name="sprq">\n' +
+                            '                                                                    </div>\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">是否审批</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <select class="form-control" name="sfsp">\n' +
+                            '                                                                        <option id="zhub_xg_sfsp0_option-' + i + '" value="0">否</option>\n' +
+                            '                                                                    </select>\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">审批是否通过</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <select class="form-control" name="spsftg">\n' +
+                            '                                                                        <option id="zhub_xg_spsftg0_option-' + i + '" value="0">未通过</option>\n' +
+                            '                                                                    </select>\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">修改人</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <input readonly="readonly" id="zhub_xg_xgr-' + i + '" type="text" class="form-control" name="xgr"\n' +
+                            '                                                                           placeholder="修改人" value="">\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">修改日期</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <div class="input-group date">\n' +
+                            '                                                                        <div class="input-group-addon">\n' +
+                            '                                                                            <i class="fa fa-calendar"></i>\n' +
+                            '                                                                        </div>\n' +
+                            '                                                                        <input readonly="readonly" id="zhub_xg_xgrq-' + i + '" type="text"\n' +
+                            '                                                                               class="form-control pull-right"\n' +
+                            '                                                                               name="xgrq">\n' +
+                            '                                                                    </div>\n' +
+                            '                                                                </div>\n' +
+                            '                                                                <div class="col-md-2 title">状态</div>\n' +
+                            '                                                                <div class="col-md-4 data">\n' +
+                            '                                                                    <select id="zhub_xg_select_status-' + i + '" class="form-control" name="status">\n' +
+                            '                                                                        <option id="zhub_xg_status1_option-' + i + '" value="1">结束</option>\n' +
+                            '                                                                        <option id="zhub_xg_status0_option-' + i + '" value="0">未结束</option>\n' +
+                            '                                                                    </select>\n' +
+                            '                                                                </div>\n' +
+
+
                             '                                                            </div>\n' +
                             '                                                        </div>\n' +
                             '                                                    </section>\n' +
@@ -897,7 +1039,6 @@
                 $("#zhub_xg_cgfp_zhub_id-" + i).attr("value", cgfp_zhub.cgfp_zhub_id);
                 $("#zhub_xg_gs-" + i).attr("value", cgfp_zhub.gs);
                 $("#zhub_xg_fph-" + i).attr("value", cgfp_zhub.fph);
-                $("#zhub_xg_djzt-" + i).attr("value", cgfp_zhub.djzt);
                 $("#zhub_xg_fprq-" + i).attr("value", cgfp_zhub.fprqStr);
                 $("#zhub_xg_pdrq-" + i).attr("value", cgfp_zhub.pdrqStr);
                 $("#zhub_xg_gys-" + i).attr("value", cgfp_zhub.gys);
@@ -907,6 +1048,12 @@
                 $("#zhub_xg_bz-" + i).attr("value", cgfp_zhub.bz);
                 $("#zhub_xg_zdsl-" + i).attr("value", cgfp_zhub.zdsl);
                 $("#zhub_xg_isycyf-" + i).attr("value", cgfp_zhub.isycyfStr);
+                $("#zhub_xg_zdr-" + i).attr("value", cgfp_zhub.zdr);
+                $("#zhub_xg_zdrq-" + i).attr("value", cgfp_zhub.zdrqStr);
+                $("#zhub_xg_spr-" + i).attr("value", cgfp_zhub.spr);
+                $("#zhub_xg_sprq-" + i).attr("value", cgfp_zhub.sprqStr);
+                $("#zhub_xg_xgr-" + i).attr("value", cgfp_zhub.xgr);
+                $("#zhub_xg_xgrq-" + i).attr("value", cgfp_zhub.xgrqStr);
 
 
                 //添加disabled="disabled" 注意：在提交表单的时候，需要把disabled移除，不然提交不了数据
@@ -916,6 +1063,11 @@
                     $("#zhub_xg_isycyf1_option-" + i).attr("selected", "selected");
                 } else {
                     $("#zhub_xg_isycyf0_option-" + i).attr("selected", "selected");
+                }
+                if (cgfp_zhub.status == 1) {
+                    $("#zhub_xg_status1_option-" + i).attr("selected", "selected");
+                } else {
+                    $("#zhub_xg_status0_option-" + i).attr("selected", "selected");
                 }
             },
             error: function (data) {
@@ -931,6 +1083,7 @@
         var i = $(x).attr("i");
         //alert(i);
         $("#zhub_xg_select_isycyf-" + i).removeAttr("disabled");
+        $("#zhub_xg_select_status-" + i).removeAttr("disabled");
         //表单数据
             var params = $("#zhub_xg_form-" + i).serialize();
         console.log(params);
@@ -1079,6 +1232,7 @@
                         '<td>' + cgfp_zibs[i].lyhh + '</td>\n' +
                         '<td>' + cgfp_zibs[i].ytdjd + '</td>\n' +
                         '<td>' + cgfp_zibs[i].ythh + '</td>\n' +
+                        '<td>' + cgfp_zibs[i].status + '</td>\n' +
                         '<td class="text-center">\n' +
                         '<button id="zib_xg_btn" i="' + i + '" zibId="' + cgfp_zibs[i].cgfp_zib_id + '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                         '    >\n' +
@@ -1215,6 +1369,12 @@
                         '                            <input readonly="readonly" id="zib_xg_ythh-' + i + '" type="text" class="form-control" name="ythh"\n' +
                         '                                   placeholder="源头行号" value="">\n' +
                         '                        </div>\n' +
+                        '                         <div class="col-md-2 title">状态</div>\n' +
+                        '                         <div class="col-md-4 data">\n' +
+                        '                             <select id="zib_xg_select_status-' + i + '" class="form-control" name="status">\n' +
+                        '                                    <option id="zib_xg_status0_option-' + i + '" value="0">未结束</option>\n' +
+                        '                             </select>\n' +
+                        '                          </div>\n' +
 
                         '                                                        </div>\n' +
                         '                                                        </div>\n' +
@@ -1289,6 +1449,7 @@
                 $("#zib_xg_lyhh-" + i).attr("value", cgfp_zib.lyhh);
                 $("#zib_xg_ytdjd-" + i).attr("value", cgfp_zib.ytdjd);
                 $("#zib_xg_ythh-" + i).attr("value", cgfp_zib.ythh);
+                $("#zib_xg_status-" + i).attr("value", cgfp_zib.status);
             },
             error: function (data) {
                 alert("无响应!");

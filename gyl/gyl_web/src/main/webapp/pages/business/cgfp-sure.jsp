@@ -1,19 +1,21 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Arbitrary
-  Date: 2020/4/18
-  Time: 9:58
+  User: Kxin
+  Date: 2020-05-15
+  Time: 16:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>采购发票查询</title>
+    <!-- 页面meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>采购发票查询</title>
+    <title>发票确认</title>
     <meta name="description" content="AdminLTE">
-    <meta name="keywords" content="AdminLTE"><!-- Tell the browser to be responsive to screen width -->
+    <meta name="keywords" content="AdminLTE">
+
+    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
           name="viewport">
     <link rel="stylesheet"
@@ -61,6 +63,7 @@
     <link rel="stylesheet"
           href="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 </head>
+
 <body class="hold-transition skin-purple sidebar-mini">
 <div class="wrapper">
     <!-- 页面头部 -->
@@ -69,12 +72,13 @@
     <!-- 导航侧栏 -->
     <jsp:include page="../../aside.jsp"/>
     <!-- 导航侧栏 /-->
+
     <!-- 内容区域 -->
     <div class="content-wrapper">
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                采购发票-查询
+                采购发票单-确认
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -89,9 +93,9 @@
                     <a href="#">采购管理</a>
                 </li>
                 <li>
-                    <a href="#">采购发票管理</a>
+                    <a href="#">采购发票单管理</a>
                 </li>
-                <li class="active">查询</li>
+                <li class="active">确认</li>
             </ol>
         </section>
         <!-- 内容头部 /-->
@@ -99,22 +103,20 @@
         <%--查询部分--%>
         <%-- id = query 按钮查询--%>
         <form id="form" method="post">
-            <section class="content"> <!--产品信息-->
-
+            <section class="content">
                 <div class="panel panel-default">
-                    <div class="panel-heading">查询(所有)</div>
+                    <div class="panel-heading">查询(已审批)</div>
                     <div class="row data-type">
-                        <%--1--%>
                         <div class="col-md-2 title">公司</div>
-                            <div class="col-md-4 data">
+                        <div class="col-md-4 data">
                             <input type="text" class="form-control" name="gs"
                                    placeholder="公司" value="">
                         </div>
                         <div class="col-md-2 title">发票号</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="fph"
-                                       placeholder="发票号" value="">
-                            </div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="fph"
+                                   placeholder="发票号" value="">
+                        </div>
                         <div class="col-md-2 title">发票日期</div>
                         <div class="col-md-4 data">
                             <div class="input-group date">
@@ -124,15 +126,15 @@
                                 <input type="text" class="form-control pull-right dateTimePicker" name="fprq">
                             </div>
                         </div>
-                            <div class="col-md-2 title">票到日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="pdrq">
+                        <div class="col-md-2 title">票到日期</div>
+                        <div class="col-md-4 data">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
                                 </div>
+                                <input type="text" class="form-control pull-right dateTimePicker" name="pdrq">
                             </div>
+                        </div>
                         <div class="col-md-2 title">供应商</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="gys"
@@ -155,17 +157,17 @@
                             <input type="text" class="form-control" name="ywy"
                                    placeholder="业务员" value="">
                         </div>
-                            <div class="col-md-2 title">币种</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="bz"
-                                       placeholder="币种" value="">
-                            </div>
+                        <div class="col-md-2 title">币种</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="bz"
+                                   placeholder="币种" value="">
+                        </div>
 
-                            <div class="col-md-2 title">整单税率</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="zdsl"
-                                       placeholder="整单税率" value="">
-                            </div>
+                        <div class="col-md-2 title">整单税率</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="zdsl"
+                                   placeholder="整单税率" value="">
+                        </div>
                         <div class="col-md-2 title">是否已付应传</div>
                         <div class="col-md-4 data">
                             <select class="form-control" name="isycyf">
@@ -174,72 +176,68 @@
                                 <option value="0">否</option>
                             </select>
                         </div>
-                            <div class="col-md-2 title">制单人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="zdr"
-                                       placeholder="制单人" value="">
-                            </div>
-                            <div class="col-md-2 title">制单日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="zdrq">
+                        <div class="col-md-2 title">制单人</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="zdr"
+                                   placeholder="制单人" value="">
+                        </div>
+                        <div class="col-md-2 title">制单日期</div>
+                        <div class="col-md-4 data">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
                                 </div>
+                                <input type="text" class="form-control pull-right dateTimePicker" name="zdrq">
                             </div>
-                            <div class="col-md-2 title">审批人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="spr"
-                                       placeholder="审核人" value="">
-                            </div>
-                            <div class="col-md-2 title">审批日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="sprq">
+                        </div>
+                        <div class="col-md-2 title">审批人</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="spr"
+                                   placeholder="审核人" value="">
+                        </div>
+                        <div class="col-md-2 title">审批日期</div>
+                        <div class="col-md-4 data">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
                                 </div>
+                                <input type="text" class="form-control pull-right dateTimePicker" name="sprq">
                             </div>
-                            <div class="col-md-2 title">是否审批</div>
-                            <div class="col-md-4 data">
-                                <select class="form-control" name="sfsp">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <option value="1">是</option>
-                                    <option value="0">否</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 title">审批是否通过</div>
-                            <div class="col-md-4 data">
-                                <select class="form-control" name="spsftg">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <option value="1">是</option>
-                                    <option value="0">否</option>
-                                </select>
-                            </div>
-                            <div class="col-md-2 title">修改人</div>
-                            <div class="col-md-4 data">
-                                <input type="text" class="form-control" name="xgr"
-                                       placeholder="修改人" value="">
-                            </div>
-                            <div class="col-md-2 title">修改日期</div>
-                            <div class="col-md-4 data">
-                                <div class="input-group date">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-calendar"></i>
-                                    </div>
-                                    <input type="text" class="form-control pull-right dateTimePicker" name="xgrq">
+                        </div>
+                        <div class="col-md-2 title">是否审批</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control" name="sfsp">
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">审批是否通过</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control" name="spsftg">
+                                <option value="1">是</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 title">修改人</div>
+                        <div class="col-md-4 data">
+                            <input type="text" class="form-control" name="xgr" readonly
+                                   placeholder="修改人" value="">
+                        </div>
+                        <div class="col-md-2 title">修改日期</div>
+                        <div class="col-md-4 data">
+                            <div class="input-group date">
+                                <div class="input-group-addon">
+                                    <i class="fa fa-calendar"></i>
                                 </div>
+                                <input type="text" readonly class="form-control pull-right dateTimePicker" name="xgrq">
                             </div>
-                            <div class="col-md-2 title">单据状态</div>
-                            <div class="col-md-4 data">
-                                <select class="form-control" name="status">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <option value="1">结束</option>
-                                    <option value="0">未结束</option>
-                                </select>
-                            </div>
+                        </div>
+                        <div class="col-md-2 title">单据状态</div>
+                        <div class="col-md-4 data">
+                            <select class="form-control" name="status">
+                                <option selected="selected" value="-1">全部</option>
+                                <option value="1">结束</option>
+                                <option value="0">未结束</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <!--订单信息/--> <!--工具栏-->
@@ -252,19 +250,20 @@
                 </div>
                 <!--工具栏/--> </section>
         </form>
+
         <!--数据列表-->
         <%-- 1：主表--%>
         <from><%--提交ids--%>
             <div style="padding-left: 20px"><h4><%--主表--%></h4></div>
             <div style="overflow: scroll;overflow-y:scroll;height: 200px;width: 99%;">
                 <table id="dataList_zhu" class="table table-bordered table-striped table-hover dataTable"
-                       style="min-width:3125px;border:solid grey 1px">
+                       style="min-width:2500px;border:solid grey 1px">
                     <thead>
                     <th class="" style="padding-right:0px;">
                         <input id="selall_zhu" type="checkbox" class="icheckbox_square-blue">
                     </th>
-                    <th class="sorting_asc" width="350px">公司</th>
                     <th class="text-center sorting" width="350px">发票号</th>
+                    <th class="sorting_asc" width="350px">公司</th>
                     <th class="text-center sorting" width="350px">发票日期</th>
                     <th class="text-center sorting" width="350px">票到日期</th>
                     <th class="text-center sorting" width="350px">供应商</th>
@@ -283,26 +282,31 @@
                     <th class="text-center sorting" width="350px">修改人</th>
                     <th class="text-center sorting" width="350px">修改日期</th>
                     <th class="text-center sorting" width="350px">单据状态</th>
-                    <%--<th class="text-center" width="350px">操作</th>--%>
                     </thead>
                     <%--内容--%>
                     <tbody id="zhub_tbody">
                     </tbody>
                 </table>
             </div>
+            <%--工具栏--%>
+            <div class="pull-left">
+                <div class="form-group form-inline">
+                    <span id="zhub_count" count="">共 0 条记录</span>
+                </div>
+            </div>
+            <%--工具栏/--%>
         </from>
-        <span id="zhub_count" count="">共 0 条记录</span>
         <br><br>
         <div class="form-group">
-            <input id="gs" class="form-control" type="text" readonly="readonly" style="width: 17%;"
-                   placeholder="双击已查询的公司进行选择" value="">
+            <input id="fph" class="form-control" type="text" readonly="readonly" style="width: 17%;"
+                   placeholder="双击已查询的单据号进行选择" value="">
         </div>
         <%--2：子表--%>
         <from id="zib_form" zhub_id="-1">
             <div style="padding-left: 20px;"><h4><%--子表--%></h4></div>
             <div style="overflow: scroll;overflow-y:scroll;height: 300px;width: 99%;">
                 <table id="dataList_zi" class="table table-bordered table-striped table-hover dataTable"
-                       style="min-width:2500px;border:solid grey 1px">
+                       style="min-width:3125px;border:solid grey 1px">
                     <thead>
                     <th class="" style="padding-right:0px;">
                         <input id="selall_zi" type="checkbox" class="icheckbox_square-blue">
@@ -326,15 +330,43 @@
                     <th class="text-center sorting" width="200px">源头单据号</th>
                     <th class="text-center sorting" width="200px">源头行号</th>
                     <th class="text-center sorting" width="200px">单据状态</th>
-                    <%--<th class="text-center" width="350px">操作</th>--%>
                     </thead>
                     <%--内容--%>
                     <tbody id="zib_tbody">
                     </tbody>
                 </table>
             </div>
+            <%--工具栏--%>
+            <div class="pull-left">
+                <div class="form-group form-inline">
+                    <span id="zib_count" count="">共 0 条记录</span>
+                </div>
+            </div>
+            <%--工具栏/--%>
         </from>
-        <span id="zib_count" count="">共 0 条记录</span>
+        <br><br>
+        <div class="panel panel-default">
+            <div class="row data-type">
+                <div class="col-md-2 title">修改人</div>
+                <div class="col-md-4 data">
+                    <input id="sp_xgr" type="text" class="form-control"
+                           placeholder="修改人" value="">
+                </div>
+                <div class="col-md-2 title">最后修改时间</div>
+                <div class="col-md-4 data">
+                    <div class="input-group date">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                        <input id="sp_xgsj" type="text" class="form-control pull-right dateTimePicker" value="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="box-tools <%--text-center --%>text-right">
+            <button onclick="updateZibStatusByIds(this)" type="button" class="btn bg-green">确认入库</button>
+        </div>
         <br><br><br><br><br>
     </div>
     <!-- 内容区域 /-->
@@ -342,9 +374,8 @@
     <!-- 底部导航 -->
     <jsp:include page="../../footer.jsp"/>
     <!-- 底部导航 /-->
-
-
 </div>
+
 
 <script
         src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -525,7 +556,8 @@
                 type: "post",
                 data: params,
                 dataType: "json",
-                async: false,
+                // async: false, 是否是异步: 同步会阻塞UI渲染线程，不会执行ajax后面的代码。
+                //使用trigger功能时候，会导致页面卡住:因为这里已经设置async为false，导致被调用的函数执行时候，需要UI渲染线程，但是被阻塞，被调用的函数执行不了，所有会导致页面卡住。
                 success: function (data) {
                     //清除$("#zhub_tbody")里面的内容
                     $("#zhub_tbody").innerHTML = '';
@@ -534,8 +566,8 @@
                     for (var i = 0; i < cgfp_zhubs.length; i++) {
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgfp_zhubs[i].cgfp_zhub_id + '"></td>\n' +
-                            '<td><button i="' + i + '" gs="' + cgfp_zhubs[i].gs + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" style="width: 100%;height: 99%">' + cgfp_zhubs[i].gs + '</button></td>\n' +
-                            '<td>' + cgfp_zhubs[i].fph + '</td>\n' +
+                            '<td><button i="' + i + '" fph="' + cgfp_zhubs[i].fph + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" style="width: 100%;height: 99%">' + cgfp_zhubs[i].fph + '</button></td>\n' +
+                            '<td>' + cgfp_zhubs[i].gs + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].fprqStr + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].pdrqStr + '</td>\n' +
                             '<td>' + cgfp_zhubs[i].gys + '</td>\n' +
@@ -565,10 +597,11 @@
                 }
             });
         });
+
     });
 
     /*7*/
-    //功能：双击主表总gs按钮触发，根据主表的id查询所有的子表信息，并添加到子表
+    //功能：双击主表总fph按钮触发，根据主表的id查询所有的子表信息，并添加到子表
     function find_zib(x) {
         //移除属性checked
         $(".my-checkbox").removeAttr('checked');
@@ -578,7 +611,8 @@
         //获取id
         var cgfp_zhub_id = $(x).attr("zhubId");
         //获取ddh:对应了子表上面的 单据号：inputut[xxx],将单据号添加到里面显示，方便查看
-        var gs = $(x).attr("gs");
+        var fph = $(x).attr("fph");
+        // console.log(fph);
         $.ajax({
             url: "${pageContext.request.contextPath}/cgfp/findCgfp_zibByZhubId",
             type: "GET",
@@ -590,8 +624,7 @@
                 $("#zib_tbody").innerHTML = '';
                 //给子表form的zhub_id赋值
                 $("#zib_form").attr("zhub_id", cgfp_zhub_id);
-                /*单据号：<input id="djh"...*/
-                $("#gs").attr("value", gs);
+                $("#fph").attr("value", fph);
                 //添加内容
                 cgfp_zibs = data;
                 var html = '';
@@ -629,6 +662,60 @@
         });
     }
 
+    /*13*/
+    //功能：单机子表下面的 确认入库按钮，根据ids将选择的所有子表中的status修改为1
+    function updateZibStatusByIds(x) {
+        var ids = "";
+        var inputs = document.getElementsByName("zib_ids");
+        console.log(inputs);
+        for (var i = 0, j = 0; i < inputs.length; i++) {
+            if (inputs[i].checked) {
+                if (j == 0) {
+                    ids += inputs[i].value;
+                    j++;
+                } else {
+                    ids += "," + inputs[i].value;
+                }
+            }
+        }
+        console.log(ids);
+        if(ids == ""){
+            alert("请选择要确认入库的发票号!")
+        }else {
+            var xgr = $("#sp_xgr").val();
+            if(xgr.length == 0 || xgr == null || xgr == undefined){
+                alert("请输入修改人!")
+            }else {
+                var xgsj = $("#sp_xgsj").val();
+                if(xgsj.length == 0 || xgsj == null || xgsj == undefined){
+                    alert("请输入修改日期!")
+                }else {
+                    var msg = "是否确认入库?";
+                    if(confirm(msg) == true){
+                        $.ajax({
+                            url: "${pageContext.request.contextPath}/cgfp/updateZibStatusByIds",
+                            type: "POST",
+                            data: {"ids": ids,"xgr":xgr,"xgsj":xgsj},
+                            dataType: "text",
+                            // async: false,
+                            success: function () {
+                                $("#query").trigger("click");
+                                refresh();
+                                alert("入库完成！")
+                            },
+                            error: function () {
+                                alert("入库失败！")
+                            }
+                        });
+                    }
+                }
+            }
+        }
+    }
+
+
 </script>
+
+
 </body>
 </html>

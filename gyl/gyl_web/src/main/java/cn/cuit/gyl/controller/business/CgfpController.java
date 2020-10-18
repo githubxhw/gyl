@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @RequestMapping("/cgfp")
@@ -69,6 +70,7 @@ public class CgfpController {
     @RequestMapping("/updateCgfp_zhubById")
     @ResponseBody
     public void updateCgfp_zhubById(Cgfp_zhub cgfp_zhub) throws Exception{
+        System.out.println(cgfp_zhub.toString());
         service.updateCgfp_zhubById(cgfp_zhub);
         return;
     }
@@ -102,7 +104,7 @@ public class CgfpController {
     @RequestMapping("/saveCgfp_zhub")
     @ResponseBody
     public void saveCgfp_zhub(Cgfp_zhub cgfp_zhub) throws Exception{
-        //System.out.println(cgfp_zhub);
+//        System.out.println(cgfp_zhub);
         service.saveCgfp_zhub(cgfp_zhub);
         return;
     }
@@ -167,8 +169,42 @@ public class CgfpController {
         return;
     }
 
+//===================================================================
+    //功能：单击cgrkd-update.jsp中搜索按钮，搜索 未审批的发货单
+    @RequestMapping("/findAllAndSfshIsZero")
+    @ResponseBody
+    public List<Cgfp_zhub> findAllAndSfspIsZero(Cgfp_zhub cgfp_zhub) throws Exception {
+        List<Cgfp_zhub> cgfp_zhubs = service.findAllAndSfshIsZero(cgfp_zhub);
+        return cgfp_zhubs;
+    }
 
+    //功能：审批禁止功能 ： 单击子表下面的 审批禁止按钮 触发，给已经选择的订单修改信息
+    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 0;
+    @RequestMapping("/spForbidden")
+    @ResponseBody
+    public void spForbidden(String fph, String spr, Date sprq) throws Exception {
+        System.out.println(fph+":"+spr+":"+sprq);
+        service.spForbidden(fph,spr,sprq);
+        return;
+    }
 
+    //功能：审批通过功能 ： 单击子表下面的 审批通过按钮 触发，给已经选择的订单修改信息
+    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
+    @RequestMapping("/spAdopt")
+    @ResponseBody
+    public void spAdopt(String fph, String spr, Date sprq) throws Exception {
+
+        service.spAdopt(fph,spr,sprq);
+        return;
+    }
+
+    //功能：单击表下面的 确认入库按钮，根据ids将选择的所有子表中的status修改为1
+    @RequestMapping("/updateZibStatusByIds")
+    @ResponseBody
+    public void updateZibStatusByIds(String ids,String xgr,Date xgsj) throws Exception {
+        service.updateZibStatusByIds(ids,xgr,xgsj);
+        return;
+    }
 
 
 

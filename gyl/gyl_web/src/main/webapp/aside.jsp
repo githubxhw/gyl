@@ -320,8 +320,21 @@
                                         </a>
                                     </li>
                                     </security:authorize>
-                                    <%--<security:authorize access="hasRole('UI_CGFP_SP')"></security:authorize>
-                                    <security:authorize access="hasRole('UI_CGFP_SURE')"></security:authorize>--%>
+                                    <security:authorize access="hasRole('UI_CGFP_SP')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgfp-sp.jsp">
+                                            <i class="fa fa-circle-o"></i> 审批
+                                        </a>
+                                    </li>
+                                    </security:authorize>
+                                    <security:authorize access="hasRole('UI_CGFP_SURE')">
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/pages/business/cgfp-sure.jsp">
+                                            <i class="fa fa-circle-o"></i> 确认
+                                        </a>
+                                    </li>
+
+                                    </security:authorize>--%>
                                 </ul>
                             </li>
                         </ul>

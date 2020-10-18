@@ -2,6 +2,7 @@ package cn.cuit.gyl.service.business;
 
 import cn.cuit.gyl.domain.business.*;
 
+import java.util.Date;
 import java.util.List;
 
 //采购发票业务接口
@@ -48,6 +49,22 @@ public interface ICgfpService {
     //功能：点击子表下面的删除按钮，删除子表信息
     void deleteCgfp_ZibByIds(String ids) throws Exception;
 
+    //==============================================================
+    //功能：单击cgrkd-update.jsp中搜索按钮，搜索 未审批的发货单
+    List<Cgfp_zhub> findAllAndSfshIsZero(Cgfp_zhub cgfp_zhub) throws Exception;
+
+    //功能：审批禁止功能 ： 单击子表下面的 审批禁止按钮 触发，给已经选择的订单修改信息
+    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 0;
+    void spForbidden(String ddh, String spr, Date sprq) throws Exception;
+
+    //功能：审批通过功能 ： 单击子表下面的 审批通过按钮 触发，给已经选择的订单修改信息
+    //在服务器 判断是否该订单已经审批 若是，则抛出异常，否则 修改订单中 sfsp 和 设置 spsftg = 1;
+    void spAdopt(String ddh, String spr, Date sprq) throws Exception;
+
+    //功能：单机子表下面的 确认入库按钮，根据ids将选择的所有子表中的status修改为1
+    void updateZibStatusByIds(String ids, String xgr, Date xgsj) throws Exception;
+
+    //=================================================================
     //获取采购订单（cgdd）主表的所有的东西
     List<Cgddzhub> getAllOfCgddZhub();
 

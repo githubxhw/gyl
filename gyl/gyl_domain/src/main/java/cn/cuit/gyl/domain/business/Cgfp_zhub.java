@@ -15,7 +15,6 @@ public class Cgfp_zhub implements Serializable{
 	private Integer cgfp_zhub_id;//主键
 	private String gs;//公司
 	private String fph;//发票号
-	private String djzt;//单据状态
 	private Date fprq;//发票日期
     private String fprqStr;
 	private Date pdrq;//票到日期
@@ -28,6 +27,23 @@ public class Cgfp_zhub implements Serializable{
 	private Float zdsl;//整单税率
 	private Integer isycyf=0;//是否已传应付   1代表已付  0代表未付
     private String isycyfStr;
+    private String zdr;//制单人
+    private Date zdrq;//制单日期
+    private String zdrqStr;
+    private String spr;//审批人
+    private Date sprq;//审批日期
+    private String sprqStr;
+    private Integer sfsp;//是否审批
+    private String sfspStr;
+    private Integer spsftg;//审批是否通过
+    private String spsftgStr;
+    private String xgr;//修改人
+    private Date xgrq;//修改日期
+    private String xgrqStr;
+    private Integer status;//单据状态
+    private String statusStr;
+
+
 
     //一对多关系
 	private List<Cgfp_zib> cgfp_zibs;
@@ -38,7 +54,6 @@ public class Cgfp_zhub implements Serializable{
                 "cgfp_zhub_id=" + cgfp_zhub_id +
                 ", gs='" + gs + '\'' +
                 ", fph='" + fph + '\'' +
-                ", djzt='" + djzt + '\'' +
                 ", fprq=" + fprq +
                 ", fprqStr='" + fprqStr + '\'' +
                 ", pdrq=" + pdrq +
@@ -51,6 +66,20 @@ public class Cgfp_zhub implements Serializable{
                 ", zdsl=" + zdsl +
                 ", isycyf=" + isycyf +
                 ", isycyfStr='" + isycyfStr + '\'' +
+                ", zdr='" + zdr + '\'' +
+                ", zdrq=" + zdrq +
+                ", spr='" + spr + '\'' +
+                ", sprq=" + sprq +
+                ", sprqStr='" + sprqStr + '\'' +
+                ", sfsp=" + sfsp +
+                ", sfspStr='" + sfspStr + '\'' +
+                ", spsftg=" + spsftg +
+                ", spsftgStr='" + spsftgStr + '\'' +
+                ", xgr='" + xgr + '\'' +
+                ", xgrq=" + xgrq +
+                ", xgrqStr='" + xgrqStr + '\'' +
+                ", status=" + status +
+                ", statusStr='" + statusStr + '\'' +
                 ", cgfp_zibs=" + cgfp_zibs +
                 '}';
     }
@@ -93,14 +122,6 @@ public class Cgfp_zhub implements Serializable{
 
     public void setFph(String fph) {
         this.fph = fph;
-    }
-
-    public String getDjzt() {
-        return djzt;
-    }
-
-    public void setDjzt(String djzt) {
-        this.djzt = djzt;
     }
 
     public Date getFprq() {
@@ -194,6 +215,155 @@ public class Cgfp_zhub implements Serializable{
             }
         }
         this.isycyf = isycyf;
+    }
+    public String getZdr() {
+        return zdr;
+    }
+
+    public void setZdr(String zdr) {
+        this.zdr = zdr;
+    }
+
+    public Date getZdrq() {
+        return zdrq;
+    }
+
+    public void setZdrq(Date zdrq) {
+        if(zdrq != null){
+            this.zdrqStr = ConverterUtils.dateToString(zdrq, "yyyy-MM-dd HH:mm");
+        }
+        this.zdrq = zdrq;
+    }
+
+    public String getZdrqStr() {
+        return zdrqStr;
+    }
+
+    public void setZdrqStr(String zdrqStr) {
+        this.zdrqStr = zdrqStr;
+    }
+
+    public String getSpr() {
+        return spr;
+    }
+
+    public void setSpr(String spr) {
+        this.spr = spr;
+    }
+
+    public Date getSprq() {
+        return sprq;
+    }
+
+    public void setSprq(Date sprq) {
+        if(sprq != null){
+            this.sprqStr = ConverterUtils.dateToString(sprq, "yyyy-MM-dd HH:mm");
+        }
+        this.sprq = sprq;
+    }
+
+    public String getSprqStr() {
+        return sprqStr;
+    }
+
+    public void setSprqStr(String sprqStr) {
+        this.sprqStr = sprqStr;
+    }
+
+    public Integer getSfsp() {
+        return sfsp;
+    }
+
+    public void setSfsp(Integer sfsp) {
+        if(sfsp != null){
+            if(sfsp == 1){
+                this.sfspStr = "是";
+            }else {
+                this.sfspStr = "否";
+            }
+        }
+        this.sfsp = sfsp;
+    }
+
+    public String getSfspStr() {
+        return sfspStr;
+    }
+
+    public void setSfspStr(String sfspStr) {
+        this.sfspStr = sfspStr;
+    }
+
+    public Integer getSpsftg() {
+        return spsftg;
+    }
+
+    public void setSpsftg(Integer spsftg) {
+        if(spsftg != null){
+            if(spsftg == 1){
+                this.spsftgStr = "是";
+            }else {
+                this.spsftgStr = "否";
+            }
+        }
+        this.spsftg = spsftg;
+    }
+
+    public String getSpsftgStr() {
+        return spsftgStr;
+    }
+
+    public void setSpsftgStr(String spsftgStr) {
+        this.spsftgStr = spsftgStr;
+    }
+
+    public String getXgr() {
+        return xgr;
+    }
+
+    public void setXgr(String xgr) {
+        this.xgr = xgr;
+    }
+
+    public Date getXgrq() {
+        return xgrq;
+    }
+
+    public void setXgrq(Date xgrq) {
+        if(xgrq != null){
+            this.xgrqStr = ConverterUtils.dateToString(xgrq, "yyyy-MM-dd HH:mm");
+        }
+        this.xgrq = xgrq;
+    }
+
+    public String getXgrqStr() {
+        return xgrqStr;
+    }
+
+    public void setXgrqStr(String xgrqStr) {
+        this.xgrqStr = xgrqStr;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        if(status != null){
+            if(status == 1){
+                this.statusStr = "结束";
+            }else {
+                this.statusStr = "未结束";
+            }
+        }
+        this.status = status;
+    }
+
+    public String getStatusStr() {
+        return statusStr;
+    }
+
+    public void setStatusStr(String statusStr) {
+        this.statusStr = statusStr;
     }
 
     public List<Cgfp_zib> getCgfp_zibs() {

@@ -26,6 +26,9 @@ public class Cgfp_zib implements Serializable{
 	private String lyhh;//来源行号  订单或者入库单
 	private String ytdjd;//源头单据号
 	private String ythh;//源头行号
+	private Integer status;//是否开票结束 1是 0否
+	private String statusStr;
+
 
 	private Integer cgfp_zhub_id; //采购发票主表id 外键
 
@@ -215,6 +218,29 @@ public class Cgfp_zib implements Serializable{
 
 	public void setYthh(String ythh) {
 		this.ythh = ythh;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		if(status != null){
+			if(status == 1){
+				this.statusStr = "结束";
+			}else {
+				this.statusStr = "未结束";
+			}
+		}
+		this.status = status;
+	}
+
+	public String getStatusStr() {
+		return statusStr;
+	}
+
+	public void setStatusStr(String statusStr) {
+		this.statusStr = statusStr;
 	}
 
 	public Cgfp_zhub getCgfpzhub() {
