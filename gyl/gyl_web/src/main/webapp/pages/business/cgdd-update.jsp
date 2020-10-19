@@ -586,8 +586,11 @@
                                                                 <div class="col-md-4 data">
                                                                     <div class="input-group">
 
-                                                                        <input type="text" class="form-control"
-                                                                               placeholder="赠品" name="zp">
+                                                                        <select class="form-control" name="zp">
+                                                                            <option selected="selected" value="0">否
+                                                                            </option>
+                                                                            <option value="1">是</option>
+                                                                        </select>
 
                                                                     </div>
                                                                 </div>
@@ -1766,7 +1769,7 @@
                         '<td>' + NoNull(xsdd_zibs[i].gbr) + '</td>\n' +
                         '<td>'+FormatTime(xsdd_zibs[i].gbrq)+'</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].gg) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].zp) + '</td>\n' +
+                        '<td>' + (xsdd_zibs[i].zp == 0?"不是":"是") + '</td>\n' +
                         '<td>' + xsdd_zibs[i].lydj + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljthsl) + '</td>\n' +
                         '<td>' + hstatus + '</td>\n' +
@@ -1916,8 +1919,11 @@
                         '                        </div>\n' +
                         '                        <div class="col-md-2 title">赠品</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input id="cgddzhib_zp-' + i + '" type="text" class="form-control" name="zp"\n' +
-                        '                                   placeholder="赠品" value="">\n' +
+                        '                            <select id="cgddzhib_zp-' + i + '" type="text" class="form-control" name="zp"\n' +
+                        '                                   >\n' +
+                        '                                         <option id = "cgddzhib_zp_option0-'+i+'"selected="selected" value="0">不是</option>' +
+                        '                                         <option id = "cgddzhib_zp_option1-'+i+'"value="1">是</option>  ' +
+                        '                               </select>'+
                         '                        </div>' +
                         '                        <div class="col-md-2 title">收货仓库</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
@@ -2132,6 +2138,12 @@
                         $("#cgddzhib_hgb_option1-" + i).attr("selected", "selected");
                     } else {
                         $("#cgddzhib_hgb_option0-" + i).attr("selected", "selected");
+                    }
+
+                    if (xsdd_zib.zp == 1) {
+                        $("#cgddzhib_zp_option1-" + i).attr("selected", "selected");
+                    } else {
+                        $("#cgddzhib_zp_option0-" + i).attr("selected", "selected");
                     }
 
                     /*设置包括下面select的不可以选择*/
@@ -2357,7 +2369,7 @@
                             '<td>' + NoNull(xsdd_zibs[i].gbr) + '</td>\n' +
                             '<td>'+FormatTime(xsdd_zibs[i].gbrq)+'</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].gg) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].zp) + '</td>\n' +
+                            '<td>' + (xsdd_zibs[i].zp == 0?"不是":"是") + '</td>\n' +
                             '<td>' + xsdd_zibs[i].lydj + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljthsl) + '</td>\n' +
                             '<td>' + hstatus + '</td>\n' +
@@ -2506,8 +2518,11 @@
                             '                        </div>\n' +
                             '                        <div class="col-md-2 title">赠品</div>\n' +
                             '                        <div class="col-md-4 data">\n' +
-                            '                            <input id="cgddzhib_zp-' + i + '" type="text" class="form-control" name="zp"\n' +
-                            '                                   placeholder="赠品" value="">\n' +
+                            '                            <select id="cgddzhib_zp-' + i + '" type="text" class="form-control" name="zp"\n' +
+                            '                                   >\n' +
+                            '                                         <option id = "cgddzhib_zp_option0-'+i+'"selected="selected" value="0">不是</option>' +
+                            '                                         <option id = "cgddzhib_zp_option1-'+i+'"value="1">是</option>  ' +
+                            '                               </select>'+
                             '                        </div>' +
                             '                        <div class="col-md-2 title">收货仓库</div>\n' +
                             '                        <div class="col-md-4 data">\n' +

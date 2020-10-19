@@ -1,8 +1,10 @@
 package cn.cuit.gyl.service.business;
 
+import cn.cuit.gyl.domain.business.Cgddzhib;
 import cn.cuit.gyl.domain.business.Cgdhd_zhub;
 import cn.cuit.gyl.domain.business.Cgdhd_zib;
 import cn.cuit.gyl.utils.PageInfo;
+import cn.cuit.gyl.utils.Reback;
 
 import java.util.Date;
 import java.util.List;
@@ -72,5 +74,5 @@ public interface ICgdhdService {
      * @param ythh
      * @return
      */
-    PageInfo getydsl(String ytdjh, Integer ythh);
+    Reback<Cgddzhib> getydsl(String ytdjh, Integer ythh);
 }

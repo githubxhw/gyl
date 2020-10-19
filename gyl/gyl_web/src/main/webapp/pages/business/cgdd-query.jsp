@@ -899,7 +899,7 @@
                         '<td>' + NoNull(xsdd_zibs[i].gbr) + '</td>\n' +
                         '<td>'+FormatTime(xsdd_zibs[i].gbrq)+'</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].gg) + '</td>\n' +
-                        '<td>' + NoNull(xsdd_zibs[i].zp) + '</td>\n' +
+                        '<td>' + (xsdd_zibs[i].zp == 0?"不是":"是") + '</td>\n' +
                         '<td>' + xsdd_zibs[i].lydj + '</td>\n' +
                         '<td>' + NoNull(xsdd_zibs[i].ljthsl) + '</td>\n' +
                         '<td>' + hstatus + '</td>\n' +

@@ -1,9 +1,11 @@
 package cn.cuit.gyl.controller.business;
 
+import cn.cuit.gyl.domain.business.Cgddzhib;
 import cn.cuit.gyl.domain.business.Cgdhd_zhub;
 import cn.cuit.gyl.domain.business.Cgdhd_zib;
 import cn.cuit.gyl.service.business.ICgdhdService;
 import cn.cuit.gyl.utils.PageInfo;
+import cn.cuit.gyl.utils.Reback;
 import cn.cuit.gyl.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -207,8 +209,8 @@ public class CgdhdController {
      */
     @RequestMapping("/getydsl")
     @ResponseBody
-    public PageInfo getydsl(@RequestParam("ytdjh")String ytdjh,@RequestParam("ythh")Integer ythh){
-        PageInfo pageInfo = service.getydsl(ytdjh,ythh);
+    public Reback<Cgddzhib> getydsl(@RequestParam("ytdjh")String ytdjh,@RequestParam("ythh")Integer ythh){
+        Reback<Cgddzhib> pageInfo = service.getydsl(ytdjh,ythh);
         return pageInfo;
     }
 }

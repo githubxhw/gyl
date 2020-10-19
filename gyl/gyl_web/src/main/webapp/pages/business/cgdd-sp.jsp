@@ -1003,7 +1003,7 @@
                             '<td>' + NoNull(xsdd_zibs[i].gbr) + '</td>\n' +
                             '<td>'+FormatTime(xsdd_zibs[i].gbrq)+'</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].gg) + '</td>\n' +
-                            '<td>' + NoNull(xsdd_zibs[i].zp) + '</td>\n' +
+                            '<td>' + (xsdd_zibs[i].zp == 0?"不是":"是") + '</td>\n' +
                             '<td>' + xsdd_zibs[i].lydj + '</td>\n' +
                             '<td>' + NoNull(xsdd_zibs[i].ljthsl) + '</td>\n' +
                             '<td>' + hstatus + '</td>\n' +
@@ -1036,25 +1036,25 @@
                 var i = $(x).attr("i");
                 //2,给每一个按钮框添加值
                 $("#cgddzhib_zid-" + i).attr("value", xsdd_zib.zid); /*主表d --》外键*/
-                $("#cgddzhib_id-" + i).attr("value", xsdd_zib.cgddzhibid);/*子表id*/
-                $("#cgddzhib_hh-" + i).attr("value", xsdd_zib.hh);
-                $("#cgddzhib_lydj-" + i).attr("value", xsdd_zib.lydj);
-                $("#cgddzhib_spbm-" + i).attr("value", xsdd_zib.spbm);
-                $("#cgddzhib_spmc-" + i).attr("value", xsdd_zib.spmc);
-                $("#cgddzhib_xh-" + i).attr("value", xsdd_zib.xh);
-                $("#cgddzhib_dw-" + i).attr("value", xsdd_zib.dw);
-                $("#cgddzhib_sl-" + i).attr("value", xsdd_zib.sl);
-                $("#cgddzhib_shuilv-" + i).attr("value", xsdd_zib.shuilv);
-                $("#cgddzhib_wsdj-" + i).attr("value", xsdd_zib.wsdj);
-                $("#cgddzhib_hsdj-" + i).attr("value", xsdd_zib.hsdj);
-                $("#cgddzhib_wsje-" + i).attr("value", xsdd_zib.wsje);
-                $("#cgddzhib_hsje-" + i).attr("value", xsdd_zib.hsje);
-                $("#cgddzhib_se-" + i).attr("value", xsdd_zib.se);
-                $("#cgddzhib_gbr-" + i).attr("value", xsdd_zib.gbr);
+                $("#cgddzhib_id-" + i).attr("value", NoNull(xsdd_zib.cgddzhibid));/*子表id*/
+                $("#cgddzhib_hh-" + i).attr("value", NoNull(xsdd_zib.hh));
+                $("#cgddzhib_lydj-" + i).attr("value", NoNull(xsdd_zib.lydj));
+                $("#cgddzhib_spbm-" + i).attr("value", NoNull(xsdd_zib.spbm));
+                $("#cgddzhib_spmc-" + i).attr("value", NoNull(xsdd_zib.spmc));
+                $("#cgddzhib_xh-" + i).attr("value", NoNull(xsdd_zib.xh));
+                $("#cgddzhib_dw-" + i).attr("value", NoNull(xsdd_zib.dw));
+                $("#cgddzhib_sl-" + i).attr("value", NoNull(xsdd_zib.sl));
+                $("#cgddzhib_shuilv-" + i).attr("value", NoNull(xsdd_zib.shuilv));
+                $("#cgddzhib_wsdj-" + i).attr("value", NoNull(xsdd_zib.wsdj));
+                $("#cgddzhib_hsdj-" + i).attr("value", NoNull(xsdd_zib.hsdj));
+                $("#cgddzhib_wsje-" + i).attr("value", NoNull(xsdd_zib.wsje));
+                $("#cgddzhib_hsje-" + i).attr("value", NoNull(xsdd_zib.hsje));
+                $("#cgddzhib_se-" + i).attr("value", NoNull(xsdd_zib.se));
+                $("#cgddzhib_gbr-" + i).attr("value", NoNull(xsdd_zib.gbr));
                 $("#cgddzhib_gbrq-" + i).attr("value", FormatTime(xsdd_zib.gbrq));
-                $("#cgddzhib_zp-" + i).attr("value", xsdd_zib.zp);
-                $("#cgddzhib_ljthsl-" + i).attr("value", xsdd_zib.ljthsl);
-                $("#cgddzhib_gg-" + i).attr("value", xsdd_zib.gg);
+                $("#cgddzhib_zp-" + i).attr("value", (xsdd_zib.zp == 0?"不是":"是"));
+                $("#cgddzhib_ljthsl-" + i).attr("value", NoNull(xsdd_zib.ljthsl));
+                $("#cgddzhib_gg-" + i).attr("value", NoNull(xsdd_zib.gg));
                 /*zp*/
                 if (xsdd_zib.hgb == 1) {
                     $("#cgddzhib_hgb_option1-" + i).attr("selected", "selected");

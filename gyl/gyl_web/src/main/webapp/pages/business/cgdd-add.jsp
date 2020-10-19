@@ -697,8 +697,11 @@
                                                  '</div></td>\n' +
                 '<td>                            <input id="gg-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgddzhibs[' + nowCount + '].gg"\n' +
                 '                                   placeholder="规格" value=""></td>\n' +
-                '<td>                            <input id="zp-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgddzhibs[' + nowCount + '].zp"\n' +
-                '                                   placeholder="赠品" value=""></td>\n' +
+                '<td>                            <select id="zp-' + nowCount + '" type="text" class="form-control" name="cgddzhibs[' + nowCount + '].zp"\n' +
+                '                                   >' +
+                '                                         <option selected="selected" value="0">不是</option>' +
+                '                                         <option value="1">是</option>  ' +
+                '                                   </select></td>\n' +
                 /*'<td>                            <input id="yfwcksl-' + nowCount + '" type="text" class="form-control" name="xsdd_zibs[' + nowCount + '].yfwcksl"\n' +
                 '                                   placeholder="应发未出库数量" value="0"></td>\n' +*/
                 '<td>                            <input id="ljthsl-' + nowCount + '" type="text" class="form-control"  name="cgddzhibs[' + nowCount + '].ljthsl"\n' +

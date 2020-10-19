@@ -9,6 +9,7 @@ import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.ICgdhdService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
 import cn.cuit.gyl.utils.PageInfo;
+import cn.cuit.gyl.utils.Reback;
 import cn.cuit.gyl.utils.StringToIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -407,8 +408,8 @@ public class CgdhdServiceImpl implements ICgdhdService {
      * @param ythh
      * @return
      */
-    public PageInfo getydsl(String ytdjh, Integer ythh){
-        PageInfo pageInfo = new PageInfo();
+    public Reback<Cgddzhib> getydsl(String ytdjh, Integer ythh){
+        Reback pageInfo = new Reback();
         pageInfo.setResFlag("1");
         List<String> msgList = new ArrayList<>();
         Cgddzhub byDjh = iCgdd_zhubDao.findByDjh(ytdjh);
@@ -425,11 +426,7 @@ public class CgdhdServiceImpl implements ICgdhdService {
             pageInfo.setMsgList(msgList);
             return pageInfo;
         }
-        String sl = String.valueOf(byZIdAndHh.getSl());
-        String s = String.valueOf(byZIdAndHh.getLjdhsl());
-        msgList.add(sl);
-        msgList.add(s);
-        pageInfo.setMsgList(msgList);
+        pageInfo.setBackResult(byZIdAndHh);
         return pageInfo;
 
     }

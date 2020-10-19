@@ -27,7 +27,7 @@ public class Cgddzhib implements Serializable{
 	private Float hsje;//含税金额
 	private Float wsje;//无税金额
 	private Float se;//税额
-	private String zp;//赠品
+	private Integer zp = 0;//是否为赠品 0不是 1是
 	private String lydj;//来源单据
 	private Long ljthsl;//累计退货数量
 	private Integer hstatus;//行状态
@@ -287,11 +287,11 @@ public class Cgddzhib implements Serializable{
 		this.se = se;
 	}
 
-	public String getZp() {
+	public Integer getZp() {
 		return zp;
 	}
 
-	public void setZp(String zp) {
+	public void setZp(Integer zp) {
 		this.zp = zp;
 	}
 
