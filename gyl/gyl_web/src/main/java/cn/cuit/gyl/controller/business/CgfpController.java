@@ -19,7 +19,7 @@ public class CgfpController {
 
     @Autowired
     @Qualifier("cgfpServiceImpl")
-    ICgfpService service=null;
+    private  ICgfpService service;
 
     //功能：点击cgfp-add.jsp中的添加按钮触发请求，保存主表和子表
     @RequestMapping("/saveZhubAndZib")

@@ -722,6 +722,14 @@
 
     });
 
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
     /*发表单查询*/
     $(document).ready(function () {
 
@@ -744,25 +752,25 @@
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgfp_zhubs[i].cgfp_zhub_id + '"></td>\n' +
                             '<td><button i="' + i + '" gs="' + cgfp_zhubs[i].gs + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" style="width: 100%;height: 99%">' + cgfp_zhubs[i].gs + '</button></td>\n' +
-                            '<td>' + cgfp_zhubs[i].fph + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].fprqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].pdrqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].gys + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].cgbm + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].fplx + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].ywy + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].bz + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].zdsl + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].isycyfStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].zdr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].zdrqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].spr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].sprqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].sfspStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].spsftgStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].xgr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].xgrqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].statusStr + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].fph) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].fprqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].pdrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].gys) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].cgbm) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].fplx) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].ywy) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].bz) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].zdsl) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].isycyfStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].zdr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].zdrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].spr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].sprqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].sfspStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].spsftgStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].xgrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].statusStr) + '</td>\n' +
                             '<td class="text-center">\n' +
                             '<button id="zhub_xg_btn" i=' + i + ' onclick="zhub_xg_btn(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" type="button" data-toggle="modal" data-target="#myModal-zhub-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '">\n' +
@@ -1036,24 +1044,24 @@
                 //1,获取点击了该修改按钮所在的行号i
                 var i = $(x).attr("i");
                 //2,给每一个按钮框添加值
-                $("#zhub_xg_cgfp_zhub_id-" + i).attr("value", cgfp_zhub.cgfp_zhub_id);
-                $("#zhub_xg_gs-" + i).attr("value", cgfp_zhub.gs);
-                $("#zhub_xg_fph-" + i).attr("value", cgfp_zhub.fph);
-                $("#zhub_xg_fprq-" + i).attr("value", cgfp_zhub.fprqStr);
-                $("#zhub_xg_pdrq-" + i).attr("value", cgfp_zhub.pdrqStr);
-                $("#zhub_xg_gys-" + i).attr("value", cgfp_zhub.gys);
-                $("#zhub_xg_cgbm-" + i).attr("value", cgfp_zhub.cgbm);
-                $("#zhub_xg_ywy-" + i).attr("value", cgfp_zhub.ywy);
-                $("#zhub_xg_fplx-" + i).attr("value", cgfp_zhub.fplx);
-                $("#zhub_xg_bz-" + i).attr("value", cgfp_zhub.bz);
-                $("#zhub_xg_zdsl-" + i).attr("value", cgfp_zhub.zdsl);
-                $("#zhub_xg_isycyf-" + i).attr("value", cgfp_zhub.isycyfStr);
-                $("#zhub_xg_zdr-" + i).attr("value", cgfp_zhub.zdr);
-                $("#zhub_xg_zdrq-" + i).attr("value", cgfp_zhub.zdrqStr);
-                $("#zhub_xg_spr-" + i).attr("value", cgfp_zhub.spr);
-                $("#zhub_xg_sprq-" + i).attr("value", cgfp_zhub.sprqStr);
-                $("#zhub_xg_xgr-" + i).attr("value", cgfp_zhub.xgr);
-                $("#zhub_xg_xgrq-" + i).attr("value", cgfp_zhub.xgrqStr);
+                $("#zhub_xg_cgfp_zhub_id-" + i).attr("value", NoNull(cgfp_zhub.cgfp_zhub_id));
+                $("#zhub_xg_gs-" + i).attr("value", NoNull(cgfp_zhub.gs));
+                $("#zhub_xg_fph-" + i).attr("value", NoNull(cgfp_zhub.fph));
+                $("#zhub_xg_fprq-" + i).attr("value", NoNull(cgfp_zhub.fprqStr));
+                $("#zhub_xg_pdrq-" + i).attr("value", NoNull(cgfp_zhub.pdrqStr));
+                $("#zhub_xg_gys-" + i).attr("value", NoNull(cgfp_zhub.gys));
+                $("#zhub_xg_cgbm-" + i).attr("value", NoNull(cgfp_zhub.cgbm));
+                $("#zhub_xg_ywy-" + i).attr("value", NoNull(cgfp_zhub.ywy));
+                $("#zhub_xg_fplx-" + i).attr("value", NoNull(cgfp_zhub.fplx));
+                $("#zhub_xg_bz-" + i).attr("value", NoNull(cgfp_zhub.bz));
+                $("#zhub_xg_zdsl-" + i).attr("value", NoNull(cgfp_zhub.zdsl));
+                $("#zhub_xg_isycyf-" + i).attr("value", NoNull(cgfp_zhub.isycyfStr));
+                $("#zhub_xg_zdr-" + i).attr("value", NoNull(cgfp_zhub.zdr));
+                $("#zhub_xg_zdrq-" + i).attr("value", NoNull(cgfp_zhub.zdrqStr));
+                $("#zhub_xg_spr-" + i).attr("value", NoNull(cgfp_zhub.spr));
+                $("#zhub_xg_sprq-" + i).attr("value", NoNull(cgfp_zhub.sprqStr));
+                $("#zhub_xg_xgr-" + i).attr("value", NoNull(cgfp_zhub.xgr));
+                $("#zhub_xg_xgrq-" + i).attr("value", NoNull(cgfp_zhub.xgrqStr));
 
 
                 //添加disabled="disabled" 注意：在提交表单的时候，需要把disabled移除，不然提交不了数据
@@ -1214,25 +1222,25 @@
                 for (var i = 0; i < cgfp_zibs.length; i++) {
                     html += '<tr>\n' +
                         '<td><input name="zib_ids" type="checkbox" value="' + cgfp_zibs[i].cgfp_zib_id + '"></td>\n' +
-                        '<td>' + cgfp_zibs[i].hh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].chbm + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].chmc + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].gg + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].xh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].wsdj + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].pc + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].fpsl + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].je + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].bz + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].hsdj + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].sl + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].se + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].wsje + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].lydjh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].lyhh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].ytdjd + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].ythh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].status + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].hh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].chbm) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].chmc) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].gg) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].xh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].wsdj) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].pc) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].fpsl) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].je) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].bz) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].hsdj) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].sl) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].se) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].wsje) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].ytdjd) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].statusStr) + '</td>\n' +
                         '<td class="text-center">\n' +
                         '<button id="zib_xg_btn" i="' + i + '" zibId="' + cgfp_zibs[i].cgfp_zib_id + '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                         '    >\n' +
@@ -1429,27 +1437,27 @@
                 //1,获取点击了该修改按钮所在的行号i
                 var i = $(x).attr("i");
                 //2,给每一个按钮框添加值
-                $("#zib_xg_cgfp_zhub_id-" + i).attr("value", cgfp_zib.cgfp_zhub_id);
-                $("#zib_xg_cgfp_zib_id-" + i).attr("value", cgfp_zib.cgfp_zib_id);
-                $("#zib_xg_hh-" + i).attr("value", cgfp_zib.hh);
-                $("#zib_xg_chbm-" + i).attr("value", cgfp_zib.chbm);
-                $("#zib_xg_chmc-" + i).attr("value", cgfp_zib.chmc);
-                $("#zib_xg_gg-" + i).attr("value", cgfp_zib.gg);
-                $("#zib_xg_xh-" + i).attr("value", cgfp_zib.xh);
-                $("#zib_xg_wsdj-" + i).attr("value", cgfp_zib.wsdj);
-                $("#zib_xg_pc-" + i).attr("value", cgfp_zib.pc);
-                $("#zib_xg_fpsl-" + i).attr("value", cgfp_zib.fpsl);
-                $("#zib_xg_je-" + i).attr("value", cgfp_zib.je);
-                $("#zib_xg_bz-" + i).attr("value", cgfp_zib.bz);
-                $("#zib_xg_hsdj-" + i).attr("value", cgfp_zib.hsdj);
-                $("#zib_xg_sl-" + i).attr("value", cgfp_zib.sl);
-                $("#zib_xg_se-" + i).attr("value", cgfp_zib.se);
-                $("#zib_xg_wsje-" + i).attr("value", cgfp_zib.wsje);
-                $("#zib_xg_lydjh-" + i).attr("value", cgfp_zib.lydjh);
-                $("#zib_xg_lyhh-" + i).attr("value", cgfp_zib.lyhh);
-                $("#zib_xg_ytdjd-" + i).attr("value", cgfp_zib.ytdjd);
-                $("#zib_xg_ythh-" + i).attr("value", cgfp_zib.ythh);
-                $("#zib_xg_status-" + i).attr("value", cgfp_zib.status);
+                $("#zib_xg_cgfp_zhub_id-" + i).attr("value", NoNull(cgfp_zib.cgfp_zhub_id));
+                $("#zib_xg_cgfp_zib_id-" + i).attr("value", NoNull(cgfp_zib.cgfp_zib_id));
+                $("#zib_xg_hh-" + i).attr("value", NoNull(cgfp_zib.hh));
+                $("#zib_xg_chbm-" + i).attr("value", NoNull(cgfp_zib.chbm));
+                $("#zib_xg_chmc-" + i).attr("value", NoNull(cgfp_zib.chmc));
+                $("#zib_xg_gg-" + i).attr("value", NoNull(cgfp_zib.gg));
+                $("#zib_xg_xh-" + i).attr("value", NoNull(cgfp_zib.xh));
+                $("#zib_xg_wsdj-" + i).attr("value", NoNull(cgfp_zib.wsdj));
+                $("#zib_xg_pc-" + i).attr("value", NoNull(cgfp_zib.pc));
+                $("#zib_xg_fpsl-" + i).attr("value", NoNull(cgfp_zib.fpsl));
+                $("#zib_xg_je-" + i).attr("value", NoNull(cgfp_zib.je));
+                $("#zib_xg_bz-" + i).attr("value", NoNull(cgfp_zib.bz));
+                $("#zib_xg_hsdj-" + i).attr("value", NoNull(cgfp_zib.hsdj));
+                $("#zib_xg_sl-" + i).attr("value", NoNull(cgfp_zib.sl));
+                $("#zib_xg_se-" + i).attr("value", NoNull(cgfp_zib.se));
+                $("#zib_xg_wsje-" + i).attr("value", NoNull(cgfp_zib.wsje));
+                $("#zib_xg_lydjh-" + i).attr("value", NoNull(cgfp_zib.lydjh));
+                $("#zib_xg_lyhh-" + i).attr("value", NoNull(cgfp_zib.lyhh));
+                $("#zib_xg_ytdjd-" + i).attr("value", NoNull(cgfp_zib.ytdjd));
+                $("#zib_xg_ythh-" + i).attr("value", NoNull(cgfp_zib.ythh));
+                $("#zib_xg_status-" + i).attr("value", NoNull(cgfp_zib.statusStr));
             },
             error: function (data) {
                 alert("无响应!");
@@ -1582,24 +1590,25 @@
                     for (var i = 0; i < cgfp_zibs.length; i++) {
                         html += '<tr>\n' +
                             '<td><input name="zib_ids" type="checkbox" value="' + cgfp_zibs[i].cgfp_zib_id + '"></td>\n' +
-                            '<td>' + cgfp_zibs[i].hh + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].chbm + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].chmc + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].gg + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].xh + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].wsdj + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].pc + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].fpsl + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].je + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].bz + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].hsdj + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].sl + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].se + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].wsje + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].lydjh + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].lyhh + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].ytdjd + '</td>\n' +
-                            '<td>' + cgfp_zibs[i].ythh + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].hh) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].chbm) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].chmc) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].gg) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].xh) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].wsdj) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].pc) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].fpsl) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].je) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].bz) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].hsdj) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].sl) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].se) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].wsje) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].lydjh) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].lyhh) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].ytdjd) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].ythh) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zibs[i].statusStr) + '</td>\n' +
                             '<td class="text-center">\n' +
                             '<button id="zib_xg_btn" i="' + i + '" zibId="' + cgfp_zibs[i].cgfp_zib_id + '" onclick="zib_xg_btn(this)" type="button" data-toggle="modal" data-target="#myModal-zib-' + i + '" class="btn bg-olive btn-xs"\n' +
                             '    >\n' +

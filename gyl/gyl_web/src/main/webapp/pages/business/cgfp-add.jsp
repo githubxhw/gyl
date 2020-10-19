@@ -110,12 +110,8 @@
                         <%--1--%>
                             <div class="col-md-2 title">公司</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="gs">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <c:forEach var="cgdd_Zhubs" items="${cgdd_Zhubs}">
-                                        <option>${cgdd_Zhubs.gs}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" class="form-control" name="gs"
+                                       placeholder="公司" value="">
                             </div>
                             <div class="col-md-2 title">发票号</div>
                             <div class="col-md-4 data">
@@ -142,22 +138,14 @@
                             </div>
                             <div class="col-md-2 title">供应商</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="gys">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <c:forEach var="cgdd_Zhubs" items="${cgdd_Zhubs}">
-                                        <option>${cgdd_Zhubs.gys}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" class="form-control" name="gys"
+                                       placeholder="供应商" value="">
                             </div>
                             <%--3--%>
                             <div class="col-md-2 title">采购部门</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="cgbm">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <c:forEach var="cgdd_Zhubs" items="${cgdd_Zhubs}">
-                                        <option>${cgdd_Zhubs.cgbm}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" class="form-control" name="cgbm"
+                                       placeholder="采购部门" value="">
                             </div>
                             <div class="col-md-2 title">发票类型</div>
                             <div class="col-md-4 data">
@@ -167,31 +155,19 @@
                             <%--4--%>
                             <div class="col-md-2 title">业务员</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="ywy">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <c:forEach var="cgdd_Zhubs" items="${cgdd_Zhubs}">
-                                        <option>${cgdd_Zhubs.ywy}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" class="form-control" name="ywy"
+                                       placeholder="业务员" value="">
                             </div>
                             <div class="col-md-2 title">币种</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="bz">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <c:forEach var="cgdd_Zhubs" items="${cgdd_Zhubs}">
-                                        <option>${cgdd_Zhubs.bz}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" class="form-control" name="bz"
+                                       placeholder="币种" value="">
                             </div>
 
                             <div class="col-md-2 title">整单税率</div>
                             <div class="col-md-4 data">
-                                <select class="form-control" name="zdsl">
-                                    <option selected="selected" value="-1">全部</option>
-                                    <c:forEach var="cgdd_Zhubs" items="${cgdd_Zhubs}">
-                                        <option>${cgdd_Zhubs.zdsl}</option>
-                                    </c:forEach>
-                                </select>
+                                <input type="text" class="form-control" name="zdsl"
+                                       placeholder="整单税率" value="">
                             </div>
                             <div class="col-md-2 title">是否已付应传</div>
                             <div class="col-md-4 data">
@@ -482,10 +458,7 @@
             var params = $("#form").serialize();
             // console.log($("#form").serializeArray()[0].value);
             // alert($("#zib_tbody").);
-            if($("#form").serializeArray()[0].value=="-1" || $("#form").serializeArray()[5].value=="-1" || $("#form").serializeArray()[6].value=="-1" || $("#form").serializeArray()[8].value=="-1"
-                || $("#form").serializeArray()[9].value=="-1" ||$("#form").serializeArray()[10].value=="-1"|| $("#form").serializeArray()[11].value=="-1"){
-                alert("请查看主表内容是否选择完毕");
-            }else{
+
                 $.ajax({
                     url: "${pageContext.request.contextPath}/cgfp/saveZhubAndZib",
                     type: "post",
@@ -501,7 +474,7 @@
                         alert("添加失败！")
                     }
                 });
-            }
+
 
         });
         //spbm  dpzk
@@ -512,7 +485,7 @@
     });
 
     //功能： 点击 按钮+号，在子表中添加一列
-    function add_zib(x) {
+  function add_zib(x) {
         //获取hh
         var befCount = parseInt($("#zib_hh").attr("hh"));
         //判断是否 子表的内容不为空
@@ -541,40 +514,40 @@
                 '                                    <i></i><span style="font-size: 15px">-</span>\n' +
                 '                                </button>' +
                 '</td>' +
-                '<td>                            <select id="hh-' + nowCount + '"  class="form-control" name="cgfp_zibs[' + nowCount + '].hh"\n' +
-                '                                   placeholder="行号" value="' + nowCount + '"><option selected="selected" value="-1">全部</option><c:forEach var="cgdd_Zibs" items="${cgdd_Zibs}"><option>${cgdd_Zibs.hh}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="chbm-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].chbm"\n' +
-                '                                   placeholder="存货编码" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.spbm}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="chmc-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].chmc"\n' +
-                '                                   placeholder="存货名称"><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.spmc}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="gg-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].gg"\n' +
-                '                                   placeholder="规格" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgygd_Zibs" items="${cgygd_Zibs}"><option>${cgygd_Zibs.gg}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="xh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].xh"\n' +
-                '                                   placeholder="商品型号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgygd_Zibs" items="${cgygd_Zibs}"><option>${cgygd_Zibs.xh}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="wsdj-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].wsdj"\n' +
-                '                                   placeholder="无税单价" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdd_Zibs" items="${cgdd_Zibs}"><option>${cgdd_Zibs.wsdj}</option></c:forEach>></select></td>\n' +
+                '<td>                            <input id="hh-' + nowCount + '"  class="form-control" name="cgfp_zibs[' + nowCount + '].hh"\n' +
+                '                                   placeholder="行号" value="' + nowCount + '"></td>\n' +
+                '<td>                            <input id="chbm-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].chbm"\n' +
+                '                                   placeholder="存货编码" value=""></td>\n' +
+                '<td>                            <input id="chmc-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].chmc"\n' +
+                '                                   placeholder="存货名称"></td>\n' +
+                '<td>                            <input id="gg-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].gg"\n' +
+                '                                   placeholder="规格" value=""></td>\n' +
+                '<td>                            <input id="xh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].xh"\n' +
+                '                                   placeholder="商品型号" value=""></td>\n' +
+                '<td>                            <input id="wsdj-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].wsdj"\n' +
+                '                                   placeholder="无税单价" value=""></td>\n' +
                 '<td>                            <input id="pc-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].pc"\n' +
                 '                                   placeholder="批次" value=""></td>\n' +
                 '<td>                            <input id="fpsl-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].fpsl"\n' +
                 '                                   placeholder="发票数量" value=""></td>\n' +
-                '<td>                            <select id="je-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].je"\n' +
-                '                                   placeholder="金额" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.je}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="hsdj-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].hsdj" ' +
-                '                                   placeholder="含税单价" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgygd_Zibs" items="${cgygd_Zibs}"><option>${cgygd_Zibs.hsdj}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="sl-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].sl" ' +
-                '                                   placeholder="税率" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdd_Zibs" items="${cgdd_Zibs}"><option>${cgdd_Zibs.shuilv}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="se-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].se" ' +
-                '                                   placeholder="税额" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdd_Zibs" items="${cgdd_Zibs}"><option>${cgdd_Zibs.se}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="wsje-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].wsje" ' +
-                '                                   placeholder="无税金额" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgygd_Zibs" items="${cgygd_Zibs}"><option>${cgygd_Zibs.wsje}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].lydjh" ' +
-                '                                   placeholder="来源单据号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.lydjh}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="lyhh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].lyhh"\n' +
-                '                                   placeholder="来源行号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.lyhh}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="ytdjd-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ytdjd"\n' +
-                '                                   placeholder="源头单据号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.ytdjh}</option></c:forEach>></select></td>\n' +
-                '<td>                            <select id="ythh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ythh"\n' +
-                '                                   placeholder="源头行号" value=""><option selected="selected" value="-1">全部</option><c:forEach var="cgdhd_Zibs" items="${cgdhd_Zibs}"><option>${cgdhd_Zibs.ythh}</option></c:forEach>></select></td>\n' +
+                '<td>                            <input id="je-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].je"\n' +
+                '                                   placeholder="金额" value=""></td>\n' +
+                '<td>                            <input id="hsdj-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].hsdj" ' +
+                '                                   placeholder="含税单价" value=""></td>\n' +
+                '<td>                            <input id="sl-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].sl" ' +
+                '                                   placeholder="税率" value=""></td>\n' +
+                '<td>                            <input id="se-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].se" ' +
+                '                                   placeholder="税额" value=""></td>\n' +
+                '<td>                            <input id="wsje-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].wsje" ' +
+                '                                   placeholder="无税金额" value=""></td>\n' +
+                '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].lydjh" ' +
+                '                                   placeholder="来源单据号" value=""></td>\n' +
+                '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].lyhh"\n' +
+                '                                   placeholder="来源行号" value=""></td>\n' +
+                '<td>                            <input id="ytdjd-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ytdjd"\n' +
+                '                                   placeholder="源头单据号" value=""></td>\n' +
+                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ythh"\n' +
+                '                                   placeholder="源头行号" value=""></td>\n' +
                 '<td>                            <select id="status-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].status">\n' +
                 '                                   <option selected="selected" value="0">未结束</option>' +
                 '                                </select></td>\n' +
@@ -583,7 +556,6 @@
             $("#zib_hh").attr("hh", nowCount);
         }
     }
-
     //功能： 点击 按钮-号，在子表中删除当前列
     function delete_zib(x) {
         var pos = $(x).attr("pos");

@@ -565,6 +565,14 @@
 
     });
 
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
     /*入库单查询*/
     $(document).ready(function () {
 
@@ -588,25 +596,25 @@
                         html += '<tr>\n' +
                             '<td><input id="checkbox-pos-' + i + '" class="ids my-checkbox" name="zhub_ids" type="checkbox" value="' + cgfp_zhubs[i].cgfp_zhub_id + '"></td>\n' +
                             '<td><button i="' + i + '" fph="' + cgfp_zhubs[i].fph + '" checked="" ondblclick="find_zib(this)" zhubId="' + cgfp_zhubs[i].cgfp_zhub_id + '" style="width: 100%;height: 99%">' + cgfp_zhubs[i].fph + '</button></td>\n' +
-                            '<td>' + cgfp_zhubs[i].gs + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].fprqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].pdrqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].gys + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].cgbm + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].fplx + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].ywy + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].bz + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].zdsl + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].isycyfStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].zdr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].zdrqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].spr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].sprqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].sfspStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].spsftgStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].xgr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].xgrqStr + '</td>\n' +
-                            '<td>' + cgfp_zhubs[i].statusStr + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].gs) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].fprqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].pdrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].gys) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].cgbm) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].fplx) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].ywy) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].bz) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].zdsl) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].isycyfStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].zdr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].zdrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].spr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].sprqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].sfspStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].spsftgStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].xgr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].xgrqStr) + '</td>\n' +
+                            '<td>' + NoNull(cgfp_zhubs[i].statusStr) + '</td>\n' +
                             '</tr>';
                     }
                     $("#zhub_tbody").html(html);
@@ -652,25 +660,25 @@
                 for (var i = 0; i < cgfp_zibs.length; i++) {
                     html += '<tr>\n' +
                         '<td><input name="zib_ids" type="checkbox" value="' + cgfp_zibs[i].cgfp_zib_id + '"></td>\n' +
-                        '<td>' + cgfp_zibs[i].hh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].chbm + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].chmc + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].gg + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].xh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].wsdj + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].pc + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].fpsl + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].je + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].bz + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].hsdj + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].sl + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].se + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].wsje + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].lydjh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].lyhh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].ytdjd + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].ythh + '</td>\n' +
-                        '<td>' + cgfp_zibs[i].statusStr + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].hh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].chbm) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].chmc) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].gg) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].xh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].wsdj) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].pc) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].fpsl) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].je) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].bz) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].hsdj) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].sl) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].se) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].wsje) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].lydjh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].lyhh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].ytdjd) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].statusStr) + '</td>\n' +
                         '</tr>';
                 }
                 $("#zib_tbody").html(html);
