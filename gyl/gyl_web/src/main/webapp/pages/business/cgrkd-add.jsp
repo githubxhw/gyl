@@ -227,6 +227,10 @@
                         </th>
                         <th class="text-center sorting" width="350px">行号</th>
                         <th class="text-center sorting" width="350px">入库日期</th>
+                        <th class="text-center sorting" width="350px">源头单据号</th>
+                        <th class="text-center sorting" width="350px">源头行号</th>
+                        <th class="text-center sorting" width="350px">来源单据号</th>
+                        <th class="text-center sorting" width="350px">来源行号</th>
                         <th class="text-center sorting" width="350px">存货编码</th>
                         <th class="text-center sorting" width="350px">存货名称</th>
                         <th class="text-center sorting" width="350px">型号</th>
@@ -236,10 +240,6 @@
                         <th class="text-center sorting" width="350px">单价</th>
                         <th class="text-center sorting" width="350px">金额</th>
                         <th class="text-center sorting" width="350px">是否为赠品</th>
-                        <th class="text-center sorting" width="350px">源头单据号</th>
-                        <th class="text-center sorting" width="350px">源头行号</th>
-                        <th class="text-center sorting" width="350px">来源单据号</th>
-                        <th class="text-center sorting" width="350px">来源行号</th>
                         <th class="text-center sorting" width="350px">应入库数量</th>
                         <th class="text-center sorting" width="350px">实入库数量</th>
                         <th class="text-center sorting" width="350px">累计入库数量</th>
@@ -508,6 +508,14 @@
                 '                                   placeholder="行号" value="' + nowCount + '"></td>\n' +
                 '<td>                            <input id="dhrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgrkd_zibs[' + nowCount + '].rkrq"\n' +
                 '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
+                '<td>                            <input id="ytdjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ytdjh" ' +
+                '                                   placeholder="源头单据号" value=""></td>\n' +
+                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "checkydsl(this)"  name="cgrkd_zibs[' + nowCount + '].ythh"\n' +
+                '                                   placeholder="源头行号" value=""></td>\n' +
+                '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].lydjh"\n' +
+                '                                   placeholder="来源单据号" value=""></td>\n' +
+                '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "BlanksByLy(this)" name="cgrkd_zibs[' + nowCount + '].lyhh"\n' +
+                '                                   placeholder="来源行号" value=""></td>\n' +
                 '<td>                            <input id="spbm-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].spbm"\n' +
                 '                                   placeholder="存货编码(不为空)"></td>\n' +
                 '<td>                            <input id="spmc-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].spmc"\n' +
@@ -525,17 +533,9 @@
                 '<td>                            <input id="je-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].je"\n' +
                 '                                   placeholder="金额" value=""></td>\n' +
                 '<td>                            <select id="zp-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].zp">\n' +
-                '                                   <option value="1">是</option>' +
-                '                                   <option selected="selected" value="0">否</option>' +
+                '                                   <option id="zp1'+nowCount+'"value="1">是</option>' +
+                '                                   <option id = "zp0'+nowCount+'" value="0">否</option>' +
                 '                                </select></td>\n' +
-                '<td>                            <input id="ytdjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ytdjh" ' +
-                '                                   placeholder="源头单据号" value=""></td>\n' +
-                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "checkydsl(this)"  name="cgrkd_zibs[' + nowCount + '].ythh"\n' +
-                '                                   placeholder="源头行号" value=""></td>\n' +
-                '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].lydjh"\n' +
-                '                                   placeholder="来源单据号" value=""></td>\n' +
-                '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].lyhh"\n' +
-                '                                   placeholder="来源行号" value=""></td>\n' +
                 '<td>                            <input id="ydsl-' + nowCount + '" readonly="readonly" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ydsl"\n' +
                 '                                   placeholder="应入库数量" value=""></td>\n' +
                 '<td>                            <input id="sdsl-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].sdsl"\n' +
@@ -569,13 +569,56 @@
             success:function (data) {
                 var pageInfo = data;
                 var msgs = pageInfo.msgList;
+                let backResult = pageInfo.backResult;
                 if (pageInfo.resFlag == "1") {//修改成功
-                    $("#ydsl-" + i).attr("value",msgs[0]);
-                    $("#ljdhsl-"+i).attr("value",msgs[1]);
+                    $("#ydsl-" + i).attr("value",backResult.sl);
+                    $("#ljdhsl-"+i).attr("value",backResult.ljdhsl);
+                    $("#spbm-"+i).attr("value",backResult.spbm);
+                    $("#spmc-"+i).attr("value",backResult.spmc);
+                    $("#type-"+i).attr("value",backResult.xh);
+                    $("#dw-"+i).attr("value",backResult.dw);
+
+                    if (backResult.zp == 1){
+                        $("#zp1"+i).attr("selected","selected");
+                    }else{
+                        $("#zp0"+i).attr("selected","selected");
+                    }
+                } else {//修改失败
+                    var msg = "查询失败:\n";
+                    for (var j = 0; j < msgs.length; j++) {
+                        msg += j + "、" + msgs[j] + "\n";
+                    }
+                    alert(msg);
+                }
+
+            }
+        });
+    }
+
+
+    function BlanksByLy(x) {
+        var i = $(x).attr("i");
+        var ythh = $("#lyhh-"+i).val();
+        var ytdjh = $("#lydjh-"+i).val();
+        $.ajax({
+            url: "${pageContext.request.contextPath}/cgrkd/BlanksByLy",
+            type: "get",
+            data: {"lydjh":ytdjh,"lyhh":ythh},
+            dataType: "json",
+            async: false,
+            success:function (data) {
+                var pageInfo = data;
+                var msgs = pageInfo.msgList;
+                var backResult = pageInfo.backResult;
+                if (pageInfo.resFlag == "1") {//修改成功
+                    $("#scrq-"+i).attr("value",backResult.scrqStr);
+                    $("#sxrq-"+i).attr("value",backResult.sxrqStr);
+                    $("#dj-"+i).attr("value",backResult.dj);
+                    $("#je-"+i).attr("value",backResult.je);
                 } else {//修改失败
                     var msg = "查询应到数量信息失败:\n";
                     for (var j = 0; j < msgs.length; j++) {
-                        msg += j + "、" + msgs[i] + "\n";
+                        msg += j + "、" + msgs[j] + "\n";
                     }
                     alert(msg);
                 }

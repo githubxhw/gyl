@@ -2,9 +2,12 @@ package cn.cuit.gyl.service.business;
 
 
 
+import cn.cuit.gyl.domain.business.Cgddzhib;
+import cn.cuit.gyl.domain.business.Cgdhd_zib;
 import cn.cuit.gyl.domain.business.Cgrkd_zhub;
 import cn.cuit.gyl.domain.business.Cgrkd_zib;
 import cn.cuit.gyl.utils.PageInfo;
+import cn.cuit.gyl.utils.Reback;
 
 import java.util.Date;
 import java.util.List;
@@ -72,5 +75,14 @@ public interface ICgrkdService {
      * @param ythh
      * @return
      */
-    PageInfo getydsl(String ytdjh, Integer ythh);
+    Reback<Cgddzhib> getydsl(String ytdjh, Integer ythh);
+
+
+    /**
+     * 根据来源单据号和来源行号来得到回填的信息
+     * @param lydjh
+     * @param lyhh
+     * @return
+     */
+    Reback<Cgdhd_zib> BlanksByLy(String lydjh,Integer lyhh);
 }

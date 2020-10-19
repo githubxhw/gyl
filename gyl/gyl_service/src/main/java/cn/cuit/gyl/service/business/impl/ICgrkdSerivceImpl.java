@@ -6,6 +6,7 @@ import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.ICgrkdService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
 import cn.cuit.gyl.utils.PageInfo;
+import cn.cuit.gyl.utils.Reback;
 import cn.cuit.gyl.utils.StringToIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -475,8 +476,8 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
      * @return
      */
     @Override
-    public PageInfo getydsl(String ytdjh, Integer ythh) {
-        PageInfo pageInfo = new PageInfo();
+    public Reback<Cgddzhib> getydsl(String ytdjh, Integer ythh) {
+        Reback<Cgddzhib> pageInfo = new Reback<>();
         pageInfo.setResFlag("1");
         List<String> msgList = new ArrayList<>();
         Cgddzhub byDjh = iCgdd_zhubDao.findByDjh(ytdjh);
@@ -493,12 +494,40 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
             pageInfo.setMsgList(msgList);
             return pageInfo;
         }
-        String sl = String.valueOf(byZIdAndHh.getSl());
-        String s = String.valueOf(byZIdAndHh.getLjrksl());
-        msgList.add(sl);
-        msgList.add(s);
-        pageInfo.setMsgList(msgList);
+        pageInfo.setBackResult(byZIdAndHh);
         return pageInfo;
 
+    }
+
+    @Override
+    public Reback<Cgdhd_zib> BlanksByLy(String lydjh, Integer lyhh) {
+        Reback<Cgdhd_zib> pageInfo = new Reback<>();
+        pageInfo.setResFlag("1");
+        List<String> msgList = new ArrayList<>();
+
+        Cgdhd_zhub byDdh = null;
+        try {
+            byDdh = iCgdhd_zhubDao.findByDdh(lydjh);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (byDdh == null){
+                pageInfo.setResFlag("0");
+                msgList.add("来源单据号不存在");
+                pageInfo.setMsgList(msgList);
+                return pageInfo;
+            }
+            Cgdhd_zib cgdhd_zib= iCgdhd_zibDao.findByzhubIdAndHh(byDdh.getCgdhd_zhub_id(), lyhh);
+            if (cgdhd_zib== null){
+                pageInfo.setResFlag("0");
+                msgList.add("来源行号不存在");
+                pageInfo.setMsgList(msgList);
+                return pageInfo;
+            }
+            pageInfo.setBackResult(cgdhd_zib);
+
+
+
+        return pageInfo;
     }
 }

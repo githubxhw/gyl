@@ -1,10 +1,13 @@
 package cn.cuit.gyl.controller.business;
 
 
+import cn.cuit.gyl.domain.business.Cgddzhib;
+import cn.cuit.gyl.domain.business.Cgdhd_zib;
 import cn.cuit.gyl.domain.business.Cgrkd_zhub;
 import cn.cuit.gyl.domain.business.Cgrkd_zib;
 import cn.cuit.gyl.service.business.ICgrkdService;
 import cn.cuit.gyl.utils.PageInfo;
+import cn.cuit.gyl.utils.Reback;
 import cn.cuit.gyl.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -206,8 +209,15 @@ public class CgrkdController {
 
     @RequestMapping("/GetYdslAndLjrksl")
     @ResponseBody
-    public PageInfo GetYdslAndLjrksl(@RequestParam("ytdjh")String ytdjh, @RequestParam("ythh")Integer ythh){
-        PageInfo pageInfo = service.getydsl(ytdjh,ythh);
+    public Reback<Cgddzhib> GetYdslAndLjrksl(@RequestParam("ytdjh")String ytdjh, @RequestParam("ythh")Integer ythh){
+        Reback<Cgddzhib> pageInfo = service.getydsl(ytdjh,ythh);
+        return pageInfo;
+    }
+
+    @RequestMapping("/BlanksByLy")
+    @ResponseBody
+    public Reback<Cgdhd_zib> BlanksByLy(@RequestParam("lydjh")String lydjh, @RequestParam("lyhh")Integer lyhh){
+        Reback<Cgdhd_zib> pageInfo = service.BlanksByLy(lydjh,lyhh);
         return pageInfo;
     }
 }

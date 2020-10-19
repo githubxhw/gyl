@@ -541,10 +541,9 @@
                 '<td>                            <input id="je-' + nowCount + '" type="text" class="form-control" name="cgdhd_zibs[' + nowCount + '].je"\n' +
                 '                                   placeholder="金额" value=""></td>\n' +
                 '<td>                            <select id="zp-' + nowCount + '" type="text" class="form-control" name="cgdhd_zibs[' + nowCount + '].zp">\n' +
-                '                                   <option value="1">是</option>' +
-                '                                   <option selected="selected" value="0">否</option>' +
+                '                                   <option id="zp1'+nowCount+'"value="1">是</option>' +
+                '                                   <option id = "zp0'+nowCount+'" value="0">否</option>' +
                 '                                </select></td>\n' +
-
                 '<td>                            <input readonly="readonly" id="ydsl-' + nowCount + '" type="text" class="form-control"  name="cgdhd_zibs[' + nowCount + '].ydsl"\n' +
                 '                                   placeholder="应到数量" value=""></td>\n' +
                 '<td>                            <input id="sdsl-' + nowCount + '" type="text" class="form-control" name="cgdhd_zibs[' + nowCount + '].sdsl"\n' +
@@ -569,6 +568,8 @@
         $("#" + pos).remove();
     }
 
+
+
     function checkydsl(x) {
         var i = $(x).attr("i");
         var ythh = $("#ythh-"+i).val();
@@ -590,10 +591,15 @@
                     $("#spmc-"+i).attr("value",backResult.spmc);
                     $("#type-"+i).attr("value",backResult.xh);
                     $("#dw-"+i).attr("value",backResult.dw);
+                    if (backResult.zp == 1){
+                        $("#zp1"+i).attr("selected","selected");
+                    }else{
+                        $("#zp0"+i).attr("selected","selected");
+                    }
                 } else {//修改失败
                     var msg = "查询应到数量信息失败:\n";
                     for (var j = 0; j < msgs.length; j++) {
-                        msg += j + "、" + msgs[i] + "\n";
+                        msg += j + "、" + msgs[j] + "\n";
                     }
                     alert(msg);
                 }
