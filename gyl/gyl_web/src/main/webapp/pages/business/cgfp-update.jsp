@@ -1372,10 +1372,15 @@
                         '                            <input readonly="readonly" id="zib_xg_ytdjd-' + i + '" type="text" readonly="readonly" class="form-control" name="ytdjd"\n' +
                         '                                   placeholder="源头单据号" value="">\n' +
                         '                        </div>' +
-                        '                        <div class="col-md-2 title">源头行号</div>\n' +
+                        '                        <div class="col-md-2 title">累计发票数量</div>\n' +
                         '                        <div class="col-md-4 data">\n' +
-                        '                            <input readonly="readonly" id="zib_xg_ythh-' + i + '" type="text" class="form-control" name="ythh"\n' +
-                        '                                   placeholder="源头行号" value="">\n' +
+                        '                            <input readonly="readonly" id="zib_xg_ljfpsl-' + i + '" type="text" class="form-control" name="ljfpsl"\n' +
+                        '                                   placeholder="累计发票数量" value="">\n' +
+                        '                        </div>\n' +
+                        '                        <div class="col-md-2 title">应开票数量</div>\n' +
+                        '                        <div class="col-md-4 data">\n' +
+                        '                            <input readonly="readonly" id="zib_xg_ykpsl-' + i + '" type="text" class="form-control" name="ykpsl"\n' +
+                        '                                   placeholder="应开票数量" value="">\n' +
                         '                        </div>\n' +
                         '                         <div class="col-md-2 title">状态</div>\n' +
                         '                         <div class="col-md-4 data">\n' +
@@ -1457,6 +1462,8 @@
                 $("#zib_xg_lyhh-" + i).attr("value", NoNull(cgfp_zib.lyhh));
                 $("#zib_xg_ytdjd-" + i).attr("value", NoNull(cgfp_zib.ytdjd));
                 $("#zib_xg_ythh-" + i).attr("value", NoNull(cgfp_zib.ythh));
+                $("#zib_xg_ljfpsl-" + i).attr("value", NoNull(cgfp_zib.ljfpsl));
+                $("#zib_xg_ykpsl-" + i).attr("value", NoNull(cgfp_zib.ykpsl));
                 $("#zib_xg_status-" + i).attr("value", NoNull(cgfp_zib.statusStr));
             },
             error: function (data) {
@@ -1724,6 +1731,16 @@
                             '                                <input id="zib_xg_wsje-' + i + '" type="text" readonly="readonly" class="form-control" name="wsje">\n' +
                             '                                <span class="input-group-addon">元</span>\n' +
                             '                            </div>\n' +
+                            '                        </div>\n' +
+                            '                        <div class="col-md-2 title">累计发票数量</div>\n' +
+                            '                        <div class="col-md-4 data">\n' +
+                            '                            <input readonly="readonly" id="zib_xg_ljfpsl-' + i + '" type="text" class="form-control" name="ljfpsl"\n' +
+                            '                                   placeholder="累计发票数量" value="">\n' +
+                            '                        </div>\n' +
+                            '                        <div class="col-md-2 title">应开票数量</div>\n' +
+                            '                        <div class="col-md-4 data">\n' +
+                            '                            <input readonly="readonly" id="zib_xg_ykpsl-' + i + '" type="text" class="form-control" name="ykpsl"\n' +
+                            '                                   placeholder="应开票数量" value="">\n' +
                             '                        </div>\n' +
                             '                        <div class="col-md-2 title">来源单据号</div>\n' +
                             '                        <div class="col-md-4 data">\n' +

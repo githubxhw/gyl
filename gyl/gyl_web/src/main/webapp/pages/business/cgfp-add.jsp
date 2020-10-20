@@ -255,22 +255,24 @@
                             </div>
                         </th>
                         <th class="text-center sorting" width="200px">行号</th>
+                        <th class="text-center sorting" width="200px">来源单据号</th>
+                        <th class="text-center sorting" width="200px">来源行号</th>
+                        <th class="text-center sorting" width="200px">源头单据号</th>
+                        <th class="text-center sorting" width="200px">源头行号</th>
                         <th class="text-center sorting" width="200px">存货编码</th>
                         <th class="text-center sorting" width="200px">存货名称</th>
                         <th class="text-center sorting" width="200px">规格</th>
                         <th class="text-center sorting" width="200px">型号</th>
                         <th class="text-center sorting" width="200px">无税单价</th>
                         <th class="text-center sorting" width="200px">批次</th>
-                        <th class="text-center sorting" width="200px">发票数量</th>
+                        <th class="text-center sorting" width="200px">应开数量</th>
+                        <th class="text-center sorting" width="200px">实开数量</th>
                         <th class="text-center sorting" width="200px">金额</th>
                         <th class="text-center sorting" width="200px">含税单价</th>
                         <th class="text-center sorting" width="200px">税率</th>
                         <th class="text-center sorting" width="200px">税额</th>
                         <th class="text-center sorting" width="200px">无税金额</th>
-                        <th class="text-center sorting" width="200px">来源单据号</th>
-                        <th class="text-center sorting" width="200px">来源行号</th>
-                        <th class="text-center sorting" width="200px">源头单据号</th>
-                        <th class="text-center sorting" width="200px">源头行号</th>
+                        <th class="text-center sorting" width="200px">累计发票数量</th>
                         <th class="text-center sorting" width="200px">状态</th>
                         </thead>
                         <%--内容--%>
@@ -516,6 +518,14 @@
                 '</td>' +
                 '<td>                            <input id="hh-' + nowCount + '"  class="form-control" name="cgfp_zibs[' + nowCount + '].hh"\n' +
                 '                                   placeholder="行号" value="' + nowCount + '"></td>\n' +
+                '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control"  name="cgfp_zibs[' + nowCount + '].lydjh" ' +
+                '                                   placeholder="来源单据号" value=""></td>\n' +
+                '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "BlanksByLy(this)" name="cgfp_zibs[' + nowCount + '].lyhh"\n' +
+                '                                   placeholder="来源行号" value=""></td>\n' +
+                '<td>                            <input id="ytdjd-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ytdjd"\n' +
+                '                                   placeholder="源头单据号" value=""></td>\n' +
+                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ythh"\n' +
+                '                                   placeholder="源头行号" value=""></td>\n' +
                 '<td>                            <input id="chbm-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].chbm"\n' +
                 '                                   placeholder="存货编码" value=""></td>\n' +
                 '<td>                            <input id="chmc-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].chmc"\n' +
@@ -528,8 +538,10 @@
                 '                                   placeholder="无税单价" value=""></td>\n' +
                 '<td>                            <input id="pc-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].pc"\n' +
                 '                                   placeholder="批次" value=""></td>\n' +
+                '<td>                            <input id="ykpsl-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ykpsl"\n' +
+                '                                   placeholder="应开数量" value=""></td>\n' +
                 '<td>                            <input id="fpsl-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].fpsl"\n' +
-                '                                   placeholder="发票数量" value=""></td>\n' +
+                '                                   placeholder="实开数量" value=""></td>\n' +
                 '<td>                            <input id="je-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].je"\n' +
                 '                                   placeholder="金额" value=""></td>\n' +
                 '<td>                            <input id="hsdj-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].hsdj" ' +
@@ -540,14 +552,8 @@
                 '                                   placeholder="税额" value=""></td>\n' +
                 '<td>                            <input id="wsje-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].wsje" ' +
                 '                                   placeholder="无税金额" value=""></td>\n' +
-                '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].lydjh" ' +
-                '                                   placeholder="来源单据号" value=""></td>\n' +
-                '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].lyhh"\n' +
-                '                                   placeholder="来源行号" value=""></td>\n' +
-                '<td>                            <input id="ytdjd-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ytdjd"\n' +
-                '                                   placeholder="源头单据号" value=""></td>\n' +
-                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ythh"\n' +
-                '                                   placeholder="源头行号" value=""></td>\n' +
+                '<td>                            <input id="ljfpsl-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].ljfpsl" ' +
+                '                                   placeholder="累计开票数量" value=""></td>\n' +
                 '<td>                            <select id="status-' + nowCount + '" type="text" class="form-control" name="cgfp_zibs[' + nowCount + '].status">\n' +
                 '                                   <option selected="selected" value="0">未结束</option>' +
                 '                                </select></td>\n' +
@@ -555,6 +561,81 @@
             $("#zib_tbody").append(str);
             $("#zib_hh").attr("hh", nowCount);
         }
+    }
+
+
+    function checkydsl(x,y,i) {
+
+        $.ajax({
+            url: "${pageContext.request.contextPath}/cgfp/BlanksByYt",
+            type: "get",
+            data: {"ytdjh":x,"ythh":y},
+            dataType: "json",
+            async: false,
+            success:function (data) {
+                var pageInfo = data;
+                var msgs = pageInfo.msgList;
+                let backResult = pageInfo.backResult;
+                if (pageInfo.resFlag == "1") {//修改成功
+                    $("#wsdj-"+i).attr("value",backResult.wsdj);
+                    $("#hsdj-"+i).attr("value",backResult.hsdj);
+                    $("#sl-"+i).attr("value",backResult.shuilv);
+                    $("#wsje-"+i).attr("value",backResult.wsje);
+                    $("#ljfpsl-"+i).attr("value",backResult.ljkpsl);
+                    $("#se-"+i).attr("value",backResult.se);
+                    $("#gg-"+i).attr("value",backResult.gg);
+                    $("#xh-"+i).attr("value",backResult.xh);
+                } else {//修改失败
+                    var msg = "查询失败:\n";
+                    for (var j = 0; j < msgs.length; j++) {
+                        msg += j + "、" + msgs[j] + "\n";
+                    }
+                    alert(msg);
+                }
+
+            }
+        });
+    }
+
+
+    function BlanksByLy(x) {
+        var i = $(x).attr("i");
+        var ythh = $("#lyhh-"+i).val();
+        var ytdjh = $("#lydjh-"+i).val();
+        $.ajax({
+            url: "${pageContext.request.contextPath}/cgfp/BlanksByLy",
+            type: "get",
+            data: {"lydjh":ytdjh,"lyhh":ythh},
+            dataType: "json",
+            async: false,
+            success:function (data) {
+                var pageInfo = data;
+                var msgs = pageInfo.msgList;
+                var backResult = pageInfo.backResult;
+                if (pageInfo.resFlag == "1") {//修改成功
+                    $("#dj-"+i).attr("value",backResult.dj);
+                    $("#je-"+i).attr("value",backResult.je);
+                    $("#chbm-" + i).attr("value",backResult.spbm);
+                    $("#chmc-"+i).attr("value",backResult.spmc);
+                    $("#ythh-"+i).attr("value",backResult.ythh);
+                    $("#ytdjd-"+i).attr("value",backResult.ytdjh);
+                    $("#ykpsl-"+i).attr("value",backResult.sdsl);
+                    var ythh = $("#ythh-"+i).val();
+                    var ytdjh = $("#ytdjd-"+i).val();
+                    if (ythh != ""&&ytdjh !=""){
+                        checkydsl(ytdjh,ythh,i);
+                    }
+
+                } else {//修改失败
+                    var msg = "查询应到数量信息失败:\n";
+                    for (var j = 0; j < msgs.length; j++) {
+                        msg += j + "、" + msgs[j] + "\n";
+                    }
+                    alert(msg);
+                }
+
+            }
+        });
     }
     //功能： 点击 按钮-号，在子表中删除当前列
     function delete_zib(x) {

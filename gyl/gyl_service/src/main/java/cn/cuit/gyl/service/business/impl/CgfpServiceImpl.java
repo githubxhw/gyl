@@ -5,6 +5,7 @@ import cn.cuit.gyl.domain.business.*;
 import cn.cuit.gyl.exception.MyException;
 import cn.cuit.gyl.service.business.ICgfpService;
 import cn.cuit.gyl.utils.DomainAttrValueConverterUtils;
+import cn.cuit.gyl.utils.Reback;
 import cn.cuit.gyl.utils.StringToIntegerUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -41,6 +42,10 @@ public class CgfpServiceImpl implements ICgfpService {
     @Autowired
     @Qualifier("CgygzibDao")
     CgygzibDao cgygd_zibDao=null;
+
+    @Autowired
+    @Qualifier("iCgdhd_zhubDao")
+    ICgdhd_zhubDao iCgdhd_zhubDao;
 
     @Override
     public void saveZhubAndZib(Cgfp_zhub cgfp_zhub) throws Exception {
@@ -202,7 +207,7 @@ public class CgfpServiceImpl implements ICgfpService {
             }
         }
         if (statusFlag > 0) {
-            throw new MyException("不能重复入库!");
+            throw new MyException("不能重复开票!");
         } else {
             //入库
             int flag = 0;
@@ -211,7 +216,26 @@ public class CgfpServiceImpl implements ICgfpService {
                     flag++;
                     Cgfp_zib cgfp_zib = iCgfp_zibDao.findById(id);
                     cgfp_zib.setStatus(1);
-                    this.updateCgfp_zibById(cgfp_zib);
+                    Cgddzhub cgddzhub = cgdd_zhubDao.findByDjh(cgfp_zib.getYtdjd());//得到源头的单据号
+                    Cgddzhib cgddzhib = cgdd_zibDao.findByZIdAndHh(cgddzhub.getCgddzhubid(), cgfp_zib.getYthh());//得到源头的行号
+                    cgddzhib.setLjkpsl(cgfp_zib.getFpsl()+cgddzhib.getLjkpsl());//计算新的累计开票数量
+                    cgfp_zib.setLjfpsl(cgddzhib.getLjkpsl());//更新新的累计数量
+                    this.updateCgfp_zibById(cgfp_zib);//更新发票子表的信息
+                    if (cgddzhib.getLjkpsl() .equals(cgddzhib.getSl()) ){
+                        cgddzhib.setSffkgb(1);
+                    }//判断是否发票结束
+                    cgdd_zibDao.updateCgddzhib(cgddzhib);
+                    List<Cgddzhib> byzid = cgdd_zibDao.findByzid(cgddzhub.getCgddzhubid());
+                    int yy = 0;
+                    for (Cgddzhib cgddzhib1:byzid){
+                        if (cgddzhib1.getSfkpgb()==0){
+                            yy = 1;
+                        }
+                    }
+                    if (yy == 0){
+                        cgddzhub.setKpbz(1);
+                    }//判断整个订单的开票是不是结束
+                    cgdd_zhubDao.updateCgddzhub(cgddzhub);
                     if (flag > 0) {
                         Integer cgfp_zhub_id = cgfp_zib.getCgfp_zhub_id();
                         Cgfp_zhub cgfp_zhub = iCgfp_zhubDao.findById(cgfp_zhub_id);
@@ -267,6 +291,60 @@ public class CgfpServiceImpl implements ICgfpService {
         return cgygd_zibs;
     }
 
+    @Override
+    public Reback<Cgdhd_zib> BlanksByLy(String lydjh, Integer lyhh) {
+        Reback<Cgdhd_zib> pageInfo = new Reback<>();
+        pageInfo.setResFlag("1");
+        List<String> msgList = new ArrayList<>();
+
+        Cgdhd_zhub byDdh = null;
+        try {
+            byDdh = iCgdhd_zhubDao.findByDdh(lydjh);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (byDdh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("来源单据号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        Cgdhd_zib cgdhd_zib= cgdhg_zibDao.findByzhubIdAndHh(byDdh.getCgdhd_zhub_id(), lyhh);
+        if (cgdhd_zib== null){
+            pageInfo.setResFlag("0");
+            msgList.add("来源行号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        pageInfo.setBackResult(cgdhd_zib);
+
+
+
+        return pageInfo;
+    }
+
+    @Override
+    public Reback<Cgddzhib> BlanksByYt(String ytdjh, Integer ythh) {
+        Reback<Cgddzhib> pageInfo = new Reback<>();
+        pageInfo.setResFlag("1");
+        List<String> msgList = new ArrayList<>();
+        Cgddzhub byDjh = cgdd_zhubDao.findByDjh(ytdjh);
+        if (byDjh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("源头单据号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        Cgddzhib byZIdAndHh = cgdd_zibDao.findByZIdAndHh(byDjh.getCgddzhubid(), ythh);
+        if (byZIdAndHh == null){
+            pageInfo.setResFlag("0");
+            msgList.add("源头行号不存在");
+            pageInfo.setMsgList(msgList);
+            return pageInfo;
+        }
+        pageInfo.setBackResult(byZIdAndHh);
+        return pageInfo;
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package cn.cuit.gyl.service.business;
 
 import cn.cuit.gyl.domain.business.*;
+import cn.cuit.gyl.utils.Reback;
 
 import java.util.Date;
 import java.util.List;
@@ -75,4 +76,7 @@ public interface ICgfpService {
     //获取采购预购单子表
     List<Cgygdzhib> getAllOfCgygdZib();
 
+    Reback<Cgdhd_zib> BlanksByLy(String lydjh, Integer lyhh);
+
+    Reback<Cgddzhib> BlanksByYt(String ytdjh, Integer ythh);
 }

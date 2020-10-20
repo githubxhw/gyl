@@ -2,11 +2,13 @@ package cn.cuit.gyl.controller.business;
 
 import cn.cuit.gyl.domain.business.*;
 import cn.cuit.gyl.service.business.ICgfpService;
+import cn.cuit.gyl.utils.Reback;
 import cn.cuit.gyl.utils.UUIDUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -206,8 +208,19 @@ public class CgfpController {
         return;
     }
 
+    @RequestMapping("/BlanksByLy")
+    @ResponseBody
+    public Reback<Cgdhd_zib> BlanksByLy(@RequestParam("lydjh")String lydjh, @RequestParam("lyhh")Integer lyhh){
+        Reback<Cgdhd_zib> cgdhd_zibReback = service.BlanksByLy(lydjh, lyhh);
+        return cgdhd_zibReback;
+    }
 
-
+    @RequestMapping("/BlanksByYt")
+    @ResponseBody
+    public Reback<Cgddzhib> BlanksByYt(@RequestParam("ytdjh")String ytdjh, @RequestParam("ythh")Integer ythh){
+        Reback<Cgddzhib> cgddzhibReback = service.BlanksByYt(ytdjh, ythh);
+        return cgddzhibReback;
+    }
 
 
 }

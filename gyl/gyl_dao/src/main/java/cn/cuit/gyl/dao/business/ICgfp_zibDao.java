@@ -11,9 +11,9 @@ import java.util.List;
 public interface ICgfp_zibDao {
     //添加一条信息
     @Insert("insert into cgfp_zib " +
-            "(hh,chbm,chmc,gg,xh,wsdj,pc,fpsl,je,bz,hsdj,sl,se,wsje,lydjh,lyhh,ytdjd,ythh,status,cgfp_zhub_id) " +
+            "(hh,chbm,chmc,gg,xh,wsdj,pc,fpsl,je,bz,hsdj,sl,se,wsje,lydjh,lyhh,ytdjd,ythh,status,cgfp_zhub_id,ljfpsl,ykpsl) " +
             "values " +
-            "(#{hh},#{chbm},#{chmc},#{gg},#{xh},#{wsdj},#{pc},#{fpsl},#{je},#{bz},#{hsdj},#{sl},#{se},#{wsje},#{lydjh},#{lyhh},#{ytdjd},#{ythh},#{status},#{cgfp_zhub_id})")
+            "(#{hh},#{chbm},#{chmc},#{gg},#{xh},#{wsdj},#{pc},#{fpsl},#{je},#{bz},#{hsdj},#{sl},#{se},#{wsje},#{lydjh},#{lyhh},#{ytdjd},#{ythh},#{status},#{cgfp_zhub_id},#{ljfpsl},#{ykpsl})")
     void save(Cgfp_zib cgfp_zib) throws Exception;
 
     //根据主表的id即子表外键来查询所有子表
@@ -44,6 +44,8 @@ public interface ICgfp_zibDao {
             "lyhh=#{lyhh}," +
             "ytdjd=#{ytdjd}," +
             "ythh=#{ythh},"+
+            "ljfpsl=#{ljfpsl},"+
+            "ykpsl=#{ykpsl},"+
             "status=#{status} where cgfp_zib_id=#{cgfp_zib_id}")
     void updateById(Cgfp_zib cgfp_zib) throws Exception;
 

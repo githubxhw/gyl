@@ -688,7 +688,7 @@
         }
         console.log(ids);
         if(ids == ""){
-            alert("请选择要确认入库的发票号!")
+            alert("请选择要到货的发票号!")
         }else {
             var xgr = $("#sp_xgr").val();
             if(xgr.length == 0 || xgr == null || xgr == undefined){
@@ -698,7 +698,7 @@
                 if(xgsj.length == 0 || xgsj == null || xgsj == undefined){
                     alert("请输入修改日期!")
                 }else {
-                    var msg = "是否确认入库?";
+                    var msg = "是否确认开票?";
                     if(confirm(msg) == true){
                         $.ajax({
                             url: "${pageContext.request.contextPath}/cgfp/updateZibStatusByIds",
@@ -709,10 +709,10 @@
                             success: function () {
                                 $("#query").trigger("click");
                                 refresh();
-                                alert("入库完成！")
+                                alert("完成！")
                             },
                             error: function () {
-                                alert("入库失败！")
+                                alert("失败！")
                             }
                         });
                     }

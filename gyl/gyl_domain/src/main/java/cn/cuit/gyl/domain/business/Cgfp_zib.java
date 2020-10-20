@@ -15,7 +15,7 @@ public class Cgfp_zib implements Serializable{
 	private String xh;//型号
 	private Double wsdj;//无税单价
 	private String pc;//批次
-	private Long fpsl=0L;//发票数量
+	private Long fpsl=0L;//实际发票所包括的商品数量
 	private Float je;//金额
 	private String bz;//币种
 	private Float hsdj;//含税单价
@@ -23,9 +23,11 @@ public class Cgfp_zib implements Serializable{
 	private Float se;//税额
 	private Float wsje;//无税金额
 	private String lydjh;//来源单据号  订单或者入库单
-	private String lyhh;//来源行号  订单或者入库单
+	private Integer lyhh;//来源行号  订单或者入库单
 	private String ytdjd;//源头单据号
-	private String ythh;//源头行号
+	private Long ythh;//源头行号
+	private Long ljfpsl;//累计发票的商品数量
+	private Long ykpsl;//应该开票数量
 	private Integer status;//是否开票结束 1是 0否
 	private String statusStr;
 
@@ -196,12 +198,36 @@ public class Cgfp_zib implements Serializable{
 		this.lydjh = lydjh;
 	}
 
-	public String getLyhh() {
+	public Long getYkpsl() {
+		return ykpsl;
+	}
+
+	public void setYkpsl(Long ykpsl) {
+		this.ykpsl = ykpsl;
+	}
+
+	public Integer getLyhh() {
 		return lyhh;
 	}
 
-	public void setLyhh(String lyhh) {
+	public void setLyhh(Integer lyhh) {
 		this.lyhh = lyhh;
+	}
+
+	public Long getYthh() {
+		return ythh;
+	}
+
+	public void setYthh(Long ythh) {
+		this.ythh = ythh;
+	}
+
+	public Long getLjfpsl() {
+		return ljfpsl;
+	}
+
+	public void setLjfpsl(Long ljfpsl) {
+		this.ljfpsl = ljfpsl;
 	}
 
 	public String getYtdjd() {
@@ -212,13 +238,7 @@ public class Cgfp_zib implements Serializable{
 		this.ytdjd = ytdjd;
 	}
 
-	public String getYthh() {
-		return ythh;
-	}
 
-	public void setYthh(String ythh) {
-		this.ythh = ythh;
-	}
 
 	public Integer getStatus() {
 		return status;
