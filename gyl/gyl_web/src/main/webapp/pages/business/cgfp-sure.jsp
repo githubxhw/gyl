@@ -318,7 +318,8 @@
                     <th class="text-center sorting" width="200px">型号</th>
                     <th class="text-center sorting" width="200px">无税单价</th>
                     <th class="text-center sorting" width="200px">批次</th>
-                    <th class="text-center sorting" width="200px">发票数量</th>
+                    <th class="text-center sorting" width="200px">应开数量</th>
+                    <th class="text-center sorting" width="200px">实开数量</th>
                     <th class="text-center sorting" width="200px">金额</th>
                     <th class="text-center sorting" width="200px">币种</th>
                     <th class="text-center sorting" width="200px">含税单价</th>
@@ -329,6 +330,7 @@
                     <th class="text-center sorting" width="200px">来源行号</th>
                     <th class="text-center sorting" width="200px">源头单据号</th>
                     <th class="text-center sorting" width="200px">源头行号</th>
+                    <th class="text-center sorting" width="200px">累计发票数量</th>
                     <th class="text-center sorting" width="200px">单据状态</th>
                     </thead>
                     <%--内容--%>
@@ -646,6 +648,7 @@
                         '<td>' + NoNull(cgfp_zibs[i].xh) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].wsdj) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].pc) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].ykpsl) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].fpsl) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].je) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].bz) + '</td>\n' +
@@ -657,6 +660,7 @@
                         '<td>' + NoNull(cgfp_zibs[i].lyhh) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].ytdjd) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].ythh) + '</td>\n' +
+                        '<td>' + NoNull(cgfp_zibs[i].ljfpsl) + '</td>\n' +
                         '<td>' + NoNull(cgfp_zibs[i].statusStr) + '</td>\n' +
                         '</tr>';
                 }
