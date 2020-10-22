@@ -218,6 +218,10 @@ public class CgfpServiceImpl implements ICgfpService {
                     cgfp_zib.setStatus(1);
                     Cgddzhub cgddzhub = cgdd_zhubDao.findByDjh(cgfp_zib.getYtdjd());//得到源头的单据号
                     Cgddzhib cgddzhib = cgdd_zibDao.findByZIdAndHh(cgddzhub.getCgddzhubid(), cgfp_zib.getYthh());//得到源头的行号
+                    Cgdhd_zhub cgdhd_zhub = iCgdhd_zhubDao.findByDdh(cgfp_zib.getLydjh());//得到来源的到货单
+                    Cgdhd_zib cgdhd_zib = cgdhg_zibDao.findByzhubIdAndHh(cgdhd_zhub.getCgdhd_zhub_id(), cgfp_zib.getLyhh());//得到来源的到货单子表
+                    cgdhd_zib.setDhwkpsl(cgdhd_zib.getSdsl()-cgfp_zib.getFpsl());
+                    cgdhg_zibDao.updateById(cgdhd_zib);//更新到货但是未开票数量
                     cgddzhib.setLjkpsl(cgfp_zib.getFpsl()+cgddzhib.getLjkpsl());//计算新的累计开票数量
                     cgfp_zib.setLjfpsl(cgddzhib.getLjkpsl());//更新新的累计数量
                     this.updateCgfp_zibById(cgfp_zib);//更新发票子表的信息

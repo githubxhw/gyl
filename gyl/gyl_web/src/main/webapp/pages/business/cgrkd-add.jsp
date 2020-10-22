@@ -227,10 +227,10 @@
                         </th>
                         <th class="text-center sorting" width="350px">行号</th>
                         <th class="text-center sorting" width="350px">入库日期</th>
-                        <th class="text-center sorting" width="350px">源头单据号</th>
-                        <th class="text-center sorting" width="350px">源头行号</th>
                         <th class="text-center sorting" width="350px">来源单据号</th>
                         <th class="text-center sorting" width="350px">来源行号</th>
+                        <th class="text-center sorting" width="350px">源头单据号</th>
+                        <th class="text-center sorting" width="350px">源头行号</th>
                         <th class="text-center sorting" width="350px">存货编码</th>
                         <th class="text-center sorting" width="350px">存货名称</th>
                         <th class="text-center sorting" width="350px">型号</th>
@@ -508,14 +508,15 @@
                 '                                   placeholder="行号" value="' + nowCount + '"></td>\n' +
                 '<td>                            <input id="dhrq-' + nowCount + '" type="text" class="form-control dateTimePicker" name="cgrkd_zibs[' + nowCount + '].rkrq"\n' +
                 '                                   placeholder="yyyy-MM-dd hh:mm" value=""></td>\n' +
-                '<td>                            <input id="ytdjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ytdjh" ' +
-                '                                   placeholder="源头单据号" value=""></td>\n' +
-                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "checkydsl(this)"  name="cgrkd_zibs[' + nowCount + '].ythh"\n' +
-                '                                   placeholder="源头行号" value=""></td>\n' +
                 '<td>                            <input id="lydjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].lydjh"\n' +
                 '                                   placeholder="来源单据号" value=""></td>\n' +
                 '<td>                            <input id="lyhh-' + nowCount + '" type="text" class="form-control" i = "'+nowCount+'" onblur = "BlanksByLy(this)" name="cgrkd_zibs[' + nowCount + '].lyhh"\n' +
                 '                                   placeholder="来源行号" value=""></td>\n' +
+                '<td>                            <input id="ytdjh-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].ytdjh" ' +
+                '                                   placeholder="源头单据号" value=""></td>\n' +
+                '<td>                            <input id="ythh-' + nowCount + '" type="text" class="form-control"   name="cgrkd_zibs[' + nowCount + '].ythh"\n' +
+                '                                   placeholder="源头行号" value=""></td>\n' +
+
                 '<td>                            <input id="spbm-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].spbm"\n' +
                 '                                   placeholder="存货编码(不为空)"></td>\n' +
                 '<td>                            <input id="spmc-' + nowCount + '" type="text" class="form-control" name="cgrkd_zibs[' + nowCount + '].spmc"\n' +
@@ -552,18 +553,11 @@
         }
     }
 
-    function checkydsl(x) {
-        var i = $(x).attr("i");
-        var ythh = $("#ythh-"+i).val();
-        var ytdjh = $("#ytdjh-"+i).val();
-        if(ythh == ""||ytdjh == ""){
-            alert("源头行号或者源头单据号为空");
-            return;
-        }
+    function checkydsl(x,y,i) {
         $.ajax({
             url: "${pageContext.request.contextPath}/cgrkd/GetYdslAndLjrksl",
             type: "get",
-            data: {"ytdjh":ytdjh,"ythh":ythh},
+            data: {"ytdjh":x,"ythh":y},
             dataType: "json",
             async: false,
             success:function (data) {
@@ -571,8 +565,8 @@
                 var msgs = pageInfo.msgList;
                 let backResult = pageInfo.backResult;
                 if (pageInfo.resFlag == "1") {//修改成功
-                    $("#ydsl-" + i).attr("value",backResult.sl);
-                    $("#ljdhsl-"+i).attr("value",backResult.ljdhsl);
+
+                    $("#ljdhsl-"+i).attr("value",backResult.ljrksl);
                     $("#spbm-"+i).attr("value",backResult.spbm);
                     $("#spmc-"+i).attr("value",backResult.spmc);
                     $("#type-"+i).attr("value",backResult.xh);
@@ -615,6 +609,12 @@
                     $("#sxrq-"+i).attr("value",backResult.sxrqStr);
                     $("#dj-"+i).attr("value",backResult.dj);
                     $("#je-"+i).attr("value",backResult.je);
+                    $("#ythh-"+i).attr("value",backResult.ythh);
+                    $("#ytdjh-"+i).attr("value",backResult.ytdjh);
+                    $("#ydsl-" + i).attr("value",backResult.dhwrksl);
+                    if (backResult.ytdjh&&backResult.ythh){
+                        checkydsl(backResult.ytdjh,backResult.ythh,i);
+                    }
                 } else {//修改失败
                     var msg = "查询应到数量信息失败:\n";
                     for (var j = 0; j < msgs.length; j++) {

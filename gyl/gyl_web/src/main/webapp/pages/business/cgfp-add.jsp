@@ -461,6 +461,7 @@
             // console.log($("#form").serializeArray()[0].value);
             // alert($("#zib_tbody").);
 
+
                 $.ajax({
                     url: "${pageContext.request.contextPath}/cgfp/saveZhubAndZib",
                     type: "post",
@@ -619,7 +620,7 @@
                     $("#chmc-"+i).attr("value",backResult.spmc);
                     $("#ythh-"+i).attr("value",backResult.ythh);
                     $("#ytdjd-"+i).attr("value",backResult.ytdjh);
-                    $("#ykpsl-"+i).attr("value",backResult.sdsl);
+                    $("#ykpsl-"+i).attr("value",backResult.dhwkpsl);
                     var ythh = $("#ythh-"+i).val();
                     var ytdjh = $("#ytdjd-"+i).val();
                     if (ythh != ""&&ytdjh !=""){

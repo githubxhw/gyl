@@ -145,6 +145,8 @@ public class CgdhdServiceImpl implements ICgdhdService {
                             Long ljdhsl1 = byZhubIdAndHh.getLjdhsl();
                             cgdhd_zib.setLjdhsl(ljdhsl1); //设置累计到货数量
                             cgdhd_zib.setCgdhd_zhub_id(cgdhd_zhub_id); //设置采购到货单主表id(外键)
+                            cgdhd_zib.setDhwkpsl(cgdhd_zib.getSdsl());
+                            cgdhd_zib.setDhwrksl(cgdhd_zib.getSdsl());
                             iCgdhd_zibDao.save(cgdhd_zib);
                         }
                     }

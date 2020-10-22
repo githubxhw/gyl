@@ -534,6 +534,42 @@
 
     });
 
+    //显示日期格式化
+    function FormatTime(nowD) {
+        if (!nowD) {
+            return "";
+        }
+// 日期过滤
+        if(typeof nowD === 'string'){
+            nowD = DateFilter(nowD);
+        }
+        nowD = new Date(nowD);
+        let YY = nowD.getFullYear(),
+            MM = nowD.getMonth() + 1,
+            DD = nowD.getDate(),
+            hh = nowD.getHours(),
+            mm = nowD.getMinutes(),
+            ss = nowD.getSeconds();
+        return YY+"-"+MM+"-"+DD+" "+hh+":"+mm;
+        // return {
+        //
+        // YY: YY,
+        // MM: ("00" + MM).substr(("" + MM).length),
+        // DD: ("00" + DD).substr(("" + DD).length),
+        // hh: ("00" + hh).substr(("" + hh).length),
+        // mm: ("00" + mm).substr(("" + mm).length),
+        // ss: ("00" + ss).substr(("" + ss).length)
+        // };
+    }
+
+    function NoNull(x){
+        var k = "";
+        if(x == null){
+            return k;
+        }else{
+            return x;
+        }
+    }
     /*入库单查询*/
     $(document).ready(function () {
 

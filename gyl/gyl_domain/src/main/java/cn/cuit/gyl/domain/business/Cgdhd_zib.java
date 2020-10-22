@@ -21,6 +21,8 @@ public class Cgdhd_zib {
     private String sxrqStr;
     private Long ydsl;//应到数量
     private Long sdsl;//实到数量
+    private Long dhwrksl;//到货但是没有入库的数量
+    private Long dhwkpsl;//到货但是没有开票的数量
     private Double dj;//单价
     private Double je;//金额
     private Integer zp;//赠品 1是 0不是
@@ -53,6 +55,8 @@ public class Cgdhd_zib {
                 ", sxrqStr='" + sxrqStr + '\'' +
                 ", ydsl=" + ydsl +
                 ", sdsl=" + sdsl +
+                ", dhwrksl=" + dhwrksl +
+                ", dhwkpsl=" + dhwkpsl +
                 ", dj=" + dj +
                 ", je=" + je +
                 ", zp=" + zp +
@@ -322,6 +326,22 @@ public class Cgdhd_zib {
 
     public void setCgdhd_zhub_id(Integer cgdhd_zhub_id) {
         this.cgdhd_zhub_id = cgdhd_zhub_id;
+    }
+
+    public Long getDhwrksl() {
+        return dhwrksl;
+    }
+
+    public void setDhwrksl(Long dhwrksl) {
+        this.dhwrksl = dhwrksl;
+    }
+
+    public Long getDhwkpsl() {
+        return dhwkpsl;
+    }
+
+    public void setDhwkpsl(Long dhwkpsl) {
+        this.dhwkpsl = dhwkpsl;
     }
 }
 

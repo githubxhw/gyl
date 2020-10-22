@@ -342,6 +342,8 @@ public class ICgrkdSerivceImpl implements ICgrkdService {
             Cgdhd_zhub cgdhd_zhub = iCgdhd_zhubDao.findByDdh(lydjh);
 
             Cgdhd_zib cgdhd_zib = iCgdhd_zibDao.findByzhubIdAndHh(cgdhd_zhub.getCgdhd_zhub_id(), lyhh);
+            cgdhd_zib.setDhwrksl(cgdhd_zib.getSdsl()-cgrkd_zib.getSdsl());
+            iCgdhd_zibDao.updateById(cgdhd_zib);
             //数量 = 累计入库数量
             if(cgdhd_zib.getYdsl() == ljrksl){
                 //设置子表 是否到货结束 --》1

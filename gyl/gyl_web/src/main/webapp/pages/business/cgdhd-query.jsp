@@ -304,6 +304,8 @@
                     <th class="text-center sorting" width="350px">失效日期</th>
                     <th class="text-center sorting" width="350px">应到数量</th>
                     <th class="text-center sorting" width="350px">实到数量</th>
+                    <th class="text-center sorting" width="350px">到货但没有入库数量</th>
+                    <th class="text-center sorting" width="350px">到货但没有开票数量</th>
                     <th class="text-center sorting" width="350px">单价</th>
                     <th class="text-center sorting" width="350px">金额</th>
                     <th class="text-center sorting" width="350px">是否赠品</th>
@@ -607,6 +609,8 @@
                         '<td>' + NoNull(cgdhd_zibs[i].sxrqStr) + '</td>\n' +
                         '<td>' + NoNull(cgdhd_zibs[i].ydsl) + '</td>\n' +
                         '<td>' + NoNull(cgdhd_zibs[i].sdsl) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].dhwrksl) + '</td>\n' +
+                        '<td>' + NoNull(cgdhd_zibs[i].dhwkpsl) + '</td>\n' +
                         '<td>' + NoNull(cgdhd_zibs[i].dj) + '</td>\n' +
                         '<td>' + NoNull(cgdhd_zibs[i].je)+ '</td>\n' +
                         '<td>' + NoNull(cgdhd_zibs[i].zpStr) + '</td>\n' +

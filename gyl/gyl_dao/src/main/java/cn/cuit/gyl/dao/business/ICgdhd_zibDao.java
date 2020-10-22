@@ -12,8 +12,8 @@ public interface ICgdhd_zibDao {
 
     //添加一条信息
     @Insert("insert into cgdhd_zib " +
-            "(hh,dhrq,spbm,spmc,type,dw,scrq,sxrq,ydsl,sdsl,dj,je,zp,ytdjh,ythh,lydjh,lyhh,ljdhsl,sfrkjs,status,cgdhd_zhub_id) " +
-            "values (#{hh},#{dhrq},#{spbm},#{spmc},#{type},#{dw},#{scrq},#{sxrq},#{ydsl},#{sdsl},#{dj},#{je},#{zp},#{ytdjh},#{ythh},#{lydjh},#{lyhh},#{ljdhsl},#{sfrkjs},#{status},#{cgdhd_zhub_id})")
+            "(hh,dhrq,spbm,spmc,type,dw,scrq,sxrq,ydsl,sdsl,dj,je,zp,ytdjh,ythh,lydjh,lyhh,ljdhsl,sfrkjs,status,cgdhd_zhub_id,dhwrksl,dhwkpsl) " +
+            "values (#{hh},#{dhrq},#{spbm},#{spmc},#{type},#{dw},#{scrq},#{sxrq},#{ydsl},#{sdsl},#{dj},#{je},#{zp},#{ytdjh},#{ythh},#{lydjh},#{lyhh},#{ljdhsl},#{sfrkjs},#{status},#{cgdhd_zhub_id},#{dhwrksl},#{dhwkpsl})")
     void save(Cgdhd_zib cgdhd_zib) throws Exception;
     @Select("select * from cgdhd_zib")
     List<Cgdhd_zib> getAllOfZib();
@@ -38,7 +38,8 @@ public interface ICgdhd_zibDao {
             "ythh=#{ythh},lydjh=#{lydjh}," +
             "lyhh=#{lyhh},ljdhsl=#{ljdhsl}," +
             "sfrkjs=#{sfrkjs},"+
-            "status=#{status},cgdhd_zhub_id=#{cgdhd_zhub_id} " +
+            "status=#{status},cgdhd_zhub_id=#{cgdhd_zhub_id}, " +
+            "dhwrksl=#{dhwrksl},dhwkpsl=#{dhwkpsl} "+
             "where cgdhd_zib_id=#{cgdhd_zib_id}")
     void updateById(Cgdhd_zib cgdhd_zib) throws Exception;
 

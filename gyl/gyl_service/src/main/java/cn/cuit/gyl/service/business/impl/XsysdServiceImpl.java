@@ -37,6 +37,13 @@ public class XsysdServiceImpl implements IXsysdService {
     @Autowired
     @Qualifier("iXskpd_zhubDao")
     private IXskpd_zhubDao iXskpd_zhubDao;
+
+    /**
+     * 根据前端所传入的值进行模糊和条件搜素
+     * @param xsysdzhub
+     * @return
+     * @throws Exception
+     */
     @Override
     public List<Xsysdzhub> findByCondition(Xsysdzhub xsysdzhub) throws Exception {
         DomainAttrValueConverterUtils<Xsysdzhub> handler=new DomainAttrValueConverterUtils<>(xsysdzhub);
@@ -185,12 +192,18 @@ public class XsysdServiceImpl implements IXsysdService {
                         iXsysdZubDao.deleteById(byDdh.getXsysdzhubid());
                         return pageInfo;
                     }
+                    if(byZhuIdAndHh.getCount()<a.getSl()){
+                        pageInfo.setResFlag("0");
+                        msgList.add("数量超出最大的应收数量");
+                        iXsysdZubDao.deleteById(byDdh.getXsysdzhubid());
+                        return pageInfo;
                     }
-
-                    iXsysdZhibDao.save(a);
                 }
 
+                iXsysdZhibDao.save(a);
             }
+
+        }
         return pageInfo;
     }
 
